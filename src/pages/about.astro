@@ -1,0 +1,69 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About | ${SITE_TITLE}`} description="About Advanced AI - your source for AI news, tools, and insights." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="about-content">
+				<h1>About Advanced AI</h1>
+
+				<p>
+					Advanced AI is your go-to source for understanding the rapidly evolving world of artificial intelligence. We cut through the hype to deliver clear, actionable insights for business leaders, entrepreneurs, and anyone looking to harness AI effectively.
+				</p>
+
+				<h2>What We Cover</h2>
+				<ul>
+					<li><strong>Tools & Products</strong> &mdash; Honest reviews and comparisons of AI tools that can transform your workflow</li>
+					<li><strong>Industry News</strong> &mdash; Breaking developments from the companies shaping AI's future</li>
+					<li><strong>Robotics & Hardware</strong> &mdash; The physical AI revolution, from humanoid robots to specialized hardware</li>
+					<li><strong>AI in Education</strong> &mdash; How AI is reshaping learning and skill development</li>
+					<li><strong>How People Use AI</strong> &mdash; Real stories of AI adoption across industries</li>
+					<li><strong>OpenClaw & Open Source</strong> &mdash; The open-source AI ecosystem and community-driven innovation</li>
+				</ul>
+
+				<h2>Our Approach</h2>
+				<p>
+					We believe AI should be accessible, not intimidating. Every article is written with clarity in mind, whether you're a seasoned technologist or just beginning to explore what AI can do for your business. We test the tools we recommend, verify the claims we report, and always disclose when affiliate relationships exist.
+				</p>
+
+				<h2>Affiliate Disclosure</h2>
+				<p>
+					Some of our articles contain affiliate links. When you purchase through these links, we may earn a commission at no extra cost to you. This helps support our independent reporting and analysis. We only recommend tools and services we genuinely believe in. Read our full <a href="/affiliate-disclosure">affiliate disclosure</a>.
+				</p>
+
+				<Newsletter />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.about-content {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.about-content h1 {
+		margin-bottom: 0.75em;
+	}
+	.about-content h2 {
+		margin-top: 2em;
+		margin-bottom: 0.5em;
+	}
+	.about-content ul {
+		padding-left: 1.5em;
+	}
+	.about-content li {
+		margin-bottom: 0.5em;
+	}
+</style>

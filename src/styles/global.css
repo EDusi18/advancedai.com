@@ -1,0 +1,202 @@
+/*
+  Advanced AI - Global Styles
+  Dark/Light mode with CSS custom properties
+*/
+
+:root {
+	--accent: #6366f1;
+	--accent-light: #818cf8;
+	--accent-dark: #4f46e5;
+	--bg: #ffffff;
+	--bg-secondary: #f8fafc;
+	--text: #1e293b;
+	--text-secondary: #64748b;
+	--border: #e2e8f0;
+	--card-bg: #ffffff;
+	--card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+	--card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--header-bg: rgba(255, 255, 255, 0.8);
+	--code-bg: #f1f5f9;
+	color-scheme: light dark;
+}
+
+[data-theme='dark'] {
+	--accent: #818cf8;
+	--accent-light: #a5b4fc;
+	--accent-dark: #6366f1;
+	--bg: #0f172a;
+	--bg-secondary: #1e293b;
+	--text: #f1f5f9;
+	--text-secondary: #94a3b8;
+	--border: #334155;
+	--card-bg: #1e293b;
+	--card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	--card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+	--header-bg: rgba(15, 23, 42, 0.8);
+	--code-bg: #334155;
+}
+
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Atkinson', system-ui, sans-serif;
+	margin: 0;
+	padding: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-size: 18px;
+	line-height: 1.7;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+main {
+	width: 100%;
+	max-width: 1100px;
+	margin: auto;
+	padding: 2em 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5rem 0;
+	color: var(--text);
+	line-height: 1.2;
+}
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--accent-light);
+	text-decoration: underline;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+.prose p {
+	margin-bottom: 1.5em;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+code {
+	padding: 2px 6px;
+	background-color: var(--code-bg);
+	border-radius: 4px;
+	font-size: 0.9em;
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+	overflow-x: auto;
+}
+pre > code {
+	all: unset;
+}
+
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 1.5em 0;
+	color: var(--text-secondary);
+	font-size: 1.1em;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--border);
+	margin: 2em 0;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 0.75em;
+	border-bottom: 1px solid var(--border);
+	text-align: left;
+}
+
+input, textarea {
+	font-size: 16px;
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Category badge */
+.category-badge {
+	display: inline-block;
+	padding: 0.25em 0.75em;
+	background: var(--accent);
+	color: #fff;
+	border-radius: 9999px;
+	font-size: 0.75em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+/* Tag */
+.tag {
+	display: inline-block;
+	padding: 0.2em 0.6em;
+	background: var(--bg-secondary);
+	color: var(--text-secondary);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	font-size: 0.75em;
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 16px;
+	}
+	main {
+		padding: 1em;
+	}
+	h1 { font-size: 2em; }
+	h2 { font-size: 1.5em; }
+}

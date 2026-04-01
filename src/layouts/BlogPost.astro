@@ -1,0 +1,163 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, category, tags, affiliateLinks } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | Advanced AI`} description={description} article={true} publishDate={pubDate} />
+		<style>
+			.hero-image {
+				width: 100%;
+				max-width: 900px;
+				margin: 0 auto 2em;
+			}
+			.hero-image img {
+				display: block;
+				width: 100%;
+				border-radius: 12px;
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+			}
+			.post-header {
+				margin-bottom: 2em;
+				padding-bottom: 1.5em;
+				border-bottom: 1px solid var(--border);
+			}
+			.post-header h1 {
+				margin: 0.5em 0 0.25em;
+				line-height: 1.15;
+			}
+			.post-meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1em;
+				align-items: center;
+				color: var(--text-secondary);
+				font-size: 0.9em;
+			}
+			.last-updated {
+				font-style: italic;
+				font-size: 0.85em;
+				color: var(--text-secondary);
+			}
+			.post-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				margin-top: 0.75em;
+			}
+			.affiliate-box {
+				background: var(--bg-secondary);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				padding: 1.5em;
+				margin: 2em 0;
+			}
+			.affiliate-box h4 {
+				margin-bottom: 0.75em;
+			}
+			.affiliate-box ul {
+				list-style: none;
+				padding: 0;
+			}
+			.affiliate-box li {
+				margin-bottom: 0.5em;
+			}
+			.affiliate-box a {
+				font-weight: 700;
+			}
+			.affiliate-disclosure {
+				font-size: 0.8em;
+				color: var(--text-secondary);
+				font-style: italic;
+				margin-top: 2em;
+				padding-top: 1em;
+				border-top: 1px solid var(--border);
+			}
+			/* AdSense placeholder */
+			.ad-placeholder {
+				background: var(--bg-secondary);
+				border: 1px dashed var(--border);
+				border-radius: 8px;
+				padding: 2em;
+				text-align: center;
+				color: var(--text-secondary);
+				font-size: 0.85em;
+				margin: 2em 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="hero-image">
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+				</div>
+				<div class="prose">
+					<div class="post-header">
+						{category && <span class="category-badge">{category}</span>}
+						<h1>{title}</h1>
+						<div class="post-meta">
+							<FormattedDate date={pubDate} />
+							{updatedDate && (
+								<span class="last-updated">
+									Updated <FormattedDate date={updatedDate} />
+								</span>
+							)}
+						</div>
+						{tags && tags.length > 0 && (
+							<div class="post-tags">
+								{tags.map((tag) => <span class="tag">{tag}</span>)}
+							</div>
+						)}
+					</div>
+
+					<slot />
+
+					{affiliateLinks && affiliateLinks.length > 0 && (
+						<div class="affiliate-box">
+							<h4>Featured Tools</h4>
+							<ul>
+								{affiliateLinks.map((link) => (
+									<li>
+										<a href={link.url} target="_blank" rel="noopener sponsored">{link.name}</a>
+										{link.description && <span> &mdash; {link.description}</span>}
+									</li>
+								))}
+							</ul>
+						</div>
+					)}
+
+					<p class="affiliate-disclosure">
+						<strong>Disclosure:</strong> Some links in this article may be affiliate links. We may earn a small commission if you make a purchase, at no additional cost to you. See our <a href="/affiliate-disclosure">full disclosure</a>.
+					</p>
+
+					<!-- Ad placement -->
+					<div class="ad-placeholder">
+						<!-- Google AdSense ad unit goes here -->
+						Ad Space
+					</div>
+
+					<Newsletter />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

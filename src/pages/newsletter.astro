@@ -1,0 +1,55 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Newsletter | ${SITE_TITLE}`} description="Subscribe to the Advanced AI newsletter for weekly AI insights." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="newsletter-page">
+				<h1>AI Insights Newsletter</h1>
+				<p class="lead">
+					Join thousands of business leaders who start their week with our curated AI briefing. Every Monday, we deliver the most important AI developments, tool recommendations, and strategic insights directly to your inbox.
+				</p>
+
+				<h2>What you'll get:</h2>
+				<ul>
+					<li>The top AI stories of the week, explained clearly</li>
+					<li>New tool launches and honest reviews</li>
+					<li>Practical tips for using AI in your business</li>
+					<li>Exclusive analysis not published on the site</li>
+				</ul>
+
+				<Newsletter />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.newsletter-page {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.lead {
+		font-size: 1.15em;
+		color: var(--text-secondary);
+		margin-bottom: 2em;
+	}
+	ul {
+		padding-left: 1.5em;
+		margin-bottom: 2em;
+	}
+	li {
+		margin-bottom: 0.5em;
+	}
+</style>

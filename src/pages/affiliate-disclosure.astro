@@ -1,0 +1,69 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Affiliate Disclosure | ${SITE_TITLE}`} description="Advanced AI affiliate disclosure and FTC compliance information." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="disclosure-content">
+				<h1>Affiliate Disclosure</h1>
+				<p><em>Last updated: April 2026</em></p>
+
+				<p>
+					Advanced AI (advancedai.com) is a participant in various affiliate advertising programs designed to provide a means for sites to earn advertising fees by advertising and linking to third-party products and services.
+				</p>
+
+				<h2>How It Works</h2>
+				<p>
+					Some of the links on this website are "affiliate links." This means if you click on the link and purchase an item or sign up for a service, Advanced AI will receive an affiliate commission. We only recommend products and services that we have personally evaluated or believe will add value to our readers.
+				</p>
+
+				<h2>FTC Compliance</h2>
+				<p>
+					In accordance with the Federal Trade Commission's (FTC) guidelines on endorsements and testimonials, we disclose the following:
+				</p>
+				<ul>
+					<li>We may receive compensation for links, reviews, and recommendations on this website.</li>
+					<li>Affiliate relationships do not influence our editorial content or reviews.</li>
+					<li>We strive to provide accurate and honest information in all of our content.</li>
+					<li>Product or service availability, pricing, and offers may change after publication.</li>
+				</ul>
+
+				<h2>Your Trust Matters</h2>
+				<p>
+					Our reputation and your trust are more important than any commission. If we recommend something, it's because we genuinely believe it's useful. If a product doesn't meet our standards, we won't recommend it regardless of any potential commission.
+				</p>
+
+				<h2>Questions?</h2>
+				<p>
+					If you have any questions about our affiliate relationships or this disclosure, please contact us at <strong>hello@advancedai.com</strong>.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.disclosure-content {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.disclosure-content h2 {
+		margin-top: 2em;
+	}
+	.disclosure-content ul {
+		padding-left: 1.5em;
+	}
+	.disclosure-content li {
+		margin-bottom: 0.5em;
+	}
+</style>
