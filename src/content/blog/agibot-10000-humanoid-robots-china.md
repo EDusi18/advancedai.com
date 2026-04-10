@@ -1,6 +1,6 @@
 ---
-title: 'AgiBot Ships Its 10,000th Humanoid Robot — China's Mass Production Era Has Arrived'
-description: 'AgiBot Innovation delivered its 10,000th Expedition A3 humanoid robot, doubling output in three months. China now leads 87% of global humanoid deliveries.'
+title: "AgiBot Ships Its 10,000th Humanoid Robot - China's Mass Production Era Has Arrived"
+description: "AgiBot Innovation delivered its 10,000th Expedition A3 humanoid robot, doubling output in three months. China now leads 87% of global humanoid deliveries."
 pubDate: 'Apr 09 2026'
 category: 'Robotics & Hardware'
 tags: ['robotics', 'humanoid robots', 'China', 'AgiBot', 'manufacturing']
