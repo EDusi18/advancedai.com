@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI for Executives: Start Here | AdvancedAI.com</title>
+  <meta name="description" content="A no-jargon, self-paced guide to AI for busy executives. Start with one step. 15 minutes. No tech background needed." />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f13;
+      --surface: #16161d;
+      --surface2: #1e1e28;
+      --border: #2a2a38;
+      --accent: #6c6eff;
+      --accent-soft: rgba(108, 110, 255, 0.12);
+      --accent-glow: rgba(108, 110, 255, 0.25);
+      --text: #e8e8f0;
+      --text-muted: #888899;
+      --text-dim: #555566;
+      --success: #3ecf8e;
+      --warning: #f59e0b;
+      --nav-width: 260px;
+      --content-max: 780px;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── External Links ── */
+    a.ext-link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-glow);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    a.ext-link:hover {
+      color: #fff;
+      border-bottom-color: var(--accent);
+    }
+    a.ext-link[target="_blank"]::after {
+      content: ' ↗';
+      font-size: 0.75em;
+      opacity: 0.55;
+    }
+
+    /* ── Left Nav ── */
+    #sidenav {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: var(--nav-width);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      z-index: 100;
+      padding: 0 0 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-brand {
+      padding: 24px 20px 20px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+    }
+    .nav-brand .logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .nav-brand .tagline {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .nav-section {
+      padding: 18px 20px 6px;
+    }
+    .nav-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: all 0.15s;
+      margin-bottom: 1px;
+      line-height: 1.4;
+    }
+    .nav-link:hover {
+      background: var(--accent-soft);
+      color: var(--text);
+    }
+    .nav-link.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .nav-link .nav-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .nav-link.active .nav-dot { opacity: 1; }
+
+    .nav-week {
+      font-size: 10px;
+      color: var(--text-dim);
+      padding: 2px 10px;
+      margin-bottom: 1px;
+    }
+
+    /* ── Main Content ── */
+    #main {
+      margin-left: var(--nav-width);
+      flex: 1;
+      padding: 64px 48px 120px;
+      max-width: calc(var(--nav-width) + var(--content-max) + 96px);
+    }
+
+    .content-wrap {
+      max-width: var(--content-max);
+    }
+
+    /* ── Header ── */
+    .page-header {
+      margin-bottom: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-glow);
+    }
+    .page-date {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    h1 span { color: var(--accent); }
+
+    .page-intro {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 640px;
+    }
+
+    .commitment-bar {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .commitment-stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .commitment-stat .stat-icon { font-size: 20px; }
+    .commitment-stat .stat-label { font-size: 12px; color: var(--text-muted); }
+    .commitment-stat .stat-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+    /* ── Sections ── */
+    .guide-section {
+      margin-bottom: 80px;
+      scroll-margin-top: 32px;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 32px;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+    }
+    .phase-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-glow);
+      border-radius: 6px;
+      padding: 4px 10px;
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+    .phase-header-text h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .phase-header-text .phase-weeks {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .phase-header-text .phase-goal {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin: 48px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      scroll-margin-top: 32px;
+    }
+    h3 .day-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--surface2);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 28px 0 10px;
+    }
+
+    p { margin-bottom: 16px; color: var(--text-muted); }
+    p strong { color: var(--text); }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+      color: var(--text-muted);
+    }
+    li { margin-bottom: 8px; }
+    li strong { color: var(--text); }
+
+    /* ── Prompt Blocks ── */
+    .prompt-block {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    .prompt-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 10px 16px 0;
+    }
+    .prompt-block pre {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 10px 16px 16px;
+      color: #c8c8e0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .copy-btn {
+      float: right;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-glow);
+      cursor: pointer;
+      margin: 10px 16px 0 0;
+      font-family: var(--font-sans);
+      transition: all 0.15s;
+    }
+    .copy-btn:hover { background: var(--accent); color: #fff; }
+    .copy-btn.copied { background: var(--success); color: #fff; border-color: var(--success); }
+
+    /* ── Callout Boxes ── */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 24px 0;
+      display: flex;
+      gap: 14px;
+    }
+    .callout-tip {
+      background: rgba(62, 207, 142, 0.08);
+      border: 1px solid rgba(62, 207, 142, 0.2);
+    }
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+    .callout-info {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-glow);
+    }
+    .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .callout-body { font-size: 14px; color: var(--text-muted); }
+    .callout-body strong { color: var(--text); }
+
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 14px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    td strong { color: var(--text); }
+    tr:hover td { background: var(--surface2); }
+
+    /* ── Week Overview Cards ── */
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .week-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      transition: border-color 0.2s;
+    }
+    .week-card:hover { border-color: var(--accent); }
+    .week-card .wk-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .week-card .wk-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .week-card .wk-time { font-size: 12px; color: var(--text-dim); }
+
+    /* ── Dividers ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── Quick Reference ── */
+    .prompt-grid {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .quick-prompt {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      position: relative;
+    }
+    .quick-prompt:hover { border-color: var(--accent); background: var(--surface); }
+    .quick-prompt .qp-icon { font-size: 20px; flex-shrink: 0; }
+    .quick-prompt .qp-label { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+    .quick-prompt .qp-text { font-size: 14px; color: var(--text-muted); font-style: italic; }
+    .qp-copy {
+      position: absolute;
+      top: 12px; right: 12px;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-glow);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .quick-prompt:hover .qp-copy { opacity: 1; }
+
+    /* ── Mistakes List ── */
+    .mistake-list { list-style: none; padding: 0; }
+    .mistake-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .mistake-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--border);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 32px;
+    }
+    .mistake-body {}
+    .mistake-body strong { font-size: 15px; color: var(--text); display: block; margin-bottom: 4px; }
+    .mistake-body p { font-size: 14px; margin: 0; }
+
+    /* ── Footer ── */
+    .page-footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-cta {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      margin-bottom: 40px;
+    }
+    .footer-cta h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-cta p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin: 0 auto 28px;
+    }
+    .subscribe-form {
+      display: flex;
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .subscribe-form input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .subscribe-form input:focus { border-color: var(--accent); }
+    .subscribe-form button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: opacity 0.15s;
+    }
+    .subscribe-form button:hover { opacity: 0.85; }
+    .footer-brand { font-size: 13px; color: var(--text-dim); }
+    .footer-brand strong { color: var(--text-muted); }
+
+    /* ── Feedback Section ── */
+    .feedback-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 0 0 48px;
+    }
+    .feedback-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .feedback-section .feedback-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .feedback-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .feedback-tab {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .feedback-tab:hover { border-color: var(--accent); color: var(--text); }
+    .feedback-tab.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .feedback-form input,
+    .feedback-form textarea,
+    .feedback-form select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color 0.15s;
+      resize: vertical;
+    }
+    .feedback-form input:focus,
+    .feedback-form textarea:focus,
+    .feedback-form select:focus { border-color: var(--accent); }
+    .feedback-form textarea { min-height: 100px; }
+    .feedback-form select { appearance: none; cursor: pointer; }
+    .feedback-row {
+      display: flex;
+      gap: 12px;
+    }
+    .feedback-row input { flex: 1; }
+    .feedback-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      align-self: flex-start;
+      transition: opacity 0.15s;
+    }
+    .feedback-submit:hover { opacity: 0.85; }
+    .feedback-success {
+      display: none;
+      background: rgba(62, 207, 142, 0.08);
+      border: 1px solid rgba(62, 207, 142, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      color: var(--success);
+      font-size: 15px;
+      text-align: center;
+    }
+    .feedback-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .topic-chip {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .topic-chip:hover { border-color: var(--accent); color: var(--text); }
+    .topic-chip.selected {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .feedback-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 600px) {
+      .feedback-section { padding: 24px 20px; }
+      .feedback-row { flex-direction: column; }
+      .feedback-submit { align-self: stretch; text-align: center; }
+    }
+
+    /* ── Scroll Progress ── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #a78bfa);
+      z-index: 200;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── Mobile ── */
+    #mobile-nav-toggle {
+      display: none;
+      position: fixed;
+      bottom: 20px; right: 20px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 300;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    @media (max-width: 900px) {
+      #sidenav {
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+      }
+      #sidenav.open { transform: translateX(0); }
+      #main { margin-left: 0; padding: 40px 24px 80px; }
+      #mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
+      .week-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 500px) {
+      .week-grid { grid-template-columns: 1fr; }
+      .subscribe-form { flex-direction: column; }
+      .commitment-bar { flex-direction: column; gap: 10px; }
+      .phase-header { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════ SIDE NAV ═══════════════════════ -->
+<nav id="sidenav" aria-label="Guide navigation">
+  <a href="#top" class="nav-brand" style="display:block; text-decoration:none;">
+    <div class="logo">AdvancedAI.com</div>
+    <div class="tagline">Real AI for busy executives</div>
+  </a>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Start Here</div>
+    <a class="nav-link active" href="#intro"><span class="nav-dot"></span>Before We Start</a>
+    <a class="nav-link" href="#first-win"><span class="nav-dot"></span>🏆 Your First Win</a>
+    <a class="nav-link" href="#pick-your-tool"><span class="nav-dot"></span>Pick Your Tool</a>
+    <a class="nav-link" href="#overview"><span class="nav-dot"></span>Step Overview</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Phase 1 — Foundation</div>
+    <div class="nav-week">Steps 1–4 · 15 min each</div>
+    <a class="nav-link" href="#day1"><span class="nav-dot"></span>Steps 1–2: First Conversation</a>
+    <a class="nav-link" href="#day3"><span class="nav-dot"></span>Steps 3–4: Email</a>
+    <a class="nav-link" href="#day5"><span class="nav-dot"></span>Steps 5–6: Meetings</a>
+    <a class="nav-link" href="#day7"><span class="nav-dot"></span>Step 7: Reflection + Habit</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Phase 2 — Leverage</div>
+    <div class="nav-week">Steps 5–8 · 15–20 min each</div>
+    <a class="nav-link" href="#day8"><span class="nav-dot"></span>Steps 8–9: Documents</a>
+    <a class="nav-link" href="#day10"><span class="nav-dot"></span>Steps 10–11: Research</a>
+    <a class="nav-link" href="#day12"><span class="nav-dot"></span>Steps 12–13: Delegation</a>
+    <a class="nav-link" href="#day14"><span class="nav-dot"></span>Step 14: Prompt Library</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Phase 3 — Strategy</div>
+    <div class="nav-week">Steps 9–12 · 20 min each</div>
+    <a class="nav-link" href="#day15"><span class="nav-dot"></span>Steps 15–16: Problem-Solving</a>
+    <a class="nav-link" href="#day17"><span class="nav-dot"></span>Steps 17–18: Scenario Planning</a>
+    <a class="nav-link" href="#day19"><span class="nav-dot"></span>Steps 19–20: Market Intel</a>
+    <a class="nav-link" href="#day21"><span class="nav-dot"></span>Step 21: Recalibrate</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Phase 4 — Systems</div>
+    <div class="nav-week">Steps 13–16 · 20 min each</div>
+    <a class="nav-link" href="#day22"><span class="nav-dot"></span>Steps 22–24: AI Operating System</a>
+    <a class="nav-link" href="#day25"><span class="nav-dot"></span>Steps 25–26: Custom Context</a>
+    <a class="nav-link" href="#day27"><span class="nav-dot"></span>Steps 27–28: Measure ROI</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Advanced</div>
+    <a class="nav-link" href="#advanced-chains"><span class="nav-dot"></span>Multi-Step Chains</a>
+    <a class="nav-link" href="#advanced-redteam"><span class="nav-dot"></span>Red Teaming</a>
+    <a class="nav-link" href="#advanced-hiring"><span class="nav-dot"></span>Hiring & Talent</a>
+    <a class="nav-link" href="#advanced-clarity"><span class="nav-dot"></span>Personal Clarity</a>
+    <a class="nav-link" href="#advanced-weekly"><span class="nav-dot"></span>Weekly AI Ritual</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Reference</div>
+    <a class="nav-link" href="#quick-ref"><span class="nav-dot"></span>Quick Prompt Library</a>
+    <a class="nav-link" href="#tools-reference"><span class="nav-dot"></span>All Tools &amp; Links</a>
+    <a class="nav-link" href="#mistakes"><span class="nav-dot"></span>What Trips People Up</a>
+    <a class="nav-link" href="#feedback"><span class="nav-dot"></span>💬 Shape This Guide</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ MAIN ═══════════════════════ -->
+<main id="main">
+<div class="content-wrap">
+
+  <!-- Header -->
+  <header class="page-header" id="top">
+    <div class="page-meta">
+      <span class="badge">Executive Guide</span>
+      <span class="page-date">AdvancedAI Editorial · Updated April 2026</span>
+    </div>
+    <h1>AI for Executives:<br/><span>Start Here</span></h1>
+    <p class="page-intro">You don't need a tech background. You don't need to know what a "large language model" is. You just need 15 minutes and a willingness to try. This guide will take you from your first conversation with AI to running it across your team — one step at a time, at your own pace.</p>
+    <div class="commitment-bar">
+      <div class="commitment-stat">
+        <span class="stat-icon">⏱️</span>
+        <div><div class="stat-label">Each step</div><div class="stat-value">15–20 minutes</div></div>
+      </div>
+      <div class="commitment-stat">
+        <span class="stat-icon">🎯</span>
+        <div><div class="stat-label">Starting requirement</div><div class="stat-value">Zero experience</div></div>
+      </div>
+      <div class="commitment-stat">
+        <span class="stat-icon">📈</span>
+        <div><div class="stat-label">What you'll gain</div><div class="stat-value">3–5 hrs/week back</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- A word before we start -->
+  <section class="guide-section" id="intro">
+    <h3>A Word Before We Start</h3>
+    <div class="callout callout-tip">
+      <span class="callout-icon">💬</span>
+      <div class="callout-body"><strong>If you feel like you're behind on AI, you're not.</strong> Most executives are in the same place. They've heard the hype, they know it matters, but they haven't had a clear starting point. That's what this is. No jargon. No judgment. Just practical steps you can start today.</div>
+    </div>
+    <p>You don't need to understand how AI works to use it well — just like you don't need to understand how a car engine works to drive. What you need is someone to hand you the keys and show you where to go first. That's this guide.</p>
+    <p><strong>There is nothing you can break.</strong> AI is a conversation. If you ask a bad question, you just ask another one. If you get a weird answer, you try again. There's no wrong button to press, no data to lose, no embarrassing mistake to make. It's just you and a text box.</p>
+
+    <h4>How This Guide Works</h4>
+    <p>16 steps. Each one takes 15–20 minutes and teaches you something you can use immediately. Go as fast or slow as you want — some people do a step a day, others do one a week. The steps build on each other, so go in order, but there's no deadline and no one's grading you.</p>
+    <p><strong>If you only ever do Step 1</strong> and use that one technique for the rest of the year, you'll already be ahead of most people. Start small. Come back when you're ready for more.</p>
+    <div class="callout callout-info">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>How to navigate:</strong> Use the menu on the left (or the ☰ button on mobile) to jump to any step. The <a href="#quick-ref">Quick Prompt Library</a> at the bottom has copy-paste prompts you can use anytime — even before you finish the guide.</div>
+    </div>
+  </section>
+
+  <!-- Your first win -->
+  <section class="guide-section" id="first-win">
+    <h3>🏆 Your First Win (60 Seconds)</h3>
+    <p>Before the guide even starts — let's prove this works. Open <a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a> or <a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">Claude</a> (free accounts work fine). Copy this and paste it into the text box:</p>
+    <div class="prompt-block">
+      <div class="prompt-label">Your 60-second win</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+      <pre>I'm an executive and I'm new to AI. I have a meeting tomorrow and I need to be prepared on [topic you actually have a meeting about]. Give me the 3 key things I should know and 2 smart questions I could ask.</pre>
+    </div>
+    <p><strong>That's it.</strong> You just used AI. Whatever it gave you — that's the kind of thing you'll do effortlessly by Step 4. If you're curious how to make it even better, that's what the rest of this guide is for.</p>
+    <div class="callout callout-tip">
+      <span class="callout-icon">✅</span>
+      <div class="callout-body"><strong>Don't have an account yet?</strong> Go to <a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">chat.openai.com</a> or <a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">claude.ai</a> and sign up. It's free, takes 2 minutes, and works just like creating any online account. You'll see a text box. Type or paste into it. That's the whole interface.</div>
+    </div>
+  </section>
+
+  <!-- Pick Your Tool -->
+  <section class="guide-section" id="pick-your-tool">
+    <h3>Before You Start: Pick Your Tool</h3>
+    <p>You need exactly one AI assistant to start. Don't try multiple at once.</p>
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Best For</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong><a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT (GPT-4o)</a></strong></td><td>Best all-rounder, widest adoption</td><td>$20/mo</td></tr>
+        <tr><td><strong><a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">Claude (Sonnet)</a></strong></td><td>Long documents, nuanced writing</td><td>$20/mo</td></tr>
+        <tr><td><strong><a class="ext-link" href="https://gemini.google.com/advanced" target="_blank" rel="noopener">Gemini Advanced</a></strong></td><td>Google Workspace integration</td><td>$20/mo</td></tr>
+        <tr><td><strong><a class="ext-link" href="https://www.microsoft.com/en-us/microsoft-365/copilot/copilot-for-work" target="_blank" rel="noopener">Copilot Pro</a></strong></td><td>Microsoft 365 users</td><td>$30/mo</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-tip">
+      <span class="callout-icon">✅</span>
+      <div class="callout-body"><strong>Recommendation:</strong> Start with <a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a> or <a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>. Either works. Pick one and commit to it. Switching tools mid-course is the #1 reason people stall.</div>
+    </div>
+  </section>
+
+  <!-- Step Overview -->
+  <section class="guide-section" id="overview">
+    <h3>Step Overview</h3>
+    <p>Here's the full path. It looks like a lot — but <strong>you only need to start with Step 1.</strong> Everything else is here when you're ready.</p>
+    <div class="week-grid">
+      <div class="week-card"><div class="wk-label">Steps 1–2</div><div class="wk-title">First Conversations & Email</div><div class="wk-time">15 min each</div></div>
+      <div class="week-card"><div class="wk-label">Steps 3–4</div><div class="wk-title">Meetings & Habit Formation</div><div class="wk-time">15 min each</div></div>
+      <div class="week-card"><div class="wk-label">Steps 5–6</div><div class="wk-title">Documents & Research</div><div class="wk-time">15–20 min each</div></div>
+      <div class="week-card"><div class="wk-label">Steps 7–8</div><div class="wk-title">Prompt Library & Delegation</div><div class="wk-time">15 min each</div></div>
+      <div class="week-card"><div class="wk-label">Steps 9–10</div><div class="wk-title">Strategic Planning & Decisions</div><div class="wk-time">20 min each</div></div>
+      <div class="week-card"><div class="wk-label">Steps 11–12</div><div class="wk-title">Scenario Planning & Market Intel</div><div class="wk-time">20 min each</div></div>
+      <div class="week-card"><div class="wk-label">Steps 13–14</div><div class="wk-title">Team Systems & Workflows</div><div class="wk-time">20 min each</div></div>
+      <div class="week-card"><div class="wk-label">Steps 15–16</div><div class="wk-title">Measurement & Advanced Techniques</div><div class="wk-time">15–20 min each</div></div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- ═══ PHASE 1 ═══ -->
+  <section class="guide-section" id="phase1">
+    <div class="phase-header">
+      <div class="phase-number">Phase 1</div>
+      <div class="phase-header-text">
+        <h2>Foundation</h2>
+        <div class="phase-weeks">Steps 1–4 · 15 minutes each · your pace</div>
+        <div class="phase-goal">Goal: Get comfortable and start saving time on everyday tasks. No experience needed.</div>
+      </div>
+    </div>
+
+    <!-- Day 1-2 -->
+    <div id="day1">
+      <h3>Steps 1–2: Your First Real Conversation <span class="day-badge">⏱ 15 min</span></h3>
+      <p>If you did the 60-second win above, you've already started. Now let's go a little deeper. The key insight: <strong>AI is a collaborator, not a search engine.</strong> Don't ask it questions — have a conversation with it. Talk to it like a smart colleague who's read everything but knows nothing about your specific situation.</p>
+
+      <h4>Practice — Part 1</h4>
+      <p>Open your AI tool and paste this. Then actually have the conversation.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Starter prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I'm a [your role] at a [type of company]. I spend most of my day on [top 3 activities]. 
+I have about 15 minutes today to learn one thing about how you can help me. 
+What would you suggest I try first?</pre>
+      </div>
+
+      <h4>Practice — Part 2</h4>
+      <p>Bring a real problem. Something from today's inbox or meeting list.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Real problem prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Here's something I'm actually dealing with: [describe it].
+What would you do if you were me?</pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <span class="callout-icon">✅</span>
+        <div class="callout-body"><strong>What good looks like:</strong> You had a back-and-forth. You pushed back on at least one response. You got something you'll actually use today.</div>
+      </div>
+    </div>
+
+    <!-- Day 3-4 -->
+    <div id="day3">
+      <h3>Steps 3–4: Email — Your Biggest Time Drain <span class="day-badge">⏱ 15 min</span></h3>
+      <p>The average executive spends 2–3 hours per day on email. AI can cut that in half. There are three moves worth learning.</p>
+
+      <h4>Move 1: The Draft</h4>
+      <p>Never write an email from scratch again.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Draft prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Write a reply to this email. Tone: direct but warm. Under 5 sentences.
+
+[Paste the email you received]
+
+My position: [one sentence on what you want to say]</pre>
+      </div>
+
+      <h4>Move 2: The Polish</h4>
+      <p>You wrote it, AI tightens it.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Polish prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Make this email tighter. Remove anything that doesn't need to be there. 
+Keep my voice. Don't make it sound corporate.
+
+[Paste your draft]</pre>
+      </div>
+
+      <h4>Move 3: The Defuse</h4>
+      <p>For sensitive or high-stakes messages.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Defuse prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I need to say [what you need to say] but I'm worried it will come across as [how you don't want to sound]. 
+Rewrite it so it lands well without losing the message.</pre>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">📌</span>
+        <div class="callout-body"><strong>15-minute practice:</strong> Pick 3 emails from your inbox. Use one technique on each. Notice which one saves the most time — that's your go-to.</div>
+      </div>
+    </div>
+
+    <!-- Day 5-6 -->
+    <div id="day5">
+      <h3>Steps 5–6: Meeting Prep and Follow-Up <span class="day-badge">⏱ 15 min</span></h3>
+
+      <h4>Before a meeting</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Meeting prep prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I have a meeting tomorrow with [who] about [topic].
+Their position going in: [what you know or suspect].
+My goal for the meeting: [what you want to accomplish].
+
+Help me: 
+1. Anticipate the 3 hardest questions I'll face
+2. Prepare my key talking points
+3. Identify what I should find out before I walk in</pre>
+      </div>
+
+      <h4>After a meeting</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Meeting debrief prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Here are my rough notes from a meeting: [paste notes]
+
+Extract:
+1. Decisions made
+2. Action items with owners
+3. Open questions that need answers
+4. What I need to follow up on</pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <span class="callout-icon">🎙️</span>
+        <div class="callout-body"><strong>Game-changer:</strong> If your phone can record, use any transcription app (<a class="ext-link" href="https://otter.ai/" target="_blank" rel="noopener">Otter.ai</a>, <a class="ext-link" href="https://fireflies.ai/" target="_blank" rel="noopener">Fireflies</a>, or your iPhone's Voice Memos). Paste the transcript. Ask for the summary. This alone saves 20+ minutes per meeting.</div>
+      </div>
+    </div>
+
+    <!-- Day 7 -->
+    <div id="day7">
+      <h3>Step 7: Reflection + Habit Set <span class="day-badge">⏱ 15 min</span></h3>
+      <p>Before moving to Phase 2, do an honest review. Which tasks did AI actually help with? Where did it fall short? What's the one thing you now do faster?</p>
+      <p>Then build your repeatable habit:</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Habit-building prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I want to make [specific task] a daily habit using AI.
+Create a simple checklist or template I can reuse every day so I don't have to think about how to prompt — I just paste and go.</pre>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- ═══ PHASE 2 ═══ -->
+  <section class="guide-section" id="phase2">
+    <div class="phase-header">
+      <div class="phase-number">Phase 2</div>
+      <div class="phase-header-text">
+        <h2>Leverage</h2>
+        <div class="phase-weeks">Steps 5–8 · 15–20 minutes each · your pace</div>
+        <div class="phase-goal">Goal: Use AI on the work that actually matters — not just small tasks.</div>
+      </div>
+    </div>
+
+    <!-- Day 8-9 -->
+    <div id="day8">
+      <h3>Steps 8–9: Documents That Write Themselves <span class="day-badge">⏱ 15 min</span></h3>
+      <p>Stop writing first drafts. Use AI to generate a strong v1, then edit up. The editing workflow is faster than writing from scratch — even if the draft is imperfect.</p>
+      <div class="callout callout-info">
+        <span class="callout-icon">🛠️</span>
+        <div class="callout-body"><strong>Tools for this:</strong> <a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a> or <a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">Claude</a> handle long documents best. For formatted outputs, try <a class="ext-link" href="https://www.notion.so/product/ai" target="_blank" rel="noopener">Notion AI</a> if you're already in Notion.</div>
+      </div>
+
+      <h4>For any document — memo, proposal, update, report</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Document generator</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Write a [document type] for [audience].
+
+Context: [2-3 sentences of background]
+Key message: [the one thing they should walk away with]
+Supporting points: [your main bullets]
+Tone: [professional / direct / inspiring / etc.]
+Length: [half page / one page / etc.]</pre>
+      </div>
+
+      <h4>Real example — Board update</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Board memo example</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Write a one-page board update memo for our Q1 performance.
+
+Context: We hit $4.2M revenue vs $3.8M target. Headcount grew from 40 to 47. 
+We had one major client churn (TechCorp, $200K ARR) but added 3 new logos.
+Key message: Strong quarter but client retention needs attention.
+Tone: Confident, honest, forward-looking.</pre>
+      </div>
+
+      <h4>The editing workflow</h4>
+      <ol>
+        <li>Generate the draft</li>
+        <li>Read it once for substance</li>
+        <li>Ask: <em>"What's missing? What's weak?"</em></li>
+        <li>Paste back: <em>"Make these changes: [list]"</em></li>
+        <li>Final pass yourself — add your voice</li>
+      </ol>
+    </div>
+
+    <!-- Day 10-11 -->
+    <div id="day10">
+      <h3>Steps 10–11: Research and Synthesis <span class="day-badge">⏱ 15 min</span></h3>
+      <p>Executives are drowning in information and starved for insight. AI helps you synthesize fast.</p>
+
+      <h4>Competitive intelligence</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Competitive intel prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I need to understand [competitor / trend / market] quickly.
+Give me:
+1. The 30-second summary (what I need to know right now)
+2. The 3 things that matter most for my business
+3. What questions I should be asking that I'm probably not</pre>
+      </div>
+
+      <h4>Making sense of a long document</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Document synthesis prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I'm attaching/pasting a [report / article / contract / proposal].
+Tell me:
+1. What is this actually saying?
+2. What are the risks or concerns I should flag?
+3. What decision does this require from me, if any?
+
+[Paste document]</pre>
+      </div>
+
+      <h4>The "advisor" technique</h4>
+      <p>Works best with <a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">Claude</a> or <a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a>. For real-time research-backed answers, try <a class="ext-link" href="https://www.perplexity.ai/" target="_blank" rel="noopener">Perplexity AI</a> for the competitive intel version.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Expert advisor prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Act as a [McKinsey consultant / seasoned CFO / experienced CMO].
+I'll share a situation and I want your honest strategic read — 
+not just analysis, but what you would actually do.
+
+Situation: [describe it]</pre>
+      </div>
+    </div>
+
+    <!-- Day 12-13 -->
+    <div id="day12">
+      <h3>Steps 12–13: Delegation and Team Communication <span class="day-badge">⏱ 15 min</span></h3>
+
+      <h4>Writing better briefs</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Delegation brief prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I need to delegate [task] to [person / team].
+Help me write a brief that includes:
+- Clear objective (what done looks like)
+- Context they need (no more, no less)
+- Constraints (budget, deadline, resources)
+- How I want to be kept informed
+
+Background: [2-3 sentences]</pre>
+      </div>
+
+      <h4>Performance conversations</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Feedback structure prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I need to give feedback to [role] about [situation].
+The behavior: [specific and factual]
+The impact: [what it affected]
+What I need to change: [the ask]
+
+Help me structure a 5-minute conversation that's direct but doesn't put them on the defensive.</pre>
+      </div>
+
+      <h4>All-hands / team updates</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Team communication prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I need to communicate [news / update] to my team.
+They're likely feeling [concerned / excited / uncertain / etc.].
+Key messages I want to land: [list]
+What I want them to do next: [specific ask]
+
+Write this as a short, honest update — not a corporate announcement.</pre>
+      </div>
+    </div>
+
+    <!-- Day 14 -->
+    <div id="day14">
+      <h3>Step 14: Build Your Prompt Library <span class="day-badge">⏱ 15 min</span></h3>
+      <p>By now you have a solid collection of prompts that worked. Time to save them. Create a simple document — Notion, Google Doc, Notes, anywhere — with sections for each category. Save each template with <strong>[BRACKETS]</strong> for the parts you swap out.</p>
+      <div class="callout callout-tip">
+        <span class="callout-icon">📚</span>
+        <div class="callout-body">This is the compound interest of AI use. The prompts you save now will save you hours next month. Executives who skip this step are recreating their best prompts from memory every time — that's waste.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- ═══ PHASE 3 ═══ -->
+  <section class="guide-section" id="phase3">
+    <div class="phase-header">
+      <div class="phase-number">Phase 3</div>
+      <div class="phase-header-text">
+        <h2>Strategy</h2>
+        <div class="phase-weeks">Steps 9–12 · 20 minutes each · your pace</div>
+        <div class="phase-goal">Goal: Turn AI into a thinking partner for strategy and decisions.</div>
+      </div>
+    </div>
+
+    <!-- Day 15-16 -->
+    <div id="day15">
+      <h3>Steps 15–16: Strategic Planning and Problem-Solving <span class="day-badge">⏱ 20 min</span></h3>
+      <p>This is where AI goes from useful to genuinely powerful. Most executives underuse AI here because they think of it as a writing tool. It's a reasoning tool.</p>
+
+      <h4>Pressure-testing decisions</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Devil's advocate prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I'm considering [decision]. 
+Play devil's advocate. Give me the strongest case against this decision — 
+not surface-level concerns, but the real risks I might be avoiding.</pre>
+      </div>
+
+      <h4>Structured problem-solving</h4>
+      <p>Not familiar with these frameworks? Quick primers: <a class="ext-link" href="https://www.youtube.com/watch?v=NiEd4PFZBho" target="_blank" rel="noopener">First Principles</a> · <a class="ext-link" href="https://en.wikipedia.org/wiki/Five_whys" target="_blank" rel="noopener">5 Whys</a> · <a class="ext-link" href="https://en.wikipedia.org/wiki/MECE_principle" target="_blank" rel="noopener">MECE</a> · <a class="ext-link" href="https://en.wikipedia.org/wiki/Pre-mortem" target="_blank" rel="noopener">Pre-mortem</a></p>
+      <div class="prompt-block">
+        <div class="prompt-label">Frameworks prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I have a problem I need to think through. 
+Help me use [first principles / 5 Whys / MECE framework / pre-mortem] to approach it.
+
+The problem: [describe it]
+What I've tried or considered: [brief summary]
+What I'm most unsure about: [the crux]</pre>
+      </div>
+
+      <h4>Strategic options</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Options prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I need to make a decision about [topic].
+Give me 3-5 genuinely different strategic options — 
+not variations of the same approach, but meaningfully different paths.
+For each: key assumption it requires, biggest risk, and who I'd need to bring along.</pre>
+      </div>
+    </div>
+
+    <!-- Day 17-18 -->
+    <div id="day17">
+      <h3>Steps 17–18: Scenario Planning <span class="day-badge">⏱ 20 min</span></h3>
+      <p>Executives who use AI for scenario planning are building a real edge over those who don't. This is one of the highest-ROI applications in the guide.</p>
+
+      <h4>The 3-scenario exercise</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Scenario planning prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I'm planning for [next 12 months / Q3 / this launch / etc.].
+Help me map out three scenarios:
+
+1. Base case: most likely outcome given current trends
+2. Upside case: what has to go right, and what it enables
+3. Stress case: what breaks, what that looks like, and what I'd do
+
+Focus area: [revenue / operations / market / team / etc.]
+What I know: [key facts and assumptions]</pre>
+      </div>
+
+      <h4>Forcing uncertainty to the surface</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Assumption audit prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>What am I likely wrong about in this plan?
+[Paste your plan or summary]
+
+Be honest. What assumptions am I making that I shouldn't be? 
+What would cause this to fail that I might be underweighting?</pre>
+      </div>
+    </div>
+
+    <!-- Day 19-20 -->
+    <div id="day19">
+      <h3>Steps 19–20: Competitive and Market Intelligence <span class="day-badge">⏱ 20 min</span></h3>
+
+      <h4>Weekly competitive pulse</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Competitive pulse prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Give me a quick analysis of [competitor or market trend].
+
+I care specifically about:
+- Any moves they've made in the last 90 days
+- How it affects [my business / our positioning / a specific customer segment]
+- What I should watch for next
+
+My business context: [2 sentences]</pre>
+      </div>
+
+      <h4>Customer empathy exercise</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Customer persona prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Act as my ideal customer: [describe them — role, company size, pain points].
+I'm going to describe a product/offering. Tell me:
+1. Does this actually solve my problem?
+2. What would make me hesitate to buy?
+3. What would make this a no-brainer?
+
+The offering: [describe it]</pre>
+      </div>
+    </div>
+
+    <!-- Day 21 -->
+    <div id="day21">
+      <h3>Step 21: Review and Recalibrate <span class="day-badge">⏱ 20 min</span></h3>
+      <p>Before moving to Phase 4, do a genuine checkpoint — not a formality.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Phase 3 review prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I've been working through an AI curriculum and am using it on: [list your main use cases].
+Help me evaluate:
+1. Where am I actually saving time?
+2. Where is AI still letting me down?
+3. What should I add to my routine that I haven't tried yet?
+4. Am I using AI on high-value work, or just on low-stakes tasks?</pre>
+      </div>
+      <div class="callout callout-info">
+        <span class="callout-icon">💬</span>
+        <div class="callout-body">This conversation is more valuable than most strategy meetings. Do it honestly. The answer to question 4 tells you whether you're actually building leverage or just automating busy work.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- ═══ PHASE 4 ═══ -->
+  <section class="guide-section" id="phase4">
+    <div class="phase-header">
+      <div class="phase-number">Phase 4</div>
+      <div class="phase-header-text">
+        <h2>Systems</h2>
+        <div class="phase-weeks">Steps 13–16 · 20 minutes each · your pace</div>
+        <div class="phase-goal">Goal: Bring your team along and build AI into how you all work.</div>
+      </div>
+    </div>
+
+    <!-- Day 22-24 -->
+    <div id="day22">
+      <h3>Steps 22–24: Your AI Operating System <span class="day-badge">⏱ 20 min</span></h3>
+      <p>Individual AI productivity is a competitive advantage. Team AI productivity is a multiplier. Here's what most executives get wrong:</p>
+      <ul>
+        <li><strong>Keeping AI tools to themselves</strong> — lone genius vs. force multiplier</li>
+        <li><strong>Not standardizing good prompts</strong> — everyone reinvents the wheel daily</li>
+        <li><strong>Not building AI into existing workflows</strong> — it stays a one-off thing</li>
+      </ul>
+
+      <h4>Design a team session</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Team AI session prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I want to help my team use AI more effectively.
+I have [X] direct reports who do [rough description of their work].
+Help me design a 30-minute team session to:
+1. Show them 2-3 immediately useful techniques
+2. Get them to commit to one habit
+3. Create a shared prompt library we'll build together</pre>
+      </div>
+
+      <h4>Redesign a team process with AI</h4>
+      <p>Pick one: weekly status reporting, client proposals, research summaries, performance reviews, or project briefs.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Process redesign prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I want to redesign [process] using AI.
+Currently: [how it works, how long it takes, what the output looks like]
+Pain points: [what's slow, inconsistent, or frustrating]
+
+Help me redesign this so AI does the heavy lifting and humans add the judgment.
+What's the before/after workflow?</pre>
+      </div>
+    </div>
+
+    <!-- Day 25-26 -->
+    <div id="day25">
+      <h3>Steps 25–26: Custom Instructions and Context <span class="day-badge">⏱ 15 min</span></h3>
+      <p>This is <strong>the single biggest unlock most executives miss.</strong> Teaching AI who you are means you stop re-explaining yourself every conversation.</p>
+      <p><em>In <a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a>:</em> Settings → Personalization → Custom Instructions<br/><em>In <a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>:</em> Start every important conversation with a context block</p>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Your executive context block</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>About me:
+- Role: [title] at [company type, size, stage]
+- My top priorities right now: [3 things]
+- My communication style: [direct / collaborative / data-driven / etc.]
+- What I care most about: [outcomes / first principles / team dynamics / etc.]
+
+When helping me:
+- Be direct. I'll ask if I need more.
+- Challenge my assumptions — I hire smart people to disagree with me.
+- Don't hedge unnecessarily. Give me your best read.
+- If you need more context, ask one question at a time.</pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💾</span>
+        <div class="callout-body">Save this block. Paste it at the start of any important AI conversation. It takes 10 seconds and meaningfully improves every response you get.</div>
+      </div>
+    </div>
+
+    <!-- Day 27-28 -->
+    <div id="day27">
+      <h3>Steps 27–28: Measuring What Matters <span class="day-badge">⏱ 15 min</span></h3>
+      <p>You can't manage what you don't measure. Same for AI ROI. Track three things for a month: time saved per step (estimate conservatively), quality improvements on 3 specific recurring outputs, and decisions where AI gave you a genuinely different perspective.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">ROI tracker setup prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I want to track my AI productivity ROI over the next month.
+Create a simple recurring log template I can fill out in 5 minutes.
+I want to capture: time saved, quality delta, and strategic value.
+Make it honest — I want real signal, not vanity metrics.</pre>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- ═══ ADVANCED ═══ -->
+  <section class="guide-section" id="advanced">
+    <h3 style="margin-top:0;">Advanced Techniques</h3>
+    <p style="color: var(--text-muted)">For once the foundations are solid. Don't rush here. These techniques compound everything you've built.</p>
+
+    <div id="advanced-chains">
+      <h4>Multi-Step Chains</h4>
+      <p>Instead of one mega-prompt, break complex work into a chain. Each step builds on the last — much better output than trying to do it all at once.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Chain example</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>Step 1: Analyze this data and identify the top 3 patterns.
+[data]
+
+--- Get the response, then continue: ---
+
+Step 2: For each pattern, what strategic move would you recommend?
+
+--- Get the response, then continue: ---
+
+Step 3: Now draft a one-page brief I can share with my board.</pre>
+      </div>
+    </div>
+
+    <div id="advanced-redteam">
+      <h4>The Red Team</h4>
+      <p>Before any major decision or communication, run it through a critic. The best output is the one that's been challenged.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Red team prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>You are a smart, skeptical critic. Your job is to find every flaw in what I'm about to share.
+Don't be polite. Be rigorous.
+
+[Paste plan, proposal, email, or strategy]
+
+What's wrong with this? What would a sharp critic say? What am I missing?</pre>
+      </div>
+    </div>
+
+    <div id="advanced-hiring">
+      <h4>AI for Hiring and Talent</h4>
+      <div class="prompt-block">
+        <div class="prompt-label">Hiring toolkit prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I'm hiring for [role]. Here's the job description: [paste it].
+Help me:
+1. Write 5 interview questions that go beyond the resume
+2. Create a simple scorecard for evaluating candidates
+3. Draft a rejection email that's honest and respectful
+4. Write an offer letter framework</pre>
+      </div>
+    </div>
+
+    <div id="advanced-clarity">
+      <h4>AI for Personal Clarity</h4>
+      <p>This one surprises executives most. AI as a thinking partner — not for answers, but for clarity — is one of the highest-value uses once you're ready for it.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Clarity prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I'm feeling stuck / overwhelmed / unclear on [situation].
+I'm not looking for action items. I want you to help me think.
+Ask me questions until I'm clearer on what I actually want to do.
+One question at a time.</pre>
+      </div>
+    </div>
+
+    <div id="advanced-weekly">
+      <h4>Staying Current: A 15-Minute Weekly Ritual</h4>
+      <p>Subscribe to <a class="ext-link" href="https://advancedai.com" target="_blank" rel="noopener">AdvancedAI.com</a> for weekly briefings curated specifically for business leaders — no hype, just what matters.</p>
+      <div class="prompt-block">
+        <div class="prompt-label">Weekly briefing prompt</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        <pre>I have 15 minutes. Brief me on what matters in AI this week for an executive in [your industry].
+I care about: real business applications, risks I should know about, and tools worth trying.
+Skip hype. Give me signal.</pre>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Quick Reference -->
+  <section class="guide-section" id="quick-ref">
+    <h3 style="margin-top:0;">Quick Prompt Library</h3>
+    <p>Copy these. Adapt. Reuse. This section is designed for daily use — works with <a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a>, <a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>, <a class="ext-link" href="https://gemini.google.com/advanced" target="_blank" rel="noopener">Gemini</a>, or any major AI assistant.</p>
+
+    <div class="prompt-grid">
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">🔓</span>
+        <div>
+          <div class="qp-label">Get unstuck</div>
+          <div class="qp-text">"I've been going in circles on [X]. Help me see this differently. What am I missing?"</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">✂️</span>
+        <div>
+          <div class="qp-label">Make anything shorter</div>
+          <div class="qp-text">"Cut this by 40%. Keep the key points. Lose everything else."</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">💡</span>
+        <div>
+          <div class="qp-label">Make anything clearer</div>
+          <div class="qp-text">"Rewrite this for someone who knows nothing about [topic]. Plain language. No jargon."</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">🎯</span>
+        <div>
+          <div class="qp-label">Get a recommendation</div>
+          <div class="qp-text">"Don't give me options. Tell me what you would do and why."</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">🔥</span>
+        <div>
+          <div class="qp-label">Challenge your thinking</div>
+          <div class="qp-text">"What's the strongest argument against what I just said?"</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">⏳</span>
+        <div>
+          <div class="qp-label">Buy yourself time</div>
+          <div class="qp-text">"Draft a response that acknowledges this and buys me a few days to think without being evasive."</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">💬</span>
+        <div>
+          <div class="qp-label">Hard conversations</div>
+          <div class="qp-text">"I need to tell [person] [thing]. How do I say this so they hear me instead of getting defensive?"</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+      <div class="quick-prompt" onclick="copyQuickPrompt(this)">
+        <span class="qp-icon">📊</span>
+        <div>
+          <div class="qp-label">Simplify data</div>
+          <div class="qp-text">"Here's data: [paste]. Tell me the 3 things a decision-maker needs to know. Nothing else."</div>
+        </div>
+        <button class="qp-copy">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Tools Reference -->
+  <section class="guide-section" id="tools-reference">
+    <h3 style="margin-top:0;">All Tools Mentioned in This Guide</h3>
+    <table>
+      <thead><tr><th>Tool</th><th>Category</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ChatGPT (GPT-4o)</strong></td><td>AI Assistant</td><td><a class="ext-link" href="https://chat.openai.com/" target="_blank" rel="noopener">chat.openai.com</a></td></tr>
+        <tr><td><strong>Claude</strong></td><td>AI Assistant</td><td><a class="ext-link" href="https://claude.ai/" target="_blank" rel="noopener">claude.ai</a></td></tr>
+        <tr><td><strong>Gemini Advanced</strong></td><td>AI Assistant (Google)</td><td><a class="ext-link" href="https://gemini.google.com/advanced" target="_blank" rel="noopener">gemini.google.com</a></td></tr>
+        <tr><td><strong>Microsoft Copilot Pro</strong></td><td>AI Assistant (Microsoft 365)</td><td><a class="ext-link" href="https://www.microsoft.com/en-us/microsoft-365/copilot/copilot-for-work" target="_blank" rel="noopener">microsoft.com</a></td></tr>
+        <tr><td><strong>Otter.ai</strong></td><td>Meeting Transcription</td><td><a class="ext-link" href="https://otter.ai/" target="_blank" rel="noopener">otter.ai</a></td></tr>
+        <tr><td><strong>Fireflies.ai</strong></td><td>Meeting Transcription + Notes</td><td><a class="ext-link" href="https://fireflies.ai/" target="_blank" rel="noopener">fireflies.ai</a></td></tr>
+        <tr><td><strong>Notion AI</strong></td><td>AI-powered Docs &amp; Notes</td><td><a class="ext-link" href="https://www.notion.so/product/ai" target="_blank" rel="noopener">notion.so</a></td></tr>
+        <tr><td><strong>Perplexity AI</strong></td><td>AI Research Assistant</td><td><a class="ext-link" href="https://www.perplexity.ai/" target="_blank" rel="noopener">perplexity.ai</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Common Mistakes -->
+  <section class="guide-section" id="mistakes">
+    <h3 style="margin-top:0;">What Trips People Up (And How to Avoid It)</h3>
+    <ul class="mistake-list">
+      <li class="mistake-item">
+        <div class="mistake-num">1</div>
+        <div class="mistake-body">
+          <strong>Treating it like Google</strong>
+          <p>You get back what you put in. Vague question → vague answer. Be specific about context, goal, and constraints. The prompt is half the output.</p>
+        </div>
+      </li>
+      <li class="mistake-item">
+        <div class="mistake-num">2</div>
+        <div class="mistake-body">
+          <strong>Accepting the first response</strong>
+          <p>Always push back at least once. "Go deeper on point 2." "That third option — why is it actually viable?" The best output is rarely the first output.</p>
+        </div>
+      </li>
+      <li class="mistake-item">
+        <div class="mistake-num">3</div>
+        <div class="mistake-body">
+          <strong>Using it only for low-stakes work</strong>
+          <p>The ROI scales with the stakes. Draft a $2M proposal with AI. Prepare for a board presentation with AI. That's where the real leverage lives.</p>
+        </div>
+      </li>
+      <li class="mistake-item">
+        <div class="mistake-num">4</div>
+        <div class="mistake-body">
+          <strong>Keeping it solo</strong>
+          <p>If you're 10x more productive and your team isn't using it, you've created a bottleneck. Teach what you learn.</p>
+        </div>
+      </li>
+      <li class="mistake-item">
+        <div class="mistake-num">5</div>
+        <div class="mistake-body">
+          <strong>Not giving context</strong>
+          <p>AI doesn't know who you are, what your company does, or what "done" looks like. Every important session should start with a quick context block.</p>
+        </div>
+      </li>
+      <li class="mistake-item">
+        <div class="mistake-num">6</div>
+        <div class="mistake-body">
+          <strong>Trusting it blindly</strong>
+          <p>AI is confidently wrong sometimes — especially on facts, numbers, and recent events. Verify anything consequential before acting on it.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Feedback Section -->
+  <section class="guide-section" id="feedback">
+    <div class="feedback-section">
+      <h2>💬 Shape This Guide</h2>
+      <p class="feedback-sub">This guide gets better every time an executive shares what they need. Request a topic, suggest an improvement, or tell us what's working. Every submission is read.</p>
+
+      <div class="feedback-tabs" role="tablist">
+        <button class="feedback-tab active" onclick="switchTab(this, 'tab-topic')" role="tab">Request a Topic</button>
+        <button class="feedback-tab" onclick="switchTab(this, 'tab-improve')" role="tab">Suggest an Improvement</button>
+        <button class="feedback-tab" onclick="switchTab(this, 'tab-worked')" role="tab">Share What Worked</button>
+      </div>
+
+      <!-- Tab: Request a Topic -->
+      <div id="tab-topic">
+        <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">What AI use case do you wish this guide covered? Select any that apply or describe your own.</p>
+        <div class="feedback-topics" id="topic-chips">
+          <span class="topic-chip" onclick="toggleChip(this)">Writing board reports</span>
+          <span class="topic-chip" onclick="toggleChip(this)">AI for sales</span>
+          <span class="topic-chip" onclick="toggleChip(this)">HR &amp; recruiting</span>
+          <span class="topic-chip" onclick="toggleChip(this)">Finance &amp; forecasting</span>
+          <span class="topic-chip" onclick="toggleChip(this)">Legal &amp; contracts</span>
+          <span class="topic-chip" onclick="toggleChip(this)">Operations</span>
+          <span class="topic-chip" onclick="toggleChip(this)">AI tools comparison</span>
+          <span class="topic-chip" onclick="toggleChip(this)">AI for my industry</span>
+          <span class="topic-chip" onclick="toggleChip(this)">Managing an AI-savvy team</span>
+          <span class="topic-chip" onclick="toggleChip(this)">AI risks &amp; what to avoid</span>
+          <span class="topic-chip" onclick="toggleChip(this)">Onboarding staff to AI</span>
+          <span class="topic-chip" onclick="toggleChip(this)">AI for presentations</span>
+        </div>
+        <form class="feedback-form" onsubmit="submitFeedback(event, 'topic')">
+          <input type="hidden" name="type" value="topic-request" />
+          <input type="hidden" name="selected_topics" id="selected-topics-hidden" />
+          <div class="feedback-label">Anything else you'd like covered?</div>
+          <textarea name="message" placeholder="Describe the use case or topic you're looking for..."></textarea>
+          <div class="feedback-row">
+            <input type="text" name="name" placeholder="Your name (optional)" />
+            <input type="email" name="email" placeholder="Email for updates (optional)" />
+          </div>
+          <button type="submit" class="feedback-submit">Submit Request</button>
+        </form>
+      </div>
+
+      <!-- Tab: Suggest Improvement -->
+      <div id="tab-improve" style="display:none">
+        <form class="feedback-form" onsubmit="submitFeedback(event, 'improve')">
+          <input type="hidden" name="type" value="improvement" />
+          <div class="feedback-label">Which step or section?</div>
+          <select name="section">
+            <option value="">Select a section…</option>
+            <option>A Word Before We Start</option>
+            <option>Pick Your Tool</option>
+            <option>Steps 1–2: First Conversation</option>
+            <option>Steps 3–4: Email</option>
+            <option>Steps 5–6: Meetings</option>
+            <option>Step 7: Reflection + Habit</option>
+            <option>Steps 8–9: Documents</option>
+            <option>Steps 10–11: Research</option>
+            <option>Steps 12–13: Delegation</option>
+            <option>Step 14: Prompt Library</option>
+            <option>Steps 15–16: Strategic Planning</option>
+            <option>Steps 17–18: Scenario Planning</option>
+            <option>Steps 19–20: Market Intel</option>
+            <option>Steps 22–24: AI for Teams</option>
+            <option>Quick Prompt Library</option>
+            <option>General / Other</option>
+          </select>
+          <div class="feedback-label">What could be better?</div>
+          <textarea name="message" placeholder="Tell us what's confusing, missing, or could be clearer..."></textarea>
+          <div class="feedback-row">
+            <input type="text" name="name" placeholder="Your name (optional)" />
+            <input type="email" name="email" placeholder="Email for updates (optional)" />
+          </div>
+          <button type="submit" class="feedback-submit">Send Feedback</button>
+        </form>
+      </div>
+
+      <!-- Tab: Share What Worked -->
+      <div id="tab-worked" style="display:none">
+        <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">What's actually worked for you? Your real experience helps other executives know what to try first.</p>
+        <form class="feedback-form" onsubmit="submitFeedback(event, 'worked')">
+          <input type="hidden" name="type" value="success-story" />
+          <div class="feedback-label">Which step or technique?</div>
+          <input type="text" name="section" placeholder="e.g. &quot;The Defuse email prompt&quot; or &quot;Meeting debrief&quot;" />
+          <div class="feedback-label">What happened?</div>
+          <textarea name="message" placeholder="What did you try, and what was the result? Specifics help others..."></textarea>
+          <div class="feedback-row">
+            <input type="text" name="name" placeholder="Your name (optional)" />
+            <input type="text" name="role" placeholder="Your role (optional, e.g. CEO)" />
+          </div>
+          <div style="font-size:12px; color:var(--text-dim);">We may feature anonymized success stories in future guide updates.</div>
+          <button type="submit" class="feedback-submit">Share Your Story</button>
+        </form>
+      </div>
+
+      <!-- Success message (shared) -->
+      <div class="feedback-success" id="feedback-success">
+        ✅ Thanks — received. We read every submission and use it to improve the guide.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <div class="page-footer">
+    <div class="footer-cta">
+      <h2>This guide gets updated as AI evolves.</h2>
+      <p>Get weekly signal — what's actually worth an executive's attention in AI. No schedule required on your end, just show up when it lands in your inbox.</p>
+      <form class="subscribe-form" onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-brand">
+      <strong>AdvancedAI.com</strong> · Real AI for people who don't have time for hype<br/>
+      <span style="font-size:11px; color: var(--text-dim);">© 2026 AdvancedAI Editorial · Updated April 2026</span>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<button id="mobile-nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">☰</button>
+
+<script>
+  // ── Copy prompt blocks ──
+  function copyPrompt(btn) {
+    const pre = btn.closest('.prompt-block').querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  function copyQuickPrompt(card) {
+    const text = card.querySelector('.qp-text').textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = card.querySelector('.qp-copy');
+      btn.textContent = 'Copied!';
+      btn.style.opacity = '1';
+      btn.style.background = 'var(--success)';
+      btn.style.color = '#fff';
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.opacity = '';
+      }, 2000);
+    });
+  }
+
+  // ── Progress bar ──
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  });
+
+  // ── Active nav link ──
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = [];
+  navLinks.forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ id, el, link });
+  });
+
+  function updateActiveNav() {
+    const scrollY = window.scrollY + 80;
+    let active = null;
+    for (const s of sections) {
+      if (s.el.offsetTop <= scrollY) active = s;
+    }
+    navLinks.forEach(l => l.classList.remove('active'));
+    if (active) active.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+
+  // ── Feedback tabs ──
+  function switchTab(btn, tabId) {
+    document.querySelectorAll('.feedback-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    ['tab-topic', 'tab-improve', 'tab-worked'].forEach(id => {
+      document.getElementById(id).style.display = id === tabId ? 'block' : 'none';
+    });
+    document.getElementById('feedback-success').style.display = 'none';
+  }
+
+  // ── Topic chips ──
+  function toggleChip(chip) {
+    chip.classList.toggle('selected');
+    const selected = [...document.querySelectorAll('.topic-chip.selected')].map(c => c.textContent).join(', ');
+    const hidden = document.getElementById('selected-topics-hidden');
+    if (hidden) hidden.value = selected;
+  }
+
+  // ── Feedback form submit ──
+  async function submitFeedback(e, type) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.feedback-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+
+    try {
+      // Replace YOUR_FORMSPREE_ID below with your Formspree form ID
+      // Get one free at https://formspree.io (takes 2 minutes)
+      const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+      
+      if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
+        // Dev mode: just show success without actually submitting
+        await new Promise(r => setTimeout(r, 600));
+      } else {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error('Submit failed');
+      }
+
+      // Hide all tab content, show success
+      ['tab-topic', 'tab-improve', 'tab-worked'].forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+      document.querySelectorAll('.feedback-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('feedback-success').style.display = 'block';
+      form.reset();
+      document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('selected'));
+    } catch (err) {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  }
+
+  // ── Mobile nav ──
+  function toggleNav() {
+    document.getElementById('sidenav').classList.toggle('open');
+  }
+  document.querySelectorAll('#sidenav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('sidenav').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
