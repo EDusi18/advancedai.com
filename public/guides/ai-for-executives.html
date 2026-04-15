@@ -1724,21 +1724,13 @@ Skip hype. Give me signal.</pre>
     const data = new FormData(form);
 
     try {
-      // Replace YOUR_FORMSPREE_ID below with your Formspree form ID
-      // Get one free at https://formspree.io (takes 2 minutes)
-      const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
-      
-      if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-        // Dev mode: just show success without actually submitting
-        await new Promise(r => setTimeout(r, 600));
-      } else {
-        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (!res.ok) throw new Error('Submit failed');
-      }
+      // Self-hosted form endpoint on forms.advancedai.com
+      const res = await fetch('https://forms.advancedai.com/submit', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) throw new Error('Submit failed');
 
       // Hide all tab content, show success
       ['tab-topic', 'tab-improve', 'tab-worked'].forEach(id => {
