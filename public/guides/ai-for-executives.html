@@ -1760,7 +1760,7 @@ Skip hype. Give me signal.</pre>
       form.append('email', email);
       form.append('name', '');
       form.append('l', 'e787e2da-8766-4540-9fb3-e63329d0b76d');
-      const res = await fetch('https://mail.emto.us/subscription/form', { method: 'POST', body: form });
+      const res = await fetch('https://forms.advancedai.com/subscribe', { method: 'POST', body: form });
       if (res.ok) {
         document.getElementById('guide-nl-form').style.display = 'none';
         msg.textContent = '✅ You’re subscribed! Check your inbox.';
