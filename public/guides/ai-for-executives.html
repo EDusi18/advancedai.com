@@ -1619,10 +1619,11 @@ Skip hype. Give me signal.</pre>
     <div class="footer-cta">
       <h2>This guide gets updated as AI evolves.</h2>
       <p>Get weekly signal — what's actually worth an executive's attention in AI. No schedule required on your end, just show up when it lands in your inbox.</p>
-      <form class="subscribe-form" onsubmit="return false;">
-        <input type="email" placeholder="your@email.com" />
-        <button type="submit">Subscribe</button>
+      <form class="subscribe-form" id="guide-nl-form" onsubmit="handleGuideSubscribe(event)">
+        <input type="email" id="guide-nl-email" placeholder="your@email.com" required />
+        <button type="submit" id="guide-nl-btn">Subscribe</button>
       </form>
+      <p id="guide-nl-msg" style="font-size:14px; color:var(--text-muted); margin-top:10px;"></p>
     </div>
     <div class="footer-brand">
       <a href="/" style="color: var(--accent); text-decoration: none; font-weight: 700;">← Back to AdvancedAI.com</a><br/>
@@ -1742,6 +1743,34 @@ Skip hype. Give me signal.</pre>
       document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('selected'));
     } catch (err) {
       btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  }
+
+  // ── Newsletter subscribe ──
+  async function handleGuideSubscribe(e) {
+    e.preventDefault();
+    const email = document.getElementById('guide-nl-email').value.trim();
+    const btn   = document.getElementById('guide-nl-btn');
+    const msg   = document.getElementById('guide-nl-msg');
+    btn.textContent = 'Subscribing…';
+    btn.disabled = true;
+    try {
+      const form = new FormData();
+      form.append('email', email);
+      form.append('name', '');
+      form.append('l', 'e787e2da-8766-4540-9fb3-e63329d0b76d');
+      const res = await fetch('https://mail.emto.us/subscription/form', { method: 'POST', body: form });
+      if (res.ok) {
+        document.getElementById('guide-nl-form').style.display = 'none';
+        msg.textContent = '✅ You’re subscribed! Check your inbox.';
+        msg.style.color = 'var(--accent)';
+        msg.style.fontWeight = '600';
+      } else { throw new Error(); }
+    } catch {
+      msg.textContent = 'Something went wrong — please try again.';
+      msg.style.color = 'var(--warning)';
+      btn.textContent = 'Subscribe';
       btn.disabled = false;
     }
   }
