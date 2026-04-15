@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traffic Analytics Dashboard — Advanced AI</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
+  <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <script>
+    // Theme init — reads localStorage, prevents flash
+    (function () {
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'Atkinson';
+      src: url('/fonts/atkinson-regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Atkinson';
+      src: url('/fonts/atkinson-bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #e0e7ff;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --surface2: #f1f5f9;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -1px rgba(0,0,0,0.04);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface2: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --accent-light: #312e81;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Atkinson', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo-badge {
+      background: var(--accent);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.15s;
+    }
+    .header-nav a:hover { color: var(--accent); }
+    .theme-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Layout ── */
+    .main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* ── Page Title ── */
+    .page-title {
+      margin-bottom: 2rem;
+    }
+    .page-title h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .page-title p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .tracking-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--green);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-top: 0.5rem;
+    }
+    .tracking-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .card-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Overview grid ── */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .stat-value {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .stat-icon {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-size: 1.5rem;
+      opacity: 0.15;
+    }
+
+    /* ── Charts row ── */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 900px) {
+      .charts-row { grid-template-columns: 1fr; }
+    }
+    .chart-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .chart-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .time-toggles {
+      display: flex;
+      gap: 0.25rem;
+    }
+    .time-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .time-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    .chart-wrapper {
+      position: relative;
+      height: 200px;
+    }
+    .chart-notice {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(248,250,252,0.85);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 1rem;
+      pointer-events: none;
+    }
+    [data-theme="dark"] .chart-notice {
+      background: rgba(30,41,59,0.85);
+    }
+
+    /* ── Donuts row ── */
+    .donuts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 700px) {
+      .donuts-row { grid-template-columns: 1fr; }
+    }
+    .donut-wrapper {
+      position: relative;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .donut-legend {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Section gap ── */
+    .section { margin-bottom: 2rem; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--surface2);
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+
+    /* ── Tables ── */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    thead th {
+      background: var(--surface2);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    tbody td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--surface2); }
+
+    .post-title-cell {
+      max-width: 320px;
+    }
+    .post-title-link {
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .post-title-link:hover { color: var(--accent); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-live { background: #dcfce7; color: #166534; }
+    .badge-featured { background: var(--accent-light); color: var(--accent); }
+    .badge-placeholder { background: #fef9c3; color: #854d0e; }
+    [data-theme="dark"] .badge-live { background: #14532d; color: #86efac; }
+    [data-theme="dark"] .badge-featured { background: #312e81; color: #a5b4fc; }
+    [data-theme="dark"] .badge-placeholder { background: #422006; color: #fde68a; }
+
+    .visits-cell { color: var(--text-muted); font-weight: 600; }
+    .check-yes { color: var(--green); font-size: 1rem; }
+    .check-no { color: var(--red); font-size: 1rem; }
+    .slug-cell {
+      font-family: ui-monospace, monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ── Recommendations ── */
+    .recs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .rec-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 1rem;
+    }
+    .rec-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .rec-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .rec-body {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .rec-priority {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-bottom: 0.35rem;
+    }
+    .priority-high { background: #fee2e2; color: #991b1b; }
+    .priority-med { background: #fef9c3; color: #854d0e; }
+    .priority-low { background: #dcfce7; color: #166534; }
+    [data-theme="dark"] .priority-high { background: #450a0a; color: #fca5a5; }
+    [data-theme="dark"] .priority-med { background: #422006; color: #fde68a; }
+    [data-theme="dark"] .priority-low { background: #14532d; color: #86efac; }
+
+    /* ── Plausible setup card ── */
+    .setup-card {
+      background: linear-gradient(135deg, var(--accent-light) 0%, var(--surface) 100%);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .setup-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .setup-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .setup-steps {
+      list-style: none;
+      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .setup-steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+    .setup-steps li::before {
+      content: counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .setup-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: background 0.15s;
+    }
+    .setup-link:hover { background: var(--accent-hover); }
+
+    /* ── Footer ── */
+    .dash-footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .main { padding: 1rem 1rem 3rem; }
+      .overview-grid { grid-template-columns: 1fr 1fr; }
+      .stat-value { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span>Advanced AI</span>
+        <span class="logo-badge">Analytics</span>
+      </a>
+      <nav class="header-nav">
+        <a href="/">← Site</a>
+        <a href="/blog/">Blog</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page title -->
+    <div class="page-title">
+      <h1>Traffic Analytics Dashboard</h1>
+      <p>advancedai.com — Content performance, SEO health, and growth tracking</p>
+      <span class="tracking-badge">Tracking active since April 15, 2026</span>
+    </div>
+
+    <!-- Plausible setup card -->
+    <div class="setup-card">
+      <h3>📊 Complete Your Plausible Setup</h3>
+      <p>The tracking script is live on the site. Finish setup at Plausible to start receiving data.</p>
+      <ol class="setup-steps">
+        <li>Go to <strong>plausible.io</strong> → Sign up / Log in</li>
+        <li>Add a new site: enter <strong>advancedai.com</strong></li>
+        <li>The script is already deployed — no code changes needed</li>
+        <li>Verify by clicking "Start collecting data" in the Plausible dashboard</li>
+        <li>Data begins appearing within minutes of first visit</li>
+      </ol>
+      <a href="https://plausible.io" target="_blank" rel="noopener" class="setup-link">
+        Go to Plausible →
+      </a>
+    </div>
+
+    <!-- ── A: Overview Cards ── -->
+    <div class="overview-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Visitors</div>
+        <div class="stat-value">—</div>
+        <div class="stat-note">Tracking starts Apr 15, 2026</div>
+        <span class="stat-icon">👥</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pageviews</div>
+        <div class="stat-value">—</div>
+        <div class="stat-note">Tracking starts Apr 15, 2026</div>
+        <span class="stat-icon">📄</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Bounce Rate</div>
+        <div class="stat-value">—</div>
+        <div class="stat-note">Tracking starts Apr 15, 2026</div>
+        <span class="stat-icon">↩️</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Session</div>
+        <div class="stat-value">—</div>
+        <div class="stat-note">Tracking starts Apr 15, 2026</div>
+        <span class="stat-icon">⏱️</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Top Source</div>
+        <div class="stat-value" style="font-size:1.25rem;">—</div>
+        <div class="stat-note">Tracking starts Apr 15, 2026</div>
+        <span class="stat-icon">🔗</span>
+      </div>
+    </div>
+
+    <!-- ── B: Traffic Over Time ── -->
+    <div class="section">
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Traffic Over Time</span>
+            <div class="time-toggles">
+              <button class="time-btn active" onclick="setRange(this,'7d')">7d</button>
+              <button class="time-btn" onclick="setRange(this,'30d')">30d</button>
+              <button class="time-btn" onclick="setRange(this,'90d')">90d</button>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="trafficChart"></canvas>
+            <div class="chart-notice" id="trafficNotice">
+              📈 Data collection started April 15, 2026<br/>
+              <small>Check back after a few days of traffic</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Traffic Sources donut -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Traffic Sources</span>
+          </div>
+          <div class="donut-wrapper">
+            <canvas id="sourcesChart"></canvas>
+          </div>
+          <div class="donut-legend" id="sourcesLegend"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── D: Content by Category ── -->
+    <div class="section">
+      <div class="donuts-row">
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Content by Category</span>
+          </div>
+          <div class="donut-wrapper">
+            <canvas id="categoryChart"></canvas>
+          </div>
+          <div class="donut-legend" id="categoryLegend"></div>
+        </div>
+
+        <!-- Summary stats -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Content Summary</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;padding-top:0.5rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface2);border-radius:8px;">
+              <span style="font-size:0.875rem;color:var(--text-muted);">Total Posts</span>
+              <strong style="font-size:1.25rem;color:var(--accent);">19</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface2);border-radius:8px;">
+              <span style="font-size:0.875rem;color:var(--text-muted);">Blog Posts</span>
+              <strong style="font-size:1.25rem;color:var(--text);">18</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface2);border-radius:8px;">
+              <span style="font-size:0.875rem;color:var(--text-muted);">Featured Guides</span>
+              <strong style="font-size:1.25rem;color:var(--text);">1</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface2);border-radius:8px;">
+              <span style="font-size:0.875rem;color:var(--text-muted);">With Descriptions</span>
+              <strong style="font-size:1.25rem;color:var(--green);">18 / 18</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface2);border-radius:8px;">
+              <span style="font-size:0.875rem;color:var(--text-muted);">Placeholder Images</span>
+              <strong style="font-size:1.25rem;color:var(--yellow);">5 posts</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── C: Top Pages by Traffic ── -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Top Pages by Traffic</span>
+        <span class="section-count">19 pages</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>URL</th>
+              <th>Published</th>
+              <th>Visits</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Featured guide first -->
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/guides/ai-for-executives.html" target="_blank">
+                  ⭐ AI for Executives: The Complete Guide
+                </a>
+              </td>
+              <td><span class="slug-cell">/guides/ai-for-executives.html</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 15, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-featured">Featured Guide</span></td>
+            </tr>
+            <!-- Blog posts sorted by pubDate descending -->
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/claude-opus-4-6-million-token-context/" target="_blank">
+                  Claude Opus 4.6 Arrives with a 1-Million-Token Context Window
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/claude-opus-4-6-million-token-context/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 14, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/pwc-ai-performance-top-20-percent/" target="_blank">
+                  PwC: The Top 20% of Companies Are Capturing 75% of AI's Value
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/pwc-ai-performance-top-20-percent/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 14, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/affordable-humanoid-robots-2026/" target="_blank">
+                  The $5,000 Humanoid Robot Is Here — and It Changes the Calculus for Business
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/affordable-humanoid-robots-2026/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 13, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/ai-coding-tools-dev-productivity-2026/" target="_blank">
+                  AI Coding Tools Are Cutting Dev Time by 46% — and the Competition Is Just Getting Started
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/ai-coding-tools-dev-productivity-2026/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 13, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/ai-run-retail-store-andon-market/" target="_blank">
+                  The First AI-Run Retail Store Is Open — And It's Already Making Mistakes
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/ai-run-retail-store-andon-market/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 12, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/happyhorse-open-source-video-ai/" target="_blank">
+                  HappyHorse-1.0: The Open-Source Video AI That Just Beat Everyone
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/happyhorse-open-source-video-ai/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 12, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/claude-mythos-anthropic-cybersecurity/" target="_blank">
+                  Claude Mythos: The Anthropic AI Too Dangerous to Release
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/claude-mythos-anthropic-cybersecurity/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 10, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/nvidia-physical-ai-robotics-week-2026/" target="_blank">
+                  Physical AI Goes Mainstream: NVIDIA's Robotics Week and What It Signals
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/nvidia-physical-ai-robotics-week-2026/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 10, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/open-source-ai-resurgence/" target="_blank">
+                  The Open Source Renaissance: How AI Is Making Complex Projects Accessible
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/open-source-ai-resurgence/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 10, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/agibot-10000-humanoid-robots-china/" target="_blank">
+                  AgiBot Ships Its 10,000th Humanoid Robot — China's Mass Production Era
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/agibot-10000-humanoid-robots-china/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 9, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/microsoft-mai-models-foundry-2026/" target="_blank">
+                  Microsoft Launches MAI-Image-2 and New MAI Models in Azure Foundry
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/microsoft-mai-models-foundry-2026/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 9, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/ai-agents-autonomous-business-2026/" target="_blank">
+                  AI Agents Are No Longer Copilots — They Are Executing Your Business Processes
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/ai-agents-autonomous-business-2026/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 8, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/unix-ai-panther-household-humanoid/" target="_blank">
+                  UniX AI Panther: The First Humanoid Robot Actually Deployed in Homes
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/unix-ai-panther-household-humanoid/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Apr 8, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/ai-landscape-2026-what-changed-what-matters/" target="_blank">
+                  The AI Landscape in 2026: What Changed and What Actually Matters
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/ai-landscape-2026-what-changed-what-matters/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Mar 28, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/canva-ai-review-2026/" target="_blank">
+                  Canva AI Review 2026: Is It Worth It for Business Content Creation?
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/canva-ai-review-2026/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Mar 25, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/humanoid-robots-entering-workplace-2026/" target="_blank">
+                  Humanoid Robots Are Entering the Workplace — Here's What's Actually Happening
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/humanoid-robots-entering-workplace-2026/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Mar 20, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/ai-agents-explained-how-they-work/" target="_blank">
+                  AI Agents Explained: How They Work and Why They're the Next Big Thing
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/ai-agents-explained-how-they-work/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Mar 15, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+            <tr>
+              <td class="post-title-cell">
+                <a class="post-title-link" href="/blog/getting-started-with-ai-small-business/" target="_blank">
+                  Getting Started with AI: A Practical Guide for Small Business Owners
+                </a>
+              </td>
+              <td><span class="slug-cell">/blog/getting-started-with-ai-small-business/</span></td>
+              <td style="white-space:nowrap;font-size:0.82rem;color:var(--text-muted);">Mar 10, 2026</td>
+              <td class="visits-cell">—</td>
+              <td><span class="badge badge-live">Live</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── F: SEO Health ── -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">SEO Health</span>
+        <span class="section-count">18 blog posts</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Custom Image</th>
+              <th>Slug</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">Claude Opus 4.6 — 1M-Token Context Window</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">claude-opus-4-6-million-token-context</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">PwC: Top 20% Capture 75% of AI's Value</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">pwc-ai-performance-top-20-percent</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">The $5,000 Humanoid Robot Is Here</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">affordable-humanoid-robots-2026</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">AI Coding Tools Cutting Dev Time by 46%</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">ai-coding-tools-dev-productivity-2026</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">The First AI-Run Retail Store</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">ai-run-retail-store-andon-market</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">HappyHorse-1.0: Open-Source Video AI</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">happyhorse-open-source-video-ai</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">Claude Mythos: Anthropic Cybersecurity AI</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">claude-mythos-anthropic-cybersecurity</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">NVIDIA Physical AI — Robotics Week</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">nvidia-physical-ai-robotics-week-2026</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">Open Source AI Renaissance</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">open-source-ai-resurgence</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">AgiBot Ships 10,000th Humanoid Robot</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">agibot-10000-humanoid-robots-china</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">Microsoft MAI-Image-2 and Azure Foundry</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">microsoft-mai-models-foundry-2026</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">AI Agents Executing Business Processes</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">ai-agents-autonomous-business-2026</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">UniX AI Panther — Household Humanoid</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="slug-cell">unix-ai-panther-household-humanoid</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">The AI Landscape in 2026</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-no" title="Uses blog-placeholder-1.jpg">⚠</span></td>
+              <td class="slug-cell">ai-landscape-2026-what-changed-what-matters</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">Canva AI Review 2026</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-no" title="Uses blog-placeholder-2.jpg">⚠</span></td>
+              <td class="slug-cell">canva-ai-review-2026</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">Humanoid Robots Entering the Workplace</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-no" title="Uses blog-placeholder-3.jpg">⚠</span></td>
+              <td class="slug-cell">humanoid-robots-entering-workplace-2026</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">AI Agents Explained: How They Work</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-no" title="Uses blog-placeholder-4.jpg">⚠</span></td>
+              <td class="slug-cell">ai-agents-explained-how-they-work</td>
+            </tr>
+            <tr>
+              <td class="post-title-cell"><span class="post-title-link" style="cursor:default;">Getting Started with AI: Small Business</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-no" title="Uses blog-placeholder-5.jpg">⚠</span></td>
+              <td class="slug-cell">getting-started-with-ai-small-business</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-muted);">
+        ⚠ = using generic placeholder image. Consider adding custom OG images for social sharing.
+      </p>
+    </div>
+
+    <!-- ── G: Recommendations ── -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Recommendations</span>
+      </div>
+      <div class="recs-grid">
+        <div class="rec-card">
+          <div class="rec-icon">🔍</div>
+          <div>
+            <div class="rec-priority priority-high">High Priority</div>
+            <div class="rec-title">Set Up Google Search Console</div>
+            <div class="rec-body">No GSC verification found. Add the Google Search Console meta tag to BaseHead.astro to start tracking organic search impressions, keyword rankings, and crawl health. Free and takes ~5 minutes.</div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">🖼️</div>
+          <div>
+            <div class="rec-priority priority-high">High Priority</div>
+            <div class="rec-title">Replace 5 Placeholder Images</div>
+            <div class="rec-body">5 posts still use generic blog-placeholder images: AI Landscape, Canva Review, Humanoid Robots Workplace, AI Agents Explained, Getting Started. Custom OG images significantly improve CTR on social and in search results.</div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">📊</div>
+          <div>
+            <div class="rec-priority priority-high">High Priority</div>
+            <div class="rec-title">Activate Plausible Dashboard</div>
+            <div class="rec-body">Tracking script is live. Go to plausible.io, sign up, and add advancedai.com as a site. You'll start seeing real visitor data within minutes. No personal data collected — fully privacy-friendly.</div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">🔗</div>
+          <div>
+            <div class="rec-priority priority-med">Medium Priority</div>
+            <div class="rec-title">Build Internal Linking Strategy</div>
+            <div class="rec-body">With 18 posts in related clusters (robotics, AI agents, AI tools, enterprise), add contextual internal links between posts. This passes SEO value and keeps readers engaged longer. Target 2–3 internal links per post.</div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">📧</div>
+          <div>
+            <div class="rec-priority priority-med">Medium Priority</div>
+            <div class="rec-title">Add Newsletter / Email Capture</div>
+            <div class="rec-body">Organic traffic is valuable but fragile. Add an email signup (ConvertKit, Buttondown, or Resend) to build a direct audience. A simple "Weekly AI Briefing" offer converts well with an engaged tech audience.</div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">🗺️</div>
+          <div>
+            <div class="rec-priority priority-low">Low Priority</div>
+            <div class="rec-title">Submit Sitemap to Search Engines</div>
+            <div class="rec-body">Your sitemap is at /sitemap-index.xml. Once GSC is set up, submit it directly in Search Console. Also submit to Bing Webmaster Tools. Speeds up indexing of new posts.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="dash-footer">
+      <p>advancedai.com Analytics Dashboard · Generated April 15, 2026 · Tracking via Plausible Analytics</p>
+      <p style="margin-top:0.25rem;">Data shown as "—" will populate once Plausible is activated at <a href="https://plausible.io" style="color:var(--accent);">plausible.io</a></p>
+    </footer>
+
+  </main>
+
+  <script>
+    // ── Theme toggle ──
+    const toggle = document.getElementById('themeToggle');
+    function updateToggleIcon() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      toggle.textContent = isDark ? '☀️' : '🌙';
+    }
+    updateToggleIcon();
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggleIcon();
+      // Redraw charts for new theme
+      rebuildCharts();
+    });
+
+    // ── Chart colours helper ──
+    function cssVar(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    // ── Traffic Over Time (skeleton line chart) ──
+    let trafficChart, sourcesChart, categoryChart;
+
+    function buildTrafficChart() {
+      const ctx = document.getElementById('trafficChart').getContext('2d');
+      const labels = [];
+      const today = new Date('2026-04-15');
+      for (let i = 29; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        labels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+      }
+      if (trafficChart) trafficChart.destroy();
+      trafficChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Visitors',
+            data: new Array(30).fill(null),
+            borderColor: '#6366f1',
+            backgroundColor: 'rgba(99,102,241,0.08)',
+            pointRadius: 0,
+            tension: 0.4,
+            fill: true,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: {
+              ticks: { color: cssVar('--text-muted'), maxTicksLimit: 6, font: { size: 10 } },
+              grid: { color: cssVar('--border') }
+            },
+            y: {
+              ticks: { color: cssVar('--text-muted'), font: { size: 10 } },
+              grid: { color: cssVar('--border') },
+              beginAtZero: true,
+            }
+          }
+        }
+      });
+    }
+
+    // ── Sources donut ──
+    const sourceColors = ['#6366f1','#10b981','#f59e0b','#ef4444'];
+    const sourceLabels = ['Organic Search', 'Direct', 'Social', 'Referral'];
+    const sourcePlaceholder = [40, 30, 20, 10];
+
+    function buildSourcesChart() {
+      const ctx = document.getElementById('sourcesChart').getContext('2d');
+      if (sourcesChart) sourcesChart.destroy();
+      sourcesChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: sourceLabels,
+          datasets: [{
+            data: sourcePlaceholder,
+            backgroundColor: sourceColors,
+            borderColor: cssVar('--surface'),
+            borderWidth: 3,
+            hoverOffset: 4,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '68%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` ${ctx.label}: ${ctx.parsed}% (estimated)`
+              }
+            }
+          }
+        }
+      });
+      // Build custom legend
+      const legend = document.getElementById('sourcesLegend');
+      legend.innerHTML = sourceLabels.map((l, i) =>
+        `<span class="legend-item"><span class="legend-dot" style="background:${sourceColors[i]}"></span>${l}</span>`
+      ).join('');
+    }
+
+    // ── Category donut ──
+    const catColors = ['#6366f1','#10b981','#f59e0b','#ef4444','#8b5cf6'];
+    const catLabels = ['Robotics & Humanoids', 'AI Tools & Productivity', 'AI Agents', 'Enterprise & Strategy', 'AI Research & Models'];
+    const catData = [5, 5, 3, 3, 2];
+
+    function buildCategoryChart() {
+      const ctx = document.getElementById('categoryChart').getContext('2d');
+      if (categoryChart) categoryChart.destroy();
+      categoryChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: catLabels,
+          datasets: [{
+            data: catData,
+            backgroundColor: catColors,
+            borderColor: cssVar('--surface'),
+            borderWidth: 3,
+            hoverOffset: 4,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '68%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` ${ctx.label}: ${ctx.parsed} posts`
+              }
+            }
+          }
+        }
+      });
+      const legend = document.getElementById('categoryLegend');
+      legend.innerHTML = catLabels.map((l, i) =>
+        `<span class="legend-item"><span class="legend-dot" style="background:${catColors[i]}"></span>${l} (${catData[i]})</span>`
+      ).join('');
+    }
+
+    function rebuildCharts() {
+      buildTrafficChart();
+      buildSourcesChart();
+      buildCategoryChart();
+    }
+
+    // Initial render
+    rebuildCharts();
+
+    // ── Time range toggle ──
+    function setRange(btn, range) {
+      document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // In a live version this would refetch data; for now just a visual toggle
+    }
+  </script>
+</body>
+</html>
