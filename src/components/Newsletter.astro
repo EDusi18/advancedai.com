@@ -19,37 +19,39 @@
 </div>
 
 <script is:inline>
-async function handleSubscribe(e) {
-	e.preventDefault();
-	const email = document.getElementById('nl-email').value.trim();
-	const btn = document.getElementById('nl-btn');
-	const msg = document.getElementById('nl-msg');
-	btn.textContent = 'Subscribing…';
-	btn.disabled = true;
-	try {
-		const form = new FormData();
-		form.append('email', email);
-		form.append('name', '');
-		form.append('l', 'e787e2da-8766-4540-9fb3-e63329d0b76d');
-		const res = await fetch('https://forms.advancedai.com/subscribe', {
-			method: 'POST',
-			body: form
-		});
-		if (res.ok || res.status === 200) {
-			document.getElementById('nl-form').style.display = 'none';
-			msg.textContent = '✅ You’re subscribed! Check your inbox.';
-			msg.style.color = 'var(--accent)';
-			msg.style.fontWeight = '600';
-		} else {
-			throw new Error('Failed');
+document.querySelectorAll('.newsletter-form').forEach(function(form) {
+	form.addEventListener('submit', async function(e) {
+		e.preventDefault();
+		const emailInput = form.querySelector('input[type="email"]');
+		const btn = form.querySelector('button[type="submit"]');
+		const msg = form.closest('.newsletter').querySelector('.newsletter-note');
+		const email = emailInput.value.trim();
+		btn.textContent = 'Subscribing…';
+		btn.disabled = true;
+		try {
+			const body = new URLSearchParams({ email: email, name: '' });
+			const res = await fetch('https://forms.advancedai.com/subscribe', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: body.toString()
+			});
+			const json = await res.json();
+			if (json.ok) {
+				form.style.display = 'none';
+				msg.textContent = '✅ You’re subscribed! Check your inbox.';
+				msg.style.color = 'var(--accent)';
+				msg.style.fontWeight = '600';
+			} else {
+				throw new Error(json.error || 'Failed');
+			}
+		} catch (err) {
+			msg.textContent = 'Something went wrong — please try again.';
+			msg.style.color = 'red';
+			btn.textContent = 'Subscribe';
+			btn.disabled = false;
 		}
-	} catch (err) {
-		msg.textContent = 'Something went wrong — please try again.';
-		msg.style.color = 'red';
-		btn.textContent = 'Subscribe';
-		btn.disabled = false;
-	}
-}
+	});
+});
 </script>
 
 <style>
