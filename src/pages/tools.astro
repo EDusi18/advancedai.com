@@ -979,21 +979,18 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         z-index: 50;
         background: var(--bg);
         border-bottom: 1px solid var(--border);
-        margin-left: -1.5em;
-        margin-right: -1.5em;
-        padding: 0 1.5em;
+        width: 100%;
       }
       .category-tabs {
         display: flex;
         flex-wrap: nowrap;
         gap: 0.5em;
         overflow-x: auto;
+        overflow-y: visible;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0.75em 0;
+        padding: 0.75em 1.5em;
       }
       .category-tabs::-webkit-scrollbar { display: none; }
       .cat-btn {
