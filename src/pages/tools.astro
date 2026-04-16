@@ -1,0 +1,1778 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+// ── Tool Data ────────────────────────────────────────────────────────────────
+// Source: advancedai-tools-list.md — 51 tools across 11 categories
+// Affiliate links use real URLs for now — Erol will swap in affiliate URLs later.
+// TODO: Replace each tool's `url` with your affiliate link when available.
+
+interface Tool {
+  slug: string;
+  name: string;
+  category: string;
+  featured: boolean;
+  url: string;
+  oneliner: string;
+  usecases: string[];
+  pricing: string;
+  platforms: string[];
+  affiliate: boolean;
+  standout: string;
+}
+
+const TOOLS: Tool[] = [
+  // ── Writing & Communication ──────────────────────────────────────────────
+  {
+    slug: "chatgpt",
+    name: "ChatGPT",
+    category: "Writing",
+    featured: true,
+    url: "https://chat.openai.com",
+    oneliner: "The world's most widely used AI assistant for writing, analysis, strategy, and document generation.",
+    usecases: [
+      "Draft, polish, and reframe emails or executive memos in seconds",
+      "Summarize long reports, contracts, or board decks",
+      "Generate first drafts of strategic documents and proposals",
+    ],
+    pricing: "Free (GPT-4o limited); Plus $20/mo; Pro $200/mo; Team $25/user/mo",
+    platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
+    affiliate: true,
+    standout: "Custom GPTs let execs build tailored assistants for their specific business context — no coding required.",
+  },
+  {
+    slug: "claude",
+    name: "Claude",
+    category: "Writing",
+    featured: true,
+    url: "https://claude.ai",
+    oneliner: "Anthropic's flagship AI assistant, known for longer context windows, nuanced writing, and document analysis.",
+    usecases: [
+      "Analyze and summarize 200+ page documents (contracts, reports)",
+      "Draft high-quality long-form content with a natural, human tone",
+      "Strategic Q&A and advisor-style conversations",
+    ],
+    pricing: "Free (limited); Pro $20/mo; Max $100–$200/mo; Enterprise: custom",
+    platforms: ["Web", "Mac", "iOS", "Android"],
+    affiliate: false,
+    standout: "200K token context window on paid tiers — upload and analyze full contracts or reports in one shot.",
+  },
+  {
+    slug: "google-gemini",
+    name: "Google Gemini",
+    category: "Writing",
+    featured: false,
+    url: "https://gemini.google.com",
+    oneliner: "Google's AI assistant with deep integration into Gmail, Docs, Sheets, and Meet for Workspace users.",
+    usecases: [
+      "Draft and summarize emails directly inside Gmail",
+      "Analyze spreadsheet data in Google Sheets with natural language",
+      "Generate Google Docs and Slides from prompts",
+    ],
+    pricing: "Free (Gemini 2.0 Flash); Advanced $19.99/mo; Business via Workspace add-on",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: false,
+    standout: "Native integration with Google Workspace — the AI works inside tools execs already use daily.",
+  },
+  {
+    slug: "grammarly-business",
+    name: "Grammarly Business",
+    category: "Writing",
+    featured: true,
+    url: "https://www.grammarly.com/business",
+    oneliner: "AI writing assistant that ensures every exec communication is clear, professional, and on-brand.",
+    usecases: [
+      "Real-time grammar, tone, and clarity improvements across all apps",
+      "Tone detection and adjustment for sensitive communications",
+      "Brand voice consistency across team communications",
+    ],
+    pricing: "Free (basic); Premium $12/mo; Business $15/user/mo (min 3 users)",
+    platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
+    affiliate: true,
+    standout: "Works across every app and browser — exec-level polish on every message without switching context.",
+  },
+  {
+    slug: "jasper-ai",
+    name: "Jasper AI",
+    category: "Writing",
+    featured: false,
+    url: "https://www.jasper.ai",
+    oneliner: "AI content platform purpose-built for marketing teams producing large volumes of branded content.",
+    usecases: [
+      "Generate on-brand marketing copy, blog posts, and ad content at scale",
+      "Maintain brand voice across all content with Brand Voice feature",
+      "Build repeatable content workflows for teams",
+    ],
+    pricing: "Creator $39/mo; Pro $59/mo; Business: custom. 7-day free trial.",
+    platforms: ["Web"],
+    affiliate: true,
+    standout: "Brand Voice feature trains Jasper on your company's tone, so every output sounds like you — not generic AI.",
+  },
+  {
+    slug: "copy-ai",
+    name: "Copy.ai",
+    category: "Writing",
+    featured: false,
+    url: "https://www.copy.ai",
+    oneliner: "AI-powered go-to-market platform for automating sales and marketing content workflows.",
+    usecases: [
+      "Automate prospecting emails and outreach sequences",
+      "Generate sales enablement materials from product briefs",
+      "Repurpose long-form content into social, email, and ads",
+    ],
+    pricing: "Free (limited); Pro $36/mo; Teams $186/mo; Enterprise: custom",
+    platforms: ["Web"],
+    affiliate: true,
+    standout: "Pre-built GTM workflows automate repetitive content tasks end-to-end, not just single outputs.",
+  },
+
+  // ── Meetings & Productivity ──────────────────────────────────────────────
+  {
+    slug: "fireflies-ai",
+    name: "Fireflies.ai",
+    category: "Meetings",
+    featured: true,
+    url: "https://fireflies.ai",
+    oneliner: "AI meeting assistant that records, transcribes, and generates searchable summaries and action items from every call.",
+    usecases: [
+      "Automatically capture action items and decisions from every meeting",
+      "Search across all past meeting transcripts by keyword or topic",
+      "Share concise meeting recaps with attendees and stakeholders",
+    ],
+    pricing: "Free (800 min storage); Pro $10/user/mo; Business $19/user/mo; Enterprise: custom",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: true,
+    standout: "Global transcript search across all your past meetings — find any conversation or decision ever recorded.",
+  },
+  {
+    slug: "otter-ai",
+    name: "Otter.ai",
+    category: "Meetings",
+    featured: false,
+    url: "https://otter.ai",
+    oneliner: "Real-time AI transcription and note-taking that lets participants see meeting notes as the conversation happens.",
+    usecases: [
+      "Real-time transcription visible to all meeting participants during the call",
+      "Automated meeting summaries emailed after each meeting",
+      "Captures action items and assigns them to the right people",
+    ],
+    pricing: "Free (300 min/mo); Pro $8.33/user/mo; Business $20/user/mo (annual)",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: false,
+    standout: "Live transcript display during meetings makes it easy for every participant to follow along in real time.",
+  },
+  {
+    slug: "tldv",
+    name: "tl;dv",
+    category: "Meetings",
+    featured: true,
+    url: "https://tldv.io",
+    oneliner: "AI meeting recorder that clips, timestamps, and shares key moments — with deep CRM integration for sales teams.",
+    usecases: [
+      "Share timestamped meeting highlights with teams who weren't there",
+      "Automatically push meeting summaries to Salesforce or HubSpot",
+      "Multi-meeting AI synthesis across many calls to spot patterns",
+    ],
+    pricing: "Free tier; Pro $10/mo; Business $59/mo per workspace; Enterprise: custom",
+    platforms: ["Web"],
+    affiliate: true,
+    standout: "AI-generated 'meeting reports' synthesize insights across many meetings — ideal for VPs reviewing sales call trends.",
+  },
+  {
+    slug: "fellow",
+    name: "Fellow",
+    category: "Meetings",
+    featured: false,
+    url: "https://fellow.ai",
+    oneliner: "AI meeting management tool built specifically for managers — structured 1-on-1s, agendas, and accountability tracking.",
+    usecases: [
+      "Build structured agendas for 1-on-1s, team standups, and board meetings",
+      "AI-generated action items with assignees and due dates post-meeting",
+      "Track follow-through on decisions across recurring meetings",
+    ],
+    pricing: "Free (up to 10 users); Pro $6/user/mo; Business: custom",
+    platforms: ["Web", "Mac", "iOS", "Android"],
+    affiliate: false,
+    standout: "The best purpose-built meeting management tool for managers — agenda templates + accountability tracking in one place.",
+  },
+  {
+    slug: "notion-ai",
+    name: "Notion AI",
+    category: "Meetings",
+    featured: true,
+    url: "https://www.notion.com",
+    oneliner: "All-in-one workspace with built-in AI for writing, summarizing, task tracking, databases, and team wikis.",
+    usecases: [
+      "AI-powered knowledge base and company wiki with natural language search",
+      "Summarize meeting notes, documents, and databases on demand",
+      "Generate project plans, reports, and strategy docs from brief prompts",
+    ],
+    pricing: "Free; Plus $12/user/mo; Business $18/user/mo; Enterprise: custom",
+    platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
+    affiliate: true,
+    standout: "Replaces Confluence, Asana, and half your docs stack — AI is woven throughout, not bolted on.",
+  },
+
+  // ── Research & Intelligence ──────────────────────────────────────────────
+  {
+    slug: "perplexity-ai",
+    name: "Perplexity AI",
+    category: "Research",
+    featured: true,
+    url: "https://www.perplexity.ai",
+    oneliner: "AI-powered search engine that answers questions with real-time web research and cited sources.",
+    usecases: [
+      "Rapid competitive intelligence and market landscape snapshots",
+      "Real-time news monitoring on topics, companies, and competitors",
+      "Deep Research mode for comprehensive multi-source reports",
+    ],
+    pricing: "Free (limited); Pro $20/mo or $200/yr; Enterprise Pro $40/user/mo",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: true,
+    standout: "Every answer includes citations — no hallucination risk on facts; you can verify every claim instantly.",
+  },
+  {
+    slug: "elicit",
+    name: "Elicit",
+    category: "Research",
+    featured: false,
+    url: "https://elicit.com",
+    oneliner: "AI research assistant that finds, reads, and synthesizes peer-reviewed academic papers for evidence-based decisions.",
+    usecases: [
+      "Research evidence base for health, wellness, or scientifically-grounded decisions",
+      "Due diligence research for healthcare, biotech, or pharma investments",
+      "Literature review automation for R&D or product teams",
+    ],
+    pricing: "Free (limited); Basic $12/mo; Plus $49/mo; Enterprise: custom",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Synthesizes findings across hundreds of research papers at once — executive-level intelligence from primary literature.",
+  },
+  {
+    slug: "google-notebooklm",
+    name: "Google NotebookLM",
+    category: "Research",
+    featured: true,
+    url: "https://notebooklm.google.com",
+    oneliner: "Google's AI research partner that lets you upload your own documents and have deep, cited conversations about them.",
+    usecases: [
+      "Upload board reports, research, and data files and ask questions directly",
+      "Generate executive briefing documents from uploaded source materials",
+      "Create audio summaries (AI-generated podcasts) from dense documents",
+    ],
+    pricing: "Free; Google AI Pro $19.99/mo for higher limits; Enterprise via Google Cloud",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Generates shareable AI podcast-style audio briefings from your documents — perfect for executives on the go.",
+  },
+  {
+    slug: "chatpdf",
+    name: "ChatPDF",
+    category: "Research",
+    featured: false,
+    url: "https://www.chatpdf.com",
+    oneliner: "Upload any PDF — contract, report, or research paper — and have a conversation with it.",
+    usecases: [
+      "Extract key clauses and obligations from contracts without reading page by page",
+      "Q&A on lengthy board materials, investor reports, and compliance documents",
+      "Review vendor proposals and RFP responses faster",
+    ],
+    pricing: "Free (2 PDFs/day, 120 pages); Plus $5/mo; Pro $15/mo (unlimited PDFs)",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Drag-and-drop any PDF — no setup, no account needed to start. The simplest entry to AI document analysis.",
+  },
+  {
+    slug: "consensus",
+    name: "Consensus",
+    category: "Research",
+    featured: false,
+    url: "https://consensus.app",
+    oneliner: "AI search engine for scientific research — surfaces evidence-backed answers with citations from 200M+ papers.",
+    usecases: [
+      "Validate health, wellness, or environmental claims before making decisions",
+      "Quick access to what research actually says about a business or policy question",
+      "Due diligence for healthcare, biotech, or science-adjacent industries",
+    ],
+    pricing: "Free (limited); Premium ~$8.99/mo or ~$4.99/mo (annual); Teams: custom",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "'Consensus Meter' shows percentage of studies agreeing or disagreeing with a claim — instant credibility gauge.",
+  },
+
+  // ── Presentation & Visual ────────────────────────────────────────────────
+  {
+    slug: "gamma",
+    name: "Gamma",
+    category: "Presentation",
+    featured: true,
+    url: "https://gamma.app",
+    oneliner: "AI-first presentation builder that creates polished decks, docs, and webpages from a text prompt in under 2 minutes.",
+    usecases: [
+      "Generate full board decks or investor presentations from a brief prompt",
+      "Create strategy memos or one-pagers that look designed without a designer",
+      "Convert existing documents into visual presentations instantly",
+    ],
+    pricing: "Free (400 AI credits, Gamma branding); Plus $8/mo; Pro $15/mo; Team $20/user/mo",
+    platforms: ["Web"],
+    affiliate: true,
+    standout: "A full-quality 20-slide deck from a single paragraph prompt — the best time-to-deck ratio on the market.",
+  },
+  {
+    slug: "beautiful-ai",
+    name: "Beautiful.ai",
+    category: "Presentation",
+    featured: false,
+    url: "https://www.beautiful.ai",
+    oneliner: "Smart presentation platform where AI auto-designs slides as you add content — always polished, never awkward.",
+    usecases: [
+      "Create investor-ready presentations with automatic professional formatting",
+      "DesignerBot generates full presentations from prompts",
+      "Store approved company templates for consistent executive communications",
+    ],
+    pricing: "No permanent free tier; 14-day trial; Pro $12/mo; Team $40/user/mo; Enterprise: custom",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "SmartSlide templates auto-format as you type — you never have to nudge an element or fight a layout again.",
+  },
+  {
+    slug: "canva-ai",
+    name: "Canva AI",
+    category: "Presentation",
+    featured: true,
+    url: "https://www.canva.com",
+    oneliner: "The world's most popular design platform with deeply integrated AI for presentations, social, video, docs, and more.",
+    usecases: [
+      "Create professional presentations, social content, and marketing materials without a designer",
+      "Magic Design generates full presentations from a brief description",
+      "Brand Kit ensures consistent logos, fonts, and colors across all materials",
+    ],
+    pricing: "Free (generous AI features); Pro ~$15/mo; Teams ~$10/user/mo; Enterprise: custom",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: true,
+    standout: "Brand Kit + Magic Design means every exec on your team produces on-brand content without creative direction.",
+  },
+  {
+    slug: "tome",
+    name: "Tome",
+    category: "Presentation",
+    featured: false,
+    url: "https://tome.app",
+    oneliner: "AI storytelling tool that builds narrative-first presentations and memos with a modern, minimal aesthetic.",
+    usecases: [
+      "Build compelling narrative decks for investors, customers, and boards",
+      "Generate presentations from a topic or document in minutes",
+      "Share as a live link (no PowerPoint exports needed)",
+    ],
+    pricing: "Free (limited AI credits); Pro $20/mo; Enterprise: custom",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Narrative-first format — Tome builds story arcs around your content, making complex ideas easier to communicate.",
+  },
+
+  // ── Scheduling & Executive Ops ───────────────────────────────────────────
+  {
+    slug: "motion",
+    name: "Motion",
+    category: "Scheduling",
+    featured: true,
+    url: "https://www.usemotion.com",
+    oneliner: "AI calendar and task manager that automatically schedules your entire day — meetings, tasks, and focus time — in real time.",
+    usecases: [
+      "AI auto-schedules tasks into your calendar based on priority and deadlines",
+      "Automatically resolves calendar conflicts without back-and-forth",
+      "Reprioritizes tasks dynamically when new urgent items appear",
+    ],
+    pricing: "Individual $19/mo or ~$12.75/mo (annual); Team $12–$15/user/mo; 7-day free trial",
+    platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
+    affiliate: true,
+    standout: "The AI rebuilds your entire calendar in real time when meetings or priorities change — true autonomous scheduling.",
+  },
+  {
+    slug: "reclaim-ai",
+    name: "Reclaim.ai",
+    category: "Scheduling",
+    featured: true,
+    url: "https://reclaim.ai",
+    oneliner: "AI calendar optimization tool that defends your focus time, habits, and work-life balance automatically.",
+    usecases: [
+      "Automatically schedules and defends deep work and focus time blocks",
+      "Smart meeting scheduling that finds optimal times across your team",
+      "Habit scheduling (exercise, reading, strategic time) treated as protected appointments",
+    ],
+    pricing: "Free (Lite); Starter $8/user/mo; Business $12/user/mo (annual)",
+    platforms: ["Web"],
+    affiliate: true,
+    standout: "'Time blocking by AI' that actually respects and re-defends your focus time every time the calendar gets disrupted.",
+  },
+  {
+    slug: "calendly",
+    name: "Calendly",
+    category: "Scheduling",
+    featured: false,
+    url: "https://calendly.com",
+    oneliner: "AI-powered scheduling platform that eliminates scheduling back-and-forth and automates meeting workflows.",
+    usecases: [
+      "Share smart scheduling links that show real availability — no more email chains",
+      "Auto-send reminders, confirmations, and follow-up workflows",
+      "Routing forms that direct meeting requests to the right person automatically",
+    ],
+    pricing: "Free (1 event type); Standard $10/seat/mo; Teams $16/seat/mo; Enterprise: custom",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: true,
+    standout: "Routing forms eliminate the wrong-person meeting problem — prospects booked with the right rep, every time.",
+  },
+
+  // ── Sales & CRM ──────────────────────────────────────────────────────────
+  {
+    slug: "gong",
+    name: "Gong",
+    category: "Sales",
+    featured: true,
+    url: "https://www.gong.io",
+    oneliner: "Revenue intelligence platform that captures and analyzes every customer conversation to improve sales performance.",
+    usecases: [
+      "See which deals are at risk before they slip — AI deal health scoring",
+      "Understand what top performers do differently from bottom performers",
+      "Forecast accuracy powered by actual conversation data, not gut feeling",
+    ],
+    pricing: "Custom enterprise pricing. Typical $5K–$50K+/yr depending on team size.",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: false,
+    standout: "Deal timeline and risk alerts give sales leaders visibility into every deal without attending every call.",
+  },
+  {
+    slug: "apollo-io",
+    name: "Apollo.io",
+    category: "Sales",
+    featured: true,
+    url: "https://www.apollo.io",
+    oneliner: "All-in-one AI sales intelligence platform combining a 275M+ contact database with AI outreach and email sequencing.",
+    usecases: [
+      "Find and contact any B2B prospect from a 275M+ verified database",
+      "AI-generated personalized email sequences that auto-run and follow up",
+      "CRM enrichment — automatically fill in missing contact and company data",
+    ],
+    pricing: "Free (50 email credits/mo); Basic $49/user/mo; Professional $99/user/mo; Org $149/user/mo",
+    platforms: ["Web"],
+    affiliate: true,
+    standout: "Combines contact database + AI email writer + automation sequencer in one tool — replaces 3 separate sales tools.",
+  },
+  {
+    slug: "hubspot-ai",
+    name: "HubSpot AI",
+    category: "Sales",
+    featured: true,
+    url: "https://www.hubspot.com",
+    oneliner: "The most popular CRM for SMB and mid-market, now with AI built into every product — sales, marketing, service, and ops.",
+    usecases: [
+      "AI-powered lead scoring and deal health tracking in the CRM",
+      "Generate emails, proposals, and follow-ups using AI inside HubSpot",
+      "Revenue forecasting and pipeline analytics with AI-surfaced insights",
+    ],
+    pricing: "Free CRM; Starter $15/seat/mo; Professional $90/seat/mo; Enterprise $150/seat/mo",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: true,
+    standout: "The free CRM is genuinely powerful — 90% of small business execs can start here for $0 and grow into AI features.",
+  },
+  {
+    slug: "lavender",
+    name: "Lavender",
+    category: "Sales",
+    featured: false,
+    url: "https://www.trylavender.ai",
+    oneliner: "AI email coach that analyzes outbound emails in real time and scores them for reply likelihood before you send.",
+    usecases: [
+      "Real-time email scoring (0–100) showing likelihood of getting a reply",
+      "AI coaching suggestions that improve subject lines, length, and personalization",
+      "Team analytics showing which email patterns drive the best reply rates",
+    ],
+    pricing: "Free (5 email analyses/mo); Starter $29/mo; Pro $49/mo; Teams $69/user/mo",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Real-time email score that tells you whether to send or rewrite — behavioral coaching at the moment of composition.",
+  },
+  {
+    slug: "salesforce-einstein",
+    name: "Salesforce Einstein",
+    category: "Sales",
+    featured: false,
+    url: "https://www.salesforce.com/artificial-intelligence/",
+    oneliner: "Salesforce's native AI layer built into every product — from Einstein Copilot for CRM queries to predictive lead scoring.",
+    usecases: [
+      "Natural language queries to the CRM: 'Show me deals likely to close this quarter'",
+      "AI-predicted deal close probabilities with win/loss reasoning",
+      "Einstein Copilot as an AI assistant for sales and service teams",
+    ],
+    pricing: "Built into Salesforce Sales Cloud; full Einstein 1 Sales $500/user/mo",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: false,
+    standout: "Works inside the CRM your team already uses — no data migration, no new tool to learn. AI inside Salesforce, not beside it.",
+  },
+
+  // ── Legal & Contracts ────────────────────────────────────────────────────
+  {
+    slug: "harvey-ai",
+    name: "Harvey AI",
+    category: "Legal",
+    featured: true,
+    url: "https://www.harvey.ai",
+    oneliner: "Enterprise-grade AI platform for legal work — contract analysis, due diligence, compliance, and legal research.",
+    usecases: [
+      "Rapid contract review and risk identification for business agreements",
+      "Due diligence automation for M&A and major transactions",
+      "Compliance monitoring and regulatory change tracking",
+    ],
+    pricing: "Enterprise custom pricing only. Contact sales for demo.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Custom-trained models on your firm's own documents — delivers context-aware legal analysis, not generic AI output.",
+  },
+  {
+    slug: "spellbook",
+    name: "Spellbook",
+    category: "Legal",
+    featured: true,
+    url: "https://www.spellbook.legal",
+    oneliner: "AI contract drafting and review assistant that works directly inside Microsoft Word.",
+    usecases: [
+      "AI-powered contract review highlighting risky clauses in plain English",
+      "Generate contract drafts from a brief description — NDAs, MSAs, SOWs",
+      "Suggest redlines and alternative language instantly during negotiations",
+    ],
+    pricing: "Custom pricing; small firm entry from ~$20/user/mo. Free demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Lives inside Word — no switching apps. Execs get AI contract insights in the tool they already use for agreements.",
+  },
+  {
+    slug: "ironclad",
+    name: "Ironclad",
+    category: "Legal",
+    featured: false,
+    url: "https://ironcladapp.com",
+    oneliner: "AI contract management platform for in-house legal teams — from creation and negotiation to signing and tracking.",
+    usecases: [
+      "Centralized contract repository with AI-powered search and extraction",
+      "Automated contract workflows with approval routing and signature collection",
+      "Obligation tracking and renewal alerts — never miss a critical deadline",
+    ],
+    pricing: "Custom enterprise pricing. No free tier. Demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Full contract lifecycle management in one platform — from first draft to obligation tracking, with AI at every step.",
+  },
+  {
+    slug: "cocounsel",
+    name: "CoCounsel (Thomson Reuters)",
+    category: "Legal",
+    featured: false,
+    url: "https://legal.thomsonreuters.com/cocounsel",
+    oneliner: "AI legal assistant from Thomson Reuters backed by Westlaw — built for reliable, citation-verified legal research.",
+    usecases: [
+      "Rapid legal research with Westlaw-backed accuracy and zero hallucination on citations",
+      "Contract review and issue spotting for in-house legal teams",
+      "Timeline and key issue extraction from large document sets",
+    ],
+    pricing: "~$225/mo for individual users; enterprise and firm pricing via Thomson Reuters. Free trial.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Backed by Westlaw's verified legal database — the gold standard for citation accuracy in AI legal research.",
+  },
+
+  // ── Finance & Analytics ──────────────────────────────────────────────────
+  {
+    slug: "datarails",
+    name: "Datarails",
+    category: "Finance",
+    featured: true,
+    url: "https://www.datarails.com",
+    oneliner: "AI-powered FP&A platform that automates financial reporting, budgeting, and forecasting — built for Excel-first finance teams.",
+    usecases: [
+      "Automate monthly close and financial reporting packages",
+      "AI-generated variance analysis and budget commentary",
+      "'FP&A Genius' AI chatbot answers financial questions in plain English",
+    ],
+    pricing: "Custom pricing (contact sales). Demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "FP&A Genius chatbot lets CFOs query their own financial data in natural language — 'What drove the Q3 variance in OPEX?'",
+  },
+  {
+    slug: "planful",
+    name: "Planful",
+    category: "Finance",
+    featured: false,
+    url: "https://planful.com",
+    oneliner: "Enterprise cloud FP&A platform with AI-powered scenario modeling, workforce planning, and reporting.",
+    usecases: [
+      "Driver-based financial models and scenario planning for board presentations",
+      "Automated management reporting packages with AI-generated commentary",
+      "Workforce planning integrated with financial models",
+    ],
+    pricing: "Custom enterprise pricing. No free tier. Demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Pre-built financial templates and workflows designed for CFOs — reduces time-to-insight from days to hours.",
+  },
+  {
+    slug: "pigment",
+    name: "Pigment",
+    category: "Finance",
+    featured: false,
+    url: "https://www.pigment.app",
+    oneliner: "Modern business planning platform with AI agents for financial modeling, scenario planning, and cross-functional forecasting.",
+    usecases: [
+      "Build real-time financial models with AI Analyst, Planner, and Modeler agents",
+      "Scenario modeling for strategic decisions — headcount, revenue, cost",
+      "Board-ready reports and dashboards built from live data",
+    ],
+    pricing: "Custom enterprise pricing. Free trial available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Three AI agents (Analyst, Planner, Modeler) automate the most time-consuming parts of financial planning.",
+  },
+  {
+    slug: "mosaic-tech",
+    name: "Mosaic Tech",
+    category: "Finance",
+    featured: false,
+    url: "https://www.mosaic.tech",
+    oneliner: "Strategic finance platform for high-growth companies — real-time financial intelligence, runway tracking, and board reporting.",
+    usecases: [
+      "Real-time financial dashboard with AI-surfaced anomalies and insights",
+      "Runway and cash flow tracking with scenario modeling",
+      "Revenue and headcount planning for CFOs at Series A–C companies",
+    ],
+    pricing: "Custom pricing (contact sales). Demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Purpose-built for startup and scale-up CFOs — connects directly to your existing systems and surfaces insights without a data team.",
+  },
+
+  // ── HR & Talent ──────────────────────────────────────────────────────────
+  {
+    slug: "eightfold-ai",
+    name: "Eightfold AI",
+    category: "HR",
+    featured: true,
+    url: "https://eightfold.ai",
+    oneliner: "Talent intelligence platform that uses deep learning to match, recruit, redeploy, and retain talent across the full employee lifecycle.",
+    usecases: [
+      "AI-powered talent acquisition from a 1.5B+ profile network",
+      "Internal mobility matching — find internal candidates before posting externally",
+      "Skills gap analysis and workforce planning for the organization",
+    ],
+    pricing: "Custom enterprise pricing (~$7–10/employee/mo). Contact sales.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Looks beyond job titles and keywords to assess skills and potential — surfaces hidden talent in and outside your org.",
+  },
+  {
+    slug: "hirevue",
+    name: "HireVue",
+    category: "HR",
+    featured: false,
+    url: "https://www.hirevue.com",
+    oneliner: "AI video interviewing and assessment platform that automates candidate screening and structured interviewing at scale.",
+    usecases: [
+      "Replace phone screens with AI-analyzed on-demand video interviews",
+      "Structured interview scoring that removes interviewer bias",
+      "Reduce screening time by up to 60% while improving candidate quality",
+    ],
+    pricing: "Enterprise custom pricing (~$35K+/yr entry point). Contact sales.",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: false,
+    standout: "On-demand video interviews let candidates interview anytime — execs get structured, comparable assessments without scheduling 30 phone screens.",
+  },
+  {
+    slug: "leena-ai",
+    name: "Leena AI",
+    category: "HR",
+    featured: false,
+    url: "https://leena.ai",
+    oneliner: "AI-powered employee experience platform that automates HR service delivery, onboarding, and policy queries.",
+    usecases: [
+      "AI HR helpdesk that answers employee questions 24/7 without HR team involvement",
+      "Onboarding automation with task assignment, document collection, and status tracking",
+      "Policy document Q&A — employees get instant answers from company handbooks",
+    ],
+    pricing: "Custom enterprise pricing. Contact sales. Demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Integrates with Slack and Teams — employees get HR answers in the tools they already use without opening a ticket.",
+  },
+  {
+    slug: "paradox-ai",
+    name: "Paradox (Olivia)",
+    category: "HR",
+    featured: false,
+    url: "https://www.paradox.ai",
+    oneliner: "Conversational AI recruiting assistant (Olivia) that engages candidates via text, screens them, and books interviews — 24/7.",
+    usecases: [
+      "Automate high-volume recruiting at scale — Olivia handles initial outreach and screening",
+      "Interview scheduling completely automated via conversational AI",
+      "Reduce time-to-offer for hourly and frontline workers from weeks to days",
+    ],
+    pricing: "Custom enterprise pricing. Contact sales. Demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Olivia can go from application to scheduled interview in under 10 minutes — transformative for high-volume hiring.",
+  },
+
+  // ── Security & Risk ──────────────────────────────────────────────────────
+  {
+    slug: "darktrace",
+    name: "Darktrace",
+    category: "Security",
+    featured: true,
+    url: "https://www.darktrace.com",
+    oneliner: "AI cybersecurity platform that detects and autonomously responds to novel threats across cloud, email, network, and OT environments.",
+    usecases: [
+      "Board-ready cybersecurity risk reporting from the AI Analyst",
+      "Autonomous threat detection that finds attacks traditional tools miss",
+      "CISO and exec-level dashboards with business-risk context, not just technical alerts",
+    ],
+    pricing: "Custom enterprise pricing (~$30K+/yr for mid-market). Demo available.",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Cyber AI Analyst generates natural language threat reports — execs and boards can understand risk posture without decoding security jargon.",
+  },
+  {
+    slug: "crowdstrike-falcon",
+    name: "CrowdStrike Falcon",
+    category: "Security",
+    featured: false,
+    url: "https://www.crowdstrike.com",
+    oneliner: "Industry-leading AI-native endpoint protection platform that stops breaches with real-time threat detection and automated response.",
+    usecases: [
+      "Protect all company devices with AI-powered threat detection",
+      "Charlotte AI — conversational security assistant answering threat questions in plain English",
+      "Exec-level threat exposure reporting for board and risk committees",
+    ],
+    pricing: "Falcon Go from ~$99.99/device/yr; Pro from ~$184.99/device/yr; Enterprise: custom",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Charlotte AI lets non-technical execs ask security questions in plain English: 'Are we protected against the latest ransomware?'",
+  },
+  {
+    slug: "sentinelone",
+    name: "SentinelOne Singularity",
+    category: "Security",
+    featured: false,
+    url: "https://www.sentinelone.com",
+    oneliner: "AI-powered endpoint and cloud security platform with autonomous threat detection and Purple AI for plain-language threat hunting.",
+    usecases: [
+      "Autonomous AI detects and responds to threats in milliseconds — no human in the loop required",
+      "Purple AI translates security telemetry into plain-English executive summaries",
+      "Rollback capability automatically reverses damage from ransomware attacks",
+    ],
+    pricing: "Singularity Core from ~$69.99/endpoint/yr; Commercial ~$139.99/endpoint/yr; Enterprise: custom",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Purple AI — query your security data in plain language and get executive-ready summaries without needing a SOC analyst.",
+  },
+
+  // ── Personal Productivity ────────────────────────────────────────────────
+  {
+    slug: "granola",
+    name: "Granola",
+    category: "Productivity",
+    featured: true,
+    url: "https://www.granola.ai",
+    oneliner: "Bot-free AI notepad that takes beautiful meeting notes using your Mac's audio — no meeting bot, no awkward join notifications.",
+    usecases: [
+      "Take meeting notes automatically for every call without a bot joining",
+      "Get AI-generated summaries, action items, and follow-ups immediately after each call",
+      "Works with any meeting platform via device audio — Zoom, Teams, Meet, phone calls",
+    ],
+    pricing: "Free (25 lifetime meetings); Individual $18/mo; Business $14/user/mo; Enterprise $35+/user/mo",
+    platforms: ["Mac"],
+    affiliate: false,
+    standout: "No bot joins your meetings — captures audio directly from your Mac so attendees never see 'Granola is recording.'",
+  },
+  {
+    slug: "superhuman",
+    name: "Superhuman",
+    category: "Productivity",
+    featured: true,
+    url: "https://superhuman.com",
+    oneliner: "The fastest AI email client on earth — designed for executives who need inbox zero without sacrificing quality responses.",
+    usecases: [
+      "AI Triage surfaces the most important emails first every morning",
+      "Draft full email replies in one keystroke using AI trained on your writing style",
+      "'Split Inbox' separates newsletters, automated emails, and human messages automatically",
+    ],
+    pricing: "Starter $30/mo ($300/yr); Business $40/mo ($396/yr); Enterprise: custom",
+    platforms: ["Web", "Mac", "iOS", "Android"],
+    affiliate: true,
+    standout: "'Ask AI' lets you search your entire email history in natural language — find any conversation from years of email in seconds.",
+  },
+  {
+    slug: "readwise",
+    name: "Readwise / Reader",
+    category: "Productivity",
+    featured: true,
+    url: "https://readwise.io",
+    oneliner: "The ultimate reading and knowledge retention stack — capture highlights from anything you read, then have AI resurface and synthesize them.",
+    usecases: [
+      "Save and highlight articles, newsletters, PDFs, and Twitter threads in one unified inbox",
+      "Readwise resurfaces your past highlights daily using spaced repetition",
+      "Chat with any document using AI (ask questions, extract key takeaways)",
+    ],
+    pricing: "Free 60-day trial; then $7.99/mo (Readwise only) or $9.99/mo annual for Readwise + Reader",
+    platforms: ["Web", "iOS", "Android", "Mac"],
+    affiliate: true,
+    standout: "Spaced repetition for your highlights — instead of forgetting 90% of what you read, Readwise drills your own notes back to you until they stick.",
+  },
+  {
+    slug: "mem-ai",
+    name: "Mem.ai",
+    category: "Productivity",
+    featured: false,
+    url: "https://get.mem.ai",
+    oneliner: "AI-powered notes app that automatically organizes everything you capture and surfaces the right information when you need it.",
+    usecases: [
+      "Capture meeting notes, ideas, and research without worrying about organizing them",
+      "Ask your notes questions in plain language",
+      "Templates for 1:1s, weekly reviews, and board prep that the AI populates with context",
+    ],
+    pricing: "Free (25 notes + 25 AI chats/mo); Pro $12/mo (unlimited everything)",
+    platforms: ["Web", "iOS", "Mac"],
+    affiliate: false,
+    standout: "Zero-folder organization — Mem's AI automatically connects related notes, people, and projects so you never waste time filing.",
+  },
+  {
+    slug: "reflect",
+    name: "Reflect",
+    category: "Productivity",
+    featured: false,
+    url: "https://reflect.app",
+    oneliner: "Elegant networked note-taking app with AI writing assistance, backlinks, and a daily notes structure built for focused thinkers.",
+    usecases: [
+      "Daily notes capture the day's thoughts, meetings, and decisions in a searchable journal",
+      "Backlinks automatically connect related notes — ideas and context surface without manual tagging",
+      "AI assistant drafts, summarizes, and rewrites directly within your notes",
+    ],
+    pricing: "14-day free trial; then $10/mo or $100/yr",
+    platforms: ["Web", "Mac", "iOS"],
+    affiliate: false,
+    standout: "End-to-end encryption on all notes — one of the only note-taking apps where even the company can't read your content.",
+  },
+  {
+    slug: "speechify",
+    name: "Speechify",
+    category: "Productivity",
+    featured: true,
+    url: "https://speechify.com",
+    oneliner: "AI text-to-speech reader that converts any document, email, article, or PDF into high-quality audio — read at 2–4.5x normal speed.",
+    usecases: [
+      "Listen to lengthy reports, contracts, and articles while commuting or working out",
+      "Import PDFs, Google Docs, or email threads and listen hands-free",
+      "Compress reading time dramatically with AI voices at speeds up to 4.5x",
+    ],
+    pricing: "Free (standard AI voices); Premium from ~$11.58/mo (annual) or $29/mo; Business: custom",
+    platforms: ["iOS", "Android", "Mac", "Web"],
+    affiliate: true,
+    standout: "Listen at 4.5x speed — executives report consuming 3–4x more reading material per week without adding screen time.",
+  },
+  {
+    slug: "tactiq",
+    name: "Tactiq",
+    category: "Productivity",
+    featured: false,
+    url: "https://tactiq.io",
+    oneliner: "Live AI meeting transcription that runs inside Google Meet, Zoom, and Teams in your browser — no bot, no recording software needed.",
+    usecases: [
+      "Instant live transcription displayed on-screen during meetings without a separate bot",
+      "One-click AI summaries with action items, decisions, and next steps after each call",
+      "Share meeting notes and action items to Slack, Notion, or Google Docs in one click",
+    ],
+    pricing: "Free (10 transcripts/mo); Pro $12/mo; Team $20/user/mo; Business: custom",
+    platforms: ["Web"],
+    affiliate: false,
+    standout: "Works as a Chrome extension with no bot — captures everything invisibly from inside your browser.",
+  },
+  {
+    slug: "shortwave",
+    name: "Shortwave",
+    category: "Productivity",
+    featured: false,
+    url: "https://www.shortwave.com",
+    oneliner: "AI-native Gmail client that organizes, summarizes, and drafts email for you — a modern, intelligent alternative to Google's native inbox.",
+    usecases: [
+      "AI automatically bundles and prioritizes emails so the inbox stays clean without manual rules",
+      "'Ask AI' lets you search across your entire Gmail history in plain language",
+      "Instant thread summaries — catch up on long email chains in 5 seconds",
+    ],
+    pricing: "Free (limited AI features); Personal $7/user/mo; Business $9/user/mo",
+    platforms: ["Web", "iOS", "Android"],
+    affiliate: false,
+    standout: "Plain-language search across all of Gmail — 'Find the email from Marcus about the Series B term sheet' works instantly.",
+  },
+];
+
+const CATEGORIES = [
+  "All",
+  "Writing",
+  "Meetings",
+  "Research",
+  "Presentation",
+  "Scheduling",
+  "Sales",
+  "Legal",
+  "Finance",
+  "HR",
+  "Security",
+  "Productivity",
+];
+
+const CATEGORY_COLORS: Record<string, string> = {
+  Writing:      "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200",
+  Meetings:     "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+  Research:     "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+  Presentation: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
+  Scheduling:   "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+  Sales:        "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+  Legal:        "bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-slate-200",
+  Finance:      "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200",
+  HR:           "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200",
+  Security:     "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
+  Productivity: "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200",
+};
+
+const toolsJson = JSON.stringify(TOOLS);
+const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`AI Tools for Executives | ${SITE_TITLE}`}
+      description="The definitive directory of 51 AI tools for executives — with reviews, ratings, and honest comparisons across writing, meetings, research, sales, legal, finance, and more."
+    />
+    <style>
+      /* ── Page layout ───────────────────────────────────── */
+      .tools-hero {
+        text-align: center;
+        padding: 3em 1em 2em;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .tools-hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+      }
+      .tools-hero p {
+        color: var(--text-secondary);
+        font-size: 1.1em;
+        margin-bottom: 0;
+      }
+
+      /* ── Category tabs ─────────────────────────────────── */
+      .category-tabs {
+        display: flex;
+        gap: 0.5em;
+        overflow-x: auto;
+        padding: 1em 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+      }
+      .category-tabs::-webkit-scrollbar { display: none; }
+      .cat-btn {
+        flex-shrink: 0;
+        padding: 0.4em 1em;
+        border-radius: 9999px;
+        border: 1px solid var(--border);
+        background: var(--card-bg);
+        color: var(--text-secondary);
+        cursor: pointer;
+        font-size: 0.875em;
+        font-family: inherit;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .cat-btn:hover { border-color: var(--accent); color: var(--accent); }
+      .cat-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      /* ── Search ─────────────────────────────────────────── */
+      .search-wrap {
+        max-width: 480px;
+        margin: 0 auto 1.5em;
+        padding: 0 1.5em;
+      }
+      .search-wrap input {
+        width: 100%;
+        padding: 0.6em 1em;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--card-bg);
+        color: var(--text);
+        font-size: 1em;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .search-wrap input:focus { border-color: var(--accent); }
+
+      /* ── Tools grid ─────────────────────────────────────── */
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5em;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5em 4em;
+      }
+
+      /* ── Tool card ──────────────────────────────────────── */
+      .tool-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.25em;
+        box-shadow: var(--card-shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .tool-card:hover {
+        box-shadow: var(--card-shadow-hover);
+        transform: translateY(-2px);
+      }
+      .tool-card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5em;
+      }
+      .tool-name {
+        font-size: 1.1em;
+        font-weight: 700;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 0.35em;
+      }
+      .featured-badge {
+        font-size: 0.9em;
+        line-height: 1;
+      }
+      .cat-pill {
+        display: inline-block;
+        padding: 0.2em 0.65em;
+        border-radius: 9999px;
+        font-size: 0.7em;
+        font-weight: 600;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .tool-oneliner {
+        color: var(--text-secondary);
+        font-size: 0.9em;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* Stars */
+      .stars-row {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        font-size: 0.85em;
+        color: var(--text-secondary);
+      }
+      .stars {
+        display: inline-flex;
+        gap: 1px;
+      }
+      .star { color: #d1d5db; font-size: 1em; }
+      .star.filled { color: #f59e0b; }
+      .star.half { color: #f59e0b; opacity: 0.5; }
+      .review-count { font-size: 0.8em; }
+
+      /* Use cases */
+      .usecases-list {
+        margin: 0;
+        padding: 0 0 0 1.25em;
+        font-size: 0.875em;
+        color: var(--text-secondary);
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+      }
+
+      /* Pricing */
+      .pricing-row {
+        font-size: 0.8em;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: flex-start;
+        gap: 0.3em;
+      }
+      .pricing-label { font-weight: 600; color: var(--text); flex-shrink: 0; }
+
+      /* Platforms */
+      .platforms-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3em;
+      }
+      .platform-badge {
+        padding: 0.15em 0.5em;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        font-size: 0.7em;
+        color: var(--text-secondary);
+      }
+
+      /* Card actions */
+      .card-actions {
+        display: flex;
+        gap: 0.5em;
+        margin-top: auto;
+        padding-top: 0.25em;
+      }
+      .btn-visit {
+        flex: 1;
+        text-align: center;
+        padding: 0.5em;
+        background: var(--accent);
+        color: #fff !important;
+        border-radius: 8px;
+        font-size: 0.875em;
+        font-weight: 600;
+        text-decoration: none !important;
+        transition: background 0.15s;
+      }
+      .btn-visit:hover { background: var(--accent-dark); }
+      .btn-review {
+        padding: 0.5em 0.75em;
+        border: 1px solid var(--border);
+        background: var(--card-bg);
+        color: var(--text-secondary);
+        border-radius: 8px;
+        font-size: 0.875em;
+        cursor: pointer;
+        font-family: inherit;
+        transition: border-color 0.15s, color 0.15s;
+        white-space: nowrap;
+      }
+      .btn-review:hover { border-color: var(--accent); color: var(--accent); }
+
+      /* Reviews toggle */
+      .reviews-toggle {
+        font-size: 0.8em;
+        color: var(--accent);
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        text-decoration: underline;
+      }
+      .reviews-toggle:hover { color: var(--accent-dark); }
+
+      /* Reviews panel */
+      .reviews-panel {
+        border-top: 1px solid var(--border);
+        padding-top: 0.75em;
+        display: none;
+        flex-direction: column;
+        gap: 0.75em;
+        font-size: 0.875em;
+      }
+      .reviews-panel.open { display: flex; }
+      .review-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15em;
+      }
+      .review-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        flex-wrap: wrap;
+        color: var(--text-secondary);
+        font-size: 0.85em;
+      }
+      .verified-badge {
+        background: #d1fae5;
+        color: #065f46;
+        padding: 0.1em 0.4em;
+        border-radius: 4px;
+        font-size: 0.8em;
+        font-weight: 600;
+      }
+      [data-theme="dark"] .verified-badge {
+        background: #064e3b;
+        color: #6ee7b7;
+      }
+      .review-text { color: var(--text); line-height: 1.5; }
+      .no-reviews { color: var(--text-secondary); text-align: center; padding: 0.5em 0; }
+
+      /* ── Modal ──────────────────────────────────────────── */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+      }
+      .modal-overlay.open { display: flex; }
+      .modal {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 1.5em;
+        max-width: 480px;
+        width: 100%;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .modal-title { font-size: 1.1em; font-weight: 700; }
+      .modal-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-secondary);
+        font-size: 1.25em;
+        padding: 0;
+        line-height: 1;
+      }
+      .modal-close:hover { color: var(--text); }
+      .star-picker {
+        display: flex;
+        gap: 0.25em;
+        font-size: 2em;
+      }
+      .star-pick {
+        cursor: pointer;
+        color: #d1d5db;
+        transition: color 0.1s;
+        user-select: none;
+        line-height: 1;
+      }
+      .star-pick.selected,
+      .star-pick.hover { color: #f59e0b; }
+      .modal label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35em;
+        font-size: 0.9em;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .modal input,
+      .modal textarea {
+        padding: 0.5em 0.75em;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: inherit;
+        font-size: 0.95em;
+        outline: none;
+        transition: border-color 0.15s;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .modal input:focus,
+      .modal textarea:focus { border-color: var(--accent); }
+      .modal textarea { resize: vertical; min-height: 80px; }
+      .btn-submit {
+        padding: 0.6em 1em;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .btn-submit:hover { background: var(--accent-dark); }
+      .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+      .modal-feedback {
+        font-size: 0.875em;
+        padding: 0.5em 0.75em;
+        border-radius: 6px;
+        display: none;
+      }
+      .modal-feedback.success { display: block; background: #d1fae5; color: #065f46; }
+      .modal-feedback.error   { display: block; background: #fee2e2; color: #991b1b; }
+      [data-theme="dark"] .modal-feedback.success { background: #064e3b; color: #6ee7b7; }
+      [data-theme="dark"] .modal-feedback.error   { background: #7f1d1d; color: #fca5a5; }
+
+      /* ── No results ─────────────────────────────────────── */
+      .no-results {
+        text-align: center;
+        color: var(--text-secondary);
+        padding: 3em 1em;
+        grid-column: 1 / -1;
+      }
+
+      @media (max-width: 600px) {
+        .tools-hero h1 { font-size: 1.8em; }
+        .tools-grid { grid-template-columns: 1fr; padding: 0 1em 3em; }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main style="padding: 0; max-width: 100%;">
+
+      <!-- Hero -->
+      <section class="tools-hero">
+        <h1>AI Tools for Executives</h1>
+        <p>
+          51 hand-picked AI tools across 11 categories — curated for busy leaders who need real leverage,
+          not hype. Filter by category, read community reviews, and find your next power tool.
+        </p>
+      </section>
+
+      <!-- Category tabs -->
+      <div class="category-tabs" id="category-tabs">
+        {CATEGORIES.map((cat) => (
+          <button class={`cat-btn${cat === "All" ? " active" : ""}`} data-category={cat}>
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <input
+          type="search"
+          id="tool-search"
+          placeholder="Search tools…"
+          aria-label="Search tools"
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Tools grid -->
+      <div class="tools-grid" id="tools-grid">
+        {TOOLS.map((tool) => (
+          <div
+            class="tool-card"
+            data-slug={tool.slug}
+            data-category={tool.category}
+            data-name={tool.name.toLowerCase()}
+            data-oneliner={tool.oneliner.toLowerCase()}
+          >
+            <!-- Header -->
+            <div class="tool-card-header">
+              <div class="tool-name">
+                {tool.featured && <span class="featured-badge" title="Featured exec pick">⭐</span>}
+                {tool.name}
+              </div>
+              <span class={`cat-pill ${CATEGORY_COLORS[tool.category] ?? ""}`}>
+                {tool.category}
+              </span>
+            </div>
+
+            <!-- One-liner -->
+            <p class="tool-oneliner">{tool.oneliner}</p>
+
+            <!-- Star rating (populated by JS from /reviews/stats) -->
+            <div class="stars-row" data-stars-for={tool.slug}>
+              <span class="stars" data-slug={tool.slug}>
+                {[1,2,3,4,5].map(() => <span class="star">★</span>)}
+              </span>
+              <span class="review-count" data-count-for={tool.slug}>No reviews yet</span>
+            </div>
+
+            <!-- Use cases -->
+            <ul class="usecases-list">
+              {tool.usecases.map((uc) => <li>{uc}</li>)}
+            </ul>
+
+            <!-- Pricing -->
+            <div class="pricing-row">
+              <span class="pricing-label">Pricing:</span>
+              <span>{tool.pricing}</span>
+            </div>
+
+            <!-- Platforms -->
+            <div class="platforms-row">
+              {tool.platforms.map((p) => (
+                <span class="platform-badge">{p}</span>
+              ))}
+            </div>
+
+            <!-- Affiliate note (hidden in DOM, for reference) -->
+            {tool.affiliate && (
+              <!-- TODO: Replace url with affiliate link for {tool.name} -->
+              <span style="display:none" data-affiliate="true" data-affiliate-url={tool.url}></span>
+            )}
+
+            <!-- Actions -->
+            <div class="card-actions">
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-visit"
+              >
+                Visit Site →
+              </a>
+              <button
+                class="btn-review"
+                data-tool-slug={tool.slug}
+                data-tool-name={tool.name}
+              >
+                ✏️ Review
+              </button>
+            </div>
+
+            <!-- Reviews toggle + panel -->
+            <button class="reviews-toggle" data-toggle-reviews={tool.slug}>
+              View reviews
+            </button>
+            <div class="reviews-panel" id={`reviews-${tool.slug}`}>
+              <div class="no-reviews">Loading…</div>
+            </div>
+          </div>
+        ))}
+
+        <div class="no-results" id="no-results" style="display:none;">
+          No tools found matching your search. Try a different term or category.
+        </div>
+      </div>
+    </main>
+
+    <!-- Review Modal -->
+    <div class="modal-overlay" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal">
+        <div class="modal-header">
+          <span class="modal-title" id="modal-title">Write a Review</span>
+          <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+        </div>
+
+        <div>
+          <p style="margin:0;font-size:0.875em;color:var(--text-secondary);">
+            Rate this tool and share your experience. Reviews appear after approval.
+          </p>
+        </div>
+
+        <!-- Star picker -->
+        <div>
+          <div style="font-size:0.9em;font-weight:600;margin-bottom:0.35em;">Rating *</div>
+          <div class="star-picker" id="star-picker" role="radiogroup" aria-label="Star rating">
+            {[1,2,3,4,5].map((n) => (
+              <span class="star-pick" data-value={n} role="radio" aria-label={`${n} star${n>1?"s":""}`} tabindex="0">★</span>
+            ))}
+          </div>
+          <input type="hidden" id="modal-rating" value="0" />
+        </div>
+
+        <label>
+          Your name (optional)
+          <input type="text" id="modal-name" placeholder="Your name (optional)" autocomplete="name" />
+        </label>
+
+        <label>
+          Email (optional)
+          <input type="email" id="modal-email" placeholder="Email — subscribers get a Verified badge" autocomplete="email" />
+        </label>
+
+        <label>
+          Review (optional but encouraged)
+          <textarea id="modal-text" placeholder="Share your experience with this tool — what works, what doesn't, who it's best for…"></textarea>
+        </label>
+
+        <div class="modal-feedback" id="modal-feedback"></div>
+
+        <button class="btn-submit" id="modal-submit">Submit Review</button>
+      </div>
+    </div>
+
+    <Footer />
+
+    <script is:inline define:vars={{ toolsJson, categoryColorsJson }}>
+      const TOOLS = JSON.parse(toolsJson);
+      const REVIEWS_BASE = "https://forms.advancedai.com";
+      let statsCache = {};      // slug → {avg_rating, review_count}
+      let currentCategory = "All";
+      let currentSearch = "";
+      let modalSlug = "";
+      let modalToolName = "";
+      let pickedRating = 0;
+      let reviewsLoaded = {};   // slug → boolean
+
+      // ── Fetch stats ────────────────────────────────────────────────────────
+      async function fetchStats() {
+        try {
+          const res = await fetch(`${REVIEWS_BASE}/reviews/stats`);
+          if (!res.ok) return;
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            data.forEach(item => { statsCache[item.tool_slug] = item; });
+            renderAllStars();
+          }
+        } catch (e) { /* silent */ }
+      }
+
+      function renderStars(slug) {
+        const starsEl = document.querySelector(`.stars[data-slug="${slug}"]`);
+        const countEl = document.querySelector(`[data-count-for="${slug}"]`);
+        if (!starsEl || !countEl) return;
+        const stats = statsCache[slug];
+        if (!stats) {
+          starsEl.querySelectorAll(".star").forEach(s => s.classList.remove("filled","half"));
+          countEl.textContent = "No reviews yet";
+          return;
+        }
+        const avg = stats.avg_rating;
+        const count = stats.review_count;
+        starsEl.querySelectorAll(".star").forEach((s, i) => {
+          const val = i + 1;
+          s.classList.remove("filled","half");
+          if (avg >= val) s.classList.add("filled");
+          else if (avg >= val - 0.5) s.classList.add("half");
+        });
+        countEl.textContent = `${avg.toFixed(1)} (${count} review${count===1?"":"s"})`;
+      }
+
+      function renderAllStars() {
+        TOOLS.forEach(t => renderStars(t.slug));
+      }
+
+      // ── Filter ─────────────────────────────────────────────────────────────
+      function applyFilter() {
+        const cards = document.querySelectorAll(".tool-card");
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cat = card.dataset.category;
+          const name = card.dataset.name || "";
+          const oneliner = card.dataset.oneliner || "";
+          const matchCat = currentCategory === "All" || cat === currentCategory;
+          const q = currentSearch.toLowerCase();
+          const matchSearch = !q || name.includes(q) || oneliner.includes(q) || cat.toLowerCase().includes(q);
+          const visible = matchCat && matchSearch;
+          card.style.display = visible ? "" : "none";
+          if (visible) visibleCount++;
+        });
+        const noResults = document.getElementById("no-results");
+        if (noResults) noResults.style.display = visibleCount === 0 ? "" : "none";
+      }
+
+      // ── Category tabs ──────────────────────────────────────────────────────
+      document.getElementById("category-tabs")?.querySelectorAll(".cat-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentCategory = btn.dataset.category;
+          applyFilter();
+        });
+      });
+
+      // ── Search ─────────────────────────────────────────────────────────────
+      const searchInput = document.getElementById("tool-search");
+      if (searchInput) {
+        searchInput.addEventListener("input", e => {
+          currentSearch = e.target.value.trim();
+          applyFilter();
+        });
+      }
+
+      // ── Reviews panel ──────────────────────────────────────────────────────
+      document.querySelectorAll("[data-toggle-reviews]").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const slug = btn.dataset.toggleReviews;
+          const panel = document.getElementById(`reviews-${slug}`);
+          if (!panel) return;
+
+          if (panel.classList.contains("open")) {
+            panel.classList.remove("open");
+            btn.textContent = "View reviews";
+            return;
+          }
+
+          panel.classList.add("open");
+          btn.textContent = "Hide reviews";
+
+          if (reviewsLoaded[slug]) return;
+          reviewsLoaded[slug] = true;
+
+          try {
+            const res = await fetch(`${REVIEWS_BASE}/reviews/${slug}`);
+            const data = await res.json();
+            if (!Array.isArray(data) || data.length === 0) {
+              panel.innerHTML = `<div class="no-reviews">No reviews yet — be the first!</div>`;
+              return;
+            }
+            panel.innerHTML = data.map(r => {
+              const stars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
+              const date = new Date(r.created_at).toLocaleDateString("en-US", {year:"numeric",month:"short",day:"numeric"});
+              const verified = r.is_subscriber
+                ? `<span class="verified-badge">✓ Verified Subscriber</span>`
+                : "";
+              const text = r.review_text ? `<div class="review-text">${escapeHtml(r.review_text)}</div>` : "";
+              return `<div class="review-item">
+                <div class="review-meta">
+                  <span style="color:#f59e0b">${stars}</span>
+                  <strong>${escapeHtml(r.reviewer_name)}</strong>
+                  ${verified}
+                  <span>${date}</span>
+                </div>
+                ${text}
+              </div>`;
+            }).join('<hr style="border-top:1px solid var(--border);margin:0">');
+          } catch(e) {
+            panel.innerHTML = `<div class="no-reviews">Couldn't load reviews. Try again later.</div>`;
+          }
+        });
+      });
+
+      function escapeHtml(str) {
+        if (!str) return "";
+        return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+      }
+
+      // ── Review modal ───────────────────────────────────────────────────────
+      const modal = document.getElementById("review-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalClose = document.getElementById("modal-close");
+      const modalFeedback = document.getElementById("modal-feedback");
+      const modalSubmit = document.getElementById("modal-submit");
+      const starPicker = document.getElementById("star-picker");
+      const modalRating = document.getElementById("modal-rating");
+
+      document.querySelectorAll(".btn-review").forEach(btn => {
+        btn.addEventListener("click", () => {
+          modalSlug = btn.dataset.toolSlug;
+          modalToolName = btn.dataset.toolName;
+          modalTitle.textContent = `Review: ${modalToolName}`;
+          pickedRating = 0;
+          if (modalRating) modalRating.value = "0";
+          resetStarPicker();
+          if (modalFeedback) { modalFeedback.className = "modal-feedback"; modalFeedback.textContent = ""; }
+          document.getElementById("modal-name").value = "";
+          document.getElementById("modal-email").value = "";
+          document.getElementById("modal-text").value = "";
+          if (modalSubmit) { modalSubmit.disabled = false; modalSubmit.textContent = "Submit Review"; }
+          if (modal) modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      function closeModal() {
+        if (modal) modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      if (modalClose) modalClose.addEventListener("click", closeModal);
+      if (modal) modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+      // Star picker
+      function resetStarPicker() {
+        if (!starPicker) return;
+        starPicker.querySelectorAll(".star-pick").forEach(s => s.classList.remove("selected","hover"));
+      }
+
+      if (starPicker) {
+        const picks = starPicker.querySelectorAll(".star-pick");
+        picks.forEach(star => {
+          star.addEventListener("mouseover", () => {
+            const val = parseInt(star.dataset.value);
+            picks.forEach((s, i) => {
+              s.classList.remove("selected","hover");
+              if (i < val) s.classList.add("hover");
+            });
+          });
+          star.addEventListener("mouseout", () => {
+            picks.forEach((s, i) => {
+              s.classList.remove("hover");
+              if (i < pickedRating) s.classList.add("selected");
+            });
+          });
+          star.addEventListener("click", () => {
+            pickedRating = parseInt(star.dataset.value);
+            if (modalRating) modalRating.value = String(pickedRating);
+            picks.forEach((s, i) => {
+              s.classList.remove("selected","hover");
+              if (i < pickedRating) s.classList.add("selected");
+            });
+          });
+          star.addEventListener("keydown", e => {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); star.click(); }
+          });
+        });
+      }
+
+      // Submit review
+      if (modalSubmit) {
+        modalSubmit.addEventListener("click", async () => {
+          if (pickedRating === 0) {
+            if (modalFeedback) {
+              modalFeedback.textContent = "Please select a star rating.";
+              modalFeedback.className = "modal-feedback error";
+            }
+            return;
+          }
+          modalSubmit.disabled = true;
+          modalSubmit.textContent = "Submitting…";
+
+          const formData = new FormData();
+          formData.append("tool_slug", modalSlug);
+          formData.append("tool_name", modalToolName);
+          formData.append("rating", String(pickedRating));
+          formData.append("reviewer_name", document.getElementById("modal-name").value.trim());
+          formData.append("reviewer_email", document.getElementById("modal-email").value.trim());
+          formData.append("review_text", document.getElementById("modal-text").value.trim());
+
+          try {
+            const res = await fetch(`${REVIEWS_BASE}/review`, { method: "POST", body: formData });
+            const data = await res.json();
+            if (data.ok) {
+              if (modalFeedback) {
+                modalFeedback.textContent = "Thanks! Your review will appear after approval.";
+                modalFeedback.className = "modal-feedback success";
+              }
+              modalSubmit.textContent = "Submitted ✓";
+            } else {
+              throw new Error(data.error || "Unknown error");
+            }
+          } catch(e) {
+            if (modalFeedback) {
+              modalFeedback.textContent = "Something went wrong — please try again.";
+              modalFeedback.className = "modal-feedback error";
+            }
+            modalSubmit.disabled = false;
+            modalSubmit.textContent = "Submit Review";
+          }
+        });
+      }
+
+      // ── Init ───────────────────────────────────────────────────────────────
+      fetchStats();
+    </script>
+  </body>
+</html>
