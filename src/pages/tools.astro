@@ -973,54 +973,19 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
       }
 
       /* ── Category tabs ─────────────────────────────────── */
-      .category-tabs-outer {
-        position: sticky;
-        top: 64px;
-        z-index: 50;
-        background: var(--bg);
-        border-bottom: 1px solid var(--border);
-        width: 100%;
-      }
-      .category-tabs {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 0.5em;
-        overflow-x: auto;
-        overflow-y: visible;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        padding: 0.75em 1.5em;
-      }
-      .category-tabs::-webkit-scrollbar { display: none; }
-      .cat-btn {
-        flex-shrink: 0;
-        padding: 0.4em 1em;
-        border-radius: 9999px;
-        border: 1px solid var(--border);
-        background: var(--card-bg);
-        color: var(--text-secondary);
-        cursor: pointer;
-        font-size: 0.875em;
-        font-family: inherit;
-        transition: all 0.15s;
-        white-space: nowrap;
-      }
-      .cat-btn:hover { border-color: var(--accent); color: var(--accent); }
-      .cat-btn.active {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: #fff;
-      }
+      /* category dropdown handled inline with search-wrap */
 
-      /* ── Search ─────────────────────────────────────────── */
+      /* ── Search + Filter row ────────────────────────────── */
       .search-wrap {
-        max-width: 480px;
-        margin: 0 auto 1.5em;
+        max-width: 860px;
+        margin: 1.5em auto 1.5em;
         padding: 0 1.5em;
+        display: flex;
+        gap: 0.75em;
+        align-items: center;
       }
       .search-wrap input {
-        width: 100%;
+        flex: 1;
         padding: 0.6em 1em;
         border-radius: 8px;
         border: 1px solid var(--border);
@@ -1029,8 +994,28 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         font-size: 1em;
         outline: none;
         transition: border-color 0.15s;
+        min-width: 0;
       }
       .search-wrap input:focus { border-color: var(--accent); }
+      .cat-select {
+        padding: 0.6em 2em 0.6em 0.85em;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--card-bg);
+        color: var(--text);
+        font-size: 0.95em;
+        font-family: inherit;
+        outline: none;
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.6em center;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: border-color 0.15s;
+      }
+      .cat-select:focus { border-color: var(--accent); }
 
       /* ── Tools list ─────────────────────────────────────── */
       .tools-grid {
@@ -1379,18 +1364,7 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         </p>
       </section>
 
-      <!-- Category tabs -->
-      <div class="category-tabs-outer">
-        <div class="category-tabs" id="category-tabs">
-          {CATEGORIES.map((cat) => (
-            <button class={`cat-btn${cat === "All" ? " active" : ""}`} data-category={cat}>
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <!-- Search -->
+      <!-- Search + Category filter -->
       <div class="search-wrap">
         <input
           type="search"
@@ -1399,6 +1373,11 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
           aria-label="Search tools"
           autocomplete="off"
         />
+        <select class="cat-select" id="category-select" aria-label="Filter by category">
+          {CATEGORIES.map((cat) => (
+            <option value={cat}>{cat === "All" ? "All Categories" : cat}</option>
+          ))}
+        </select>
       </div>
 
       <!-- Tools grid -->
@@ -1608,14 +1587,10 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         if (noResults) noResults.style.display = visibleCount === 0 ? "" : "none";
       }
 
-      // ── Category tabs ──────────────────────────────────────────────────────
-      document.getElementById("category-tabs")?.querySelectorAll(".cat-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          currentCategory = btn.dataset.category;
-          applyFilter();
-        });
+      // ── Category select ────────────────────────────────────────────────────
+      document.getElementById("category-select")?.addEventListener("change", (e) => {
+        currentCategory = (e.target as HTMLSelectElement).value;
+        applyFilter();
       });
 
       // ── Search ─────────────────────────────────────────────────────────────
