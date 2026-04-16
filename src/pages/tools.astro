@@ -21,6 +21,7 @@ interface Tool {
   platforms: string[];
   affiliate: boolean;
   standout: string;
+  addedDate: string; // ISO date string YYYY-MM-DD
 }
 
 const TOOLS: Tool[] = [
@@ -41,6 +42,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
     affiliate: true,
     standout: "Custom GPTs let execs build tailored assistants for their specific business context — no coding required.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "claude",
@@ -58,6 +60,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "iOS", "Android"],
     affiliate: false,
     standout: "200K token context window on paid tiers — upload and analyze full contracts or reports in one shot.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "google-gemini",
@@ -75,6 +78,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: false,
     standout: "Native integration with Google Workspace — the AI works inside tools execs already use daily.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "grammarly-business",
@@ -92,6 +96,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
     affiliate: true,
     standout: "Works across every app and browser — exec-level polish on every message without switching context.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "jasper-ai",
@@ -109,6 +114,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: true,
     standout: "Brand Voice feature trains Jasper on your company's tone, so every output sounds like you — not generic AI.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "copy-ai",
@@ -126,6 +132,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: true,
     standout: "Pre-built GTM workflows automate repetitive content tasks end-to-end, not just single outputs.",
+    addedDate: "2026-04-16",
   },
 
   // ── Meetings & Productivity ──────────────────────────────────────────────
@@ -145,6 +152,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: true,
     standout: "Global transcript search across all your past meetings — find any conversation or decision ever recorded.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "otter-ai",
@@ -162,6 +170,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: false,
     standout: "Live transcript display during meetings makes it easy for every participant to follow along in real time.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "tldv",
@@ -179,6 +188,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: true,
     standout: "AI-generated 'meeting reports' synthesize insights across many meetings — ideal for VPs reviewing sales call trends.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "fellow",
@@ -196,6 +206,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "iOS", "Android"],
     affiliate: false,
     standout: "The best purpose-built meeting management tool for managers — agenda templates + accountability tracking in one place.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "notion-ai",
@@ -213,6 +224,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
     affiliate: true,
     standout: "Replaces Confluence, Asana, and half your docs stack — AI is woven throughout, not bolted on.",
+    addedDate: "2026-04-16",
   },
 
   // ── Research & Intelligence ──────────────────────────────────────────────
@@ -232,6 +244,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: true,
     standout: "Every answer includes citations — no hallucination risk on facts; you can verify every claim instantly.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "elicit",
@@ -249,6 +262,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Synthesizes findings across hundreds of research papers at once — executive-level intelligence from primary literature.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "google-notebooklm",
@@ -266,6 +280,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Generates shareable AI podcast-style audio briefings from your documents — perfect for executives on the go.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "chatpdf",
@@ -283,6 +298,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Drag-and-drop any PDF — no setup, no account needed to start. The simplest entry to AI document analysis.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "consensus",
@@ -300,6 +316,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "'Consensus Meter' shows percentage of studies agreeing or disagreeing with a claim — instant credibility gauge.",
+    addedDate: "2026-04-16",
   },
 
   // ── Presentation & Visual ────────────────────────────────────────────────
@@ -319,6 +336,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: true,
     standout: "A full-quality 20-slide deck from a single paragraph prompt — the best time-to-deck ratio on the market.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "beautiful-ai",
@@ -336,6 +354,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "SmartSlide templates auto-format as you type — you never have to nudge an element or fight a layout again.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "canva-ai",
@@ -353,6 +372,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: true,
     standout: "Brand Kit + Magic Design means every exec on your team produces on-brand content without creative direction.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "tome",
@@ -370,6 +390,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Narrative-first format — Tome builds story arcs around your content, making complex ideas easier to communicate.",
+    addedDate: "2026-04-16",
   },
 
   // ── Scheduling & Executive Ops ───────────────────────────────────────────
@@ -389,6 +410,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "Windows", "iOS", "Android"],
     affiliate: true,
     standout: "The AI rebuilds your entire calendar in real time when meetings or priorities change — true autonomous scheduling.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "reclaim-ai",
@@ -406,6 +428,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: true,
     standout: "'Time blocking by AI' that actually respects and re-defends your focus time every time the calendar gets disrupted.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "calendly",
@@ -423,6 +446,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: true,
     standout: "Routing forms eliminate the wrong-person meeting problem — prospects booked with the right rep, every time.",
+    addedDate: "2026-04-16",
   },
 
   // ── Sales & CRM ──────────────────────────────────────────────────────────
@@ -442,6 +466,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: false,
     standout: "Deal timeline and risk alerts give sales leaders visibility into every deal without attending every call.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "apollo-io",
@@ -459,6 +484,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: true,
     standout: "Combines contact database + AI email writer + automation sequencer in one tool — replaces 3 separate sales tools.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "hubspot-ai",
@@ -476,6 +502,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: true,
     standout: "The free CRM is genuinely powerful — 90% of small business execs can start here for $0 and grow into AI features.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "lavender",
@@ -493,6 +520,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Real-time email score that tells you whether to send or rewrite — behavioral coaching at the moment of composition.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "salesforce-einstein",
@@ -510,6 +538,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: false,
     standout: "Works inside the CRM your team already uses — no data migration, no new tool to learn. AI inside Salesforce, not beside it.",
+    addedDate: "2026-04-16",
   },
 
   // ── Legal & Contracts ────────────────────────────────────────────────────
@@ -529,6 +558,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Custom-trained models on your firm's own documents — delivers context-aware legal analysis, not generic AI output.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "spellbook",
@@ -546,6 +576,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Lives inside Word — no switching apps. Execs get AI contract insights in the tool they already use for agreements.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "ironclad",
@@ -563,6 +594,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Full contract lifecycle management in one platform — from first draft to obligation tracking, with AI at every step.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "cocounsel",
@@ -580,6 +612,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Backed by Westlaw's verified legal database — the gold standard for citation accuracy in AI legal research.",
+    addedDate: "2026-04-16",
   },
 
   // ── Finance & Analytics ──────────────────────────────────────────────────
@@ -599,6 +632,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "FP&A Genius chatbot lets CFOs query their own financial data in natural language — 'What drove the Q3 variance in OPEX?'",
+    addedDate: "2026-04-16",
   },
   {
     slug: "planful",
@@ -616,6 +650,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Pre-built financial templates and workflows designed for CFOs — reduces time-to-insight from days to hours.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "pigment",
@@ -633,6 +668,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Three AI agents (Analyst, Planner, Modeler) automate the most time-consuming parts of financial planning.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "mosaic-tech",
@@ -650,6 +686,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Purpose-built for startup and scale-up CFOs — connects directly to your existing systems and surfaces insights without a data team.",
+    addedDate: "2026-04-16",
   },
 
   // ── HR & Talent ──────────────────────────────────────────────────────────
@@ -669,6 +706,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Looks beyond job titles and keywords to assess skills and potential — surfaces hidden talent in and outside your org.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "hirevue",
@@ -686,6 +724,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: false,
     standout: "On-demand video interviews let candidates interview anytime — execs get structured, comparable assessments without scheduling 30 phone screens.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "leena-ai",
@@ -703,6 +742,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Integrates with Slack and Teams — employees get HR answers in the tools they already use without opening a ticket.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "paradox-ai",
@@ -720,6 +760,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Olivia can go from application to scheduled interview in under 10 minutes — transformative for high-volume hiring.",
+    addedDate: "2026-04-16",
   },
 
   // ── Security & Risk ──────────────────────────────────────────────────────
@@ -739,6 +780,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Cyber AI Analyst generates natural language threat reports — execs and boards can understand risk posture without decoding security jargon.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "crowdstrike-falcon",
@@ -756,6 +798,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Charlotte AI lets non-technical execs ask security questions in plain English: 'Are we protected against the latest ransomware?'",
+    addedDate: "2026-04-16",
   },
   {
     slug: "sentinelone",
@@ -773,6 +816,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Purple AI — query your security data in plain language and get executive-ready summaries without needing a SOC analyst.",
+    addedDate: "2026-04-16",
   },
 
   // ── Personal Productivity ────────────────────────────────────────────────
@@ -792,6 +836,7 @@ const TOOLS: Tool[] = [
     platforms: ["Mac"],
     affiliate: false,
     standout: "No bot joins your meetings — captures audio directly from your Mac so attendees never see 'Granola is recording.'",
+    addedDate: "2026-04-16",
   },
   {
     slug: "superhuman",
@@ -809,6 +854,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "iOS", "Android"],
     affiliate: true,
     standout: "'Ask AI' lets you search your entire email history in natural language — find any conversation from years of email in seconds.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "readwise",
@@ -826,6 +872,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android", "Mac"],
     affiliate: true,
     standout: "Spaced repetition for your highlights — instead of forgetting 90% of what you read, Readwise drills your own notes back to you until they stick.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "mem-ai",
@@ -843,6 +890,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Mac"],
     affiliate: false,
     standout: "Zero-folder organization — Mem's AI automatically connects related notes, people, and projects so you never waste time filing.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "reflect",
@@ -860,6 +908,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "Mac", "iOS"],
     affiliate: false,
     standout: "End-to-end encryption on all notes — one of the only note-taking apps where even the company can't read your content.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "speechify",
@@ -877,6 +926,7 @@ const TOOLS: Tool[] = [
     platforms: ["iOS", "Android", "Mac", "Web"],
     affiliate: true,
     standout: "Listen at 4.5x speed — executives report consuming 3–4x more reading material per week without adding screen time.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "tactiq",
@@ -894,6 +944,7 @@ const TOOLS: Tool[] = [
     platforms: ["Web"],
     affiliate: false,
     standout: "Works as a Chrome extension with no bot — captures everything invisibly from inside your browser.",
+    addedDate: "2026-04-16",
   },
   {
     slug: "shortwave",
@@ -911,8 +962,23 @@ const TOOLS: Tool[] = [
     platforms: ["Web", "iOS", "Android"],
     affiliate: false,
     standout: "Plain-language search across all of Gmail — 'Find the email from Marcus about the Series B term sheet' works instantly.",
+    addedDate: "2026-04-16",
   },
 ];
+
+// Sort tools: newest first, then alphabetical within same date
+const SORTED_TOOLS = [...TOOLS].sort((a, b) => {
+  if (b.addedDate !== a.addedDate) return b.addedDate.localeCompare(a.addedDate);
+  return a.name.localeCompare(b.name);
+});
+
+const today = new Date();
+const thirtyDaysAgo = new Date(today);
+thirtyDaysAgo.setDate(today.getDate() - 30);
+
+const NEW_TOOLS = TOOLS.filter(t => new Date(t.addedDate) >= thirtyDaysAgo)
+  .sort((a, b) => b.addedDate.localeCompare(a.addedDate))
+  .slice(0, 6);
 
 const CATEGORIES = [
   "All",
@@ -1057,6 +1123,20 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         font-size: 0.9em;
         line-height: 1;
       }
+      .new-badge {
+        display: inline-block;
+        padding: 0.15em 0.5em;
+        background: #dcfce7;
+        color: #166534;
+        border-radius: 4px;
+        font-size: 0.7em;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        vertical-align: middle;
+        margin-left: 0.3em;
+      }
+      [data-theme='dark'] .new-badge { background: #14532d; color: #86efac; }
       .cat-pill {
         display: inline-block;
         padding: 0.2em 0.65em;
@@ -1380,6 +1460,21 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         </select>
       </div>
 
+      <!-- Subscribe CTA banner -->
+      <div class="subscribe-cta">
+        <div class="subscribe-cta-inner">
+          <div>
+            <strong>Get notified when new tools are added</strong>
+            <p>New AI tools added weekly. Subscribers hear first.</p>
+          </div>
+          <form class="cta-form" id="tools-subscribe-form">
+            <input type="email" placeholder="your@email.com" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+        <p class="cta-confirm" id="tools-sub-confirm" style="display:none">✅ You&apos;re in! Watch your inbox.</p>
+      </div>
+
       <!-- Tools grid -->
       <div class="tools-grid" id="tools-grid">
         {TOOLS.map((tool) => (
@@ -1389,12 +1484,14 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
             data-category={tool.category}
             data-name={tool.name.toLowerCase()}
             data-oneliner={tool.oneliner.toLowerCase()}
+            data-added={tool.addedDate}
           >
             <!-- Header -->
             <div class="tool-card-header">
               <div class="tool-name">
                 {tool.featured && <span class="featured-badge" title="Featured exec pick">⭐</span>}
                 {tool.name}
+                {new Date(tool.addedDate) >= thirtyDaysAgo && <span class="new-badge">New</span>}
               </div>
               <span class={`cat-pill ${CATEGORY_COLORS[tool.category] ?? ""}`}>
                 {tool.category}
@@ -1782,6 +1879,33 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
 
       // ── Init ───────────────────────────────────────────────────────────────
       fetchStats();
+      // ── Tools page subscribe form ─────────────────────────────────────────
+      const toolsSubForm = document.getElementById("tools-subscribe-form");
+      if (toolsSubForm) {
+        toolsSubForm.addEventListener("submit", async function(e) {
+          e.preventDefault();
+          const email = this.querySelector("input[type=email]").value.trim();
+          const btn = this.querySelector("button");
+          btn.textContent = "...";
+          btn.disabled = true;
+          try {
+            const body = new URLSearchParams({ email, name: "" });
+            const res = await fetch("https://forms.advancedai.com/subscribe", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: body.toString()
+            });
+            const json = await res.json();
+            if (json.ok) {
+              this.style.display = "none";
+              document.getElementById("tools-sub-confirm").style.display = "";
+            } else { throw new Error(); }
+          } catch {
+            btn.textContent = "Subscribe";
+            btn.disabled = false;
+          }
+        });
+      }
     </script>
   </body>
 </html>
