@@ -1573,25 +1573,33 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         const cards = document.querySelectorAll(".tool-card");
         let visibleCount = 0;
         cards.forEach(card => {
-          const cat = card.dataset.category;
-          const name = card.dataset.name || "";
-          const oneliner = card.dataset.oneliner || "";
+          const el = card;
+          const cat = el.getAttribute("data-category") || "";
+          const name = el.getAttribute("data-name") || "";
+          const oneliner = el.getAttribute("data-oneliner") || "";
           const matchCat = currentCategory === "All" || cat === currentCategory;
           const q = currentSearch.toLowerCase();
           const matchSearch = !q || name.includes(q) || oneliner.includes(q) || cat.toLowerCase().includes(q);
           const visible = matchCat && matchSearch;
-          card.style.display = visible ? "" : "none";
-          if (visible) visibleCount++;
+          if (visible) {
+            el.style.removeProperty("display");
+            visibleCount++;
+          } else {
+            el.style.display = "none";
+          }
         });
         const noResults = document.getElementById("no-results");
         if (noResults) noResults.style.display = visibleCount === 0 ? "" : "none";
       }
 
       // ── Category select ────────────────────────────────────────────────────
-      document.getElementById("category-select")?.addEventListener("change", (e) => {
-        currentCategory = (e.target as HTMLSelectElement).value;
-        applyFilter();
-      });
+      const catSelect = document.getElementById("category-select");
+      if (catSelect) {
+        catSelect.addEventListener("change", function() {
+          currentCategory = this.value || "All";
+          applyFilter();
+        });
+      }
 
       // ── Search ─────────────────────────────────────────────────────────────
       const searchInput = document.getElementById("tool-search");
