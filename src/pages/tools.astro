@@ -973,17 +973,27 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
       }
 
       /* ── Category tabs ─────────────────────────────────── */
+      .category-tabs-outer {
+        position: sticky;
+        top: 64px;
+        z-index: 50;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        margin-left: -1.5em;
+        margin-right: -1.5em;
+        padding: 0 1.5em;
+      }
       .category-tabs {
         display: flex;
+        flex-wrap: nowrap;
         gap: 0.5em;
         overflow-x: auto;
-        padding: 1em 0;
+        -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
         max-width: 1100px;
         margin: 0 auto;
-        padding-left: 1.5em;
-        padding-right: 1.5em;
+        padding: 0.75em 0;
       }
       .category-tabs::-webkit-scrollbar { display: none; }
       .cat-btn {
@@ -1356,12 +1366,14 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
       </section>
 
       <!-- Category tabs -->
-      <div class="category-tabs" id="category-tabs">
-        {CATEGORIES.map((cat) => (
-          <button class={`cat-btn${cat === "All" ? " active" : ""}`} data-category={cat}>
-            {cat}
-          </button>
-        ))}
+      <div class="category-tabs-outer">
+        <div class="category-tabs" id="category-tabs">
+          {CATEGORIES.map((cat) => (
+            <button class={`cat-btn${cat === "All" ? " active" : ""}`} data-category={cat}>
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
 
       <!-- Search -->
