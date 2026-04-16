@@ -1035,12 +1035,12 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
       }
       .search-wrap input:focus { border-color: var(--accent); }
 
-      /* ── Tools grid ─────────────────────────────────────── */
+      /* ── Tools list ─────────────────────────────────────── */
       .tools-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 1.5em;
-        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        max-width: 860px;
         margin: 0 auto;
         padding: 0 1.5em 4em;
       }
@@ -1048,24 +1048,20 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
       /* ── Tool card ──────────────────────────────────────── */
       .tool-card {
         background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1.25em;
-        box-shadow: var(--card-shadow);
-        display: flex;
-        flex-direction: column;
-        gap: 0.75em;
-        transition: box-shadow 0.2s, transform 0.2s;
+        border-bottom: 1px solid var(--border);
+        padding: 1.5em 0;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto;
+        gap: 0.25em 1.5em;
       }
-      .tool-card:hover {
-        box-shadow: var(--card-shadow-hover);
-        transform: translateY(-2px);
-      }
+      .tool-card:first-child { border-top: 1px solid var(--border); }
       .tool-card-header {
+        grid-column: 1;
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+        align-items: center;
         gap: 0.5em;
+        flex-wrap: wrap;
       }
       .tool-name {
         font-size: 1.1em;
@@ -1089,6 +1085,7 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         flex-shrink: 0;
       }
       .tool-oneliner {
+        grid-column: 1;
         color: var(--text-secondary);
         font-size: 0.9em;
         line-height: 1.5;
@@ -1150,15 +1147,19 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
 
       /* Card actions */
       .card-actions {
+        grid-column: 2;
+        grid-row: 1 / 5;
         display: flex;
+        flex-direction: column;
         gap: 0.5em;
-        margin-top: auto;
-        padding-top: 0.25em;
+        align-items: flex-end;
+        justify-content: flex-start;
+        min-width: 120px;
       }
       .btn-visit {
-        flex: 1;
+        width: 100%;
         text-align: center;
-        padding: 0.5em;
+        padding: 0.5em 1em;
         background: var(--accent);
         color: #fff !important;
         border-radius: 8px;
@@ -1166,9 +1167,11 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         font-weight: 600;
         text-decoration: none !important;
         transition: background 0.15s;
+        white-space: nowrap;
       }
       .btn-visit:hover { background: var(--accent-dark); }
       .btn-review {
+        width: 100%;
         padding: 0.5em 0.75em;
         border: 1px solid var(--border);
         background: var(--card-bg);
@@ -1179,6 +1182,7 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         font-family: inherit;
         transition: border-color 0.15s, color 0.15s;
         white-space: nowrap;
+        text-align: center;
       }
       .btn-review:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -1349,6 +1353,19 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
       @media (max-width: 600px) {
         .tools-hero h1 { font-size: 1.8em; }
         .tools-grid { grid-template-columns: 1fr; padding: 0 1em 3em; }
+      }
+      @media (max-width: 600px) {
+        .tool-card {
+          grid-template-columns: 1fr;
+        }
+        .card-actions {
+          grid-column: 1;
+          grid-row: auto;
+          flex-direction: row;
+          align-items: stretch;
+          min-width: unset;
+        }
+        .btn-visit, .btn-review { flex: 1; }
       }
     </style>
   </head>
