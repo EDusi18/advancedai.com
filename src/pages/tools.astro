@@ -1311,7 +1311,18 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         padding: 1em;
       }
       .modal-overlay.open { display: flex; }
-      .modal {
+      /* ── Subscribe CTA bar ──────────────────────────────── */
+      .subscribe-cta { max-width: 860px; margin: 0 auto 0.75em; padding: 0 1.5em; }
+      .subscribe-cta-inner { background: var(--accent); border-radius: 10px; padding: 0.6em 1em; display: flex; align-items: center; gap: 0.75em; color: #fff; }
+      .subscribe-cta-inner strong { font-size: 0.875em; white-space: nowrap; flex-shrink: 0; }
+      .cta-form { display: flex; gap: 0.4em; flex: 1; min-width: 0; }
+      .cta-form input { flex: 1; min-width: 0; padding: 0.4em 0.75em; border-radius: 6px; border: none; font-size: 0.875em; outline: none; color: #1e293b; }
+      .cta-form button { padding: 0.4em 0.9em; border-radius: 6px; border: 1.5px solid rgba(255,255,255,0.7); background: transparent; color: #fff; font-weight: 700; font-size: 0.875em; cursor: pointer; font-family: inherit; transition: background 0.15s, color 0.15s; white-space: nowrap; flex-shrink: 0; }
+      .cta-form button:hover { background: #fff; color: var(--accent); }
+      .cta-confirm { font-size: 0.85em; margin: 0.4em 0 0; color: var(--text-secondary); text-align:center; }
+      @media (max-width:600px) { .subscribe-cta-inner { flex-wrap: wrap; } .cta-form { width: 100%; } }
+
+            .modal {
         background: var(--card-bg);
         border-radius: 12px;
         padding: 1.5em;
@@ -1444,6 +1455,18 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
         </p>
       </section>
 
+      <!-- Subscribe CTA bar -->
+      <div class="subscribe-cta">
+        <div class="subscribe-cta-inner">
+          <strong>🔔 Get notified when new tools are added</strong>
+          <form class="cta-form" id="tools-subscribe-form">
+            <input type="email" placeholder="your@email.com" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+        <p class="cta-confirm" id="tools-sub-confirm" style="display:none">✅ You&apos;re in! Watch your inbox.</p>
+      </div>
+
       <!-- Search + Category filter -->
       <div class="search-wrap">
         <input
@@ -1458,21 +1481,6 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
             <option value={cat}>{cat === "All" ? "All Categories" : cat}</option>
           ))}
         </select>
-      </div>
-
-      <!-- Subscribe CTA banner -->
-      <div class="subscribe-cta">
-        <div class="subscribe-cta-inner">
-          <div>
-            <strong>Get notified when new tools are added</strong>
-            <p>New AI tools added weekly. Subscribers hear first.</p>
-          </div>
-          <form class="cta-form" id="tools-subscribe-form">
-            <input type="email" placeholder="your@email.com" required />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-        <p class="cta-confirm" id="tools-sub-confirm" style="display:none">✅ You&apos;re in! Watch your inbox.</p>
       </div>
 
       <!-- Tools grid -->
