@@ -6,9 +6,6 @@ import { SITE_TITLE } from '../consts';
 
 // ── Tool Data ────────────────────────────────────────────────────────────────
 // Source: advancedai-tools-list.md — 51 tools across 11 categories
-// Affiliate links use real URLs for now — Erol will swap in affiliate URLs later.
-// TODO: Replace each tool's `url` with your affiliate link when available.
-
 interface Tool {
   slug: string;
   name: string;
@@ -1537,7 +1534,6 @@ const categoryColorsJson = JSON.stringify(CATEGORY_COLORS);
 
             <!-- Affiliate note (hidden in DOM, for reference) -->
             {tool.affiliate && (
-              <!-- TODO: Replace url with affiliate link for {tool.name} -->
               <span style="display:none" data-affiliate="true" data-affiliate-url={tool.url}></span>
             )}
 
