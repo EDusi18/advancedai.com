@@ -15,6 +15,33 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags, aff
 <html lang="en">
 	<head>
 		<BaseHead title={`${title} | Advanced AI`} description={description} article={true} publishDate={pubDate} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Article',
+			headline: title,
+			description: description,
+			datePublished: pubDate?.toISOString(),
+			dateModified: (updatedDate ?? pubDate)?.toISOString(),
+			author: {
+				'@type': 'Organization',
+				name: 'AdvancedAI Editorial',
+				url: 'https://advancedai.com/editorial-team',
+			},
+			publisher: {
+				'@type': 'Organization',
+				name: 'AdvancedAI',
+				url: 'https://advancedai.com',
+				logo: {
+					'@type': 'ImageObject',
+					url: 'https://advancedai.com/favicon.svg',
+				},
+			},
+			image: heroImage ? new URL(heroImage.src, Astro.url).toString() : 'https://advancedai.com/blog-placeholder-1.jpg',
+			mainEntityOfPage: {
+				'@type': 'WebPage',
+				'@id': new URL(Astro.url.pathname, Astro.site).toString(),
+			},
+		})} />
 		<style>
 			.hero-image {
 				width: 100%;
@@ -99,6 +126,20 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags, aff
 				font-size: 0.85em;
 				margin: 2em 0;
 			}
+			.byline {
+				font-size: 0.875em;
+				color: var(--text-secondary);
+				margin-bottom: 1.5em;
+				margin-top: 0.5em;
+			}
+			.byline a {
+				color: var(--accent);
+				text-decoration: none;
+				font-weight: 500;
+			}
+			.byline a:hover {
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 
@@ -121,6 +162,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags, aff
 								</span>
 							)}
 						</div>
+						<p class="byline">By <a href="/editorial-team">AdvancedAI Editorial</a></p>
 						{tags && tags.length > 0 && (
 							<div class="post-tags">
 								{tags.map((tag) => <span class="tag">{tag}</span>)}
