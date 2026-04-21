@@ -1,0 +1,145 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('briefings')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Briefings | ${SITE_TITLE}`} description="Fast, sourced coverage of AI developments as they happen." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-header">
+				<h1>Briefings</h1>
+				<p class="subtitle">Fast, sourced coverage of AI developments as they happen.</p>
+			</div>
+			<div class="posts-list">
+				{posts.map((post) => (
+					<a href={`/briefings/${post.id}/`} class="post-card">
+						{post.data.heroImage && (
+							<Image
+								width={400}
+								height={200}
+								src={post.data.heroImage}
+								alt={post.data.heroImageAlt || post.data.title}
+								class="post-card-image"
+							/>
+						)}
+						<div class="post-card-content">
+							<div class="card-badges">
+								<span class="type-badge briefing-badge">BRIEFING</span>
+								{post.data.category && <span class="category-badge">{post.data.category}</span>}
+							</div>
+							<h2>{post.data.title}</h2>
+							<p>{post.data.description}</p>
+							<span class="date"><FormattedDate date={post.data.pubDate} /></span>
+						</div>
+					</a>
+				))}
+				{posts.length === 0 && (
+					<p class="empty-state">Briefings coming soon. Subscribe to be notified when new pieces publish.</p>
+				)}
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.page-header {
+		margin-bottom: 2em;
+	}
+	h1 {
+		margin-bottom: 0.25em;
+	}
+	.subtitle {
+		color: var(--text-secondary);
+		font-size: 1.1em;
+		margin: 0;
+	}
+	.posts-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+	}
+	.post-card {
+		display: block;
+		text-decoration: none;
+		border-radius: 12px;
+		overflow: hidden;
+		background: var(--card-bg);
+		box-shadow: var(--card-shadow);
+		transition: box-shadow 0.3s, transform 0.2s;
+	}
+	.post-card:hover {
+		box-shadow: var(--card-shadow-hover);
+		transform: translateY(-2px);
+		text-decoration: none;
+	}
+	.post-card-image {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+		border-radius: 0;
+	}
+	.post-card-content {
+		padding: 1.25em;
+	}
+	.card-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	.type-badge {
+		font-size: 0.7em;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		padding: 0.2em 0.6em;
+		border-radius: 4px;
+		text-transform: uppercase;
+	}
+	.briefing-badge {
+		background: #dbeafe;
+		color: #1d4ed8;
+	}
+	:global(.dark) .briefing-badge {
+		background: #1e3a5f;
+		color: #93c5fd;
+	}
+	.post-card-content h2 {
+		margin: 0.5em 0 0.25em;
+		font-size: 1.25em;
+		color: var(--text);
+	}
+	.post-card-content p {
+		color: var(--text-secondary);
+		font-size: 0.9em;
+	}
+	.date {
+		color: var(--text-secondary);
+		font-size: 0.85em;
+	}
+	.empty-state {
+		color: var(--text-secondary);
+		grid-column: 1 / -1;
+		text-align: center;
+		padding: 3em 0;
+	}
+	@media (max-width: 768px) {
+		.posts-list {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
