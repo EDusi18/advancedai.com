@@ -9,40 +9,96 @@ import { SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`About | ${SITE_TITLE}`} description="About Advanced AI - your source for AI news, tools, and insights." />
+		<BaseHead
+			title={`About | ${SITE_TITLE}`}
+			description="Advanced AI is a curated publication for executives navigating AI as a business variable. Disciplined curiosity, not manufactured expertise — every claim sourced, every piece filtered for what actually matters."
+		/>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<div class="about-content">
-				<h1>About Advanced AI</h1>
+			<article class="about-content prose">
 
-				<p>
-					Advanced AI is your go-to source for understanding the rapidly evolving world of artificial intelligence. We cut through the hype to deliver clear, actionable insights for business leaders, entrepreneurs, and anyone looking to harness AI effectively.
-				</p>
+				<p>Every serious executive I know is in the same position right now.</p>
 
-				<h2>What We Cover</h2>
+				<p>They see the noise — every CEO on LinkedIn claiming AI transformation, every vendor pitching "AI-powered" whatever, every conference panel predicting the next five years. They suspect some of it matters. They can't tell which. And the cost of getting it wrong — ignoring something real, or acting on something that isn't — is very real.</p>
+
+				<p>There's no shortage of AI writing. The problem is its quality. Almost all of it falls into one of two failure modes: vendor hype (someone selling something) or pundit alarm (someone predicting something). What's missing is disciplined synthesis for people who have to make business decisions.</p>
+
+				<p>I run businesses across several industries: <a href="https://chakimo.com" target="_blank" rel="noopener">educational robotics</a> (where I work directly with humanoid robots and their deployment in schools), <a href="https://9at.com" target="_blank" rel="noopener">institutional investment data</a>, <a href="https://nextstepgroup.com" target="_blank" rel="noopener">consumer footwear</a>, and <a href="https://easytomanage.com" target="_blank" rel="noopener">e-commerce platform infrastructure</a>. In every one of them, AI is no longer a topic to follow — it's a variable I have to factor into strategy, operations, hiring, and competitive positioning. I needed a publication I'd actually trust — one with the editorial rigor I'd want applied on my behalf. I couldn't find it, so I built it.</p>
+
+				<p>This is that publication.</p>
+
+				<h2>The editorial stance</h2>
+
+				<p>The honest thing to say about AI expertise right now is that the field is moving fast enough that even the best researchers in the world are publicly uncertain about where it's heading. The leading labs publish papers hedging their own forecasts. Anyone claiming to have it figured out is either selling something or performing.</p>
+
+				<p>The alternative isn't ignorance. It's disciplined curiosity.</p>
+
+				<p>That means following developments carefully rather than reactively. It means distinguishing between what a company announced and what they've actually deployed. It means asking who benefits from a given narrative before accepting it. It means being willing to say "this matters" or "this doesn't" without claiming to know how it all ends.</p>
+
+				<p>A few editorial principles make that stance operational:</p>
+
+				<p><strong>Every factual claim gets a primary source link.</strong> If we can't verify it, we don't publish it. Numbers without sources are opinions dressed as facts.</p>
+
+				<p><strong>We distinguish announcements from deployments.</strong> A press release is not a product. A pilot is not a rollout. We cover what's actually happening, not what companies want us to report.</p>
+
+				<p><strong>We're skeptical of vendor narratives by default</strong> — including from companies we admire. That skepticism isn't cynicism; it's how you stay calibrated in a field where every major player has an obvious interest in the story you believe.</p>
+
+				<p><strong>We cover structural shifts, not announcements.</strong> If a development won't matter in six months, it probably isn't worth your attention today. The test is: does this change how a business should think about a decision it faces?</p>
+
+				<p><strong>We don't predict.</strong> Confident AI predictions have an embarrassing track record, including from the people closest to the technology. We observe, contextualize, and help you reason — not tell you what to expect.</p>
+
+				<h2>What to expect, and what not to</h2>
+
+				<p>This publication covers meaningful developments in AI — research breakthroughs that are close enough to application to affect business decisions, enterprise deployments that reveal what's actually working at scale, and product developments that genuinely move what's possible for operators and executives.</p>
+
+				<p>It covers physical AI alongside software AI. Robotics, embodied systems, and physical deployments are no longer a separate story from software AI — when NVIDIA's stack runs a factory floor and frontier models guide humanoid robots, the two have merged. Most AI publications still treat them as unrelated; executives increasingly can't afford to.</p>
+
+				<p>Everything is framed for business readers: what this means for strategy, operations, competition, and allocation of attention and resources.</p>
+
+				<p>What this publication doesn't cover:</p>
 				<ul>
-					<li><strong>Tools & Products</strong> &mdash; Honest reviews and comparisons of AI tools that can transform your workflow</li>
-					<li><strong>Industry News</strong> &mdash; Breaking developments from the companies shaping AI's future</li>
-					<li><strong>Robotics & Hardware</strong> &mdash; The physical AI revolution, from humanoid robots to specialized hardware</li>
-					<li><strong>AI in Education</strong> &mdash; How AI is reshaping learning and skill development</li>
-					<li><strong>How People Use AI</strong> &mdash; Real stories of AI adoption across industries</li>
-					<li><strong>OpenClaw & Open Source</strong> &mdash; The open-source AI ecosystem and community-driven innovation</li>
+					<li>AGI timelines, the singularity, or long-range predictions that can't be acted on</li>
+					<li>Generic how-to content on AI tools</li>
+					<li>Listicles that exist to fill a content calendar</li>
+					<li>Moral panic or utopian enthusiasm — both are abundant elsewhere and neither adds signal</li>
+					<li>Political commentary on AI except where it directly affects business decisions you face</li>
 				</ul>
 
-				<h2>Our Approach</h2>
-				<p>
-					We believe AI should be accessible, not intimidating. Every article is written with clarity in mind, whether you're a seasoned technologist or just beginning to explore what AI can do for your business. We test the tools we recommend, verify the claims we report, and always disclose when affiliate relationships exist.
-				</p>
+				<p>We cover specific tools when they've crossed a threshold of genuine business utility, not because a vendor asked us to. When something appears in our <a href="/tools">Tools directory</a> or the <a href="/guides/ai-for-executives">Executive Guide</a>, it passed the same editorial filter as everything else on this site.</p>
 
-				<h2>Affiliate Disclosure</h2>
-				<p>
-					Some of our articles contain affiliate links. When you purchase through these links, we may earn a commission at no extra cost to you. This helps support our independent reporting and analysis. We only recommend tools and services we genuinely believe in. Read our full <a href="/affiliate-disclosure">affiliate disclosure</a>.
-				</p>
+				<p>The editorial promise, stated plainly: when something appears here, it's because it passed a filter. Not every AI development is worth your attention. Part of the job is deciding which ones are.</p>
 
-				<Newsletter />
-			</div>
+				<h2>Who this is for</h2>
+
+				<p>The reader I'm writing for runs something. A company, a division, a meaningful team. They make decisions — about strategy, about operations, about where to spend capital and attention — that are increasingly affected by how AI develops.</p>
+
+				<p>They don't have time to read everything. They've tried and failed to find a single source that consistently separates the important from the noise. They're tired of both breathless optimism and confident doom. They want someone who has done the filtering, shown their work, and is honest about what they don't know.</p>
+
+				<p>They're not AI researchers. They don't want to become AI experts. They want to stay current enough to make good decisions and avoid being blindsided.</p>
+
+				<p>If that's you, this publication is built for you. If you want tutorials, benchmarks, or transformer architecture explanations, there are excellent publications for that. This isn't one of them.</p>
+
+				<h2>The contract</h2>
+
+				<p>I'll publish one carefully sourced piece per week, sometimes more when developments warrant it. Every claim will be linked. Every piece will be written with a business reader in mind. When I'm uncertain, I'll say so.</p>
+
+				<p>Your side of this is simpler: read what's useful, ignore what isn't, and let me know when something is wrong. I'd rather have a correction than a politely unchallenged error.</p>
+
+				<p>If that sounds like the publication you've been looking for, subscribe below. The issues come directly to your inbox — no algorithm, no feed, no noise filter required.</p>
+
+				<p>Find me on <a href="https://www.linkedin.com/in/erol-dusi/" target="_blank" rel="noopener">LinkedIn</a> — that's where I do additional thinking, post short observations on developments between pieces, and talk with readers.</p>
+
+				<hr />
+
+				<p><em>The best way to evaluate this publication is to read it. The articles in the <a href="/blog">archive</a> are as good an argument for the premise as anything in this post. If the <a href="/blog/ai-saaspocalypse-vibe-coding-2026/">SaaSpocalypse analysis</a>, the <a href="/blog/pwc-ai-performance-top-20-percent/">PwC study on AI's 20/75 value split</a>, or the <a href="/blog/answer-engine-optimization-aeo-business-2026/">AEO coverage</a> reads like the signal you've been looking for, then we're probably a fit. If it doesn't, no hard feelings — there's no shortage of other things to read.</em></p>
+
+				<p style="font-size: 0.9em; color: var(--text-secondary); margin-top: 2em;">— <a href="https://www.linkedin.com/in/erol-dusi/" target="_blank" rel="noopener">Erol Dusi</a>, Publisher</p>
+
+			</article>
+
+			<Newsletter />
 		</main>
 		<Footer />
 	</body>
@@ -51,19 +107,29 @@ import { SITE_TITLE } from '../consts';
 <style>
 	.about-content {
 		max-width: 720px;
-		margin: 0 auto;
-	}
-	.about-content h1 {
-		margin-bottom: 0.75em;
+		margin: 3em auto;
+		padding: 0 1.5em;
 	}
 	.about-content h2 {
 		margin-top: 2em;
-		margin-bottom: 0.5em;
+	}
+	.about-content p {
+		margin-bottom: 1.2em;
+		line-height: 1.75;
 	}
 	.about-content ul {
-		padding-left: 1.5em;
+		margin: 1em 0 1.5em 1.5em;
 	}
 	.about-content li {
 		margin-bottom: 0.5em;
+		line-height: 1.6;
+	}
+	.about-content hr {
+		margin: 2.5em 0;
+		border: none;
+		border-top: 1px solid var(--border);
+	}
+	.about-content strong {
+		color: var(--text);
 	}
 </style>
