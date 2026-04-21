@@ -8,7 +8,9 @@ import Header from '../components/Header.astro';
 import Newsletter from '../components/Newsletter.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-const posts = (await getCollection('blog')).sort(
+const briefingPosts = await getCollection('briefings');
+const analysisPosts = await getCollection('analysis');
+const posts = [...briefingPosts, ...analysisPosts].sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const featuredPost = posts[0];
@@ -34,7 +36,7 @@ const recentPosts = posts.slice(1, 5);
 			<!-- Featured Post -->
 			{featuredPost && (
 				<section class="featured">
-					<a href={`/blog/${featuredPost.id}/`} class="featured-card">
+					<a href={`/${featuredPost.collection}/${featuredPost.id}/`} class="featured-card">
 						{featuredPost.data.heroImage && (
 							<Image
 								width={900}
@@ -59,7 +61,7 @@ const recentPosts = posts.slice(1, 5);
 				<h2 class="section-title">Latest Articles</h2>
 				<div class="posts-grid">
 					{recentPosts.map((post) => (
-						<a href={`/blog/${post.id}/`} class="post-card">
+						<a href={`/${post.collection}/${post.id}/`} class="post-card">
 							{post.data.heroImage && (
 								<Image
 									width={400}
@@ -79,7 +81,7 @@ const recentPosts = posts.slice(1, 5);
 					))}
 				</div>
 				<div class="view-all">
-					<a href="/blog" class="btn">View All Articles</a>
+					<a href="/briefings" class="btn">View All Articles</a>
 				</div>
 			</section>
 
