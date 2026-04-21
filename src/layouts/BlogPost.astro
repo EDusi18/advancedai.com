@@ -9,7 +9,7 @@ import Newsletter from '../components/Newsletter.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, category, tags, affiliateLinks } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, heroImageAlt, category, tags, affiliateLinks } = Astro.props;
 ---
 
 <html lang="en">
@@ -148,7 +148,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags, aff
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt={heroImageAlt || title} />}
 				</div>
 				<div class="prose">
 					<div class="post-header">
