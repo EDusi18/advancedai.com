@@ -49,13 +49,13 @@ A procurement agent connecting five ERP systems with conflicting vendor IDs prod
 
 The problem compounds with process documentation. Agents execute steps. If your processes exist as tribal knowledge rather than documented workflows with conditional logic and exception paths, the agent follows whatever documentation it has — which means it follows an abstraction of reality, not reality itself. Practitioners deploying agents in insurance claims processing have reported that the agents surface undocumented process variants that existed in operational reality but not in any written procedure — exposing compliance gaps that had gone undetected for years.
 
-## How to run agents now while fixing data in parallel
+## How to run agents now while fixing data in parallel: the Parallel-Track Deployment Model
 
-This is the question the vendor keynotes don't answer. Here's the framework:
+This is the question the vendor keynotes don't answer. The **Parallel-Track Deployment Model** uses your agent deployments as the mechanism for guiding data remediation — rather than treating them as sequential steps.
 
 **Tier 1 — Deploy now:** Identify workflows where your data is already clean, governed, and API-accessible, and where your processes are documented at step level. These are your agent-ready surface. For most enterprises this is a smaller set than expected: specific finance workflows (invoice matching, expense categorization), specific HR workflows (leave management, onboarding checklists), or compliance workflows where data governance existed before AI. Deploy here without waiting. Measure outcomes. These deployments teach you what good looks like.
 
-**Tier 2 — Pilot with guardrails:** Workflows where data quality is mixed but the process is well-documented. Deploy agents with human-in-the-loop checkpoints at every decision that touches ambiguous data. This serves two purposes: it creates business value now, and it generates a map of exactly which data gaps are causing agent errors — which is a far better remediation roadmap than a top-down data audit.
+**Tier 2 — Pilot with guardrails (and use agent errors as a remediation roadmap):** Workflows where data quality is mixed but the process is well-documented. Deploy agents with human-in-the-loop checkpoints at every decision that touches ambiguous data. This serves two purposes: it creates business value now, and it generates a map of exactly which data gaps are causing agent errors — which is a far better remediation roadmap than a top-down data audit.
 
 **Tier 3 — Remediate based on agent feedback:** Your Tier 2 deployments will tell you, with specificity, which data issues matter most. A data quality problem that agents keep surfacing is a higher-priority fix than one that lives in a system no agent will ever touch. This inverts the typical remediation approach — instead of auditing everything and fixing what seems important, you fix what your agents are already telling you is broken.
 
