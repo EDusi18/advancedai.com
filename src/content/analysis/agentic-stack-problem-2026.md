@@ -15,7 +15,7 @@ The problem isn't that AI agents don't work. They do. The problem is that deploy
 **Key takeaways:**
 - Google, Microsoft, and OpenAI all announced major agentic platforms this week — [Google committed $750 million](https://www.googlecloudpresscorner.com/2026-04-22-Google-Cloud-Commits-750-Million-to-Accelerate-Partners-Agentic-AI-Development) to partner deployments at Cloud Next 2026.
 - A [Stanford Digital Economy Lab study](https://digitaleconomy.stanford.edu/publication/enterprise-ai-playbook/) of 51 successful enterprise AI deployments found that 77% of implementation challenges were organizational — data quality, change management, process redesign — not technical. Organizational readiness, not model choice, determined success.
-- The failure mode isn't "agent malfunctions" — it's "agent performs exactly as designed, on broken inputs." Klarna learned this when its AI agent hit every initial metric — then the company reversed course and posted a $152 million loss.
+- The failure mode isn't "agent malfunctions" — it's "agent performs exactly as designed, on broken inputs." Klarna learned this when its AI agent hit every initial metric — then the company reversed course and rehired the humans.
 - [Gartner predicts](https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk) that through 2026, organizations will abandon 60% of AI projects unsupported by AI-ready data.
 - The Parallel-Track Deployment Model: start agents where your data is already clean while remediating the rest. Don't choose between deploying and preparing.
 
@@ -43,7 +43,7 @@ The natural conclusion is: fix data first, then deploy agents. That's wrong, and
 
 The operative question isn't "are we ready?" It's "where are we already ready, and how do we expand that surface while fixing the rest?"
 
-## What does agent failure actually look like? Ask Klarna.
+## What does agent failure actually look like? The Klarna case.
 
 The failure mode isn't an obvious crash. It's an agent performing exactly as designed, on broken inputs — and the dashboard showing green while value is destroyed.
 
