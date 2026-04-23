@@ -1,5 +1,7 @@
 ---
 title: "The Agentic Stack Problem: Why Your Data Isn't Ready for AI Agents"
+heroImage: "../../assets/agentic-stack-problem-2026.png"
+heroImageAlt: "A robot sitting at a desk surrounded by broken databases, tangled cables, locked filing cabinets and question marks — illustrating the gap between AI agents and enterprise data readiness"
 description: "A sound agentic AI strategy starts before deployment. Learn why siloed data and undocumented processes—not the technology—are blocking enterprise agent success."
 pubDate: 2026-04-23
 category: "Industry News"
