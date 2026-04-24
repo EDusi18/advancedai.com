@@ -10,11 +10,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const briefingPosts = await getCollection('briefings');
 const analysisPosts = await getCollection('analysis');
-const posts = [...briefingPosts, ...analysisPosts].sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const featuredPost = posts[0];
-const recentPosts = posts.slice(1, 5);
+
+// Featured: always the latest analysis piece
+const sortedAnalysis = analysisPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featuredPost = sortedAnalysis[0];
+
+// Recent: latest briefings
+const recentPosts = briefingPosts
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 4);
 ---
 
 <!doctype html>
@@ -58,7 +62,7 @@ const recentPosts = posts.slice(1, 5);
 
 			<!-- Recent Posts Grid -->
 			<section class="recent">
-				<h2 class="section-title">Latest Articles</h2>
+				<h2 class="section-title">Latest Briefings</h2>
 				<div class="posts-grid">
 					{recentPosts.map((post) => (
 						<a href={`/${post.collection}/${post.id}/`} class="post-card">
