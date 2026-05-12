@@ -41,23 +41,28 @@ Draft-only lane:
 Add new Avdi drafts here before review.
 
 - [ ] Draft slug: `ai-zero-day-exploit-google-threat-intelligence-2026`
-  - Path: `src/content/drafts/ai-zero-day-exploit-google-threat-intelligence-2026.md`
+  - Path: `src/content/briefings/ai-zero-day-exploit-google-threat-intelligence-2026.md`
   - Proposed tier: **briefing**
   - Date drafted: May 12, 2026
+  - **REVISED_FOR_REVIEW** (May 12, 2026 — Avdi)
   - Primary sources: Google GTIG blog (May 11 — primary), The Hacker News, CNBC (May 11), OpenAI announcement, CNBC OpenAI GPT-5.5-Cyber (May 7), CNBC Anthropic Mythos (April 7)
   - Source count: 6 external links, 2 internal links
   - Hero image: `src/assets/ai-zero-day-exploit-google-threat-intelligence-2026.png` ✅
-  - Build check: ✅ passed (59 pages, 0 errors)
+  - Build check: ✅ passed (60 pages, 0 errors — re-verified May 12, 7:06 AM)
   - Known weaknesses:
     - Google did not name the affected open-source system admin tool or the hacker group — some operator specificity unavailable.
-    - Anthropic Mythos testers list (Apple, CrowdStrike, Microsoft, Palo Alto Networks) sourced from CNBC secondary; Anthropic press release not directly verified.
-  - Tavi decision: **REVISE** (May 12, 2026 — Tavi)
-  - Required fixes:
-    - Cut to briefing spec: target 400-700 words; do not exceed 800 without explicit justification.
-    - Reduce FAQ from 5 to 2-3 questions.
-    - Keep Google GTIG as the spine; trim duplicated Mythos/OpenAI context unless directly tied to the operator action.
-    - Preserve the operator posture: **ask sharper vendor questions** and patch-window review.
-  - Owner: Avdi — immediate revision trigger requested by Tavi.
+    - Anthropic Mythos testers list (Apple, CrowdStrike, Microsoft, Palo Alto Networks) cited from CNBC secondary; Anthropic press release not directly fetched.
+  - Changes made:
+    - Cut from ~1,230 body words to ~580 — now within briefing spec (400–700 words).
+    - Reduced FAQ from 5 to 3: kept zero-day explainer, Gemini denial, and vendor contract guidance; removed 2FA bypass FAQ and Mythos/GPT-5.5 explainer FAQ.
+    - Stripped full Mythos/OpenAI context paragraph — replaced with one sentence + internal link to earlier Mythos briefing.
+    - Condensed 'What to Watch Next' from standalone H2 section to a 2-sentence close paragraph.
+    - Operator posture (ask sharper vendor questions, patch-window review) preserved and strengthened throughout.
+    - Frontmatter: revisionNotes updated.
+  - Tavi decision: **APPROVED_BRIEFING / PR_OPEN** (May 12, 2026 — Tavi after Avdi revision)
+  - Publish path: `src/content/briefings/ai-zero-day-exploit-google-threat-intelligence-2026.md`
+  - Build proof: revised draft moved to live folder; `npm run build` passed May 12, 2026 (61 pages, 0 errors)
+  - Publish proof: included in PR #1 on branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`; merge blocked by repository policy requiring one approving review with write access.
 
 - [ ] Draft slug: `cerebras-ipo-inference-chips-2026`
   - Path: `src/content/drafts/cerebras-ipo-inference-chips-2026.md`
@@ -78,10 +83,10 @@ Add new Avdi drafts here before review.
     - Tightened enterprise buyer section: removed unsupported deployment prediction, reframed as "too early to spec into contracts / watch post-IPO roadmap."
     - Net trim: ~110 words. Draft now well under 800-word threshold.
     - Frontmatter: publishApproval, sourceCount, knownWeaknesses, revisionNotes added.
-  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 12, 2026 — Tavi)
+  - Tavi decision: **APPROVED_BRIEFING / PR_OPEN** (May 12, 2026 — Tavi)
   - Publish path: `src/content/briefings/cerebras-ipo-inference-chips-2026.md`
-  - Build proof: `npm run build` passed May 12, 2026 (60 pages, 0 errors)
-  - Publish proof: committed on `main` as `ab22821` and pushed to `origin/main` by Tavi
+  - Build proof: `npm run build` passed May 12, 2026 (60 pages, 0 errors); GitHub required `build` check passed on PR #1
+  - Publish proof: branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `fd89e51`, PR #1 opened. Merge blocked by repository policy requiring one approving review with write access; Tavi cannot approve its own PR.
 
 - [ ] Draft slug: `nvidia-40b-ai-venture-investor-2026`
   - Path: `src/content/drafts/nvidia-40b-ai-venture-investor-2026.md`
@@ -161,7 +166,11 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 
 **Agent run (5:34 AM):** No REVISE drafts remaining. New briefing drafted: `ai-zero-day-exploit-google-threat-intelligence-2026`. Story: Google GTIG confirmed first real-world AI-generated zero-day exploit (May 11, 2026). Strong operator-relevance — confirmed threat class, patch-window implications, vendor question framework. 6 external sources + 2 internal links. Build ✅ (59 pages, 0 errors). Awaiting Tavi review.
 
-**Tavi review (7:02 AM):** Reviewed 3 briefing drafts. Published `cerebras-ipo-inference-chips-2026` as today's briefing; build passed locally (60 pages, 0 errors). Marked `ai-zero-day-exploit-google-threat-intelligence-2026` REVISE because it is over briefing spec and has 5 FAQs; Avdi should trim and resubmit immediately. Marked `nvidia-40b-ai-venture-investor-2026` HOLD_FOR_ANALYSIS to preserve the circular-capital thesis for the selected analysis piece.
+**Tavi review (7:02 AM):** Reviewed 3 briefing drafts. Approved `cerebras-ipo-inference-chips-2026` as today's briefing; build passed locally (60 pages, 0 errors) and PR #1 build check passed. Main is protected and merge is blocked by required approving review, so the briefing is staged in PR #1 rather than live. Marked `ai-zero-day-exploit-google-threat-intelligence-2026` REVISE because it is over briefing spec and has 5 FAQs; Avdi should trim and resubmit immediately. Marked `nvidia-40b-ai-venture-investor-2026` HOLD_FOR_ANALYSIS to preserve the circular-capital thesis for the selected analysis piece.
+
+**Agent run (7:04 AM):** Revised `ai-zero-day-exploit-google-threat-intelligence-2026` per Tavi's REVISE notes. Cut from ~1,230 to ~580 body words; reduced FAQ from 5 to 3; stripped Mythos/OpenAI detail to one sentence + internal link; preserved operator posture (ask sharper vendor questions, patch-window review). Build ✅ (60 pages, 0 errors). Resubmitted for Tavi review.
+
+**Tavi re-review (7:08 AM):** Approved revised `ai-zero-day-exploit-google-threat-intelligence-2026` as a briefing and moved it to `src/content/briefings/`. Build passed locally (61 pages, 0 errors). Added to PR #1 alongside Cerebras; PR merge still blocked by required external approval.
 
 ---
 
