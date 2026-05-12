@@ -61,8 +61,8 @@ Add new Avdi drafts here before review.
     - Frontmatter: revisionNotes updated.
   - Tavi decision: **APPROVED_BRIEFING / PR_OPEN** (May 12, 2026 — Tavi after Avdi revision)
   - Publish path: `src/content/briefings/ai-zero-day-exploit-google-threat-intelligence-2026.md`
-  - Build proof: revised draft moved to live folder; `npm run build` passed May 12, 2026 (61 pages, 0 errors)
-  - Publish proof: included in PR #1 on branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`; merge blocked by repository policy requiring one approving review with write access.
+  - Build proof: revised draft moved to live folder; `npm run build` passed May 12, 2026 (61 pages, 0 errors); GitHub required `build` check passed on PR #1
+  - Publish proof: included in PR #1 on branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `0d58dd0`; merge blocked by repository policy requiring one approving review with write access.
 
 - [ ] Draft slug: `cerebras-ipo-inference-chips-2026`
   - Path: `src/content/drafts/cerebras-ipo-inference-chips-2026.md`
@@ -85,8 +85,8 @@ Add new Avdi drafts here before review.
     - Frontmatter: publishApproval, sourceCount, knownWeaknesses, revisionNotes added.
   - Tavi decision: **APPROVED_BRIEFING / PR_OPEN** (May 12, 2026 — Tavi)
   - Publish path: `src/content/briefings/cerebras-ipo-inference-chips-2026.md`
-  - Build proof: `npm run build` passed May 12, 2026 (60 pages, 0 errors); GitHub required `build` check passed on PR #1
-  - Publish proof: branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `fd89e51`, PR #1 opened. Merge blocked by repository policy requiring one approving review with write access; Tavi cannot approve its own PR.
+  - Build proof: `npm run build` passed May 12, 2026 (60 pages, 0 errors); later combined PR build passed with both approved briefings (61 pages, 0 errors); GitHub required `build` check passed on PR #1
+  - Publish proof: branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `fd89e51`, PR #1 opened and updated with zero-day briefing at `0d58dd0`. Merge blocked by repository policy requiring one approving review with write access; Tavi cannot approve its own PR.
 
 - [ ] Draft slug: `nvidia-40b-ai-venture-investor-2026`
   - Path: `src/content/drafts/nvidia-40b-ai-venture-investor-2026.md`
@@ -170,7 +170,7 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 
 **Agent run (7:04 AM):** Revised `ai-zero-day-exploit-google-threat-intelligence-2026` per Tavi's REVISE notes. Cut from ~1,230 to ~580 body words; reduced FAQ from 5 to 3; stripped Mythos/OpenAI detail to one sentence + internal link; preserved operator posture (ask sharper vendor questions, patch-window review). Build ✅ (60 pages, 0 errors). Resubmitted for Tavi review.
 
-**Tavi re-review (7:08 AM):** Approved revised `ai-zero-day-exploit-google-threat-intelligence-2026` as a briefing and moved it to `src/content/briefings/`. Build passed locally (61 pages, 0 errors). Added to PR #1 alongside Cerebras; PR merge still blocked by required external approval.
+**Tavi re-review (7:08 AM):** Approved revised `ai-zero-day-exploit-google-threat-intelligence-2026` as a briefing and moved it to `src/content/briefings/`. Build passed locally (61 pages, 0 errors). Added to PR #1 alongside Cerebras; GitHub build passed, but PR merge remains blocked by required external approval.
 
 ---
 
