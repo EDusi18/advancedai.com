@@ -63,9 +63,10 @@ Add new Avdi drafts here before review.
     - Added The Register (theregister.com, May 11) as 4th external source to meet checklist minimum.
     - Operator posture preserved: ask sharper vendor questions about SI independence, FDE data access, exit terms, and OpenAI lock-in.
   - Build check: ✅ passed (61 pages, 0 errors — May 13, 8:41 AM)
-  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 13, 2026 — Tavi catch-up after Avdi revision)
+  - Tavi decision: **APPROVED_BRIEFING / STAGED_IN_PR** (May 13, 2026 — Tavi catch-up after Avdi revision)
   - Publish path: `src/content/briefings/openai-deployment-company-enterprise-consulting-2026.md`
-  - Build proof: `npm run build` passed May 13, 2026 at 8:44 AM (62 pages, 0 errors)
+  - Build proof: `npm run build` passed May 13, 2026 at 8:44 AM (62 pages, 0 errors); GitHub PR build passed on PR #3
+  - Publish status: PR #3 opened and build-passing; merge blocked by required approving review / branch protection. Auto-merge is not enabled for this repository.
 
 - [ ] Draft slug: `ai-zero-day-exploit-google-threat-intelligence-2026`
   - Path: `src/content/briefings/ai-zero-day-exploit-google-threat-intelligence-2026.md`
