@@ -22,7 +22,7 @@ Draft-only lane:
 
 ## This Week's Analysis Candidate
 
-- Status: **selected for Avdi draft**
+- Status: **DRAFTED — awaiting Tavi + Erol review**
 - Topic: **The AI Vendor-Financing Loop** - Nvidia, Microsoft, OpenAI, and adjacent infrastructure partners are increasingly funding the customers and suppliers that sustain AI demand.
 - Proposed thesis: The most important AI infrastructure story is no longer just capex scale, but capital circularity: the same companies selling compute, buying compute, financing labs, and guaranteeing demand are creating a durable buildout engine and a new concentration-risk problem for enterprise buyers.
 - Why this passes the analysis bar:
@@ -39,6 +39,34 @@ Draft-only lane:
 ## Drafts Awaiting Review
 
 Add new Avdi drafts here before review.
+
+- [ ] Draft slug: `openai-deployment-company-enterprise-consulting-2026`
+  - Path: `src/content/briefings/openai-deployment-company-enterprise-consulting-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 13, 2026 (8:36 AM)
+  - Primary sources: OpenAI official announcement (openai.com, May 11), SiliconAngle ($14B valuation / 17.5% return — Axios via SiliconAngle), BBVA press release (founding partner announcement), The Register (enterprise consultancy framing)
+  - Source count: 4 external links, 1 internal link
+  - Hero image: `src/assets/openai-deployment-company-enterprise-consulting-2026.png` ✅
+  - Build check: ✅ passed (61 pages, 0 errors — May 13, 8:36 AM)
+  - Known weaknesses:
+    - $14B valuation and 17.5% minimum return from Axios via SiliconAngle; Axios article not directly fetched but cross-confirmed by SiliconAngle.
+  - Operator angle: OpenAI's consulting/SI founding partners (McKinsey, Capgemini, Bain & Co.) now hold equity in the vendor they may recommend; FDE model grants OpenAI engineers access to internal workflows/data; distinct from May 4 PE ventures briefing.
+  - Tavi decision: **REVISE** (May 13, 2026 — Tavi catch-up)
+  - Main problem: strong operator angle, but not publish-ready as a briefing. It is too long (~1,033 total words / ~726 pre-FAQ), has 4 FAQs (checklist target is 2–3), and relies on secondhand/paywalled figures without enough source hygiene in body text.
+  - Required revision: cut to briefing spec (target 400–700 words; under 800 total unless explicitly justified), reduce FAQ to 2–3 by merging or deleting the FDE explainer, verify/source the CNBC Dresser quote or remove it from metadata, clarify the sourceCount by ensuring all counted sources appear as body links or lower the count, and keep the final operator posture: ask sharper vendor questions about SI independence, FDE data access, exit terms, and OpenAI lock-in. Re-run build after revision and mark **REVISED_FOR_REVIEW**.
+  - **REVISED_FOR_REVIEW** (May 13, 2026, 8:41 AM — Avdi)
+  - Changes made:
+    - Cut body from ~726 to ~590 pre-FAQ words — now within briefing spec.
+    - FAQ reduced from 4 to 3: deleted standalone FDE explainer FAQ; merged FDE definition into FAQ 1.
+    - Removed paywalled CNBC Dresser reference entirely from knownWeaknesses — it was never cited in body text.
+    - sourceCount corrected from 7 to 4 (openai.com, bbva.com, siliconangle.com, theregister.com — all body-linked).
+    - Added The Register (theregister.com, May 11) as 4th external source to meet checklist minimum.
+    - Operator posture preserved: ask sharper vendor questions about SI independence, FDE data access, exit terms, and OpenAI lock-in.
+  - Build check: ✅ passed (61 pages, 0 errors — May 13, 8:41 AM)
+  - Tavi decision: **APPROVED_BRIEFING / STAGED_IN_PR** (May 13, 2026 — Tavi catch-up after Avdi revision)
+  - Publish path: `src/content/briefings/openai-deployment-company-enterprise-consulting-2026.md`
+  - Build proof: `npm run build` passed May 13, 2026 at 8:44 AM (62 pages, 0 errors); GitHub PR build passed on PR #3
+  - Publish status: PR #3 opened and build-passing; merge blocked by required approving review / branch protection. Auto-merge is not enabled for this repository.
 
 - [ ] Draft slug: `ai-zero-day-exploit-google-threat-intelligence-2026`
   - Path: `src/content/briefings/ai-zero-day-exploit-google-threat-intelligence-2026.md`
@@ -59,10 +87,10 @@ Add new Avdi drafts here before review.
     - Condensed 'What to Watch Next' from standalone H2 section to a 2-sentence close paragraph.
     - Operator posture (ask sharper vendor questions, patch-window review) preserved and strengthened throughout.
     - Frontmatter: revisionNotes updated.
-  - Tavi decision: **APPROVED_BRIEFING / PR_OPEN** (May 12, 2026 — Tavi after Avdi revision)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 12, 2026 — Tavi after Avdi revision; merge verified May 13)
   - Publish path: `src/content/briefings/ai-zero-day-exploit-google-threat-intelligence-2026.md`
   - Build proof: revised draft moved to live folder; `npm run build` passed May 12, 2026 (61 pages, 0 errors); GitHub required `build` check passed on PR #1
-  - Publish proof: included in PR #1 on branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `0d58dd0`; merge blocked by repository policy requiring one approving review with write access.
+  - Publish proof: included in PR #1 on branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `0d58dd0`; PR #1 merged May 12 by EDusi18; merge commit `cdff161`; Cloudflare Pages deploy succeeded on main.
 
 - [ ] Draft slug: `cerebras-ipo-inference-chips-2026`
   - Path: `src/content/drafts/cerebras-ipo-inference-chips-2026.md`
@@ -83,10 +111,38 @@ Add new Avdi drafts here before review.
     - Tightened enterprise buyer section: removed unsupported deployment prediction, reframed as "too early to spec into contracts / watch post-IPO roadmap."
     - Net trim: ~110 words. Draft now well under 800-word threshold.
     - Frontmatter: publishApproval, sourceCount, knownWeaknesses, revisionNotes added.
-  - Tavi decision: **APPROVED_BRIEFING / PR_OPEN** (May 12, 2026 — Tavi)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 12, 2026 — Tavi; merge verified May 13)
   - Publish path: `src/content/briefings/cerebras-ipo-inference-chips-2026.md`
   - Build proof: `npm run build` passed May 12, 2026 (60 pages, 0 errors); later combined PR build passed with both approved briefings (61 pages, 0 errors); GitHub required `build` check passed on PR #1
-  - Publish proof: branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `fd89e51`, PR #1 opened and updated with zero-day briefing at `0d58dd0`. Merge blocked by repository policy requiring one approving review with write access; Tavi cannot approve its own PR.
+  - Publish proof: branch `tavi/publish-cerebras-ipo-inference-chips-2026-2026-05-12`, commit `fd89e51`, PR #1 merged May 12 by EDusi18; merge commit `cdff161`; Cloudflare Pages deploy succeeded on main.
+
+- [ ] Draft slug: `ai-vendor-financing-loop-operator-guide`
+  - Path: `src/content/drafts/ai-vendor-financing-loop-operator-guide.md`
+  - Proposed tier: **analysis**
+  - Date drafted: May 13, 2026
+  - Primary sources: CNBC (Nvidia $40B equity deals, May 9), Reuters (Nvidia/OpenAI $30B, Feb 20), Reuters (CoreWeave $6.3B capacity agreement, Sept 2025), TechCrunch (Nvidia $2B CoreWeave, Jan 2026), Reuters (Google $40B Anthropic, April 24), CNBC (Amazon $25B Anthropic, April 20), Alphabet Q1 earnings SEC filing (Google Cloud revenue), Nvidia SEC annual filing (free cash flow), Microsoft Azure Q3 FY2026, TechCrunch (Oracle $300B OpenAI, Feb 2026), CNBC (Wedbush analyst Bryson quote), Bloomberg (circular deals mapping — cited with context; 403 on direct fetch)
+  - Source count: 12 external links, 4 internal links
+  - Hero image: `src/assets/ai-vendor-financing-loop-operator-guide.png` ✅
+  - Build check: ✅ passed (61 pages, 0 errors — May 13, 5:36 AM)
+  - Known weaknesses:
+    - Bloomberg circular-deals URL returns 403; cited with context only.
+    - Nvidia $30B OpenAI: Reuters Feb 2026 said "close to finalizing"; CNBC May 2026 treats as confirmed. Softened to "reportedly" with dual citation.
+    - Uses `nvidia-40b-ai-venture-investor-2026` draft as source material; do not publish that briefing.
+  - Framework named: **Stack Ownership Map** (four-step Q2 due-diligence sequence)
+  - Tavi decision: **REVISE** (May 13, 2026 — Tavi)
+  - Main problem: analysis thesis and operator framework are strong, but source hygiene is not yet clean enough for Erol review/publication.
+  - Required revision: add/verify links for all attributed or numeric claims currently unsupported in body text, especially Ben Bajarin quote, Dario Amodei capital-needs claim, Azure growth figure, Bosch/Mars/Merck adoption sentence, EU/UK regulatory references, and Bloomberg quote/context that automated fetch could not verify. Re-run build after revision.
+  - **REVISED_FOR_REVIEW** (May 13, 2026, 7:08 AM — Avdi)
+  - Changes made:
+    - Ben Bajarin quote: added CNBC May 9 link (same article already cited for Matthew Bryson).
+    - Dario Amodei claim: replaced unsourced paraphrase with sourced attribution to Fortune Feb 2026 interview; softened to match actual interview content (timing risk / capital dependency).
+    - Azure 40% growth: added Microsoft IR Q3 FY2026 press release link (April 29, 2026).
+    - Bosch/Mars/Merck: removed three unsourced company names; replaced with CNBC enterprise revenue stat (OpenAI >40% enterprise revenue, May 2026) + existing internal link to PE ventures briefing.
+    - Bloomberg direct quote ('keeps paying each other'): removed direct quote since Bloomberg URL returns 403; replaced with paraphrase.
+    - EU/UK regulatory refs: replaced vague 'EU and UK regulators' with specific UK CMA gov.uk link + 'European competition authorities' (removed inaccurate EU AI Act reference — Act does not cover vendor concentration).
+    - sourceCount updated: 12 → 16.
+  - Build check: ✅ passed (61 pages, 0 errors — May 13, 7:08 AM)
+  - **Erol approval required** before publication after Tavi approval
 
 - [ ] Draft slug: `nvidia-40b-ai-venture-investor-2026`
   - Path: `src/content/drafts/nvidia-40b-ai-venture-investor-2026.md`
@@ -162,7 +218,17 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 
 ### Week of May 12, 2026 (Tuesday)
 
-**Agent run (5:30 AM):** Avdi revised both REVISE drafts (Nvidia + Cerebras). No new draft created — all REVISE items addressed. Build verified ✅ (59 pages, 0 errors).
+**Agent run (5:30 AM, May 13):** No REVISE drafts. Drafted analysis piece: `ai-vendor-financing-loop-operator-guide`. Analysis candidate "AI Vendor-Financing Loop" had been selected for Avdi draft since May 10 (3 days waiting). Drafted with 12 external sources + 4 internal links. Framework named: Stack Ownership Map. Build ✅ (61 pages, 0 errors). Erol approval required before publication.
+
+**Tavi review (7:02 AM, May 13):** Verified PR #1 is now merged (`cdff161`) and Cloudflare Pages deploy on main succeeded. Reviewed 2 drafts. `ai-vendor-financing-loop-operator-guide` marked **REVISE** for source hygiene before Erol review: thesis/framework are promising, but several attributed/numeric claims need direct body links or verified sourcing. `nvidia-40b-ai-venture-investor-2026` remains **HOLD_FOR_ANALYSIS**; do not publish because it pre-spends the vendor-financing analysis thesis. No May 13 briefing has been published yet; today needs a fresh operator-relevant briefing draft if a non-filler story qualifies.
+
+**Agent run (7:05 AM, May 13 — Avdi REVISE):** Addressed all Tavi REVISE objections on `ai-vendor-financing-loop-operator-guide`. Six sourcing fixes: Ben Bajarin CNBC link, Dario Amodei Fortune Feb 2026 link, Azure 40% Microsoft IR link, Bosch/Mars/Merck removed → CNBC enterprise stat, Bloomberg direct quote removed → paraphrase, EU/UK regulatory refs sourced to CMA gov.uk. sourceCount 12 → 16. Build ✅ (61 pages, 0 errors). No new briefing drafted this run — REVISE draft was the priority per daily order.
+
+**Agent run (8:36 AM, May 13 — Avdi NEW_DRAFT):** No REVISE drafts outstanding. Drafted new briefing: `openai-deployment-company-enterprise-consulting-2026`. Story: OpenAI launched the OpenAI Deployment Company on May 11 — a $4B professional services subsidiary with FDEs embedded in enterprises; 19 founding partners include McKinsey, Capgemini, Bain & Co.; acquired Tomoro AI (150 FDEs). Key operator angle: consulting firms now hold equity in the vendor they may recommend; FDE model grants OpenAI engineers access to internal workflows and data. Distinct from May 4 PE ventures briefing. 7 external sources + 2 internal links. Build ✅ (61 pages, 0 errors). Awaiting Tavi review.
+
+**Agent run (8:41 AM, May 13 — Avdi REVISE):** Addressed all Tavi REVISE objections on `openai-deployment-company-enterprise-consulting-2026`. Four fixes: (1) cut body from ~726 to ~590 pre-FAQ words; (2) FAQ 4 → 3 (FDE explainer deleted, definition merged into FAQ 1); (3) CNBC Dresser paywalled reference removed from knownWeaknesses (was never body-linked); (4) sourceCount corrected 7 → 4 with The Register added as 4th body-linked external source. Operator posture preserved. Build ✅ (61 pages, 0 errors).
+
+**Agent run (5:30 AM, May 12, previous entry — preserved below):** Avdi revised both REVISE drafts (Nvidia + Cerebras). No new draft created — all REVISE items addressed. Build verified ✅ (59 pages, 0 errors).
 
 **Agent run (5:34 AM):** No REVISE drafts remaining. New briefing drafted: `ai-zero-day-exploit-google-threat-intelligence-2026`. Story: Google GTIG confirmed first real-world AI-generated zero-day exploit (May 11, 2026). Strong operator-relevance — confirmed threat class, patch-window implications, vendor question framework. 6 external sources + 2 internal links. Build ✅ (59 pages, 0 errors). Awaiting Tavi review.
 
