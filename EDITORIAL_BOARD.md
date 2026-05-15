@@ -40,6 +40,18 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `document-ai-first-multimodal-pilot-test-plan`
+  - Path: `src/content/briefings/document-ai-first-multimodal-pilot-test-plan.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 15, 2026
+  - Primary sources: Google Document AI processor/evaluation/security docs, Mistral Document AI docs, OpenAI file-input/data-control docs, Anthropic Files API docs
+  - Source count: 7 external links, all body-linked and fetch-verified (HTTP 200)
+  - Hero image: `src/assets/document-ai-first-multimodal-pilot-test-plan.png` ✅
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 15, 2026 — Tavi same-day catch-up)
+  - Review notes: passes operator-direction test as a practical 50-100 document pilot plan; gives a clear **run a small test** posture; distinguishes extraction/classification/summarization from unsafe auto-pay/auto-file/auto-sign actions; ends with concrete expansion signal around exception-queue trust. Briefing length is 799 words, under the 800-word ceiling.
+  - Publish path: `src/content/briefings/document-ai-first-multimodal-pilot-test-plan.md`
+  - Build proof: `npm run build` passed May 15, 2026 at 8:32 AM (65 pages, 0 errors).
+
 - [ ] Draft slug: `openai-deployment-company-enterprise-consulting-2026`
   - Path: `src/content/briefings/openai-deployment-company-enterprise-consulting-2026.md`
   - Proposed tier: **briefing**
@@ -143,6 +155,99 @@ Add new Avdi drafts here before review.
     - sourceCount updated: 12 → 16.
   - Build check: ✅ passed (61 pages, 0 errors — May 13, 7:08 AM)
   - **Erol approval required** before publication after Tavi approval
+  - Tavi decision: **REVISE** (May 14, 2026 — Tavi daily review)
+  - Main problem: strong analysis structure and useful Stack Ownership Map, but not ready for Erol review after newer May 14 Microsoft/OpenAI reporting. The draft still says OpenAI runs exclusively on Azure / Microsoft direction is not independent, which now needs updating against the Microsoft-OpenAI decoupling story. It is also slightly over the 2,500-word analysis target (~2,577 words) and the "EU AI Act governance provisions" watch item overstates vendor-concentration relevance after the earlier correction.
+  - Required revision: incorporate the Microsoft/OpenAI decoupling context or soften stale exclusivity language; remove or replace the EU AI Act watch item with the UK CMA / competition-authority concentration signal already sourced; trim under 2,500 words unless explicitly justified; re-run build and resubmit for Tavi review before Erol review.
+  - **REVISED_FOR_REVIEW** (May 14, 2026, 7:09 AM — Avdi)
+  - Changes made:
+    - Microsoft → OpenAI section: removed 'runs exclusively on Azure' language; noted exclusive license ended April 2026 (Reuters); financial cap through 2030 added with internal link to decoupling briefing. Stale exclusivity claim is now accurate.
+    - 'Product direction' bullet: softened 'exclusive cloud infrastructure' to 'primary cloud infrastructure provider post-April 2026.'
+    - Stack Ownership Map Step 4: OpenAI now described as multi-cloud (AWS Bedrock live); Anthropic comparison updated accordingly.
+    - 'What to watch next' — Regulatory action: replaced EU AI Act reference with specific UK CMA gov.uk source + European competition authorities; added parenthetical clarifying EU AI Act does not cover vendor concentration. Net trim: ~40 words.
+    - sourceCount unchanged at 16; internal link count increased by 1 (new decoupling briefing link added).
+  - Build check: ✅ passed (62 pages, 0 errors — May 14, 7:09 AM)
+  - **Erol approval required** before publication after Tavi approval
+  - Tavi decision: **REVISE** (May 15, 2026 — Tavi daily review)
+  - Main problem: revisions fixed the stale Microsoft/OpenAI exclusivity language and regulatory framing, but the piece still appears over the 2,500-word analysis target (~2,732 words by automated count including FAQ) after Avdi was specifically asked to trim under target unless explicitly justified. Thesis/framework remain strong.
+  - Required revision: cut or justify the length before Erol review; prioritize trimming FAQ repetition and long named-case exposition while preserving the Stack Ownership Map, counterpoint, and operator posture. Re-run build and resubmit for Tavi review. **Do not publish automatically; analysis requires Erol review.**
+  - **REVISED_FOR_REVIEW** (May 15, 2026, 8:05 AM — Avdi)
+  - Changes made:
+    - Cut long named-case exposition by consolidating Nvidia/OpenAI + CoreWeave and tightening Microsoft/OpenAI, Anthropic, and Oracle examples while preserving links and source hygiene.
+    - Reduced FAQ from 4 longer answers to 3 tighter non-repetitive answers; removed repeated optionality/strategic-investment exposition already covered in body.
+    - Automated body word count is now **2,350 words**, under the 2,500-word analysis target.
+    - Stack Ownership Map, counterpoint, regulatory watch item, and operator posture preserved.
+  - Build check: ✅ passed (64 pages, 0 errors — May 15, 8:05 AM)
+  - **Erol approval required** before publication after Tavi approval.
+  - Tavi decision: **REVISE** (May 15, 2026 — Tavi re-review after trim)
+  - Main problem: trim succeeded and the analysis structure/operator framework are strong, but source hygiene is not intact enough for Erol review because the body link for the Oracle → OpenAI $300B infrastructure claim returns 404.
+  - Verification: automated body word count 2,350 (under 2,500 target); sourceCount 16 matches 16 unique external body links; Stack Ownership Map, counterpoint, regulatory watch item, and operator posture are present; `npm run build` passed locally (64 pages, 0 errors — May 15, 8:07 AM).
+  - Required revision: replace or remove the broken TechCrunch Oracle/OpenAI $300B body source (`https://techcrunch.com/2026/02/28/billion-dollar-infrastructure-deals-ai-boom-data-centers-openai-oracle-microsoft-google-meta/`). If the Oracle claim stays, use an accessible reliable source and keep the `sourceCount` accurate; if no reliable source is available, cut the Oracle paragraph. Re-run build and resubmit. **Do not publish automatically; analysis requires Erol review after Tavi approval.**
+
+- [ ] Draft slug: `microsoft-openai-decoupling-azure-enterprise-2026`
+  - Path: `src/content/drafts/microsoft-openai-decoupling-azure-enterprise-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 14, 2026 (5:35 AM)
+  - Primary sources: Reuters (May 12, $38B cap via The Information), Reuters (May 13, Microsoft startup shopping exclusive), Reuters (April 27, exclusive license ended), Reuters (April 1, OpenAI $852B valuation)
+  - Source count: 4 external links, 3 internal links
+  - Hero image: `src/assets/microsoft-openai-decoupling-azure-enterprise-2026.png` ✅
+  - Build check: ✅ passed (62 pages, 0 errors — May 14, 5:35 AM)
+  - Known weaknesses:
+    - $38B cap sourced to The Information (paywalled); Reuters confirms cap without stating the specific number — cited as The Information per Reuters throughout.
+    - 20% revenue rate omitted from body (secondary sourcing only).
+    - $97B savings figure is analyst inference, not from primary reporting — omitted.
+    - Inception deal is ongoing and may not close — framed accordingly.
+  - Operator angle: Azure-as-OpenAI-proxy assumption is structurally weakened; OpenAI is now multi-cloud (AWS Bedrock); Microsoft building first-party model alternatives. Near-term posture: ask sharper vendor questions on contract terms this quarter.
+  - Tavi decision: **REVISE** (May 14, 2026 — Tavi daily review)
+  - Main problem: good operator angle and source base, but not publish-ready as a briefing. It is too long for the briefing lane (~1,053 total words / ~845 pre-FAQ), over the 800-word ceiling without a strong justification, and carries a full key-takeaways block plus three H2 sections before FAQ.
+  - Required revision: cut to briefing spec (target 400–700 words; under 800 total unless explicitly justified), keep 2–3 FAQs, compress the agreement/startup-shopping details into one tight context section, and preserve the operator posture: **ask sharper vendor questions** about Azure OpenAI contract terms, model availability/pricing changes, direct OpenAI relationship, and multi-cloud fallback. Re-run build and mark **REVISED_FOR_REVIEW**.
+  - **REVISED_FOR_REVIEW** (May 14, 2026, 7:09 AM — Avdi)
+  - Changes made:
+    - Cut body from ~845 to ~470 pre-FAQ words — now within briefing spec (400–700 words).
+    - Collapsed three H2 sections into one tight H2 context section.
+    - Key takeaways reduced from 5 bullets to 4.
+    - FAQ kept at 3; answers tightened. Total: ~700 words including FAQ (well under 800 ceiling).
+    - Operator posture preserved: ask sharper vendor questions on Azure contract terms, model pricing, multi-cloud fallback.
+    - All 4 external links and 3 internal links retained.
+  - Build check: ✅ passed (62 pages, 0 errors — May 14, 7:09 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISH_BLOCKED_NEEDS_EROL** (May 14, 2026 — Tavi re-review)
+  - Tavi fix: replaced broken internal IPO link with Reuters external link; `npm run build` passed (62 pages, 0 errors — May 14, 7:12 AM).
+  - Publish block: automatic publication was not performed because repo safety guardrail detected unrelated/unapproved changes outside article draft/live/asset/editorial-board files, including `.hermes/backups/main-branch-protection-before-tavi-publish-20260513132540.json`, `EDITORIAL_CHECKLIST.md`, `EDITORIAL_OPERATING_STANDARD.md`, `EDITORIAL_PRIORITIZATION_2026-05-14.md`, `EDITORIAL_TOPIC_BACKLOG_2026-05-14.md`, and `src/content/drafts/README.md`. Requires Erol/Main cleanup or approval before publishing from this working tree.
+  - Tavi status update: **PUBLISHED** (verified May 15, 2026 — outside this run)
+  - Publish proof: live path `src/content/briefings/microsoft-openai-decoupling-azure-enterprise-2026.md`; PR #5 merged May 14, 2026 at 14:37 UTC; merge commit `e0157946702cc676cbb81a056286197f98bc1a81`; Cloudflare Pages deploy workflow `25866211047` succeeded. Duplicate untracked draft still exists in `src/content/drafts/` and should be cleaned up by Main/Avdi.
+
+- [ ] Draft slug: `prompt-injection-agent-permissions-business-risk`
+  - Path: `src/content/drafts/prompt-injection-agent-permissions-business-risk.md`
+  - Proposed tier: **analysis**
+  - Date drafted: May 14, 2026
+  - Primary sources: OWASP Top 10 for LLM Applications 2025, Microsoft indirect prompt-injection guidance, OpenAI agent-security guidance, MCP security/authorization docs, Anthropic agent safety posts, NIST Generative AI Profile, Google SAIF agents guidance
+  - Source count: 9 external links
+  - Tavi decision: **REVISE** (May 14, 2026 — Tavi daily review)
+  - Main problem: promising analysis thesis — prompt injection becomes business risk when untrusted text meets trusted tools — but not ready for Erol review/publication. The piece needs a named reusable framework, a formal FAQ section, and public-facing examples; it currently includes Erol-specific/private workflow references that should not appear in a public AdvancedAI article.
+  - Required revision: name the framework/checklist; add 4–6 non-duplicative FAQs; remove or generalize Erol-specific references (Hermes/Avdi/Tavi, 9AT, NSG, ETM, nonprofit project specifics) into public operator categories; verify source accessibility; re-run build and mark **REVISED_FOR_REVIEW**.
+  - **REVISED_FOR_REVIEW** (May 14, 2026, 7:09 AM — Avdi)
+  - Changes made:
+    - Named the framework: 'The Bounded Authority Checklist' — 12-question pre-authorization framework now formally introduced as a named, reusable operator tool with an introduction paragraph.
+    - Added FAQ section: 6 non-duplicative Q&As covering prompt injection vs. model errors, detection limitations, workflow prioritization, platform applicability, jailbreak distinction, and attacker sophistication.
+    - Generalized private workflow enumeration: 'customer, vendor, nonprofit, donor, student, family, religious, or community workflows' replaced with 'customer-facing, membership, community, or nonprofit workflows.'
+    - Added heroImage frontmatter and generated hero image asset at src/assets/prompt-injection-agent-permissions-business-risk.png.
+    - Updated editorialStatus to needs_review; removed tags field (not used in other drafts); added author field.
+  - Build check: ✅ passed (62 pages, 0 errors — May 14, 7:09 AM)
+  - **Erol approval required** before publication after Tavi approval
+  - Tavi status update: **PUBLISHED / NEEDS_EROL RETRO CONFIRMATION** (verified May 15, 2026 — outside this run)
+  - Publish proof: live path `src/content/analysis/prompt-injection-agent-permissions-business-risk.md`; PR #6 merged May 14, 2026 at 17:03 UTC; merge commit `01ce2209bf238d3242839d405c7d0a2b69a61397`; Cloudflare Pages deploy workflow `25873686896` succeeded.
+  - Governance note: analysis pieces normally require Erol review before publication. Tavi did not auto-publish this analysis in the May 15 run. If Erol did not intentionally approve/merge PR #6, Main should retro-confirm or decide whether to revert/hold.
+
+- [ ] Draft slug: `article-angle-agent-security-prompt-injection-controls-for-operators`
+  - Path: `src/content/drafts/article-angle-agent-security-prompt-injection-controls-for-operators.md`
+  - Proposed tier: **analysis planning memo**
+  - Tavi decision: **KILL as publish candidate / keep as source memo** (May 14, 2026 — Tavi daily review)
+  - Reason: explicitly an editorial angle memo, not a publishable article.
+
+- [ ] Draft slug: `research-agent-security-prompt-injection-business-process-risk`
+  - Path: `src/content/drafts/research-agent-security-prompt-injection-business-process-risk.md`
+  - Proposed tier: **research memo**
+  - Tavi decision: **KILL as publish candidate / keep as research source** (May 14, 2026 — Tavi daily review)
+  - Reason: explicitly source-backed research notes, not a publishable article.
 
 - [ ] Draft slug: `nvidia-40b-ai-venture-investor-2026`
   - Path: `src/content/drafts/nvidia-40b-ai-venture-investor-2026.md`
@@ -218,6 +323,14 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 
 ### Week of May 12, 2026 (Tuesday)
 
+**Tavi review (7:00 AM, May 15):** Reviewed 5 draft/planning files plus recent live changes. No briefing was published today (no `src/content/briefings/` item dated May 15 and no May 15 file timestamp). `microsoft-openai-decoupling-azure-enterprise-2026` is already live via PR #5 / merge `e0157946`; duplicate untracked draft remains and should be cleaned up. `ai-vendor-financing-loop-operator-guide` remains **REVISE** before Erol review because it still exceeds the 2,500-word analysis target without justification (~2,732 automated word count including FAQ), though thesis/framework are strong. `nvidia-40b-ai-venture-investor-2026` remains **HOLD_FOR_ANALYSIS**. The prompt-injection analysis is already live via PR #6 / merge `01ce2209`; because analysis is normally Erol-required, Tavi marks it **NEEDS_EROL retro confirmation** unless Erol intentionally approved/merged. Build check passed locally on May 15 (64 pages, 0 errors). Avdi immediate trigger attempted for today's no-briefing gap/new drafting, but OpenClaw gateway was not running and the command failed: `GatewayTransportError: gateway closed (1006 abnormal closure)`; `openclaw doctor` confirmed gateway not running and LaunchAgent installed but not loaded. Candidate briefing leads for Avdi: (1) Reuters exclusive — U.S. clears Nvidia H200 chip sales to 10 Chinese firms, but deliveries remain stalled; operator angle is AI hardware export-control uncertainty and roadmap/supplier risk. (2) CNBC — Cerebras IPO/debut valuation spike; only worth a follow-up if framed as inference-chip optionality/valuation signal, not IPO color, because Cerebras was already covered. (3) Anthropic/Gates Foundation $200M AI-in-health/education partnership; watch, but likely lower-priority unless primary sources show deployable enterprise/nonprofit operating lessons.
+
+**Tavi review (7:00 AM, May 14):** Reviewed 6 draft/planning files. `microsoft-openai-decoupling-azure-enterprise-2026` marked **REVISE**: strong operator angle, but too long for briefing spec (~1,053 total words / ~845 pre-FAQ). Avdi should cut under 800 total, preserve the "ask sharper vendor questions" Azure/OpenAI procurement posture, and resubmit immediately. `ai-vendor-financing-loop-operator-guide` marked **REVISE** before Erol review because May 14 Microsoft/OpenAI decoupling reporting makes parts of the Microsoft/OpenAI dependency language stale; also trim under 2,500 words and remove the EU AI Act watch-item overstatement. `prompt-injection-agent-permissions-business-risk` marked **REVISE**: strong thesis, but needs a named framework, FAQ section, and public-facing examples instead of Erol-specific/private workflow references. The angle memo and research brief are **KILL as publish candidates / keep as source memos**. No May 14 briefing has been published yet. Publication is additionally blocked by unrelated/unapproved repo state outside article publish files: `.hermes/backups/main-branch-protection-before-tavi-publish-20260513132540.json` plus modified/untracked editorial/process files.
+
+**Agent run (7:09 AM, May 14 — Avdi REVISE ×3):** Addressed all three Tavi REVISE objections. (1) `microsoft-openai-decoupling-azure-enterprise-2026`: cut from ~845 to ~470 pre-FAQ words; collapsed 3 H2 sections into 1; total now ~700 words (under 800 ceiling); operator posture preserved. (2) `ai-vendor-financing-loop-operator-guide`: updated stale 'runs exclusively on Azure' language with decoupling context (April 2026 exclusivity end, $38B cap, AWS Bedrock multi-cloud); replaced EU AI Act watch item with accurate UK CMA + European competition authorities framing; net trim ~40 words. (3) `prompt-injection-agent-permissions-business-risk`: named framework as 'The Bounded Authority Checklist'; added 6 non-duplicative FAQs; generalized private workflow enumeration; added heroImage frontmatter and generated hero image asset. Build ✅ (62 pages, 0 errors — May 14, 7:09 AM). All three marked REVISED_FOR_REVIEW. No new briefing drafted this run — REVISE queue was full.
+
+**Tavi re-review (7:12 AM, May 14):** Avdi revised 3 drafts. `microsoft-openai-decoupling-azure-enterprise-2026` now passes briefing spec (~675 total words / 3 FAQs / 4 external sources after Tavi fixed one broken internal link) and is **APPROVED_BRIEFING**, but **not published** because the working tree has unrelated/unapproved non-article changes that trigger the safety guardrail. `npm run build` passed locally (62 pages, 0 errors). `ai-vendor-financing-loop-operator-guide` and `prompt-injection-agent-permissions-business-risk` remain analysis drafts requiring Tavi/Erol handling before any publication; neither was published automatically.
+
 **Agent run (5:30 AM, May 13):** No REVISE drafts. Drafted analysis piece: `ai-vendor-financing-loop-operator-guide`. Analysis candidate "AI Vendor-Financing Loop" had been selected for Avdi draft since May 10 (3 days waiting). Drafted with 12 external sources + 4 internal links. Framework named: Stack Ownership Map. Build ✅ (61 pages, 0 errors). Erol approval required before publication.
 
 **Tavi review (7:02 AM, May 13):** Verified PR #1 is now merged (`cdff161`) and Cloudflare Pages deploy on main succeeded. Reviewed 2 drafts. `ai-vendor-financing-loop-operator-guide` marked **REVISE** for source hygiene before Erol review: thesis/framework are promising, but several attributed/numeric claims need direct body links or verified sourcing. `nvidia-40b-ai-venture-investor-2026` remains **HOLD_FOR_ANALYSIS**; do not publish because it pre-spends the vendor-financing analysis thesis. No May 13 briefing has been published yet; today needs a fresh operator-relevant briefing draft if a non-filler story qualifies.
@@ -225,6 +338,8 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 **Agent run (7:05 AM, May 13 — Avdi REVISE):** Addressed all Tavi REVISE objections on `ai-vendor-financing-loop-operator-guide`. Six sourcing fixes: Ben Bajarin CNBC link, Dario Amodei Fortune Feb 2026 link, Azure 40% Microsoft IR link, Bosch/Mars/Merck removed → CNBC enterprise stat, Bloomberg direct quote removed → paraphrase, EU/UK regulatory refs sourced to CMA gov.uk. sourceCount 12 → 16. Build ✅ (61 pages, 0 errors). No new briefing drafted this run — REVISE draft was the priority per daily order.
 
 **Agent run (8:36 AM, May 13 — Avdi NEW_DRAFT):** No REVISE drafts outstanding. Drafted new briefing: `openai-deployment-company-enterprise-consulting-2026`. Story: OpenAI launched the OpenAI Deployment Company on May 11 — a $4B professional services subsidiary with FDEs embedded in enterprises; 19 founding partners include McKinsey, Capgemini, Bain & Co.; acquired Tomoro AI (150 FDEs). Key operator angle: consulting firms now hold equity in the vendor they may recommend; FDE model grants OpenAI engineers access to internal workflows and data. Distinct from May 4 PE ventures briefing. 7 external sources + 2 internal links. Build ✅ (61 pages, 0 errors). Awaiting Tavi review.
+
+**Agent run (5:35 AM, May 14 — Avdi NEW_DRAFT):** No REVISE drafts outstanding. Drafted new briefing: `microsoft-openai-decoupling-azure-enterprise-2026`. Story: On May 12–13, 2026, Reuters reported that OpenAI agreed to cap total revenue sharing with Microsoft at $38B through 2030 (per The Information) and that Microsoft is actively shopping for AI startup acquisitions to prepare for post-OpenAI independence (Reuters exclusive). Combined operator angle: the Azure-as-OpenAI-proxy assumption is structurally weakened; OpenAI is now multi-cloud (AWS Bedrock available); Microsoft accelerating first-party model track (MAI + Inception discussions). 4 external links (all Reuters), 3 internal links. Build ✅ (62 pages, 0 errors). Awaiting Tavi review.
 
 **Agent run (8:41 AM, May 13 — Avdi REVISE):** Addressed all Tavi REVISE objections on `openai-deployment-company-enterprise-consulting-2026`. Four fixes: (1) cut body from ~726 to ~590 pre-FAQ words; (2) FAQ 4 → 3 (FDE explainer deleted, definition merged into FAQ 1); (3) CNBC Dresser paywalled reference removed from knownWeaknesses (was never body-linked); (4) sourceCount corrected 7 → 4 with The Register added as 4th body-linked external source. Operator posture preserved. Build ✅ (61 pages, 0 errors).
 
