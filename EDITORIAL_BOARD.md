@@ -22,7 +22,7 @@ Draft-only lane:
 
 ## This Week's Analysis Candidate
 
-- Status: **DRAFTED — awaiting Tavi + Erol review**
+- Status: **SELECTED / DRAFTED — needs Avdi source-hygiene revision before Tavi + Erol review**
 - Topic: **The AI Vendor-Financing Loop** - Nvidia, Microsoft, OpenAI, and adjacent infrastructure partners are increasingly funding the customers and suppliers that sustain AI demand.
 - Proposed thesis: The most important AI infrastructure story is no longer just capex scale, but capital circularity: the same companies selling compute, buying compute, financing labs, and guaranteeing demand are creating a durable buildout engine and a new concentration-risk problem for enterprise buyers.
 - Why this passes the analysis bar:
@@ -31,6 +31,7 @@ Draft-only lane:
   - Depth/source availability: CNBC, Nvidia SEC filings, earnings materials, Bloomberg deal mapping, Reuters/regulatory coverage, and existing AdvancedAI briefings provide enough named cases and independent sources for 1,200-2,500 words.
   - Operator usefulness: gives buyers a practical due-diligence sequence for mapping financial entanglement, supplier optionality, capacity commitments, and conflict-of-interest risk this quarter.
 - Strongest counterpoint to address: circular financing may simply be rational ecosystem-building in a capacity-constrained market, not bubble behavior; AI labs and data-center operators need upfront capital before revenue arrives, and Nvidia/Microsoft are the logical balance sheets to provide it.
+- May 17 weekly selection update: **kept as the recommended analysis candidate** after reviewing current news, recent AdvancedAI coverage, and draft queue. The candidate still clears the highest analysis bar, but Avdi must fix the Microsoft $13B OpenAI sourcing mismatch before Tavi/Erol review.
 - Tavi decision: pending review after Avdi draft
 - Erol approval needed: yes
 
@@ -182,6 +183,16 @@ Add new Avdi drafts here before review.
   - Main problem: trim succeeded and the analysis structure/operator framework are strong, but source hygiene is not intact enough for Erol review because the body link for the Oracle → OpenAI $300B infrastructure claim returns 404.
   - Verification: automated body word count 2,350 (under 2,500 target); sourceCount 16 matches 16 unique external body links; Stack Ownership Map, counterpoint, regulatory watch item, and operator posture are present; `npm run build` passed locally (64 pages, 0 errors — May 15, 8:07 AM).
   - Required revision: replace or remove the broken TechCrunch Oracle/OpenAI $300B body source (`https://techcrunch.com/2026/02/28/billion-dollar-infrastructure-deals-ai-boom-data-centers-openai-oracle-microsoft-google-meta/`). If the Oracle claim stays, use an accessible reliable source and keep the `sourceCount` accurate; if no reliable source is available, cut the Oracle paragraph. Re-run build and resubmit. **Do not publish automatically; analysis requires Erol review after Tavi approval.**
+  - **REVISED_FOR_REVIEW** (May 15, 2026, 1:18 PM — Avdi)
+  - Changes made:
+    - Broken TechCrunch URL (returning 404) was caused by a typo in the slug — missing `nvidia-` segment. Correct URL: `https://techcrunch.com/2026/02/28/billion-dollar-infrastructure-deals-ai-boom-data-centers-openai-oracle-nvidia-microsoft-google-meta/` — verified HTTP 200.
+    - Oracle paragraph and $300B claim retained; sourceCount unchanged at 16.
+    - No other changes; word count (2,350), structure, Stack Ownership Map, and operator posture all intact.
+  - Build check: ✅ passed (65 pages, 0 errors — May 15, 1:18 PM)
+  - **Erol approval required** before publication after Tavi approval.
+  - Tavi decision: **REVISE** (May 17, 2026 — Tavi daily review)
+  - Main problem: source hygiene is still not clean enough for Erol review. The Microsoft → OpenAI paragraph links the "$13B Microsoft invested in OpenAI" claim to a Bloomberg URL about Google's Anthropic investment, not a source that supports the Microsoft/OpenAI figure. Automated source checks also still see several paywall/bot-blocked links, but the mismatched source is the blocking editorial issue.
+  - Required revision: replace the Microsoft $13B body link with a reliable Microsoft/OpenAI source that actually supports the claim, or reword/remove the claim; keep sourceCount accurate; re-run build and resubmit for Tavi review. **Do not publish automatically; analysis requires Erol review after Tavi approval.**
 
 - [ ] Draft slug: `microsoft-openai-decoupling-azure-enterprise-2026`
   - Path: `src/content/drafts/microsoft-openai-decoupling-azure-enterprise-2026.md`
@@ -271,6 +282,25 @@ Add new Avdi drafts here before review.
   - Reason: revised briefing is much improved, but the strongest editorial value is the broader circular-capital/vendor-financing pattern already selected as this week's analysis candidate. Avoid publishing a same-day briefing that pre-spends the analysis thesis.
   - Next step: use as source material for Avdi's **AI Vendor-Financing Loop** analysis draft; do not publish automatically.
 
+- [ ] Draft slug: `salesforce-anthropic-token-spend-enterprise-ai-cost-2026`
+  - Path: `src/content/drafts/salesforce-anthropic-token-spend-enterprise-ai-cost-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 17, 2026 (5:36 AM)
+  - Primary sources: Business Insider (Benioff All-In podcast quotes, May 16), All-In podcast YouTube (primary), The Next Web (Anthropic ARR context), LA Times (support headcount cut, Sept 2025), Salesforce investor relations (Agentforce $800M ARR, Feb 2026)
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/salesforce-anthropic-token-spend-enterprise-ai-cost-2026.png` ✅
+  - Build check: ✅ passed (65 pages, 0 errors — May 17, 5:36 AM)
+  - Known weaknesses:
+    - $300M figure is Benioff's own podcast projection, not an official Salesforce financial disclosure.
+    - Anthropic ARR ($9B → $30B) sourced via The Next Web citing their own prior reporting; not confirmed by Anthropic directly.
+    - Slack coding feature is unannounced — framed as a forward signal, not a confirmed product.
+  - Operator angle: AI model costs have moved from pilot budgets to operating expense territory; coding is the highest-ROI early use case; Benioff's routing-layer insight (not every token needs a frontier model) is the key cost-management signal for operators; workforce math from service is repeating in engineering.
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 17, 2026 — Tavi same-day catch-up)
+  - Review notes: passes the operator-direction test. It clearly distinguishes Benioff's $300M podcast projection from audited Salesforce disclosure; frames the operator move as **ask sharper vendor questions** on token pricing, routing, volume tiers, and contract portability; gives a concrete Q2 cost-audit sequence; and ends with a specific watch signal around comparable enterprise CEO token-spend disclosures. Briefing structure is acceptable: 5 external links, 2 internal links, 3 FAQs, hero asset exists, and body length is at the briefing ceiling (~801 words excluding byline by Tavi count; Avdi count 786).
+  - Publish path: `src/content/briefings/salesforce-anthropic-token-spend-enterprise-ai-cost-2026.md`
+  - Verification: hero image exists at `src/assets/salesforce-anthropic-token-spend-enterprise-ai-cost-2026.png`; internal links resolve locally; `npm run build` passed May 17, 2026 at 8:32 AM (66 pages, 0 errors). Automated source check from prior review: YouTube, Business Insider, The Next Web, and LA Times returned HTTP 200; Salesforce investor-relations URL returned HTTP 403 to automated fetch but is a primary Salesforce IR URL and does not block publication by itself.
+  - Publish proof: moved approved briefing from draft lane to live briefing folder and committed/pushed in Tavi catch-up commit (May 17, 2026).
+
 ---
 
 ## Approved for Publish
@@ -320,6 +350,21 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 4. **Government/regulatory pre-release oversight of frontier models** - six-month 4, synthesis 3, depth 3, originality 3, operator usefulness 3, source availability 3. Monitor; not enough concrete development this week for AdvancedAI analysis bar.
 
 **Selected candidate rationale:** The circular capital thesis passes the analysis bar because it connects multiple recent facts that AdvancedAI has already covered separately: hyperscaler capex/backlogs, AI labs moving into enterprise transformation, Nvidia's $40B+ investment role, and vendor-financed infrastructure risk. Required draft angle: named cases first, steelman the ecosystem-building counterargument, then give operators a sequencing answer for Q2 vendor/procurement reviews.
+
+### Week of May 17, 2026 (Sunday)
+
+**Agent run (5:36 AM, May 17 — Avdi NEW_DRAFT):** No actionable REVISE drafts outstanding (`ai-vendor-financing-loop-operator-guide` is REVISED_FOR_REVIEW awaiting Tavi re-review). Searched recent AI/business news; selected Salesforce/Anthropic $300M token spend story (Benioff on All-In podcast, May 16). Drafted new briefing: `salesforce-anthropic-token-spend-enterprise-ai-cost-2026`. Story: Salesforce CEO Marc Benioff projected ~$300M in Anthropic token spend for 2026, almost entirely on AI coding agents; he also called for a model routing "intermediary layer" to direct low-complexity queries to smaller, cheaper models. Key operator angles: (1) AI model costs are now a material operating expense at enterprise scale, not a pilot line item; (2) coding is the use case with the clearest enterprise ROI; (3) model tiering is the next cost-optimization lever; (4) the workforce-reduction pattern from customer service is repeating in engineering. 5 external sources + 2 internal links. Pre-FAQ word count: 574 (within 400-700 spec); total word count: 786 (under 800 ceiling). Build ✅ (65 pages, 0 errors — May 17, 5:36 AM). Awaiting Tavi review.
+
+**Tavi review (7:00 AM, May 17):** Reviewed 2 substantive drafts plus recent live changes. No briefing has been published today (`src/content/briefings/` has no May 17 frontmatter date or file timestamp). `salesforce-anthropic-token-spend-enterprise-ai-cost-2026` is **APPROVED_BRIEFING** on editorial quality and build verification, but **PUBLISH_BLOCKED_NEEDS_EROL** because the working tree still contains unrelated/unapproved changes outside the article/asset/editorial-board publish boundary. `ai-vendor-financing-loop-operator-guide` remains **REVISE** before Erol review because the Microsoft $13B OpenAI claim is linked to an unrelated Bloomberg Google/Anthropic URL. `npm run build` passed locally (65 pages, 0 errors). No Avdi immediate trigger was run because no briefing draft was marked REVISE; today's missed publish is blocked by repository state, not draft quality.
+
+**Weekly analysis selection (8:02 AM, May 17):** Reviewed current AI/business developments via Reuters/Google News RSS, OpenAI News RSS, Google AI Blog RSS, Nvidia Blog RSS, recent AdvancedAI live coverage, draft queue, and editorial direction. Candidate scoring (1-5):
+1. **AI Vendor-Financing Loop / circular AI capital** - six-month 5, synthesis 5, depth 5, originality 4, operator usefulness 5, source availability 5. **Selected / keep selected.** Rationale: strongest cross-story pattern for operators; connects Nvidia investments, Microsoft/OpenAI decoupling, hyperscaler/lab capacity deals, enterprise AI consulting, and procurement concentration risk. Required next step is source-hygiene revision, not a new draft.
+2. **Enterprise AI cost-control stack / token routing economics** - six-month 4, synthesis 4, depth 3, originality 3, operator usefulness 5, source availability 4. Strong operator theme after Salesforce/Anthropic token-spend briefing and OpenAI Codex enterprise workflow posts, but better held until more independent enterprise cost disclosures emerge; likely follow-up analysis, not this week's lead.
+3. **AI-assisted cyber risk shifts from model policy to bank/security operations** - six-month 4, synthesis 3, depth 4, originality 3, operator usefulness 4, source availability 4. ECB cyberattack warning plus Google AI zero-day coverage and prompt-injection analysis create a useful thread, but AdvancedAI has just published a strong agent-permissions analysis; avoid overlap unless new named incidents or regulatory requirements appear.
+4. **National / sovereign ChatGPT access deals as AI public infrastructure** - six-month 3, synthesis 3, depth 3, originality 3, operator usefulness 2, source availability 4. OpenAI Malta and European-access stories are notable, but operator implications for AdvancedAI's core reader are indirect; keep watching rather than assign analysis now.
+5. **AI implementation philanthropy/nonprofit partnerships** - six-month 3, synthesis 3, depth 3, originality 3, operator usefulness 3, source availability 4. Anthropic/Gates Foundation $200M partnership may become a useful deployment-governance story, but current reporting is too announcement-led; wait for named deployments, metrics, or implementation failures.
+
+**Decision:** Recommend **AI Vendor-Financing Loop** as this week's analysis candidate; no new competing analysis should be drafted until Avdi fixes the Microsoft $13B sourcing mismatch and Tavi can re-review. Analysis bar basis: passes six-month relevance, synthesis, depth, and operator-usefulness tests; has named cases and a reusable Stack Ownership Map; strongest counterpoint remains rational ecosystem-building rather than bubble behavior.
 
 ### Week of May 12, 2026 (Tuesday)
 
