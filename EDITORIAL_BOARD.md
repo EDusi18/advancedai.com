@@ -193,6 +193,13 @@ Add new Avdi drafts here before review.
   - Tavi decision: **REVISE** (May 17, 2026 — Tavi daily review)
   - Main problem: source hygiene is still not clean enough for Erol review. The Microsoft → OpenAI paragraph links the "$13B Microsoft invested in OpenAI" claim to a Bloomberg URL about Google's Anthropic investment, not a source that supports the Microsoft/OpenAI figure. Automated source checks also still see several paywall/bot-blocked links, but the mismatched source is the blocking editorial issue.
   - Required revision: replace the Microsoft $13B body link with a reliable Microsoft/OpenAI source that actually supports the claim, or reword/remove the claim; keep sourceCount accurate; re-run build and resubmit for Tavi review. **Do not publish automatically; analysis requires Erol review after Tavi approval.**
+  - **REVISED_FOR_REVIEW** (May 18, 2026, 5:31 AM — Avdi)
+  - Changes made:
+    - The '$13 billion in OpenAI' body link (previously pointing to Bloomberg's Google/Anthropic article — wrong source) replaced with CNBC Aug 2024: 'Rise of OpenAI: Microsoft's $13 billion artificial intelligence bet' (cnbc.com/2024/08/10/...). Source directly states 'Microsoft has invested about $13 billion in OpenAI.' Tier 2, HTTP 200 verified.
+    - sourceCount unchanged at 16 (the Bloomberg URL was already cited separately for the Google → Anthropic claim; CNBC replaces only the mismatched link on the Microsoft/OpenAI sentence).
+    - Word count (~2,350), structure, Stack Ownership Map, counterpoint, and operator posture all unchanged.
+  - Build check: ✅ passed (67 pages, 0 errors — May 18, 2026, 5:31 AM)
+  - **Erol approval required** before publication after Tavi approval.
 
 - [ ] Draft slug: `microsoft-openai-decoupling-azure-enterprise-2026`
   - Path: `src/content/drafts/microsoft-openai-decoupling-azure-enterprise-2026.md`
@@ -282,6 +289,31 @@ Add new Avdi drafts here before review.
   - Reason: revised briefing is much improved, but the strongest editorial value is the broader circular-capital/vendor-financing pattern already selected as this week's analysis candidate. Avoid publishing a same-day briefing that pre-spends the analysis thesis.
   - Next step: use as source material for Avdi's **AI Vendor-Financing Loop** analysis draft; do not publish automatically.
 
+- [ ] Draft slug: `microsoft-claude-code-github-copilot-ai-tool-vendor-2026`
+  - Path: `src/content/drafts/microsoft-claude-code-github-copilot-ai-tool-vendor-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 18, 2026 (8:37 AM)
+  - Primary sources: TechRadar (Microsoft Claude Code discontinuation, May 15), Windows Central (Microsoft/Copilot financial motives, May 15), Anthropic.com/news/pwc-expanded-partnership (May 14 — primary), PwC.com press release (May 14 — primary), GitHub Copilot (product context)
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/microsoft-claude-code-github-copilot-ai-tool-vendor-2026.png` ✅
+  - Build check: ✅ passed (67 pages, 0 errors — May 18, 8:37 AM)
+  - Known weaknesses:
+    - Microsoft's specific financial rationale is reported as "likely financial" by Windows Central/TechRadar; no official Microsoft statement confirming the rationale; framed accordingly throughout.
+    - No official Microsoft press release for the internal cancellation; sourced to tier-2 reporting (TechRadar, Windows Central) corroborated by multiple outlets.
+  - Operator angle: Platform vendors control which third-party AI tools persist on their infrastructure; Microsoft's June 30 deadline shows the speed of that consolidation; operators should treat AI coding assistant choice as a vendor platform decision, not just a productivity question; ask sharper questions about tool portability and exit cost.
+  - Tavi decision: **REVISE** (May 18, 2026 — Tavi catch-up review)
+  - Main problem: strong operator angle and likely publishable as today's briefing, but two wording/source-hygiene issues prevent approval as written. The lede says PwC adopted Claude Code "on the same day" Microsoft canceled internal licenses, but sources are dated May 14 vs May 15; change to "the same week" or otherwise date accurately. The PwC section says PwC is "equity-aligned" with Anthropic's tooling, but the cited sources support a commercial/strategic alliance and Center of Excellence, not equity ownership; change to "commercially aligned," "strategically aligned," or a sourced phrasing. After those fixes, preserve the operator posture: **ask sharper vendor questions** about tool portability, platform independence, and exit cost; keep briefing under the 800-word ceiling; re-run build and mark **REVISED_FOR_REVIEW**.
+  - **REVISED_FOR_REVIEW** (May 18, 2026, 8:41 AM — Avdi)
+  - Changes made:
+    - Lede timing: changed "On the same day" to "The same week" — accurately reflects May 14 (PwC/Anthropic press releases) vs May 15 (TechRadar/Windows Central reporting).
+    - PwC alignment language: changed "deeply equity-aligned with Anthropic's tooling" to "commercially and strategically aligned with Anthropic's tooling" — sourced language matches Anthropic.com and PwC.com press releases (commercial alliance + joint Center of Excellence), not equity ownership.
+    - Operator posture (ask sharper vendor questions on tool portability, platform independence, exit cost) preserved unchanged.
+    - Word count, FAQ count (3), and source count (5 external + 2 internal) all unchanged.
+  - Build check: ✅ passed (67 pages, 0 errors — May 18, 8:41 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 18, 2026 — Tavi catch-up after Avdi revision)
+  - Review notes: passes operator-direction test as a briefing, not generic AI-tool news. It explains what happened, why the Microsoft/PwC contrast matters to operators, how to use it now (**ask sharper vendor questions** about tool portability, platform independence, implementation-partner incentives, and exit cost), and what to watch next (similar Microsoft consolidation moves around third-party AI tools on Azure). Revision fixed the two factual/source-hygiene issues; hero asset exists; build passed locally.
+  - Publish path: `src/content/briefings/microsoft-claude-code-github-copilot-ai-tool-vendor-2026.md`
+
 - [ ] Draft slug: `salesforce-anthropic-token-spend-enterprise-ai-cost-2026`
   - Path: `src/content/drafts/salesforce-anthropic-token-spend-enterprise-ai-cost-2026.md`
   - Proposed tier: **briefing**
@@ -351,6 +383,14 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 
 **Selected candidate rationale:** The circular capital thesis passes the analysis bar because it connects multiple recent facts that AdvancedAI has already covered separately: hyperscaler capex/backlogs, AI labs moving into enterprise transformation, Nvidia's $40B+ investment role, and vendor-financed infrastructure risk. Required draft angle: named cases first, steelman the ecosystem-building counterargument, then give operators a sequencing answer for Q2 vendor/procurement reviews.
 
+### Week of May 18, 2026 (Monday)
+
+**Agent run (8:41 AM, May 18 — Avdi REVISED):** One REVISE draft outstanding: `microsoft-claude-code-github-copilot-ai-tool-vendor-2026`. Applied Tavi's two targeted fixes: (1) lede timing changed from "on the same day" to "the same week" (sources: May 14 PwC/Anthropic vs May 15 TechRadar/Windows Central); (2) PwC alignment language changed from "equity-aligned" to "commercially and strategically aligned" (sourced to alliance/CoE press releases, not equity). Word count, FAQ, and source count unchanged. Build ✅ (67 pages, 0 errors — May 18, 8:41 AM). Marked REVISED_FOR_REVIEW. Awaiting Tavi review.
+
+**Agent run (8:37 AM, May 18 — Avdi NEW_DRAFT):** No actionable REVISE drafts outstanding (`ai-vendor-financing-loop-operator-guide` is APPROVED_ANALYSIS_NEEDS_EROL per Tavi May 18 7AM review). Searched recent AI/business news (May 15–18); selected the Microsoft/Claude Code cancellation story combined with PwC/Claude Code all-in deployment announcement. Drafted new briefing: `microsoft-claude-code-github-copilot-ai-tool-vendor-2026`. Story: Microsoft canceled internal Claude Code licenses with a June 30, 2026 deadline, ordering engineers to GitHub Copilot CLI (TechRadar/Windows Central reporting, likely financial motives). Simultaneously, PwC announced it will certify 30,000 professionals on Claude Code and expand to its global workforce via a joint Center of Excellence with Anthropic (primary sources: Anthropic.com + PwC.com press releases, May 14). Key operator angle: AI coding tool choice is a vendor platform decision — your platform provider may make it for you; ask sharper vendor questions about tool portability, exit cost, and platform independence. 5 external sources (TechRadar, Windows Central, Anthropic.com/news, PwC.com, GitHub Copilot) + 2 internal links. Pre-FAQ word count: 612 (within 400–700 spec); total: 800 (at ceiling). Build ✅ (67 pages, 0 errors — May 18, 8:37 AM). Awaiting Tavi review.
+
+---
+
 ### Week of May 17, 2026 (Sunday)
 
 **Agent run (5:36 AM, May 17 — Avdi NEW_DRAFT):** No actionable REVISE drafts outstanding (`ai-vendor-financing-loop-operator-guide` is REVISED_FOR_REVIEW awaiting Tavi re-review). Searched recent AI/business news; selected Salesforce/Anthropic $300M token spend story (Benioff on All-In podcast, May 16). Drafted new briefing: `salesforce-anthropic-token-spend-enterprise-ai-cost-2026`. Story: Salesforce CEO Marc Benioff projected ~$300M in Anthropic token spend for 2026, almost entirely on AI coding agents; he also called for a model routing "intermediary layer" to direct low-complexity queries to smaller, cheaper models. Key operator angles: (1) AI model costs are now a material operating expense at enterprise scale, not a pilot line item; (2) coding is the use case with the clearest enterprise ROI; (3) model tiering is the next cost-optimization lever; (4) the workforce-reduction pattern from customer service is repeating in engineering. 5 external sources + 2 internal links. Pre-FAQ word count: 574 (within 400-700 spec); total word count: 786 (under 800 ceiling). Build ✅ (65 pages, 0 errors — May 17, 5:36 AM). Awaiting Tavi review.
@@ -365,6 +405,8 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 5. **AI implementation philanthropy/nonprofit partnerships** - six-month 3, synthesis 3, depth 3, originality 3, operator usefulness 3, source availability 4. Anthropic/Gates Foundation $200M partnership may become a useful deployment-governance story, but current reporting is too announcement-led; wait for named deployments, metrics, or implementation failures.
 
 **Decision:** Recommend **AI Vendor-Financing Loop** as this week's analysis candidate; no new competing analysis should be drafted until Avdi fixes the Microsoft $13B sourcing mismatch and Tavi can re-review. Analysis bar basis: passes six-month relevance, synthesis, depth, and operator-usefulness tests; has named cases and a reusable Stack Ownership Map; strongest counterpoint remains rational ecosystem-building rather than bubble behavior.
+
+**Tavi review (7:00 AM, May 18):** Reviewed 12 draft files plus recent live-folder changes. No briefing has been published today (`src/content/briefings/` has no May 18 frontmatter date or file timestamp). `ai-vendor-financing-loop-operator-guide` is now **APPROVED_ANALYSIS_NEEDS_EROL** after Avdi fixed the mismatched Microsoft $13B/OpenAI link; automated check found 16 unique external body links matching `sourceCount`, 2,351 body words (under the 2,500 analysis target), and `npm run build` passed locally (67 pages, 0 errors). Source-check caveat: Bloomberg/Microsoft/Reuters links still return automated 403/401 responses, but the previous editorial mismatch is fixed and the blocked links are named/caveated primary or tier-1 sources. `mcp-agent-integration-layer-business-software` is also **APPROVED_ANALYSIS_NEEDS_EROL** in the draft lane: strong decision-rule analysis, 9/9 external links returned HTTP 200, body length ~2,213 words, and it gives a clear **adopt soon selectively / ask sharper vendor questions** posture. **Publication block:** a duplicate untracked copy exists in `src/content/analysis/mcp-agent-integration-layer-business-software.md`; because analysis requires Erol review, Main/Erol should not commit or deploy that live-folder file unless Erol approves. Repo remains publish-unsafe for any automatic publication: local `main` and `origin/main` are diverged by one equivalent Salesforce publish commit (`c234dd6` local vs `bfe0826` remote) and the working tree still contains uncommitted/untracked editorial/process/draft/live changes. Current briefing candidate scan found no high-confidence non-filler story; only possible Avdi lead is OpenAI/Databricks GPT-5.5 enterprise agent workflows if primary sources show a concrete deployment/operator control angle rather than partner-marketing. No Avdi immediate revision trigger was run because no briefing draft was marked **REVISE**.
 
 ### Week of May 12, 2026 (Tuesday)
 
