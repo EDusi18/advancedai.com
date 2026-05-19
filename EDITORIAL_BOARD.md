@@ -333,6 +333,31 @@ Add new Avdi drafts here before review.
   - Verification: hero image exists at `src/assets/salesforce-anthropic-token-spend-enterprise-ai-cost-2026.png`; internal links resolve locally; `npm run build` passed May 17, 2026 at 8:32 AM (66 pages, 0 errors). Automated source check from prior review: YouTube, Business Insider, The Next Web, and LA Times returned HTTP 200; Salesforce investor-relations URL returned HTTP 403 to automated fetch but is a primary Salesforce IR URL and does not block publication by itself.
   - Publish proof: moved approved briefing from draft lane to live briefing folder and committed/pushed in Tavi catch-up commit (May 17, 2026).
 
+- [ ] Draft slug: `anthropic-stainless-sdk-acquisition-developer-toolchain-2026`
+  - Path: `src/content/drafts/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 19, 2026
+  - Primary sources: Anthropic acquisition announcement, Stainless joining-Anthropic post, TechCrunch deal report, Speakeasy product reference, internal Microsoft/Claude Code and MCP analysis links
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.png` ❌ missing locally as of Tavi review
+  - Tavi decision: **REVISE** (May 19, 2026 — Tavi daily review)
+  - Main problem: strong operator angle and current briefing candidate, but not publish-ready. The draft is over briefing spec (~954 body words, above the 800-word ceiling without justification), the declared hero image asset does not exist, and sourceCount appears to count Speakeasy as a product alternative even though the piece otherwise relies on 3 news/deal sources plus internal links. The core angle is good: neutral AI developer tooling is being absorbed by a model vendor, so operators should **ask sharper vendor questions** about SDK maintenance, MCP tooling neutrality, portability, and exit cost.
+  - Required revision: cut to briefing spec (target 400–700 words; under 800 total unless explicitly justified), reduce/merge the long Stainless/MCP explanation and FAQ repetition, add or correct the missing hero asset/path, ensure sourceCount reflects actual external body links, preserve the operator posture and watch signal, re-run build, and mark **REVISED_FOR_REVIEW**.
+  - **REVISED_FOR_REVIEW** (May 19, 2026, 7:04 AM — Avdi)
+  - Changes made:
+    - Cut body from ~954 to ~530 pre-FAQ words; total including 2 FAQs is ~730 words (under 800 ceiling).
+    - Removed standalone "What Is Stainless" H2 section; folded context into the opening paragraph.
+    - Compressed numbered vendor question list from 4 items to 3 tight bullet points.
+    - Reduced FAQ from 3 to 2; retained MCP neutrality and SDK-maintenance FAQs as most operator-relevant.
+    - sourceCount corrected from 5 to 4 (anthropic.com, stainless.com, techcrunch.com, speakeasyapi.dev — all body-linked).
+    - Hero image generated and saved to src/assets/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.png ✅
+    - Operator posture preserved: ask sharper vendor questions on SDK maintenance, MCP tooling neutrality, portability, and exit cost.
+  - Build check: ✅ passed (68 pages, 0 errors — May 19, 2026, 7:04 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 19, 2026 — Tavi catch-up after Avdi revision)
+  - Review notes: passes operator-direction test as a briefing. It explains what happened (Anthropic bought Stainless and Stainless shut hosted SDK generation for non-Anthropic users), why it matters to operators (SDK maintenance and MCP tooling neutrality), how to use it now (**ask sharper vendor questions** about SDK dependencies, MCP tooling neutrality, portability, and exit cost), and what to watch next (OpenAI/Google competing SDK infrastructure and Anthropic MCP onboarding advantage). Revision fixed length, hero asset, FAQ repetition, and sourceCount issues.
+  - Publish path: `src/content/briefings/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.md`
+  - Verification: hero image exists at `src/assets/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.png`; live frontmatter normalized; `npm run build` passed May 19, 2026 at 8:30 AM (69 pages, 0 errors).
+
 ---
 
 ## Approved for Publish
@@ -382,6 +407,12 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 4. **Government/regulatory pre-release oversight of frontier models** - six-month 4, synthesis 3, depth 3, originality 3, operator usefulness 3, source availability 3. Monitor; not enough concrete development this week for AdvancedAI analysis bar.
 
 **Selected candidate rationale:** The circular capital thesis passes the analysis bar because it connects multiple recent facts that AdvancedAI has already covered separately: hyperscaler capex/backlogs, AI labs moving into enterprise transformation, Nvidia's $40B+ investment role, and vendor-financed infrastructure risk. Required draft angle: named cases first, steelman the ecosystem-building counterargument, then give operators a sequencing answer for Q2 vendor/procurement reviews.
+
+### Week of May 19, 2026 (Tuesday)
+
+**Agent run (7:04 AM, May 19 — Avdi REVISED):** One REVISE draft outstanding: `anthropic-stainless-sdk-acquisition-developer-toolchain-2026`. Applied all four Tavi fixes: (1) cut body from ~954 to ~530 pre-FAQ words; total ~730 words including 2 FAQs (under 800 ceiling); (2) removed standalone "What Is Stainless" H2 — context folded into opening paragraph; (3) reduced FAQ from 3 to 2 (retained MCP neutrality and SDK-maintenance FAQs; dropped $300M explainer FAQ — context moved to opening); (4) sourceCount corrected from 5 to 4 (anthropic.com, stainless.com, techcrunch.com, speakeasyapi.dev — all body-linked); hero image generated and confirmed at src/assets/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.png. Operator posture preserved: ask sharper vendor questions on SDK maintenance, MCP tooling neutrality, portability, and exit cost. Build ✅ (68 pages, 0 errors — May 19, 7:04 AM). Marked REVISED_FOR_REVIEW. Awaiting Tavi review.
+
+**Tavi review (7:00 AM, May 19):** Reviewed new briefing draft `anthropic-stainless-sdk-acquisition-developer-toolchain-2026` plus approved-but-Erol-required analysis drafts. No briefing has been published today (`src/content/briefings/` has no May 19 frontmatter date or file timestamp). Stainless/Anthropic draft is **REVISE**, not publishable yet: strong operator angle, but over briefing spec (~954 body words), missing declared hero asset `src/assets/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.png`, and sourceCount needs cleanup against actual external body links. Required Avdi fix: cut under 800 total unless justified, add/correct hero asset, verify sourceCount/body links, preserve **ask sharper vendor questions** posture on SDK maintenance, MCP tooling neutrality, portability, and exit cost, then re-run build. Local `npm run build` passed before revision trigger (68 pages, 0 errors), but auto-publication is additionally unsafe while repo remains on branch `tavi/publish-microsoft-claude-code-github-copilot-2026-05-18` with uncommitted/untracked editorial/process/draft/live changes, including `.hermes/`, modified `EDITORIAL_CHECKLIST.md`, modified `src/content/drafts/README.md`, untracked operating-standard/prioritization/backlog files, untracked live analysis copy `src/content/analysis/mcp-agent-integration-layer-business-software.md`, and multiple draft/source memo files. Avdi immediate revision trigger run per workflow.
 
 ### Week of May 18, 2026 (Monday)
 
