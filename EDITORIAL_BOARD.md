@@ -41,6 +41,19 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `anthropic-stainless-sdk-acquisition-developer-toolchain-2026`
+  - Path: `src/content/briefings/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 19, 2026
+  - Primary sources: Anthropic acquisition announcement, Stainless shutdown announcement, TechCrunch report citing The Information, Speakeasy product reference
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.png` ✅
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 19, 2026 — Tavi same-day catch-up)
+  - Review notes: passes the operator-direction test. It explains what happened (Anthropic acquired Stainless and Stainless ended hosted SDK generation for non-Anthropic users), why it matters to operators (SDK/API maintenance and MCP tooling neutrality), what to do now (**ask sharper vendor questions**; inventory Stainless-generated SDKs and maintenance paths), and what to watch next (OpenAI/Google tooling response and Anthropic MCP onboarding advantage). Body length is within briefing spec; 2 FAQs; no Erol-specific/private references.
+  - Tavi fix: corrected one stale internal link to the live Claude Code multi-agent briefing and generated the missing hero asset before publication.
+  - Build proof: `npm run build` passed May 19, 2026 at 10:32 AM (68 pages, 0 errors).
+  - Publish path: `src/content/briefings/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.md`
+
 - [ ] Draft slug: `document-ai-first-multimodal-pilot-test-plan`
   - Path: `src/content/briefings/document-ai-first-multimodal-pilot-test-plan.md`
   - Proposed tier: **briefing**
