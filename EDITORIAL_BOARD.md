@@ -41,6 +41,19 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `kpmg-anthropic-claude-professional-services-2026`
+  - Path: `src/content/briefings/kpmg-anthropic-claude-professional-services-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 20, 2026
+  - Primary sources: Anthropic/KPMG global alliance announcement, KPMG press release, internal AdvancedAI links to Anthropic PE and OpenAI Deployment Company briefings
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/kpmg-anthropic-claude-professional-services-2026.png` ✅
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 20, 2026 — Tavi same-day catch-up after Avdi trigger)
+  - Review notes: passes the operator-direction test. It explains what happened (KPMG embedding Claude into Digital Gateway for 276,000+ staff and client tax/legal work), why it matters to operators (professional-services deliverables, engagement-letter data use, accountability, advisory independence), what to do now (**ask sharper vendor questions** of Big Four/professional-services advisors), and what to watch next (KPMG/Anthropic PE partner terms and comparable Big Four alliances). Briefing structure is acceptable: 5 external links, 3 FAQs, hero asset exists, no Erol-specific/private references.
+  - Tavi fix: normalized `pubDate` to `2026-05-20`, standardized quoted frontmatter, and added `recommendationPosture` before publication.
+  - Publish path: `src/content/briefings/kpmg-anthropic-claude-professional-services-2026.md`
+  - Build proof: `npm run build` passed May 20, 2026 at 8:36 AM (69 pages, 0 errors).
+
 - [ ] Draft slug: `document-ai-first-multimodal-pilot-test-plan`
   - Path: `src/content/briefings/document-ai-first-multimodal-pilot-test-plan.md`
   - Proposed tier: **briefing**
