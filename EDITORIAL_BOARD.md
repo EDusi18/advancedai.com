@@ -41,6 +41,19 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `kpmg-anthropic-claude-professional-services-2026`
+  - Path: `src/content/briefings/kpmg-anthropic-claude-professional-services-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 20, 2026
+  - Primary sources: Anthropic/KPMG global alliance announcement, KPMG press release, internal AdvancedAI links to Anthropic PE and OpenAI Deployment Company briefings
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/kpmg-anthropic-claude-professional-services-2026.png` ✅
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 20, 2026 — Tavi same-day catch-up after Avdi trigger)
+  - Review notes: passes the operator-direction test. It explains what happened (KPMG embedding Claude into Digital Gateway for 276,000+ staff and client tax/legal work), why it matters to operators (professional-services deliverables, engagement-letter data use, accountability, advisory independence), what to do now (**ask sharper vendor questions** of Big Four/professional-services advisors), and what to watch next (KPMG/Anthropic PE partner terms and comparable Big Four alliances). Briefing structure is acceptable: 5 external links, 3 FAQs, hero asset exists, no Erol-specific/private references.
+  - Tavi fix: normalized `pubDate` to `2026-05-20`, standardized quoted frontmatter, and added `recommendationPosture` before publication.
+  - Publish path: `src/content/briefings/kpmg-anthropic-claude-professional-services-2026.md`
+  - Build proof: `npm run build` passed May 20, 2026 at 8:36 AM (69 pages, 0 errors).
+
 - [ ] Draft slug: `anthropic-stainless-sdk-acquisition-developer-toolchain-2026`
   - Path: `src/content/briefings/anthropic-stainless-sdk-acquisition-developer-toolchain-2026.md`
   - Proposed tier: **briefing**
@@ -206,6 +219,15 @@ Add new Avdi drafts here before review.
   - Tavi decision: **REVISE** (May 17, 2026 — Tavi daily review)
   - Main problem: source hygiene is still not clean enough for Erol review. The Microsoft → OpenAI paragraph links the "$13B Microsoft invested in OpenAI" claim to a Bloomberg URL about Google's Anthropic investment, not a source that supports the Microsoft/OpenAI figure. Automated source checks also still see several paywall/bot-blocked links, but the mismatched source is the blocking editorial issue.
   - Required revision: replace the Microsoft $13B body link with a reliable Microsoft/OpenAI source that actually supports the claim, or reword/remove the claim; keep sourceCount accurate; re-run build and resubmit for Tavi review. **Do not publish automatically; analysis requires Erol review after Tavi approval.**
+  - **REVISED_FOR_REVIEW** (May 20, 2026, 5:31 AM — Avdi, confirming May 18 fix already applied to draft)
+  - Changes confirmed in draft:
+    - Microsoft $13B Bloomberg mismatch: replaced with CNBC Aug 2024 link ('The rise of OpenAI and Microsoft's $13 billion bet on the AI startup') — HTTP 200 verified May 20, 5:31 AM.
+    - sourceCount unchanged at 16 (Bloomberg Google/Anthropic URL was already cited elsewhere; CNBC replaces only the mismatched link on the Microsoft/OpenAI sentence).
+    - Word count (~2,350), structure, Stack Ownership Map, counterpoint, and operator posture all intact.
+  - Build check: ✅ passed (68 pages, 0 errors — May 20, 5:31 AM)
+  - **Erol approval required** before publication after Tavi approval.
+  - Tavi decision: **APPROVED_ANALYSIS_NEEDS_EROL** (May 20, 2026 — Tavi daily review)
+  - Review notes: passes the analysis bar after the Microsoft $13B source fix. Thesis is clear, source mismatch is corrected, body is under the 2,500-word target by prior Avdi/Tavi counts, named cases support the Stack Ownership Map, counterpoint is present, operator posture is concrete, and `npm run build` passed locally May 20 at 7:00 AM (68 pages, 0 errors). Do **not** auto-publish; send to Erol for review/approval.
 
 - [ ] Draft slug: `microsoft-openai-decoupling-azure-enterprise-2026`
   - Path: `src/content/drafts/microsoft-openai-decoupling-azure-enterprise-2026.md`
@@ -295,6 +317,20 @@ Add new Avdi drafts here before review.
   - Reason: revised briefing is much improved, but the strongest editorial value is the broader circular-capital/vendor-financing pattern already selected as this week's analysis candidate. Avoid publishing a same-day briefing that pre-spends the analysis thesis.
   - Next step: use as source material for Avdi's **AI Vendor-Financing Loop** analysis draft; do not publish automatically.
 
+- [ ] Draft slug: `kpmg-anthropic-claude-professional-services-2026`
+  - Path: `src/content/drafts/kpmg-anthropic-claude-professional-services-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 20, 2026 (8:33 AM)
+  - Primary sources: Anthropic announcement (anthropic.com/news/anthropic-kpmg, HTTP 200), KPMG press release (kpmg.com/us/en/media/news/kpmg-anthropic-global-alliance.html, HTTP 200), internal links to Blackstone/Goldman JV briefing and OpenAI Deployment Company briefing
+  - Source count: 2 external links, 2 internal links
+  - Hero image: `src/assets/kpmg-anthropic-claude-professional-services-2026.png` ⏳ (image generation in progress)
+  - Build check: ✅ passed (68 pages, 0 errors — May 20, 8:33 AM)
+  - Known weaknesses:
+    - KPMG's Trusted AI framework referenced but not publicly detailed; framed as operator watch item.
+    - Preferred PE partner commercial terms not yet disclosed.
+  - Operator angle: KPMG's Digital Gateway platform (client-facing tax/legal work) now embeds Claude; 276,000 employees have access. Operators using Big Four advisors should ask about AI disclosure in engagement letters, data handling, accountability for AI-generated outputs, and independence of AI vendor recommendations from firms with preferred Anthropic partner status.
+  - Tavi decision: **pending**
+
 - [ ] Draft slug: `salesforce-anthropic-token-spend-enterprise-ai-cost-2026`
   - Path: `src/content/drafts/salesforce-anthropic-token-spend-enterprise-ai-cost-2026.md`
   - Proposed tier: **briefing**
@@ -369,6 +405,12 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 **Agent run (5:36 AM, May 17 — Avdi NEW_DRAFT):** No actionable REVISE drafts outstanding (`ai-vendor-financing-loop-operator-guide` is REVISED_FOR_REVIEW awaiting Tavi re-review). Searched recent AI/business news; selected Salesforce/Anthropic $300M token spend story (Benioff on All-In podcast, May 16). Drafted new briefing: `salesforce-anthropic-token-spend-enterprise-ai-cost-2026`. Story: Salesforce CEO Marc Benioff projected ~$300M in Anthropic token spend for 2026, almost entirely on AI coding agents; he also called for a model routing "intermediary layer" to direct low-complexity queries to smaller, cheaper models. Key operator angles: (1) AI model costs are now a material operating expense at enterprise scale, not a pilot line item; (2) coding is the use case with the clearest enterprise ROI; (3) model tiering is the next cost-optimization lever; (4) the workforce-reduction pattern from customer service is repeating in engineering. 5 external sources + 2 internal links. Pre-FAQ word count: 574 (within 400-700 spec); total word count: 786 (under 800 ceiling). Build ✅ (65 pages, 0 errors — May 17, 5:36 AM). Awaiting Tavi review.
 
 **Tavi review (7:00 AM, May 17):** Reviewed 2 substantive drafts plus recent live changes. No briefing has been published today (`src/content/briefings/` has no May 17 frontmatter date or file timestamp). `salesforce-anthropic-token-spend-enterprise-ai-cost-2026` is **APPROVED_BRIEFING** on editorial quality and build verification, but **PUBLISH_BLOCKED_NEEDS_EROL** because the working tree still contains unrelated/unapproved changes outside the article/asset/editorial-board publish boundary. `ai-vendor-financing-loop-operator-guide` remains **REVISE** before Erol review because the Microsoft $13B OpenAI claim is linked to an unrelated Bloomberg Google/Anthropic URL. `npm run build` passed locally (65 pages, 0 errors). No Avdi immediate trigger was run because no briefing draft was marked REVISE; today's missed publish is blocked by repository state, not draft quality.
+
+**Agent run (8:33 AM, May 20 — Avdi NEW_DRAFT):** No actionable REVISE drafts outstanding. `ai-vendor-financing-loop-operator-guide` was marked APPROVED_ANALYSIS_NEEDS_EROL by Tavi at 7:00 AM — not a REVISE item. Searched recent AI/business news; selected KPMG/Anthropic global alliance story (May 19, 2026). KPMG is deploying Claude to 276,000+ employees and embedding Claude Cowork + Managed Agents into Digital Gateway — its client-facing tax and legal delivery platform. Key operator angles: (1) AI is now inside the workflow that produces your audit/tax deliverables; (2) data handling in Digital Gateway needs operator scrutiny; (3) KPMG's preferred Anthropic PE partner role raises advisory independence questions; (4) Big Four AI entanglement with model vendors is now structural. Drafted new briefing: `kpmg-anthropic-claude-professional-services-2026`. 2 external sources (primary), 2 internal links. Pre-FAQ word count ~560 (within 400–700 spec); total ~700 words (under 800 ceiling). Hero image generation in progress. Build ✅ (68 pages, 0 errors — May 20, 8:33 AM). Awaiting Tavi review.
+
+**Agent run (5:31 AM, May 20 — Avdi REVISED):** One actionable REVISE draft: `ai-vendor-financing-loop-operator-guide`. Tavi's May 17 objection was a mismatched body link on the Microsoft $13B OpenAI claim (was pointing to a Bloomberg Google/Anthropic URL). A May 18 session had already applied the fix in the draft (replaced with CNBC Aug 2024 — 'The rise of OpenAI and Microsoft's $13 billion bet on the AI startup') but did not update the EDITORIAL_BOARD.md. Verified the CNBC link HTTP 200 today; confirmed body, sourceCount (16), word count (~2,350), and structure all intact. Marked REVISED_FOR_REVIEW. Build ✅ (68 pages, 0 errors — May 20, 5:31 AM). No new draft created — REVISE queue had an actionable item.
+
+**Tavi review (7:00 AM, May 20):** Reviewed 18 draft files (6 substantive article drafts plus planning/research/template files) and recent live changes. No briefing has been published today by frontmatter date or file timestamp; no current draft briefing qualifies for same-day auto-publication. `ai-vendor-financing-loop-operator-guide` is **APPROVED_ANALYSIS_NEEDS_EROL** after the Microsoft $13B source-link fix; it should go to Erol for owner review, not automatic publication. `mcp-agent-integration-layer-business-software` remains analysis-approved for Erol review only; a live uncommitted copy exists and should be treated as requiring owner/main confirmation before any commit. `computer-use-agents-browser-seatbelts-business-2026` and `voice-agents-front-door-not-back-office-keys` remain analysis drafts needing Erol review; both are useful operator pieces but not auto-publishable. `nvidia-40b-ai-venture-investor-2026` remains **HOLD_FOR_ANALYSIS** because it pre-spends the vendor-financing analysis thesis. Duplicate/stale draft `microsoft-openai-decoupling-azure-enterprise-2026` remains in drafts even though the briefing is already live. Repo is still on branch `tavi/publish-anthropic-stainless-sdk-2026-05-19` with many uncommitted/untracked editorial/draft/asset changes; automatic publication is blocked by working-tree hygiene even if a briefing becomes approved. `npm run build` passed locally at 7:00 AM (68 pages, 0 errors). Briefing leads from current scan: Google I/O 2026/Gemini 3.5 + Workspace agentic updates may be worth one Avdi briefing only if framed around operator adoption questions for Workspace/search workflows; otherwise skip as announcement-heavy.
 
 **Weekly analysis selection (8:02 AM, May 17):** Reviewed current AI/business developments via Reuters/Google News RSS, OpenAI News RSS, Google AI Blog RSS, Nvidia Blog RSS, recent AdvancedAI live coverage, draft queue, and editorial direction. Candidate scoring (1-5):
 1. **AI Vendor-Financing Loop / circular AI capital** - six-month 5, synthesis 5, depth 5, originality 4, operator usefulness 5, source availability 5. **Selected / keep selected.** Rationale: strongest cross-story pattern for operators; connects Nvidia investments, Microsoft/OpenAI decoupling, hyperscaler/lab capacity deals, enterprise AI consulting, and procurement concentration risk. Required next step is source-hygiene revision, not a new draft.
