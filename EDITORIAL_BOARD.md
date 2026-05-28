@@ -42,6 +42,19 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `trump-ai-safety-order-cancelled-enterprise-risk-2026`
+  - Path: `src/content/drafts/trump-ai-safety-order-cancelled-enterprise-risk-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 26, 2026
+  - Primary sources: NBC News on cancelled AI executive order, The Guardian on tech lobbying, Politico on Sacks objections, Axios on NIST voluntary testing context, Anthropic Project Glasswing page
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/trump-ai-safety-order-cancelled-enterprise-risk-2026.png` ✅
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 26, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate. It answers what happened (planned voluntary frontier-model safety review pulled May 22), why operators should care (no federal pre-release safety backstop for AI procurement), how to use it now (**ask sharper vendor questions** about NIST participation, red-teaming, model-change notices, and offensive-cybersecurity evaluations), and what to watch next (revised EO, NIST disclosure adoption, Glasswing-style consortiums). It distinguishes voluntary government review from private Project Glasswing and avoids unsupported adoption predictions. Briefing length is within target; 3 FAQs; no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/trump-ai-safety-order-cancelled-enterprise-risk-2026.md`
+  - Build proof: `npm run build` passed May 26, 2026 at same-day catch-up (74 pages, 0 errors). Hero asset exists.
+
 - [ ] Draft slug: `anthropic-compute-deal-xai-enterprise-vendor-risk-2026`
   - Path: `src/content/drafts/anthropic-compute-deal-xai-enterprise-vendor-risk-2026.md`
   - Proposed tier: **briefing**
@@ -358,6 +371,28 @@ Add new Avdi drafts here before review.
   - Reason: revised briefing is much improved, but the strongest editorial value is the broader circular-capital/vendor-financing pattern already selected as this week's analysis candidate. Avoid publishing a same-day briefing that pre-spends the analysis thesis.
   - Next step: use as source material for Avdi's **AI Vendor-Financing Loop** analysis draft; do not publish automatically.
 
+- [ ] Draft slug: `ai-vendor-risk-procurement-discipline`
+  - Path: `src/content/drafts/ai-vendor-risk-procurement-discipline.md`
+  - Proposed tier: **analysis**
+  - Date drafted: May 26, 2026
+  - Primary sources: 10 external body links (per frontmatter); frameworks from NIST, ISO/IEC 42001, EU AI Act; vendor contract/privacy terms from OpenAI, Anthropic, Microsoft, Google Cloud
+  - Source count: 10 external links
+  - Hero image: (not confirmed)
+  - Tavi decision: **APPROVED_ANALYSIS_NEEDS_EROL** (May 26, 2026)
+  - Review notes: Tavi approved for Erol review only, not publication. Verified analysis tier fit, clear ask-sharper-vendor-questions recommendation, reusable AI Vendor Evidence File framework, 10 external body links, no private/Erol-specific references in the body. Note: OpenAI enterprise privacy page returned HTTP 403 to automated link checking during Tavi review; manually recheck before publication. Vendor terms change quickly; recheck before publication.
+  - **Erol approval required** before publication.
+
+- [ ] Draft slug: `graphrag-questions-knowledge-base-cannot-answer`
+  - Path: `src/content/drafts/graphrag-questions-knowledge-base-cannot-answer.md`
+  - Proposed tier: **analysis**
+  - Date drafted: May 25, 2026
+  - Primary sources: 9+ external body links (per frontmatter sourceCount: 14); research papers, open-source docs, vendor product positioning for GraphRAG
+  - Source count: 14 external links (per frontmatter)
+  - Hero image: (not confirmed)
+  - Tavi decision: **APPROVED_ANALYSIS_NEEDS_EROL** (May 25, 2026)
+  - Review notes: Tavi approved for Erol review only, not publication. Verified 9 external body links returning HTTP 200; no private/Erol-specific references; analysis tier fit; clear run-a-small-test recommendation; Relationship Retrieval Test is the distinguishing operator framework. Source-base caveat: independent business ROI evidence for GraphRAG remains thin.
+  - **Erol approval required** before publication.
+
 - [ ] Draft slug: `kpmg-anthropic-claude-professional-services-2026`
   - Path: `src/content/drafts/kpmg-anthropic-claude-professional-services-2026.md`
   - Proposed tier: **briefing**
@@ -486,6 +521,57 @@ Add new Avdi drafts here before review.
   - Publish path: `src/content/briefings/openai-ipo-enterprise-contract-implications-2026.md`
   - Build proof: `npm run build` passed May 24, 2026 at 8:30 AM (72 pages, 0 errors).
 
+- [ ] Draft slug: `snowflake-q1-aws-natoma-ai-governance-2026`
+  - Path: `src/content/drafts/snowflake-q1-aws-natoma-ai-governance-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 28, 2026 (5:37 AM)
+  - Primary sources: Reuters (reuters.com, HTTP 200 ✓), CNBC (cnbc.com, HTTP 200 ✓), Snowflake Natoma acquisition press release (snowflake.com, HTTP 200 ✓), Amazon AWS press center (press.aboutamazon.com, HTTP 200 ✓)
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/snowflake-q1-aws-natoma-ai-governance-2026.png` ✅
+  - Build check: ✅ passed (74 pages, 0 errors — May 28, 5:37 AM)
+  - Known weaknesses:
+    - Snowflake IR Q1 press release (investors.snowflake.com) returns 403 on automated fetch; financials corroborated by Reuters and CNBC both returning HTTP 200
+    - Natoma acquisition price undisclosed; framed accordingly
+    - Named enterprise customers (Fetch, Hexare) cited from Amazon press release only
+  - Operator angle: Three simultaneous announcements (Q1 +33% revenue beat, $6B AWS Graviton deal, Natoma MCP governance acquisition) signal enterprise AI infrastructure has consolidated at the data platform layer. Snowflake is positioning itself as the governance layer for AI agents — not just data storage. Operators with Snowflake contracts should audit AI feature bundling, portability terms, and MCP governance pricing before the next renewal. Posture: **ask sharper vendor questions**.
+  - Recommendation posture: ask sharper vendor questions
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 28, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate after Tavi trim to 773 words. It explains what happened (Snowflake Q1 revenue beat, $6B AWS Graviton/agentic AI commitment, Natoma MCP governance acquisition), why operators should care (data platform becoming AI-agent control layer), what to do now (**ask sharper vendor questions** on AI feature bundling, MCP governance pricing, portability, and data residency), and what to watch next (Natoma integration timelines and pricing clarity). Hero asset exists; 4 external links; no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, `publishApproval: "APPROVED_BRIEFING"`, and `pubDate: 2026-05-28`; trimmed body below the 800-word briefing ceiling.
+  - Publish path: `src/content/briefings/snowflake-q1-aws-natoma-ai-governance-2026.md`
+  - Build proof: `npm run build` passed May 28, 2026 at same-day catch-up (75 pages, 0 errors).
+
+- [ ] Draft slug: `spacex-ipo-grok-enterprise-adoption-xai-2026`
+  - Path: `src/content/drafts/spacex-ipo-grok-enterprise-adoption-xai-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 27, 2026 (5:35 AM)
+  - Primary sources: Reuters exclusive on government adoption (reuters.com, HTTP 200 ✓), Wired on S-1 risk factors (wired.com, HTTP 200 ✓), Morningstar analysis citing S-1 directly (morningstar.com, HTTP 200 ✓), Ars Technica citing WSJ AppMagic survey (arstechnica.com, HTTP 200 ✓), SpaceX/SEC EDGAR S-1 filing (sec.gov, 403 on automated fetch; public primary document)
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/spacex-ipo-grok-enterprise-adoption-xai-2026.png` ⏳ (image generation in progress)
+  - Build check: ✅ passed (74 pages, 0 errors — May 27, 5:35 AM)
+  - Known weaknesses:
+    - SEC S-1 filing returns 403 on automated fetch; financials cited via Morningstar (HTTP 200) citing S-1 directly.
+    - WSJ AppMagic adoption survey (0.174%) is via Ars Technica citing WSJ — not independently verified from WSJ (paywalled).
+    - SpaceX IPO not yet closed; S-1 data is pre-IPO prospectus with standard forward-looking caveats.
+  - Operator angle: SpaceX's May 20 S-1 filing — the first detailed financials ever made public for a major AI frontier lab — shows xAI lost $2.47B in Q1 2026 on $818M revenue; only 3 of 400+ federal AI deployments use Grok; 0.174% of workers pay for Grok vs. 6%+ for ChatGPT; SpaceX's own S-1 lists Grok's reduced-filter content modes as legal/regulatory risk. Operators evaluating Grok as an enterprise AI vendor should apply standard procurement criteria — adoption proof, compliance posture, financial stability — before any deployment decision.
+  - Recommendation posture: **keep watching**
+  - Tavi decision: **pending**
+
+- [ ] Draft slug: `trump-ai-safety-order-cancelled-enterprise-risk-2026`
+  - Path: `src/content/drafts/trump-ai-safety-order-cancelled-enterprise-risk-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 26, 2026 (5:35 AM)
+  - Primary sources: NBC News (nbcnews.com, HTTP 200 ✓), The Guardian (theguardian.com, HTTP 200 ✓), Anthropic Glasswing (anthropic.com/glasswing, HTTP 200 ✓), Politico (403 on direct fetch, confirmed via search snippet — Sacks concerns/role), Axios (403 on direct fetch, confirmed via search snippet — NIST voluntary testing / EO details)
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/trump-ai-safety-order-cancelled-enterprise-risk-2026.png` ✅
+  - Build check: ✅ passed (73 pages, 0 errors - May 26, 5:35 AM)
+  - Known weaknesses:
+    - Politico and Axios return 403 on automated fetch; story corroborated by NBC News and Guardian (both HTTP 200) and cross-confirmed by search snippets.
+    - Exact list of all CEOs invited to the signing is unconfirmed; Musk/Zuckerberg/Sacks named consistently across NBC News, Guardian, and Washington Post reports.
+    - Whether a revised EO returns is speculative; framed as open question throughout.
+  - Operator angle: Trump pulled a planned AI executive order on May 22 after last-minute lobbying by Musk, Zuckerberg, and Sacks. The order would have created voluntary pre-release government safety review of frontier models. The trigger was Anthropic's Claude Mythos Preview, which autonomously found thousands of cybersecurity vulnerabilities. Without a federal review gate, enterprise buyers have no external safety backstop — operator posture is **ask sharper vendor questions** about pre-release testing, red-teaming, capability change notifications, and cybersecurity evaluation processes before the next contract renewal.
+  - Tavi decision: **pending**
+
 ---
 
 ## Approved for Publish
@@ -547,6 +633,12 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 **Agent run (7:01 AM, May 22 - Avdi REVISED):** One actionable REVISE draft: `ey-microsoft-ai-alliance-enterprise-audit-2026`. Tavi's objections: over briefing ceiling (~972 body words), dense self-reported metric stack, unsupported PCAOB/IAASB 'likely before end of 2026' timing claim. Fixes applied: cut body from ~972 to ~545 pre-FAQ words; removed self-reported metric parade (15%/95%/90%) while keeping factual 1.4T journal-lines scale reference; removed PCAOB timing claim, replaced with open-ended watch signal; all operator posture, FDE access framing, KPMG comparison, and questions-to-ask preserved. Build ✅ (70 pages, 0 errors - May 22, 7:02 AM). Marked REVISED_FOR_REVIEW. No new draft created - REVISE queue had an actionable item.
 
 **Agent run (5:37 AM, May 22 - Avdi NEW_DRAFT):** No actionable REVISE drafts. `ai-vendor-financing-loop-operator-guide` is APPROVED_ANALYSIS_NEEDS_EROL (not a REVISE item). Searched recent AI/business news; selected EY/Microsoft $1B AI Alliance story (May 21, 2026). EY and Microsoft announced a joint $1B+ five-year investment to embed Microsoft AI across EY's 400,000-person workforce and co-deploy integrated EY-Microsoft teams - including Microsoft Forward Deployed Engineers - at enterprise client sites. Two days after KPMG declared a preferred Anthropic partnership, Big Four AI vendor alignment is now structural. Key operator angles: (1) Microsoft FDEs will be inside your EY engagement, with potential access to operational and financial data; (2) EY Canvas, used in 160,000 audit engagements, now runs on Microsoft Azure/Foundry/Fabric; (3) EY's "Client Zero" model means implementation advice is pre-committed to the Microsoft platform; (4) KPMG→Anthropic vs. EY→Microsoft creates a visible divergence operators must account for in advisor-independence assessments. 4 external links (3 Tier 1 primary, 1 Tier 3 trade press) + 2 internal links. Pre-FAQ word count: ~550 (within 400-700 spec); total: ~780 words (under 800 ceiling). Build ✅ (70 pages, 0 errors - May 22, 5:37 AM). Hero image generation in progress. Awaiting Tavi review.
+
+**Agent run (5:37 AM, May 28 — Avdi NEW_DRAFT):** No actionable REVISE drafts. `ai-vendor-financing-loop-operator-guide`, `your-first-crm-agent-should-follow-up-not-forecast`, `ai-vendor-risk-procurement-discipline`, and `graphrag-questions-knowledge-base-cannot-answer` are APPROVED_ANALYSIS_NEEDS_EROL (not REVISE). `spacex-ipo-grok-enterprise-adoption-xai-2026` is PENDING Tavi review (not REVISE). Searched recent AI/business news (May 27–28); selected Snowflake earnings + AWS deal + Natoma story. On May 27, Snowflake reported Q1 FY2027 revenue of $1.39B (+33% YoY, above $1.32B estimate), raised FY2027 forecast to $5.84B, announced a $6B five-year AWS Graviton/agentic AI infrastructure commitment (its largest), and agreed to acquire Natoma — an enterprise MCP governance platform — in a single day. Story not covered on AdvancedAI. Key angles: (1) Enterprise AI spending has moved past pilot scale; (2) the $6B AWS deal creates nested infrastructure lock-in at the data layer; (3) Natoma acquisition makes Snowflake the identity/governance control point for AI agents acting on enterprise data; (4) operators should ask sharper questions about AI feature bundling, data portability, and MCP governance pricing before the next Snowflake renewal. Sources: Reuters, CNBC (both HTTP 200), Snowflake Natoma press release (HTTP 200), AWS press center (HTTP 200). Pre-FAQ word count: 614 (within 400–700 spec); total: 797 words (under 800 ceiling). Build ✅ (74 pages, 0 errors — May 28, 5:37 AM). Hero image generation in progress. Awaiting Tavi review.
+
+**Agent run (5:35 AM, May 27 — Avdi NEW_DRAFT):** No actionable REVISE drafts. `ai-vendor-financing-loop-operator-guide` and `your-first-crm-agent-should-follow-up-not-forecast` are APPROVED_ANALYSIS_NEEDS_EROL (not REVISE). Two Tavi-approved analysis drafts (`ai-vendor-risk-procurement-discipline` from May 26 and `graphrag-questions-knowledge-base-cannot-answer` from May 25) were found in drafts but not recorded in EDITORIAL_BOARD — noted below. Searched recent AI/business news (May 20–27); selected SpaceX S-1 / xAI adoption story. SpaceX filed its IPO S-1 on May 20, 2026 — the first detailed financial disclosure of a major AI frontier lab made public. Key data: xAI Q1 2026: $818M revenue, $2.47B operating loss (Morningstar/S-1); only 3 of 400+ federal AI deployments use Grok vs. 234 for OpenAI (Reuters); 0.174% of workers pay for Grok vs. 6%+ for ChatGPT (Ars Technica/WSJ); SpaceX's own S-1 lists Grok "Spicy"/"Unhinged" modes as legal/regulatory risks with $530M litigation reserve (Wired). Story not yet covered on AdvancedAI; distinct from the Anthropic/xAI compute-deal briefing (that piece covers Anthropic as xAI customer; this covers xAI/Grok as enterprise AI vendor). Operator posture: **keep watching** — Grok has not cleared standard enterprise procurement criteria. 5 external links + 2 internal links. Pre-FAQ word count ~490 (within 400–700 spec); total ~740 words (under 800 ceiling). Build ✅ (74 pages, 0 errors — May 27, 5:35 AM). Hero image generation in progress. Awaiting Tavi review.
+
+**Agent run (5:35 AM, May 26 — Avdi NEW_DRAFT):** No actionable REVISE drafts. `ai-vendor-financing-loop-operator-guide` is APPROVED_ANALYSIS_NEEDS_EROL (not REVISE). `your-first-crm-agent-should-follow-up-not-forecast` is APPROVED_ANALYSIS_NEEDS_EROL. Searched recent AI/business news (May 22-26); selected Trump AI safety EO cancellation story. On May 22, Trump pulled a planned executive order that would have required voluntary pre-release government safety review of frontier AI models. Last-minute lobbying from Elon Musk, Mark Zuckerberg, and former AI czar David Sacks caused the reversal. Trigger: Anthropic's Claude Mythos Preview autonomously discovered thousands of high-severity cybersecurity vulnerabilities — Anthropic's response was Project Glasswing, a private-sector consortium with Amazon, Apple, Google, Microsoft, and others. Key operator angles: (1) no federal safety review gate means operators can't rely on government vetting of AI models they procure; (2) AI model capabilities (Mythos-level autonomous vulnerability discovery) are advancing with no regulatory brake; (3) Glasswing is a defensive cybersecurity program, not an enterprise procurement signal; (4) operators should ask sharper vendor questions about pre-release testing before next contract renewal or pilot launch. 5 external sources (NBC News and Guardian HTTP 200 verified; Anthropic Glasswing HTTP 200; Politico and Axios confirmed via search snippets, 403 on direct fetch) + 2 internal links (AI zero-day briefing, Anthropic compute-deal briefing). Pre-FAQ word count: ~510 (within 400-700 spec); total: ~690 (under 800 ceiling). Build ✅ (73 pages, 0 errors - May 26, 5:35 AM). Hero image generation in progress. Awaiting Tavi review.
 
 **Agent run (7:01 AM, May 25 — Avdi REVISED):** One actionable REVISE draft: `anthropic-compute-deal-xai-enterprise-vendor-risk-2026`. Tavi's objections: ~993 body words over briefing ceiling; xAI/Grok/neocloud background and Maia context too detailed for a daily briefing. Fixes applied: cut body from ~993 to ~560 pre-FAQ words; compressed "What Happened" from 3 paragraphs to 1; removed TSMC 3nm spec detail; collapsed 3 H2 sections into 2; cut key takeaways from 5 to 4; tightened 3 FAQ answers; deal-status precision maintained (xAI deal live/disclosed; Maia = early-stage talks only); operator posture preserved (ask sharper vendor questions). Description shortened to 145 chars (within spec). Build ✅ (72 pages, 0 errors — May 25, 7:03 AM). Marked REVISED_FOR_REVIEW.
 
