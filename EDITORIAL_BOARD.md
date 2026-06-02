@@ -42,6 +42,21 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `openai-gpt5-bedrock-aws-enterprise-procurement-2026`
+  - Path: `src/content/drafts/openai-gpt5-bedrock-aws-enterprise-procurement-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 2, 2026 (5:30 AM)
+  - Primary sources: Amazon newsroom, AWS ML Blog, OpenAI blog, AWS News Blog
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/openai-gpt5-bedrock-aws-enterprise-procurement-2026.png` ✅
+  - Operator angle: OpenAI's GPT-5.5, GPT-5.4, and Codex reached GA on Amazon Bedrock on June 1, giving AWS-primary enterprises an OpenAI path through existing IAM, VPC, billing, and committed-spend controls. Posture: **ask sharper vendor questions** before Azure/OpenAI renewals.
+  - Recommendation posture: ask sharper vendor questions
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (June 2, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate. It explains what happened, why AWS-primary operators should care, how to use it now in procurement/renewal conversations, and what to watch next. Briefing has 4 external links, 3 FAQs, hero asset exists, and no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/openai-gpt5-bedrock-aws-enterprise-procurement-2026.md`
+  - Build proof: `npm run build` passed June 2, 2026 at same-day catch-up (78 pages, 0 errors).
+
 - [ ] Draft slug: `trump-ai-safety-order-cancelled-enterprise-risk-2026`
   - Path: `src/content/drafts/trump-ai-safety-order-cancelled-enterprise-risk-2026.md`
   - Proposed tier: **briefing**
