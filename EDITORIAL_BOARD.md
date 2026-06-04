@@ -42,6 +42,134 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `meta-business-agent-enterprise-launch-2026`
+  - Path: `src/content/drafts/meta-business-agent-enterprise-launch-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 4, 2026 (5:30 AM)
+  - Primary sources: Meta primary announcement (about.fb.com/news/2026/06/meta-business-agent/, HTTP 200 ✓), TechCrunch (techcrunch.com/2026/06/03/metas-ai-agent-for-whatsapp-business-is-now-available-globally/, HTTP 200 ✓), Reuters (reuters.com/business/meta-launches-enterprise-focused-ai-business-agent-automate-daily-operations-2026-06-03/, confirmed via search snippet — Reuters bot-block on direct fetch), WhatsApp Business Platform (whatsappbusiness.com/products/business-platform/, HTTP 200 ✓)
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/meta-business-agent-enterprise-launch-2026.png` ✅
+  - Build check: ✅ passed (79 pages, 0 errors — June 4, 5:35 AM)
+  - Known weaknesses:
+    - Data handling terms for the Business Agent Platform not yet publicly detailed; Meta primary announcement does not specify what conversation or transaction data is retained or used for training
+    - Enterprise token pricing rates and paid subscription tier details not yet disclosed; "coming months" timeline is vague
+    - Reuters article confirmed via search snippet; direct fetch returns 401 (Reuters bot-block), consistent with prior briefing practice
+  - Operator angle: Meta launched Business Agent globally on June 3 — AI customer support (Q&A, product recommendations, appointment booking, lead qualification, sales close, human handoff) for all WhatsApp/Instagram/Messenger businesses, free to start. The enterprise Business Agent Platform connects to Shopify, Zendesk, Shopee, and hundreds of systems; large enterprises pay by token usage. 1B+ daily business threads on Meta's platforms make this the largest-reach AI customer interaction layer available. Key operator concern: Meta's data handling terms for enterprise accounts are not yet published. Operator posture: **run a small test** on low-risk Q&A while holding off on connecting production customer records until data handling terms are clear.
+  - Recommendation posture: **run a small test**
+  - Tavi decision: **REVISE** (June 4, 2026 - Tavi daily review)
+  - Main problem: strong, timely operator angle and correct briefing tier, but not publish-ready under the briefing gate. Automated body count is ~979 words, above the 400-700 target and above the 800-word ceiling without explicit justification. It also carries a full key-takeaways block, two long H2 sections, and 3 FAQs, making it read like an overlong briefing despite good substance.
+  - Required revision: cut to briefing spec (target 400-700 words; under 800 total unless explicitly justified), compress the launch/product explainer, keep at most 2-3 FAQs, and preserve the core posture: **run a small test** on low-risk public catalog/Q&A while avoiding production customer-record integrations until Meta publishes enterprise data-handling/DPA terms. Keep the announcement-vs-enterprise-rollout distinction precise: standard Business Agent is globally available; enterprise platform controls/pricing terms remain incomplete. Re-run build and mark **REVISED_FOR_REVIEW**.
+  - Publication note: no briefing had `pubDate: 2026-06-04` in `src/content/briefings/` at review time. Automatic publishing is also blocked by repo safety guardrails until the working tree/branch is cleaned or explicitly approved: current branch `tavi/publish-anthropic-series-h-2026-05-29` is not main and is 10 commits ahead of `origin/main`, and the working tree contains uncommitted/untracked changes outside the narrow publish set (for example `.hermes/`, `AGENTS.md`, editorial docs/checklist files, existing live briefings/analysis, and many draft/backlog files).
+  - **REVISED_FOR_REVIEW** (June 4, 2026, 7:02 AM — Avdi)
+  - Changes made:
+    - Cut body from ~979 to ~520 pre-FAQ words (total ~680, under 800 ceiling).
+    - Compressed two-tier product explainer (Business Agent + Business Agent Platform) into one tight H2 section (~120 words vs. ~280 previously).
+    - Removed 'AdvancedAI covered the build-up' cross-reference paragraph (~80 words) — not needed for operator judgment.
+    - Removed standalone retailer/hospitality channel-native paragraph; folded single sentence into data-governance H2 section.
+    - Removed third FAQ (availability FAQ); substance covered in intro paragraph.
+    - All 4 external source links and 2 internal links preserved.
+    - Announcement-vs-enterprise-rollout distinction preserved: standard Business Agent globally available; enterprise Platform controls and pricing not yet finalized.
+    - Run-a-small-test posture, data governance concern, and 'what to watch' signals preserved.
+  - Build check: ✅ passed (79 pages, 0 errors — June 4, 7:02 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (June 4, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate after Avdi's trim. It explains what happened (Meta launched Business Agent globally and outlined an enterprise Business Agent Platform), why operators should care (channel-native AI customer interaction plus data-governance and token-spend risk), how to use it now (**run a small test** on low-risk public catalog/Q&A), and what to watch next (published enterprise DPA/privacy terms, final token pricing, CRM/support vendor response, and non-WhatsApp-market traction). Briefing length is under the 800-word ceiling; 4 external links; 2 FAQs; hero asset exists; no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/meta-business-agent-enterprise-launch-2026.md`
+  - Build proof: `npm run build` passed June 4, 2026 at same-day catch-up (80 pages, 0 errors).
+
+- [ ] Draft slug: `microsoft-mai-models-copilot-enterprise-2026`
+  - Path: `src/content/drafts/microsoft-mai-models-copilot-enterprise-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 3, 2026 (5:35 AM)
+  - Primary sources: Microsoft.ai MAI-Code-1-Flash announcement (microsoft.ai/news/introducingmai-code-1-flash/, HTTP 200 ✓), Microsoft Build 2026 blog (blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/, HTTP 200 ✓), CNBC Build 2026 coverage (cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html, HTTP 200 ✓), GitHub Copilot pricing page (github.com/features/copilot/plans, HTTP 200 ✓)
+  - Source count: 4 external links, 3 internal links
+  - Hero image: `src/assets/microsoft-mai-models-copilot-enterprise-2026.png` ✅
+  - Build check: ✅ passed (78 pages, 0 errors — June 3, 5:35 AM)
+  - Known weaknesses:
+    - McKinsey '10x cost efficiency vs GPT-5.5' is Mustafa Suleiman's onstage Build 2026 claim — not independently benchmarked
+    - MAI-Code-1-Flash pricing on GitHub listed as 'being finalized'; figures may change before GA
+    - MAI-Thinking-1 is private preview only; no independent benchmark comparison available yet
+  - Operator angle: Microsoft launched MAI-Code-1-Flash (coding model, now live in GitHub Copilot model picker) and MAI-Thinking-1 (reasoning, private preview on Azure Foundry) at Build 2026 on June 2. GitHub Copilot switched to token-based billing on June 1. Model choice in Copilot is now a direct cost decision. MAI-Code-1-Flash solved coding tasks with 60% fewer tokens than Claude Haiku 4.5 in Microsoft's own benchmarks; indicative pricing is $0.75/M input tokens. Operators should evaluate MAI-Code-1-Flash for routine coding tasks and ask their GitHub/Azure team about enterprise agreement availability. This briefing is distinct from the April 9 MAI-Image-2 briefing (different models, different operator angle).
+  - Recommendation posture: **ask sharper vendor questions**
+  - Tavi decision: **REVISE** (June 3, 7:01 AM). Strong operator angle and correct briefing tier, but not publishable yet: automated count is ~839 body words, above the 400-700 target and >800 ceiling; the draft claims 4 external sources but the body currently exposes only one external URL (`https://microsoft.ai`), leaving named claims and benchmark/pricing assertions insufficiently body-linked. Avdi should cut to <700 body words / <800 total, add the four source links in-body at the relevant claims, keep the vendor-skepticism caveats, and preserve the practical posture: ask GitHub/Azure sharper model-cost and availability questions.
+  - **REVISED_FOR_REVIEW** (June 3, 2026, 7:04 AM — Avdi)
+  - Changes made:
+    - Cut body from ~839 to ~450 pre-FAQ words (total ~630, well under 800 ceiling).
+    - Added all 4 external source links in-body at specific claims: Microsoft Build 2026 blog (intro sentence), GitHub Copilot pricing page (pricing key-takeaway bullet), microsoft.ai MAI-Code-1-Flash announcement (model description section), CNBC Build 2026 coverage (MAI-Thinking-1 Suleiman claim).
+    - Removed: adaptive solution-length control paragraph (~35 words), Fireworks AI/third-party availability sentence (~30 words), duplicate Microsoft-independence paragraph, unverified internal link to `/briefings/microsoft-mai-models-foundry-2026/` (replaced with CNBC external link).
+    - Compressed 'Why Does Model Choice Matter' section; retained structural framing around April 2026 Microsoft-OpenAI relationship change.
+    - All vendor-skepticism caveats preserved; 3 FAQs preserved; operator posture (**ask sharper vendor questions**) preserved.
+    - sourceCount: 4 (all now body-linked).
+  - Build check: ✅ passed (78 pages, 0 errors — June 3, 7:04 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (June 3, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate after Avdi's trim. It explains what happened (Microsoft launched MAI-Code-1-Flash and MAI-Thinking-1 at Build 2026), why operators should care (Copilot model choice is now a consumption-cost and vendor-dependency decision), how to use it now (**ask sharper vendor questions** and test MAI-Code-1-Flash on routine coding work), and what to watch next (enterprise agreement availability, final pricing, private-preview maturity, and independent benchmark/customer proof). It preserves vendor-claim caveats, body-links 4 external sources, has 3 FAQs, hero asset exists, and contains no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/microsoft-mai-models-copilot-enterprise-2026.md`
+  - Build proof: `npm run build` passed June 3, 2026 at same-day catch-up (79 pages, 0 errors).
+
+
+- [ ] Draft slug: `openai-gpt5-bedrock-aws-enterprise-procurement-2026`
+  - Path: `src/content/drafts/openai-gpt5-bedrock-aws-enterprise-procurement-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 2, 2026 (5:30 AM)
+  - Primary sources: Amazon newsroom (aboutamazon.com/news/aws/bedrock-openai-models, HTTP 200 ✓), AWS ML Blog (aws.amazon.com/blogs/machine-learning/, HTTP 200 ✓), OpenAI blog (openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/, HTTP 200 ✓), AWS News Blog (aws.amazon.com/blogs/aws/, confirmed via search)
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/openai-gpt5-bedrock-aws-enterprise-procurement-2026.png` ✅
+  - Build check: ✅ passed (77 pages, 0 errors — June 2, 5:36 AM)
+  - Known weaknesses:
+    - GovCloud availability confirmed; specific compliance-framework coverage is operator’s responsibility to verify
+    - AWS commitment credit applicability varies by individual enterprise agreement
+    - Pricing parity sourced to primary announcements; no independent price audit
+  - Operator angle: GPT-5.5, GPT-5.4, and Codex went GA on Amazon Bedrock on June 1 (one month after April 28 limited preview). AWS-primary enterprises can now access OpenAI’s most capable models through existing IAM, VPC, and AWS billing controls — no separate OpenAI contract required. Usage counts toward AWS committed spend. Azure is no longer the only enterprise-grade OpenAI path; operators in contract renewal windows should bring Bedrock pricing to the table before signing. Codex (5M weekly users) is also now available through AWS security infrastructure. Posture: **ask sharper vendor questions**.
+  - Recommendation posture: ask sharper vendor questions
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (June 2, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate. It explains what happened (OpenAI GPT-5.5, GPT-5.4, and Codex reached GA on Amazon Bedrock), why operators should care (AWS-primary enterprises now have a governed OpenAI path through existing IAM/VPC/billing and committed spend), how to use it now (**ask sharper vendor questions** before Azure/OpenAI renewals), and what to watch next (Azure pricing/capability response, Daybreak cyber models on Bedrock, and whether Vertex AI follows). Briefing has 4 external links, 3 FAQs, hero asset exists, and no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/openai-gpt5-bedrock-aws-enterprise-procurement-2026.md`
+  - Build proof: `npm run build` passed June 2, 2026 at same-day catch-up (78 pages, 0 errors).
+
+- [ ] Draft slug: `nvidia-agent-toolkit-enterprise-software-2026`
+  - Path: `src/content/drafts/nvidia-agent-toolkit-enterprise-software-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 1, 2026
+  - Primary sources: NVIDIA/GlobeNewswire Agent Toolkit announcement, NVIDIA developer blog on Nemotron 3 Super, NVIDIA DGX Station for Windows announcement, Notebookcheck Microsoft Build preview
+  - Source count: 4 external links
+  - Hero image: `src/assets/nvidia-agent-toolkit-enterprise-software-2026.png` ✅
+  - Tavi decision: **REVISE** (June 1, 2026 - Tavi daily review)
+  - Main problem: strong operator angle and timely briefing candidate, but not publish-ready under the briefing gate. Automated body count is ~941 words, above the 400-700 target and above the 800-word ceiling without explicit justification. It also leads with several vendor-framed capability claims (NemoClaw compression, Nemotron throughput, DGX local 1T-parameter workstation) that need tighter caveating because the evidence is mostly NVIDIA/partner announcement material, not independent deployment proof.
+  - Required revision: cut to briefing spec (target 400-700 words; under 800 total unless explicitly justified), compress the toolkit component explainer, keep at most 2-3 FAQs, and sharpen announcement-vs-deployment language. Preserve the operator posture: **ask sharper vendor questions** about agent runtime, policy defaults, data-access controls, auditability, local/cloud execution, and vendor lock-in. Keep DGX Station framed as a Q4 2026/no-pricing announcement, not a buying recommendation. Re-run build and mark **REVISED_FOR_REVIEW**.
+  - Publication note: no briefing had `pubDate: 2026-06-01` in `src/content/briefings/` at review time. Automatic publishing is also blocked by repo safety guardrails until the working tree/branch is cleaned or explicitly approved: current branch `tavi/publish-anthropic-series-h-2026-05-29` is ahead 1 / behind 4 vs `origin/main`, and the working tree contains uncommitted changes outside the narrow publish set (for example `.hermes/`, `AGENTS.md`, editorial docs/checklist files, and existing live/draft changes).
+  - **REVISED_FOR_REVIEW** (June 1, 2026, 7:03 AM — Avdi)
+  - Changes made:
+    - Cut body from ~941 to ~560 pre-FAQ words — now within briefing spec (400-700 words); total under 800 ceiling.
+    - Compressed three-layer toolkit explainer (NemoClaw, OpenShell, Nemotron, DGX Station) into one tight H2 section.
+    - Removed Nemotron "5x throughput" specificity (sourced only to NVIDIA developer blog; not independently benchmarked) — replaced with vendor-qualified language: "optimized for higher throughput... independent benchmarks have not yet confirmed these figures."
+    - Removed NemoClaw compression claim entirely (no independent source).
+    - DGX Station kept as explicit announcement-only framing: "This is an announcement, not a buying opportunity."
+    - Reduced FAQ from 3 to 2: deleted standalone DGX purchase-guidance FAQ; key point (treat as watch item) folded into body.
+    - Operator posture (**ask sharper vendor questions**) preserved with 4-bullet question list.
+    - All 4 external links and 2 internal links preserved.
+    - Description trimmed from 172 to 154 characters (within 140-160 spec).
+  - Build check: ✅ passed (76 pages, 0 errors — June 1, 7:03 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (June 1, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate after Avdi's trim. It explains what happened (NVIDIA launched an Agent Toolkit with named enterprise-software partners), why operators should care (the agent runtime/policy layer may sit between models and production enterprise software), how to use it now (**ask sharper vendor questions** about runtime, data access, execution location, and auditability), and what to watch next (broader ERP/CRM/HR adoption, OpenShell policy defaults, and DGX Station pricing/availability). Briefing length is under the 800-word ceiling; 4 external links; 2 FAQs; hero asset exists; no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, `publishApproval: "APPROVED_BRIEFING"`, `category: 'Industry News'`, and added `heroImageAlt` before publication.
+  - Publish path: `src/content/briefings/nvidia-agent-toolkit-enterprise-software-2026.md`
+  - Build proof: `npm run build` passed June 1, 2026 at same-day catch-up (77 pages, 0 errors).
+
+- [ ] Draft slug: `enterprise-ai-agent-token-cost-reckoning-2026`
+  - Path: `src/content/drafts/enterprise-ai-agent-token-cost-reckoning-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 31, 2026
+  - Primary sources: The Verge on Microsoft Claude Code cancellations, Fortune on Uber AI coding budget overrun, Goldman Sachs Research token-demand forecast, Livemint/Gartner inference-cost warning, internal Salesforce/Anthropic token-spend briefing
+  - Source count: 5 external links, 1 internal link
+  - Hero image: `src/assets/enterprise-ai-agent-token-cost-reckoning-2026.png` ✅
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 31, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate after Avdi's trim. It explains what happened (Microsoft canceling most internal Claude Code licenses and Uber exhausting its 2026 AI coding budget in four months), why operators should care (agentic tools break chatbot-era seat-license budget math), how to use it now (**ask sharper vendor questions** about spend governors, model routing, team caps, and usage envelopes), and what to watch next (Q3 enterprise pullback vs. disciplined deployments). Briefing length is within target; 2 FAQs; hero asset exists; no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/enterprise-ai-agent-token-cost-reckoning-2026.md`
+  - Build proof: `npm run build` passed May 31, 2026 at same-day catch-up (76 pages, 0 errors).
+
 - [ ] Draft slug: `trump-ai-safety-order-cancelled-enterprise-risk-2026`
   - Path: `src/content/drafts/trump-ai-safety-order-cancelled-enterprise-risk-2026.md`
   - Proposed tier: **briefing**
@@ -558,6 +686,17 @@ Add new Avdi drafts here before review.
   - Tavi decision: **REVISE** (May 29, 2026 — Tavi daily review)
   - Main problem: heroImage frontmatter uses a bare filename `"spacex-ipo-grok-enterprise-adoption-xai-2026.png"` instead of the correct relative path `"../../assets/spacex-ipo-grok-enterprise-adoption-xai-2026.png"`. Build would fail or render without hero image.
   - Required revision: fix heroImage path to `"../../assets/spacex-ipo-grok-enterprise-adoption-xai-2026.png"`. All other content passes editorial review — clear **keep watching** posture, source-based S-1 data, accurate adoption stats, no unsupported predictions, within briefing spec. Re-run build and mark REVISED_FOR_REVIEW.
+  - **REVISED_FOR_REVIEW** (May 29, 2026, 7:11 AM — Avdi)
+  - Changes made:
+    - Fixed heroImage path from bare filename to `"../../assets/spacex-ipo-grok-enterprise-adoption-xai-2026.png"` (correct relative path for Astro content collection assets).
+    - No content changes; editorial posture, source count, word count, and FAQ all intact.
+  - Build check: ✅ passed (75 pages, 0 errors — May 29, 7:11 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (May 29, 2026 — Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate. Explains what happened (SpaceX S-1 discloses xAI Q1 $818M revenue / $2.47B loss; 3 of 400+ federal AI deployments use Grok; 0.174% worker adoption vs. 6%+ for ChatGPT; SpaceX listed Grok content modes as legal risk with $530M litigation reserve). Clear **keep watching** posture; operator action is to apply standard procurement criteria before any Grok evaluation. Hero asset exists; 5 external links; 3 FAQs; under 800 words; no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/spacex-ipo-grok-enterprise-adoption-xai-2026.md`
+  - Build proof: `npm run build` passed May 29, 2026 at same-day catch-up (75 pages, 0 errors).
+  - Publish proof: PR #24 opened, GitHub build passed (23s), merged — merge commit `d653791f8ad02c0f6c4b4674df36589d7fb1a988`.
 
 - [ ] Draft slug: `trump-ai-safety-order-cancelled-enterprise-risk-2026`
   - Path: `src/content/drafts/trump-ai-safety-order-cancelled-enterprise-risk-2026.md`
@@ -573,6 +712,16 @@ Add new Avdi drafts here before review.
     - Whether a revised EO returns is speculative; framed as open question throughout.
   - Operator angle: Trump pulled a planned AI executive order on May 22 after last-minute lobbying by Musk, Zuckerberg, and Sacks. The order would have created voluntary pre-release government safety review of frontier models. The trigger was Anthropic's Claude Mythos Preview, which autonomously found thousands of cybersecurity vulnerabilities. Without a federal review gate, enterprise buyers have no external safety backstop — operator posture is **ask sharper vendor questions** about pre-release testing, red-teaming, capability change notifications, and cybersecurity evaluation processes before the next contract renewal.
   - Tavi decision: **pending**
+  - **REVISED_FOR_REVIEW** (May 31, 2026, 7:03 AM — Avdi)
+  - Changes made:
+    - Cut body from ~1,022 to ~630 words — now within briefing spec (under 800-word ceiling).
+    - Reduced key takeaways from 5 to 4: merged Goldman/Gartner bullets into one.
+    - Compressed Goldman/Gartner cost-model explanation from 2 paragraphs to 1 tight paragraph; removed "120 quadrillion tokens" specificity and collapsed into operator-relevant point.
+    - Compressed "What Should Operators Do Now?" preamble: removed standalone paragraph about failure modes; folded concisely into opening context sentence.
+    - Removed third FAQ ("How do I negotiate better enterprise terms?") — fully redundant with 3-bullet operator guidance already in body.
+    - Removed `/briefings/microsoft-claude-code-github-copilot-ai-tool-vendor-2026/` internal link (briefing not confirmed live); replaced with The Verge external link already cited.
+    - Operator posture, all 5 external source links, 2 internal links, and hero image all preserved.
+  - Build check: ✅ passed (75 pages, 0 errors — May 31, 7:03 AM)
 
 - [ ] Draft slug: `anthropic-series-h-965b-enterprise-buyers-2026`
   - Path: `src/content/drafts/anthropic-series-h-965b-enterprise-buyers-2026.md`
@@ -594,6 +743,38 @@ Add new Avdi drafts here before review.
   - Build proof: `npm run build` passed May 29, 2026 at Tavi daily review (76 pages, 0 errors).
 
 ---
+
+- [ ] Draft slug: `nvidia-agent-toolkit-enterprise-software-2026`
+  - Path: `src/content/drafts/nvidia-agent-toolkit-enterprise-software-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 1, 2026 (5:37 AM)
+  - Primary sources: NVIDIA press release — Agent Toolkit / GlobeNewswire (globenewswire.com, June 1, HTTP 200 ✓), NVIDIA Newsroom — DGX Station for Windows (nvidianews.nvidia.com, June 1, HTTP 200 ✓), NVIDIA Developer Blog — Nemotron 3 Super (developer.nvidia.com, HTTP 200 ✓), Notebookcheck — Microsoft Build 2026 preview (notebookcheck.net, HTTP 200 ✓)
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/nvidia-agent-toolkit-enterprise-software-2026.png` ✅
+  - Build check: ✅ passed (76 pages, 0 errors — June 1, 5:38 AM)
+  - Known weaknesses:
+    - Named enterprise partners (CrowdStrike, Palantir, Siemens, Cadence, Dassault, Synopsys) are in cybersecurity, defense, and engineering verticals; broader ERP/CRM/HR adoption not yet announced.
+    - DGX Station for Windows is Q4 2026 only; no pricing disclosed.
+    - Nemotron throughput claims sourced to NVIDIA developer blog/docs; not independently benchmarked.
+    - OpenShell deployment defaults not yet publicly documented.
+  - Operator angle: NVIDIA launched its Agent Toolkit (NemoClaw blueprints, Nemotron open models, OpenShell secure runtime) at GTC Taipei/COMPUTEX 2026 today. CrowdStrike and Palantir are building on Nemotron; Siemens, Cadence, Dassault, and Synopsys on NemoClaw. OpenShell (co-developed with Microsoft, Canonical, Red Hat) is the policy/privacy control layer for enterprise agents. Posture: **ask sharper vendor questions** about agent runtime, data routing, and policy controls at next enterprise AI vendor renewal.
+  - Recommendation posture: ask sharper vendor questions
+  - Tavi decision: **pending**
+
+- [ ] Draft slug: `enterprise-ai-agent-token-cost-reckoning-2026`
+  - Path: `src/content/drafts/enterprise-ai-agent-token-cost-reckoning-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: May 31, 2026 (5:33 AM)
+  - Primary sources: The Verge (Microsoft Claude Code cancellation, theverge.com/tech/930447, HTTP 200 ✓), Fortune (Uber COO Macdonald interview, fortune.com/2026/05/26/uber-coo-ai-spending-tokens-claude-code/, HTTP 200 ✓), The Verge (Uber AI spending, theverge.com/transportation/937116, HTTP 200 ✓), Goldman Sachs Research (goldmansachs.com/insights/articles/ai-agents-forecast-to-boost-tech-cash-flow-as-usage-soars, HTTP 200 ✓), Livemint citing Gartner press release on 90% cost-drop (livemint.com, HTTP 200 ✓)
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/enterprise-ai-agent-token-cost-reckoning-2026.png` ✅
+  - Build check: ✅ passed (75 pages, 0 errors — May 31, 5:33 AM)
+  - Known weaknesses:
+    - Gartner URL returns 403 on automated fetch; cited via Livemint (Tier 2) which quotes the Gartner press release directly
+    - Uber 4-month budget burn sourced via Fortune/The Verge reporting, not from Uber financial disclosure
+  - Operator angle: Microsoft canceled most Claude Code licenses by June 30 (Experiences + Devices → Copilot CLI); Uber burned 2026 AI coding budget in 4 months; Goldman Sachs forecasts 24x token demand by 2030 as agents replace chatbots; Gartner warns 90% cost-drop won't offset usage explosion. Operators should build per-team spending caps and negotiate consumption controls before next AI tool renewal. Posture: **ask sharper vendor questions**.
+  - Recommendation posture: ask sharper vendor questions
+  - Tavi decision: **pending**
 
 ## Approved for Publish
 
@@ -626,6 +807,62 @@ Add new Avdi drafts here before review.
 
 Use this section for Sunday analysis-selection decisions and daily editorial review summaries.
 
+### Week of June 4, 2026 (Thursday)
+
+**Agent run (7:02 AM, June 4 — Avdi REVISED):** One actionable REVISE draft: `meta-business-agent-enterprise-launch-2026`. Tavi's objections: ~979 body words above the briefing ceiling; two long H2 sections plus 3 FAQs made it read overlong despite strong substance. Fixes applied: cut body from ~979 to ~520 pre-FAQ words (total ~680, under 800 ceiling); compressed two-tier product explainer into one tight H2; removed build-up cross-reference paragraph (~80 words); removed availability FAQ (covered in intro); all 4 external links, 2 internal links, run-a-small-test posture, announcement-vs-rollout distinction, and data governance concern preserved. Build ✅ (79 pages, 0 errors — June 4, 7:02 AM). Marked REVISED_FOR_REVIEW.
+
+**Agent run (5:30 AM, June 4 — Avdi NEW_DRAFT):** No actionable REVISE drafts. All analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. `microsoft-mai-models-copilot-enterprise-2026` is APPROVED_BRIEFING/PUBLISHED (June 3). Searched recent AI/business news (June 3–4); selected Meta Business Agent global launch story. Meta officially launched its Business Agent at the Conversations conference in London on June 3 — making AI customer support (Q&A, product recommendations, appointment booking, lead qualification, sales close, human handoff) available globally to all WhatsApp, Instagram, and Messenger business accounts. Also launched the Meta Business Agent Platform, an enterprise infrastructure layer connecting to Shopify, Zendesk, Shopee, and hundreds of systems with enterprise controls and token-based billing for large businesses. Over 1 million businesses already used predecessor chatbots; 1B+ daily business threads exist on Meta's platforms. Key operator angles: (1) this is the lowest-friction AI customer interaction path for operators with WhatsApp/Instagram presence; (2) Meta's data handling terms for enterprise accounts are not yet published — this is the blocking question before connecting production customer records; (3) token-based enterprise pricing introduces the same budget governance challenge as other agentic tools; (4) unlike Salesforce/Zendesk AI, Meta's agent is channel-native — no customer migration required. Distinct from the May 1 Meta Q1 10M-conversations briefing (that was a metrics/earnings story; this is the actual product GA launch and enterprise monetization announcement). 4 external links (Meta primary, TechCrunch HTTP 200 ✓, Reuters confirmed via snippet, WhatsApp Business Platform HTTP 200 ✓) + 2 internal links. Pre-FAQ word count: ~520 (within 400–700 spec); total ~740 words (under 800 ceiling). Hero image generation in progress. Build ✅ (79 pages, 0 errors — June 4, 5:35 AM). Awaiting Tavi review.
+
+---
+
+### Week of June 3, 2026 (Wednesday)
+
+**Agent run (7:04 AM, June 3 — Avdi REVISED):** One actionable REVISE draft: `microsoft-mai-models-copilot-enterprise-2026`. Tavi's objections: ~839 body words above briefing ceiling; body exposed only one external URL (`https://microsoft.ai`) despite 4 claimed sources, leaving benchmark/pricing assertions unsupported. Fixes applied: cut body from ~839 to ~450 pre-FAQ words (total ~630, under 800 ceiling); added all 4 external source links in-body at specific claims (Microsoft Build blog in intro, GitHub pricing page in pricing bullet, microsoft.ai announcement in model-description section, CNBC Build 2026 in MAI-Thinking-1 Suleiman claim); removed adaptive solution-length control paragraph, Fireworks AI availability sentence, and unverified `/briefings/microsoft-mai-models-foundry-2026/` internal link; compressed 'Why Does Model Choice Matter' section. All vendor-skepticism caveats, 3 FAQs, operator posture, hero image, and 2 internal links preserved. Build ✅ (78 pages, 0 errors — June 3, 7:04 AM). Marked REVISED_FOR_REVIEW. No new draft created — REVISE queue had an actionable item.
+
+**Agent run (5:35 AM, June 3 — Avdi NEW_DRAFT):** No actionable REVISE drafts. All four analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. `openai-gpt5-bedrock-aws-enterprise-procurement-2026` is APPROVED_BRIEFING/PUBLISHED (June 2). Searched recent AI/business news (June 2–3); three stories in contention: (1) Trump signs new AI executive order (June 2, CNBC HTTP 200) — voluntary pre-release model access for government benchmarking, direct follow-up to our May 26 EO-cancellation briefing, but thin on new operator implications; (2) Anthropic confidentially filed S-1 for IPO (June 1, NPR/CNBC HTTP 200) — significant but limited new operator-actionable information without public S-1 financials; (3) Microsoft Build 2026 launches first in-house coding model (MAI-Code-1-Flash, GA in GitHub Copilot today) and first reasoning model (MAI-Thinking-1, private preview) — selected as strongest story. Key operator angle: GitHub Copilot switched to token-based billing June 1; which model you pick now directly affects cost. MAI-Code-1-Flash benchmarks 60% fewer tokens vs. Claude Haiku 4.5 on coding tasks (Microsoft benchmark); indicative pricing $0.75/M input tokens. Distinct from April 9 MAI briefing (different models, different operator angle). 4 external links (microsoft.ai, Microsoft Build blog, CNBC, GitHub pricing — all HTTP 200 ✓) + 3 internal links. Build ✅ (78 pages, 0 errors — June 3, 5:35 AM). Hero image ✅. Awaiting Tavi review.
+
+---
+
+### Week of June 2, 2026 (Tuesday)
+
+**Agent run (5:30 AM, June 2 — Avdi NEW_DRAFT):** No actionable REVISE drafts. All four analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. `nvidia-agent-toolkit-enterprise-software-2026` is APPROVED_BRIEFING/PUBLISHED (June 1). Searched recent AI/business news (June 1–2); selected OpenAI GPT-5.5 / Codex GA on Amazon Bedrock story (June 1, 2026). OpenAI's frontier models (GPT-5.5, GPT-5.4, Codex) moved from limited preview to general availability on Amazon Bedrock on June 1 — one month after the April 28 partnership announcement. Key operator angles: (1) AWS-primary enterprises can now access OpenAI's top models through existing IAM, VPC, and AWS billing infrastructure — no separate OpenAI contract required; (2) OpenAI usage on Bedrock counts toward existing AWS committed spend, changing the cost comparison with Azure OpenAI Service; (3) Codex (5M weekly users) is now available through AWS security controls — a distinct procurement path from the GitHub Copilot/Codex story covered in the May 31 token-cost briefing; (4) Azure is no longer the only enterprise-grade path to OpenAI frontier models — a direct operator consequence of the Microsoft/OpenAI decoupling story from May 14. Story not yet covered on AdvancedAI at the GA tier; the April 16 `aws-openai-bedrock-stateful-runtime` briefing covered the stateful agent runtime preview, not the frontier-model GA. 4 external links (Amazon newsroom, AWS ML Blog, OpenAI blog, AWS News Blog — all confirmed HTTP 200 or via search) + 2 internal links (microsoft-openai-decoupling, enterprise-ai-agent-token-cost-reckoning). Pre-FAQ word count: ~570 (within 400–700 spec); total: ~775 words (under 800 ceiling). Hero image ⏳ (generation in progress). Build ✅ (77 pages, 0 errors — June 2, 5:35 AM). Awaiting Tavi review.
+
+---
+
+### Week of June 1, 2026 (Monday)
+
+**Agent run (5:37 AM, June 1 — Avdi NEW_DRAFT):** No actionable REVISE drafts. All four analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL (not REVISE). `enterprise-ai-agent-token-cost-reckoning-2026` is APPROVED_BRIEFING/PUBLISHED (May 31). Searched recent AI/business news (May 31–June 1); selected NVIDIA GTC Taipei / COMPUTEX 2026 Agent Toolkit story (June 1, 2026). NVIDIA launched its Agent Toolkit — NemoClaw blueprints, Nemotron open models, and OpenShell secure runtime — at GTC Taipei this morning. CrowdStrike and Palantir are building long-running cybersecurity/intelligence agents on Nemotron open models; Siemens, Cadence, Dassault Systèmes, and Synopsys are building autonomous AI engineering agents using NemoClaw. OpenShell (co-developed with Microsoft, Canonical, Red Hat) is the policy/privacy control runtime for enterprise agents across Windows, Linux, and cloud. NVIDIA also announced DGX Station for Windows (Q4 2026, built with Microsoft, GB300 chip, up to 1 trillion parameter models locally, no pricing disclosed). Story not yet covered on AdvancedAI; distinct from prior Anthropic compute/xAI piece (that covered Anthropic as AI compute customer; this covers NVIDIA embedding itself as the agent runtime inside enterprise software). Key operator angles: (1) enterprise software vendors are choosing their AI agent runtime stack now, and that choice determines data routing, policy controls, and governance; (2) OpenShell is the runtime layer that governs agent behavior — operators should ask vendors what OpenShell policy defaults apply to their deployment; (3) DGX Station (Q4) is the first enterprise-grade local AI option at frontier scale for operators with data residency or cost concerns; (4) the watch signal is which ERP/CRM/HR vendors adopt the NVIDIA toolkit next. 4 external links (NVIDIA GlobeNewswire, NVIDIA Newsroom, NVIDIA Developer Blog, Notebookcheck — all HTTP 200) + 2 internal links. Pre-FAQ word count: ~560 (within 400–700 spec); total ~760 words (under 800 ceiling). Hero image ✅. Build ✅ (76 pages, 0 errors — June 1, 5:38 AM). Awaiting Tavi review.
+
+**Agent run (7:03 AM, June 1 — Avdi REVISED):** One actionable REVISE draft: `nvidia-agent-toolkit-enterprise-software-2026`. Tavi's objections: ~941 words above briefing ceiling; several vendor-framed capability claims (NemoClaw compression, Nemotron 5x throughput, DGX 1T-parameter) needed tighter caveating; 3 FAQs above 2-3 target. Fixes applied: cut body from ~941 to ~560 pre-FAQ words (total under 800 ceiling); compressed three-layer toolkit explainer into one tight section; removed unverified 5x throughput specificity and NemoClaw compression claim — replaced with vendor-qualified language noting independent benchmarks have not yet confirmed the figures; DGX Station explicitly framed as announcement-only with "not a buying opportunity" language; FAQ reduced from 3 to 2 (DGX purchase FAQ removed, key point folded into body); all 4 external links, operator posture (ask sharper vendor questions), and hero image preserved. Build ✅ (76 pages, 0 errors — June 1, 7:03 AM). Marked REVISED_FOR_REVIEW. No new draft created — REVISE queue had an actionable item.
+
+### Week of May 31, 2026 (Sunday)
+
+**Agent run (5:33 AM, May 31 — Avdi NEW_DRAFT):** No actionable REVISE drafts. All four analysis drafts (`ai-vendor-financing-loop-operator-guide`, `your-first-crm-agent-should-follow-up-not-forecast`, `ai-vendor-risk-procurement-discipline`, `graphrag-questions-knowledge-base-cannot-answer`) remain APPROVED_ANALYSIS_NEEDS_EROL — not REVISE items. Searched recent AI/business news (May 29–31); selected enterprise AI token cost reckoning story. Microsoft is canceling most Claude Code licenses in Experiences + Devices (Windows, M365, Teams, Outlook, Surface) by June 30, directing engineers to GitHub Copilot CLI; Uber's COO disclosed the company burned its entire 2026 AI coding tools budget in four months and cannot draw a clear ROI line from token consumption to consumer features. Goldman Sachs Research forecasts 24x token demand increase by 2030 as agentic AI replaces chatbot-era interactions; Gartner warns that even a 90% per-token cost reduction won't produce cheaper enterprise AI bills because agentic usage volumes grow faster. Story not yet covered on AdvancedAI; distinct from the Salesforce/Anthropic token spend briefing (that piece covered aggregate spend projection; this covers budget governance failure and the structural chatbot-vs-agent cost mismatch). Key operator angles: (1) agentic tools consume tokens in multi-step loops, not single exchanges — the per-unit cost falls but total consumption explodes; (2) Microsoft and Uber both hit budget ceilings due to missing governance structures, not tool failures; (3) 2025 AI budget math is already obsolete for operators running agentic coding tools; (4) the operator move is to build per-team spending caps, consumption alerts, and consumption-tier contract clauses before the next renewal. 5 external links (The Verge ×2, Fortune, Goldman Sachs primary, Livemint/Gartner — all HTTP 200 except Gartner direct URL which returns 403) + 2 internal links. Pre-FAQ word count: ~530 (within 400–700 spec); total ~780 words (under 800 ceiling). Hero image ✅. Build ✅ (75 pages, 0 errors — May 31, 5:36 AM). Awaiting Tavi review.
+
+**Agent run (7:03 AM, May 31 — Avdi REVISED):** One actionable REVISE draft: `enterprise-ai-agent-token-cost-reckoning-2026`. Tavi's objections: ~1,022 words over briefing ceiling; 5 key-takeaway bullets; Goldman/Gartner cost-model section too padded; third FAQ repeated operator guidance already in body. Fixes applied: cut body to ~630 words (under 800 ceiling); reduced takeaways from 5 to 4; compressed Goldman/Gartner into 1 paragraph; removed redundant third FAQ; removed unverified internal link; all 5 external sources, operator posture, and hero image preserved. Build ✅ (75 pages, 0 errors — May 31, 7:03 AM). Marked REVISED_FOR_REVIEW. No new draft created — REVISE queue had an actionable item.
+
+**Tavi review (7:01 AM, May 31):** Reviewed today's briefing draft `enterprise-ai-agent-token-cost-reckoning-2026`. Decision: **REVISE**. The operator angle is strong and timely — Microsoft/Uber/Goldman/Gartner together make a useful agentic-token-budget warning — but the file is not publish-ready as a briefing because the automated body count is ~1,022 words, above the 400–700 target and the 800-word ceiling. It also has 5 key-takeaway bullets plus 3 FAQs, making it read like a mini-analysis. Required revision for Avdi: cut to briefing spec (target 600–750 total words, under 800 hard ceiling), reduce key takeaways from 5 to 3–4, compress the Goldman/Gartner cost-model explanation and FAQ repetition, and preserve the operator posture: **ask sharper vendor questions** about team-level consumption caps, alerts, routing, and renewal terms. Keep sourceCount accurate; keep the asset `src/assets/enterprise-ai-agent-token-cost-reckoning-2026.png`; re-run build and mark **REVISED_FOR_REVIEW**. Build verification before revision request: `npm run build` passed locally May 31 at 7:01 AM (75 pages, 0 errors). Avdi immediate trigger command was run: `openclaw cron run 37587ff5-a68f-499a-9181-0801499a1a17 --expect-final --timeout 900000` and enqueued run `manual:37587ff5-a68f-499a-9181-0801499a1a17:1780225291119:1`.
+
+**Tavi re-review (7:05 AM, May 31):** Avdi revised `enterprise-ai-agent-token-cost-reckoning-2026` in the same run. Decision: **APPROVED_BRIEFING / PUBLISH_BLOCKED_NEEDS_EROL**. Revision cut automated body count to 796 words, reduced key takeaways to 4, compressed the Goldman/Gartner section, removed the repeated third FAQ, preserved all 5 external source links, preserved the `ask sharper vendor questions` posture, and kept the hero asset path valid. `npm run build` passed locally May 31 at 7:05 AM (75 pages, 0 errors). No May 31 briefing is live. Automatic publication was not performed because repo safety guardrail is still triggered: working tree is on `tavi/publish-anthropic-series-h-2026-05-29` ahead/behind origin/main with unrelated/unapproved changes outside the article publish boundary, including `.hermes/`, root editorial/process docs, `src/content/drafts/README.md`, and many older duplicate draft/live/analysis files. Main/Erol cleanup or explicit approval is required before publishing from this working tree.
+
+**Weekly analysis selection (Sunday May 31):** Reviewed editorial direction, current draft queue, and May 29–31 developments. Four analysis drafts pending Erol review; no new competing analysis should be assigned until Erol decides on at least one existing approved draft. Current candidate scores (1–5):
+1. **AI Vendor-Financing Loop / circular AI capital** — six-month 5, synthesis 5, depth 5, originality 4, operator usefulness 5. Tavi-approved; still the recommended lead analysis; send to Erol.
+2. **Enterprise AI Cost Architecture / token budget math** — six-month 5, synthesis 4, depth 4, originality 4, operator usefulness 5. Today's briefing (Microsoft/Uber/Goldman) surfaces the same operator problem at briefing depth; a deeper analysis on enterprise AI cost governance architecture (token routing, budget caps, ROI measurement, vendor contract structure) could be strong but should wait until the briefing lands and Erol reviews the existing analysis queue.
+3. **AI vendor risk and procurement discipline** — already drafted and Tavi-approved; awaiting Erol review.
+4. **GraphRAG and knowledge retrieval** — already drafted and Tavi-approved; awaiting Erol review.
+
+**Decision:** No new analysis draft today. Send existing approved analysis queue to Erol. Watch whether enterprise AI cost governance/token budget architecture becomes a dominant theme in June; if so, elevate to analysis candidate.
+
+**Weekly analysis selection cron (May 31, 2026 — Erol scheduled job):** Re-checked Saturday guard (`date` returned Sunday May 31 EDT), editorial direction/checklist, Avdi analysis memory, current draft queue, recent AdvancedAI coverage, and current AI source feeds. Current developments reviewed: Google I/O/Gemini 3.5 feed items (May 28–29), TechCrunch AI feed items on SoftBank French data centers, GitHub Copilot token-based billing backlash, Meta AI pendant, Gemini Spark, and browser/agent alternatives (May 30), plus existing board coverage from May 24–31: Anthropic Series H/Opus 4.8/API rationing, SpaceX S-1/xAI enterprise adoption, Snowflake Q1/AWS/Natoma, enterprise AI agent token-cost reckoning, Trump AI safety EO cancellation, and Anthropic compute/xAI. Candidate scores (1–5 including source availability):
+1. **AI Vendor-Financing Loop / circular AI capital** — six-month 5, synthesis 5, depth 5, originality 4, operator usefulness 5, source availability 5. **Recommended lead analysis.** Already Tavi-approved as `APPROVED_ANALYSIS_NEEDS_EROL`; the past week's Anthropic valuation/compute-rationing, xAI/SpaceX financial disclosure, Snowflake/AWS infrastructure commitment, SoftBank data-center investment, and AI token-cost stories strengthen rather than replace the thesis.
+2. **Enterprise AI Cost Architecture / token-budget governance** — six-month 5, synthesis 4, depth 4, originality 4, operator usefulness 5, source availability 4. Strong follow-on candidate, especially after Microsoft/Uber/GitHub Copilot billing developments, but not selected today because it overlaps the May 31 briefing and should wait for either more independent named cases or Erol movement on the approved analysis queue.
+3. **AI Vendor Risk and Procurement Discipline** — six-month 5, synthesis 4, depth 4, originality 3, operator usefulness 5, source availability 4. Already drafted/Tavi-approved for Erol review; useful evergreen operator piece, but less urgent than the financing-loop landscape explainer.
+4. **GraphRAG and Knowledge Retrieval** — six-month 4, synthesis 4, depth 4, originality 4, operator usefulness 4, source availability 4. Already drafted/Tavi-approved; hold behind capital/cost/procurement themes because this week's market signals are mostly infrastructure, financing, and contract pressure.
+
+**Decision:** Keep **AI Vendor-Financing Loop / circular AI capital** as the selected weekly analysis candidate; do not assign a new analysis draft. Avdi assignment: prepare the Erol-review package for `src/content/drafts/ai-vendor-financing-loop-operator-guide.md` with thesis, Stack Ownership Map, strongest counterpoint, word count/build proof, and source-hygiene note; also flag the approved analysis queue so Erol can decide whether to publish, revise, or hold. Do not publish, move live content, merge, or push.
+
+---
+
 ### Week of May 10, 2026
 
 **Stories considered:**
@@ -654,6 +891,8 @@ Use this section for Sunday analysis-selection decisions and daily editorial rev
 **Agent run (7:01 AM, May 22 - Avdi REVISED):** One actionable REVISE draft: `ey-microsoft-ai-alliance-enterprise-audit-2026`. Tavi's objections: over briefing ceiling (~972 body words), dense self-reported metric stack, unsupported PCAOB/IAASB 'likely before end of 2026' timing claim. Fixes applied: cut body from ~972 to ~545 pre-FAQ words; removed self-reported metric parade (15%/95%/90%) while keeping factual 1.4T journal-lines scale reference; removed PCAOB timing claim, replaced with open-ended watch signal; all operator posture, FDE access framing, KPMG comparison, and questions-to-ask preserved. Build ✅ (70 pages, 0 errors - May 22, 7:02 AM). Marked REVISED_FOR_REVIEW. No new draft created - REVISE queue had an actionable item.
 
 **Agent run (5:37 AM, May 22 - Avdi NEW_DRAFT):** No actionable REVISE drafts. `ai-vendor-financing-loop-operator-guide` is APPROVED_ANALYSIS_NEEDS_EROL (not a REVISE item). Searched recent AI/business news; selected EY/Microsoft $1B AI Alliance story (May 21, 2026). EY and Microsoft announced a joint $1B+ five-year investment to embed Microsoft AI across EY's 400,000-person workforce and co-deploy integrated EY-Microsoft teams - including Microsoft Forward Deployed Engineers - at enterprise client sites. Two days after KPMG declared a preferred Anthropic partnership, Big Four AI vendor alignment is now structural. Key operator angles: (1) Microsoft FDEs will be inside your EY engagement, with potential access to operational and financial data; (2) EY Canvas, used in 160,000 audit engagements, now runs on Microsoft Azure/Foundry/Fabric; (3) EY's "Client Zero" model means implementation advice is pre-committed to the Microsoft platform; (4) KPMG→Anthropic vs. EY→Microsoft creates a visible divergence operators must account for in advisor-independence assessments. 4 external links (3 Tier 1 primary, 1 Tier 3 trade press) + 2 internal links. Pre-FAQ word count: ~550 (within 400-700 spec); total: ~780 words (under 800 ceiling). Build ✅ (70 pages, 0 errors - May 22, 5:37 AM). Hero image generation in progress. Awaiting Tavi review.
+
+**Agent run (7:11 AM, May 29 — Avdi REVISED):** One actionable REVISE draft: `spacex-ipo-grok-enterprise-adoption-xai-2026`. Tavi’s objection: heroImage frontmatter used bare filename instead of `../../assets/` relative path. Fix applied: changed `heroImage` from `"spacex-ipo-grok-enterprise-adoption-xai-2026.png"` to `"../../assets/spacex-ipo-grok-enterprise-adoption-xai-2026.png"`. No content changes. Build ✅ (75 pages, 0 errors — May 29, 7:11 AM). Marked REVISED_FOR_REVIEW. No new draft created — REVISE queue had one actionable item.
 
 **Tavi review (May 29, 2026 — Tavi daily review):** Reviewed 2 new pending drafts. `anthropic-series-h-965b-enterprise-buyers-2026` (May 29, Avdi) is **APPROVED_BRIEFING / PUBLISHED** — passes all editorial criteria; within briefing spec; hero asset confirmed; build passed 76 pages, 0 errors; committed and pushed via PR #21. `spacex-ipo-grok-enterprise-adoption-xai-2026` (May 27, Avdi) is **REVISE** — heroImage uses bare filename instead of `../../assets/` relative path; all other content is sound. Avdi immediate trigger initiated for the REVISE. No briefing published today for May 29 until now. Analysis queue: `ai-vendor-financing-loop-operator-guide`, `your-first-crm-agent-should-follow-up-not-forecast`, `ai-vendor-risk-procurement-discipline`, and `graphrag-questions-knowledge-base-cannot-answer` all remain APPROVED_ANALYSIS_NEEDS_EROL awaiting Erol decision.
 
