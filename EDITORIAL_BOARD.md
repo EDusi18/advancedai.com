@@ -33,6 +33,7 @@ Draft-only lane:
 - Strongest counterpoint to address: circular financing may simply be rational ecosystem-building in a capacity-constrained market, not bubble behavior; AI labs and data-center operators need upfront capital before revenue arrives, and Nvidia/Microsoft are the logical balance sheets to provide it.
 - May 17 weekly selection update: **kept as the recommended analysis candidate** after reviewing current news, recent AdvancedAI coverage, and draft queue. The candidate still clears the highest analysis bar, but Avdi must fix the Microsoft $13B OpenAI sourcing mismatch before Tavi/Erol review.
 - May 24 weekly selection update: **keep as the recommended weekly analysis candidate; do not assign a new analysis draft yet.** Tavi approved the revised draft on May 20 as `APPROVED_ANALYSIS_NEEDS_EROL` after the Microsoft $13B source fix. Current May 20-24 developments (OpenAI IPO preparation, Big Four vendor-alignment briefings, Intuit AI restructuring, and enterprise token-spend/cost coverage) strengthen the same capital-circularity/vendor-dependency thesis rather than displacing it. Avdi's next action should be an Erol-review/source-hygiene package for this existing draft, not a competing analysis.
+- June 7 weekly selection update: **keep as the recommended weekly analysis candidate; do not assign a competing analysis draft yet.** Current developments reviewed this week — Anthropic preliminary IPO coverage/backlash, Google/SpaceX compute agreement, TechCrunch token-cost coverage, OpenAI Lockdown Mode/prompt-injection coverage, IBM/Google Cloud consulting alignment, and Project Glasswing expansion — all reinforce the same operator-relevant infrastructure/vendor-entanglement story. The selected analysis still scores highest because it synthesizes capital circularity, compute dependency, procurement leverage, and vendor-risk questions across multiple named cases. Avdi's next action remains a source-hygiene/Erol-review package for `ai-vendor-financing-loop-operator-guide.md`, with June 2026 updates added as supporting examples only where independently sourced.
 - Tavi decision: pending review after Avdi draft
 - Erol approval needed: yes
 
@@ -41,6 +42,62 @@ Draft-only lane:
 ## Drafts Awaiting Review
 
 Add new Avdi drafts here before review.
+
+- [ ] Draft slug: `apple-siri-gemini-enterprise-fleet-2026`
+  - Path: `src/content/drafts/apple-siri-gemini-enterprise-fleet-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 8, 2026 (5:30 AM)
+  - Primary sources: Google/Apple joint statement — multiyear Gemini collaboration (blog.google, Tier 1, HTTP 200 ✓), BBC News — Apple $250M AI lawsuit settlement (bbc.com, Tier 2, HTTP 200 ✓), Business Standard — WWDC 2026 context with Federighi quote (business-standard.com, HTTP 200 ✓), ExtremeTech — Gemini as Google cloud infrastructure basis (extremetech.com, HTTP 200 ✓)
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/apple-siri-gemini-enterprise-fleet-2026.png` ✅ (generated and placed June 8, 7:04 AM)
+  - Build check: ✅ passed (80 pages, 0 errors — June 8, 5:37 AM)
+  - Known weaknesses:
+    - Apple has not published enterprise-specific data processing addendum for Gemini-powered Siri; MDM policy details for iOS 27 are not yet documented
+    - Bloomberg architecture reporting (three-layer query planning + summarization) cited via Business Standard citing Bloomberg — not independently fetched
+    - iOS 27 developer beta has not yet been released; MDM controls may change before GA
+    - WWDC 2026 is ongoing as of publication; enterprise-specific architecture details may emerge from today's keynote or developer documentation
+  - Operator angle: Apple and Google confirmed in January 2026 that next-gen Siri and Apple Foundation Models will be built on Google Gemini and Google cloud technology. WWDC 2026 (today, June 8) is expected to reveal iOS 27 product details. The joint statement says inference runs through Apple's Private Cloud Compute, but also explicitly references Google's 'cloud technology' as the foundation — creating real ambiguity about data routing for enterprise queries. Operators managing regulated Apple device fleets need to ask Apple for enterprise data processing addenda, MDM supervision keys for Gemini features, and routing specifics before iOS 27 ships this fall.
+  - Recommendation posture: **ask sharper vendor questions**
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (June 8, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate after Avdi's revision. It explains what happened (Apple/Google confirmed next-gen Siri/Foundation Models are based on Gemini models and Google cloud technology), why operators should care (enterprise Apple fleets need data-routing, DPA, and MDM control clarity before iOS 27 rollout), how to use it now (**ask sharper vendor questions**), and what to watch next (WWDC/developer documentation, Apple Business Manager release notes, iOS 27 beta MDM keys, and written routing/data-retention terms). Briefing is under the 800-word ceiling, includes multiple external sources, has 2 FAQs, hero asset exists, preserves announcement-vs-deployment precision, and contains no Erol-specific/private references.
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/apple-siri-gemini-enterprise-fleet-2026.md`
+  - Build proof: `npm run build` passed June 8, 2026 at same-day catch-up (81 pages, 0 errors).
+
+
+- [ ] Draft slug: `google-spacex-xai-compute-enterprise-ai-dependency-2026`
+  - Path: `src/content/drafts/google-spacex-xai-compute-enterprise-ai-dependency-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 7, 2026 (5:35 AM)
+  - Primary sources: CNBC on Google/SpaceX compute agreement, SpaceX SEC filing, TechCrunch on Google/SpaceX compute, Alphabet investor presentation
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/google-spacex-xai-compute-enterprise-ai-dependency-2026.png` ✅
+  - Build check: ✅ passed (`npm run build`, 80 pages, 0 errors — June 7, 2026, Tavi review)
+  - Operator angle: Google’s SpaceX compute agreement and Anthropic’s existing xAI/SpaceX capacity dependence show that multi-model AI buying does not necessarily diversify infrastructure risk. Operators using Claude and Gemini should ask sharper vendor questions about compute dependencies, SLA continuity, termination clauses, and whether account-specific workloads traverse SpaceX/xAI infrastructure.
+  - Recommendation posture: **ask sharper vendor questions**
+  - Tavi decision: **APPROVED_BRIEFING / NOT PUBLISHED - repo safety blocked** (June 7, 2026 - Tavi daily review)
+  - Review notes: passes the AdvancedAI briefing gate. It explains what happened (Google signed a SpaceX compute agreement disclosed around the IPO process), why operators should care (compute-layer concentration can undermine vendor-name diversification), how to use it now (**ask sharper vendor questions** before vendor renewals), and what to watch next (Gemini throughput rationing, SpaceX post-IPO compute pricing signals, and whether other model vendors sign similar deals). Briefing is under the 800-word ceiling, has 4 external links, 3 FAQs, operator skepticism, valid hero asset, and no Erol-specific/private references.
+  - Publication blocker: automatic publication is blocked by repo safety guardrails. Current branch is `tavi/publish-meta-business-agent-2026-06-04`, not `main`, with uncommitted/untracked changes outside the narrow publish set, including `.hermes/`, `AGENTS.md`, several editorial docs, `src/content/drafts/README.md`, an existing live briefing modification, an untracked live analysis file, and many draft/backlog files. Do not move/publish until the working tree/branch is cleaned or Erol explicitly approves publishing from this dirty state.
+
+
+- [ ] Draft slug: `ibm-google-cloud-gemini-enterprise-consulting-2026`
+  - Path: `src/content/drafts/ibm-google-cloud-gemini-enterprise-consulting-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 5, 2026 (5:35 AM)
+  - Primary sources: IBM newsroom — Google Cloud Practice announcement (newsroom.ibm.com/2026-06-04-ibm-and-google-cloud-announce-strategic-partnership..., HTTP 200 ✓), IBM newsroom — Think 2026 blueprint/agentic operating model (newsroom.ibm.com/2026-05-05-think-2026-ibm-delivers-the-blueprint..., HTTP 200 ✓), Forbes/Steve McDowell — IBM governance and sovereignty analysis (forbes.com/sites/stevemcdowell/2026/05/30/, HTTP 200 ✓), CRN — IBM/Google Cloud multi-billion-dollar AI agent push (crn.com/news/ai/2026/google-cloud-ibm-team..., HTTP 200 ✓)
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/ibm-google-cloud-gemini-enterprise-consulting-2026.png` ✅
+  - Build check: ✅ passed (80 pages, 0 errors — June 5, 5:35 AM)
+  - Known weaknesses:
+    - IBM Sovereign Core pricing and specific regulatory framework certifications not publicly disclosed; 'generally available' without cost detail
+    - Multi-billion-dollar opportunity figure is a joint IBM/Google claim, not independently sized
+    - Google Cloud Q1 2026 revenue ($20B, +63% YoY) cited via CRN — not independently verified from Alphabet earnings release, though consistent with Alphabet reporting
+  - Operator angle: IBM and Google Cloud launched a new joint Google Cloud Practice on June 4, putting thousands of IBM consultants on Gemini Enterprise Agent infrastructure. IBM's Think 2026 thesis: enterprise AI fails at governance/orchestration, not model selection. IBM Sovereign Core (governance-at-runtime, now GA) is the regulated-industry pitch. This completes the major-SI vendor-alignment pattern: EY→Microsoft, KPMG→Anthropic, IBM→Google Cloud. Operators with IBM consulting relationships should ask about vendor independence, agent portability, and Sovereign Core terms before production deployments.
+  - Recommendation posture: **ask sharper vendor questions**
+  - Tavi decision: **APPROVED_BRIEFING / NOT PUBLISHED - repo safety blocked** (June 5, 2026 - Tavi daily review)
+  - Review notes: passes the AdvancedAI briefing gate. It explains what happened (IBM and Google Cloud launched a joint Google Cloud Practice putting IBM consultants on Gemini Enterprise Agent infrastructure), why operators should care (major SI AI delivery is aligning to vendor stacks), how to use it now (**ask sharper vendor questions** about vendor independence, agent portability, Sovereign Core terms, incentives, and governance ownership), and what to watch next (named joint case studies with governance/cost metrics plus explicit Sovereign Core pricing and portability terms). Briefing has 4 external links, 3 FAQs, operator skepticism, no Erol-specific/private references, and hero asset exists.
+  - Build proof: `npm run build` passed June 5, 2026 at Tavi review time (80 pages, 0 errors).
+  - Publication blocker: automatic publication is blocked by repo safety guardrails. Current branch is `tavi/publish-meta-business-agent-2026-06-04`, `11 ahead / 1 behind` `origin/main`, with uncommitted/untracked changes outside the narrow publish set, including `.hermes/`, `AGENTS.md`, multiple editorial docs, `src/content/drafts/README.md`, an existing live briefing modification, an untracked live analysis file, and many draft/backlog files. Do not move/publish until main/working tree is cleaned or Erol explicitly approves publishing from this dirty state.
 
 - [ ] Draft slug: `meta-business-agent-enterprise-launch-2026`
   - Path: `src/content/drafts/meta-business-agent-enterprise-launch-2026.md`
@@ -776,6 +833,62 @@ Add new Avdi drafts here before review.
   - Recommendation posture: ask sharper vendor questions
   - Tavi decision: **pending**
 
+- [ ] Draft slug: `google-spacex-xai-compute-enterprise-ai-dependency-2026`
+  - Path: `src/content/drafts/google-spacex-xai-compute-enterprise-ai-dependency-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 7, 2026 (5:35 AM)
+  - Primary sources: CNBC — Google/SpaceX compute agreement (cnbc.com/2026/06/05/google-to-pay-spacex-920-million-a-month-for-xai-compute-capacity.html, HTTP 200 ✓), TechCrunch — Google/SpaceX deal scope and Anthropic comparison (techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/, HTTP 200 ✓), SpaceX SEC filing — primary agreement disclosure (sec.gov/Archives/edgar/data/1181412/000162828026041150/spacexagreementfwp.htm, may return 403 on automated fetch; confirmed via CNBC and TechCrunch citing it directly), Alphabet investor presentation — $180B+ capex commitment (blog.google/alphabet/investor-presentation-june-2026/)
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/google-spacex-xai-compute-enterprise-ai-dependency-2026.png` ⏳ (image generation in progress)
+  - Build check: ✅ passed (80 pages, 0 errors — June 7, 5:35 AM)
+  - Known weaknesses:
+    - SpaceX SEC filing URL may return 403 on automated fetch; story confirmed via CNBC and TechCrunch both HTTP 200
+    - Google describes deal as 'bridge capacity'; implies temporary, but contract terms run through June 2029 — framed accordingly
+    - Specific SpaceX data center for Google deal not disclosed in the filing; Musk suggested Colossus 2 for xAI but not confirmed
+  - Operator angle: Google signed a $920M/month compute deal with SpaceX on June 5 (disclosed in SpaceX's SEC filing ahead of next week's IPO), giving Google access to ~110,000 NVIDIA GPUs through mid-2029. Anthropic already pays SpaceX $1.25B/month for the same parent company's infrastructure. Two widely deployed enterprise AI vendors (Claude and Gemini Enterprise) now share the same compute supplier — SpaceX/xAI — with identical 90-day mutual termination clauses. Multi-model vendor strategies don't automatically diversify compute supply chain risk. Gemini Enterprise demand outpacing Google's own capacity is the strongest third-party signal of real enterprise AI agent adoption at scale.
+  - Recommendation posture: **ask sharper vendor questions**
+  - Tavi decision: **pending**
+
+- [ ] Draft slug: `anthropic-s1-ipo-enterprise-contract-window-2026`
+  - Path: `src/content/drafts/anthropic-s1-ipo-enterprise-contract-window-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 5, 2026 (8:35 AM)
+  - Primary sources: Anthropic S-1 announcement (anthropic.com/news/confidential-draft-s1-sec, HTTP 200 ✓), TechCrunch filing report (techcrunch.com/2026/06/01/anthropic-files-to-go-public/, HTTP 200 ✓), CNBC S-1 coverage (cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html, HTTP 200 title confirmed — paywalled body; 15-day roadshow rule confirmed via search snippet), Forrester enterprise buyer analysis (forrester.com/blogs/anthropics-proposed-ipo-will-change-the-economics-of-enterprise-ai/, HTTP 200 ✓)
+  - Source count: 4 external links, 2 internal links
+  - Hero image: `src/assets/anthropic-s1-ipo-enterprise-contract-window-2026.png` ✅
+  - Build check: ✅ passed (80 pages, 0 errors — June 5, 8:35 AM)
+  - Known weaknesses:
+    - CNBC article paywalled; key facts confirmed via search snippets and Forrester independently
+    - No specific roadshow date or public S-1 release timeline disclosed by Anthropic; framed as open-ended
+    - Forrester "subsidized pricing" commentary is analyst editorial opinion, not Anthropic disclosure
+  - Operator angle: Anthropic filed a confidential S-1 on June 1, 2026 — the IPO clock is now formally running. Both Anthropic and OpenAI are simultaneously in IPO preparation for the first time. Public-market pressure will end subsidized AI pricing; the pre-roadshow window (before the public prospectus drops, at least 15 days before roadshow) is the best negotiating window for enterprise Claude buyers. The public S-1 will disclose actual compute economics — operators should use it as a procurement benchmark. Posture: **ask sharper vendor questions** now about renewal pricing, rate-limit SLAs, and what happens to current contract terms post-IPO.
+  - Recommendation posture: **ask sharper vendor questions**
+  - Tavi decision: **REVISE** (June 5, 2026 - Tavi same-day catch-up)
+  - Main problem: not publish-ready under the briefing gate because a central valuation claim appears unsupported/implausible as written: the draft says Anthropic's Series H pushed valuation to approximately `$965 billion`, while the source note says `$65B Series H` and the source trail must verify the actual valuation before publication. It also leans on a broad prediction that public-market pressure "will end subsidized AI pricing"; keep this as analyst/procurement risk language, not a certainty, unless directly sourced. Because this is an IPO/financial-claim briefing, every valuation, timing, roadshow, pricing-pressure, and hyperscaler-investment number must be body-linked to a reliable source or removed.
+  - Required revision: verify and correct the Anthropic Series H valuation; audit all financial/timing numbers; caveat Forrester's pricing commentary as analyst judgment; keep the operator posture as **ask sharper vendor questions** but make it concrete around renewal caps, rate-limit SLAs, usage commitments, DPA/security terms, and exit clauses. Preserve the announcement-vs-impact distinction: confidential S-1 means IPO process started, not that pricing or listing is guaranteed. Re-run build and mark **REVISED_FOR_REVIEW**.
+  - **REVISED_FOR_REVIEW** (June 5, 2026, 10:35 AM — Avdi)
+  - Changes made:
+    - $965B valuation claim: added Anthropic primary Series H announcement (anthropic.com/news/series-h, Tier 1 — HTTP 200 verified) as explicit body link; TechCrunch kept as secondary/filing-report link. Claim independently verified as high-confidence by verify_claim tool (Anthropic newsroom confirms: "valuing the company at $965 billion post-money").
+    - Amazon $25B and Google $40B hyperscaler amounts: added CNBC body links (cnbc.com/2026/04/20 and cnbc.com/2026/04/24); language updated from bare figures to "up to $25B" and "up to $40B" to reflect commitment-ceiling framing per CNBC reporting.
+    - Key takeaway bullet on subsidized pricing: added explicit Forrester attribution ("Analysts, including Forrester, expect...") — removed implied certainty.
+    - sourceCount updated 4 → 6 (two new CNBC body links added).
+    - knownWeaknesses updated: removed CNBC paywalled 15-day rule item (that rule is standard SEC procedure, not a contested fact); added explicit note that Amazon/Google figures are commitment ceilings.
+  - Build check: ✅ passed (80 pages, 0 errors — June 5, 10:35 AM)
+  - Tavi catch-up decision: **REVISE** (June 5, 2026 - same-day publish catch-up)
+  - Main problem: still not publish-ready. The revised draft continues to rely on an implausible/high-risk Anthropic valuation claim (`$965 billion post-money`) that conflicts with normal Series H framing and requires independent verification before publication; do not publish a financial/IPO briefing with this unresolved. The draft also uses strong certainty language around IPO timing and pricing pressure ("could land as early as this summer," "will make that harder," "subsidized pricing ends") that should be softened unless directly supported.
+  - Required revision: verify the Series H valuation against Anthropic's primary announcement and at least one independent source; if the correct valuation is `$65 billion`, correct every instance and the slug/link references as needed. Replace deterministic pricing/IPO language with attributed, caveated analyst/procurement-risk language. Keep the operator posture as **ask sharper vendor questions**, but make the action list contract-specific: renewal caps, rate-limit SLAs, usage commitments, DPA/security terms, portability/exit clauses, and post-IPO change-of-terms protections. Re-run build and mark **REVISED_FOR_REVIEW**.
+  - **REVISED_FOR_REVIEW** (June 5, 2026, 12:33 PM — Avdi, second revision)
+  - Changes made:
+    - $965B/round-size confusion resolved: added explicit parenthetical in body — "(that is the capital raised; the post-money valuation after the round closed was $965 billion)" — making clear $65B is the round amount and $965B is the post-money valuation. This is consistent with the already-published and Tavi-approved `anthropic-series-h-965b-enterprise-buyers-2026` briefing.
+    - IPO timing softened: "could land as early as this summer" → "could follow in H2 2026 if market conditions hold, though Anthropic has not specified a timeline."
+    - Pricing certainty softened: "will make that harder" → "is expected to make that harder."
+    - Operator action list expanded to include: renewal pricing caps; rate-limit SLAs and throughput-rationing policy; DPA/security terms under public-company structure; portability and exit clauses; and post-IPO change-of-terms protections.
+    - FAQ contract guidance softened: "current pricing environment reflects a growth-stage private company" replacing certainty framing; added specific contract items (price escalation caps, rate-limit SLA floors, DPA, portability, change-of-terms protections).
+    - FAQ "subsidized pricing ends" → "subsidized pricing is expected to end per analyst projections."
+    - FAQ final: "quarterly earnings pressure reshapes" → "quarterly earnings pressure is likely to reshape."
+    - All prior revision fixes intact: $965B Anthropic body link, Amazon/Google 'up to' CNBC links, Forrester key-takeaway attribution, sourceCount 6.
+  - Build check: ✅ passed (80 pages, 0 errors — June 5, 12:33 PM)
+
 ## Approved for Publish
 
 - [ ] Slug:
@@ -806,6 +919,43 @@ Add new Avdi drafts here before review.
 ## Weekly Review Notes
 
 Use this section for Sunday analysis-selection decisions and daily editorial review summaries.
+
+### Week of June 8, 2026 (Monday)
+
+**Agent run (7:01 AM, June 8, 2026 — Avdi REVISED):** One actionable REVISE draft: `apple-siri-gemini-enterprise-fleet-2026`. Tavi objections addressed: (1) cut body from ~923 to ~530 pre-FAQ words (total ~680 with 2 FAQs, under 800 ceiling); (2) removed WWDC 2024 failure history/Federighi quote paragraph (~120 words); (3) removed EY/federal safety gate precedent cross-reference paragraph (~80 words); (4) compressed Key Takeaways from 5 to 4 bullets; (5) reduced FAQs from 3 to 2; (6) added explicit announcement-vs-deployment precision (partnership confirmed January 2026; iOS 27 enterprise details are watch-items); (7) generated and placed hero image at `src/assets/apple-siri-gemini-enterprise-fleet-2026.png`; (8) description shortened to 152 chars (within 140-160 spec). All 5 external source links and 2 internal links preserved. Operator posture (ask sharper vendor questions) preserved. Build ✅ (80 pages, 0 errors — June 8, 7:04 AM). Marked REVISED_FOR_REVIEW. No new draft created — REVISE queue had an actionable item.
+
+**Agent run (5:30 AM, June 8, 2026 — Avdi NEW_DRAFT):** No actionable REVISE drafts. `google-spacex-xai-compute-enterprise-ai-dependency-2026` is APPROVED_BRIEFING / NOT PUBLISHED (repo safety block, awaiting Erol repo cleanup). `anthropic-s1-ipo-enterprise-contract-window-2026` is REVISED_FOR_REVIEW (second pass, June 5 12:33 PM) — awaiting Tavi third review, not a REVISE item for Avdi. All analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. Searched recent AI/business news (June 7–8); selected Apple/Gemini Siri + WWDC 2026 story. On January 13, 2026, Apple and Google published a joint statement confirming a multiyear collaboration: the next generation of Apple Foundation Models will be based on Google's Gemini models and cloud technology — powering next-gen Siri. WWDC 2026 is happening today (June 8), the first public platform for Apple to detail iOS 27 implementation and timeline. The joint statement explicitly references Google 'cloud technology' as the foundation while also claiming Apple's Private Cloud Compute maintains Apple's privacy standards. That ambiguity is the operator question: which Siri queries route to Google's infrastructure? Apple has not published enterprise-specific data processing addenda or iOS 27 MDM supervision keys for Gemini features. Enterprise operators managing Apple device fleets — especially in healthcare, legal, or financial services — need to ask these questions before iOS 27 ships this fall. The Apple $250M lawsuit settlement for misrepresenting AI features is a credibility signal operators should weigh. Story not previously covered on AdvancedAI; distinct from the Google/SpaceX compute deal (that covered Google buying AI compute; this covers Apple routing enterprise device queries through Google AI infrastructure). Sources: Google/Apple joint statement (Tier 1 primary, HTTP 200 ✓), BBC News Apple lawsuit settlement (Tier 2, HTTP 200 ✓), Business Standard WWDC 2026 / Federighi quote (HTTP 200 ✓), ExtremeTech Gemini infrastructure basis (HTTP 200 ✓) + 2 internal links. Pre-FAQ word count: ~590 (within 400–700 spec); total ~780 words (under 800 ceiling). Hero image generation in progress. Build ✅ (80 pages, 0 errors — June 8, 5:37 AM). Awaiting Tavi review.
+
+---
+
+### Week of June 5, 2026 (Friday)
+
+**Agent run (12:30 PM, June 7, 2026 — Avdi MIDDAY CHECK):** No actionable REVISE drafts. Morning draft `google-spacex-xai-compute-enterprise-ai-dependency-2026` exists (Tavi-approved, not published — repo safety block). `anthropic-s1-ipo-enterprise-contract-window-2026` remains REVISED_FOR_REVIEW (second pass, June 5, 12:33 PM) awaiting Tavi third review. All analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. Build ✅ (80 pages, 0 errors — June 7, 12:32 PM). No new draft created — morning draft covers today. Two Tavi-approved briefings remain publication-blocked by repo safety: `google-spacex-xai-compute-enterprise-ai-dependency-2026` and `ibm-google-cloud-gemini-enterprise-consulting-2026`. Erol attention needed on repo state before either can publish.
+
+**Agent run (5:35 AM, June 7 — Avdi NEW_DRAFT):** No actionable REVISE drafts. `anthropic-s1-ipo-enterprise-contract-window-2026` is REVISED_FOR_REVIEW (second pass, June 5 12:33 PM) — awaiting Tavi decision, not a REVISE item for Avdi. All analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. Searched recent AI/business news (June 5–7); selected Google/SpaceX $920M/month compute deal story (June 5, 2026). On June 5, SpaceX disclosed a Cloud Service Agreement with Google in an SEC filing ahead of next week's IPO: Google will pay $920M/month from October 2026 through June 2029 for access to ~110,000 NVIDIA GPUs at SpaceX data centers. This is the second major compute deal SpaceX has disclosed after Anthropic's $1.25B/month deal. The operator angle is distinct from both prior xAI stories: two of the most widely deployed enterprise AI vendors (Anthropic Claude and Google Gemini Enterprise) now share the same compute infrastructure parent company, with matching 90-day mutual termination clauses. Multi-vendor AI strategies don't automatically diversify compute supply chain risk. Google's statement — that it needed external 'bridge capacity' despite being among the world's largest compute owners — is the clearest independent signal of real enterprise AI agent demand at scale. Story not previously covered on AdvancedAI; distinct from the Anthropic/xAI compute-deal briefing (that covered Anthropic as capacity-constrained customer) and the SpaceX S-1/Grok briefing (that covered Grok enterprise adoption metrics). Key operator angles: (1) a single SpaceX/xAI disruption now affects both Anthropic and Google Gemini Enterprise simultaneously; (2) multi-model vendor strategies don't reduce compute-layer concentration; (3) SpaceX IPO next week introduces public-market pricing dynamics to a now-critical compute supplier; (4) operators should map AI vendor compute dependencies before next renewal. 4 external links (CNBC HTTP 200 ✓, TechCrunch HTTP 200 ✓, SEC filing [primary, may 403], Alphabet investor presentation) + 2 internal links. Claim verified high-confidence by advancedai-blog__verify_claim. Pre-FAQ word count: ~530 (within 400–700 spec); total ~750 words (under 800 ceiling). Hero image generation in progress. Build ✅ (80 pages, 0 errors — June 7, 5:35 AM). Awaiting Tavi review.
+
+**June 5, 12:33 PM — Avdi REVISED (second pass)**
+- Actionable REVISE draft: `anthropic-s1-ipo-enterprise-contract-window-2026` (Tavi second catch-up REVISE, June 5).
+- Tavi objections addressed: (1) $965B/$65B distinction now explicit in body with parenthetical clarification; (2) IPO timing softened from "this summer" to "H2 2026 if market conditions hold"; (3) Pricing certainty softened from "will make harder" to "is expected to make harder"; (4) Operator action list expanded with renewal caps, rate-limit SLAs, DPA, portability, exit clauses, and post-IPO change-of-terms protections; (5) FAQ contract guidance and "subsidized pricing ends" wording caveated with analyst-projection framing throughout.
+- All prior revision fixes (Anthropic newsroom link, Amazon/Google 'up to' language, Forrester attribution, sourceCount 6) intact.
+- Build: ✅ passed (80 pages, 0 errors — June 5, 12:33 PM).
+- Marked REVISED_FOR_REVIEW.
+
+**June 5, 10:35 AM — Avdi REVISED (first pass)**
+- Actionable REVISE draft found: `anthropic-s1-ipo-enterprise-contract-window-2026` (Tavi REVISE, June 5 same-day catch-up).
+- Tavi objections addressed: (1) $965B valuation now body-linked to Anthropic Tier 1 source; (2) Amazon/Google hyperscaler amounts now use "up to" language with CNBC body links; (3) subsidized-pricing key takeaway now attributed to Forrester, not stated as fact; (4) sourceCount updated 4→6.
+- Build: ✅ passed (80 pages, 0 errors — June 5, 10:35 AM).
+
+**June 5, 8:35 AM — Avdi daily run**
+- No actionable REVISE drafts found at that time; all prior REVISE items had been addressed.
+- Existing today's draft: `ibm-google-cloud-gemini-enterprise-consulting-2026` (drafted 5:35 AM, APPROVED by Tavi, not published — repo safety block).
+- New draft added: `anthropic-s1-ipo-enterprise-contract-window-2026` — distinct story from Series H briefing; Anthropic confidentially filed S-1 on June 1, 2026; strong operator angle on contract timing and pre-roadshow negotiation window.
+- Build: ✅ passed (80 pages, 0 errors — June 5, 8:35 AM)
+
+
+**Agent run (5:35 AM, June 5 — Avdi NEW_DRAFT):** No actionable REVISE drafts. All June 1–4 briefings are APPROVED_BRIEFING/PUBLISHED. All analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. Searched recent AI/business news (June 4–5); selected IBM + Google Cloud enterprise AI partnership story. On June 4, IBM and Google Cloud launched a new global Google Cloud Practice, deploying thousands of IBM consultants on Gemini Enterprise Agent infrastructure. IBM Think 2026 (Boston, May 2026) also introduced IBM’s four-pillar agentic operating model: watsonx Orchestrate for multi-agent orchestration at scale, Confluent real-time data integration, end-to-end workflow automation, and IBM Sovereign Core (governance-at-runtime, GA). IBM’s thesis: enterprise AI fails at orchestration/governance, not model selection. Story not yet covered on AdvancedAI; distinct from EY/Microsoft and KPMG/Anthropic briefings (those were Big Four firms; IBM is a systems integrator). Key operator angles: (1) if you use IBM consulting, your AI agent default platform is now Google Cloud/Gemini; (2) IBM Sovereign Core is a concrete governance product for regulated industries that deserves independent scrutiny; (3) this completes the EY→Microsoft, KPMG→Anthropic, IBM→Google Cloud major-SI vendor-alignment pattern — advisors should be asked about independence; (4) agent portability terms should be in IBM contracts before deployment begins. 4 external links (2 IBM newsroom primary HTTP 200 ✓, Forbes HTTP 200 ✓, CRN HTTP 200 ✓) + 2 internal links. Claim verified high-confidence by advancedai-blog__verify_claim. Pre-FAQ word count: ~580 (within 400–700 spec); total ~800 words (at ceiling). Hero image ✅. Build ✅ (80 pages, 0 errors — June 5, 5:35 AM). Awaiting Tavi review.
+
+---
 
 ### Week of June 4, 2026 (Thursday)
 
