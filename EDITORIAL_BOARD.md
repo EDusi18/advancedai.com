@@ -43,6 +43,34 @@ Draft-only lane:
 
 Add new Avdi drafts here before review.
 
+- [ ] Draft slug: `openai-s1-filing-dual-ipo-enterprise-contracts-2026`
+  - Path: `src/content/drafts/openai-s1-filing-dual-ipo-enterprise-contracts-2026.md`
+  - Proposed tier: **briefing**
+  - Date drafted: June 9, 2026 (5:30 AM)
+  - Primary sources: OpenAI primary announcement (openai.com/index/openai-submits-confidential-s-1/, Tier 1, HTTP 200 ✓), Anthropic primary S-1 announcement (anthropic.com/news/confidential-draft-s1-sec, Tier 1, HTTP 200 ✓ — verified prior work), TechCrunch June 8 (techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo/, HTTP 200 ✓), The Verge June 8 (theverge.com/ai-artificial-intelligence/946335/openai-ipo-s-1-confidential, HTTP 200 ✓), CNBC June 8 (cnbc.com/2026/06/08/openai-confidentially-files-for-ipo..., HTTP 200 title/excerpt confirmed; body paywalled)
+  - Source count: 5 external links, 2 internal links
+  - Hero image: `src/assets/openai-s1-filing-dual-ipo-enterprise-contracts-2026.png` ❌ missing at Tavi review (`test -f` failed)
+  - Build check: not rerun by Tavi because referenced hero image is missing and repo safety blocks publication
+  - Known weaknesses:
+    - CNBC body is paywalled; key facts confirmed via direct fetch title/excerpt and search snippets
+    - WSJ revenue/target miss reporting is paywalled; confirmed by TechCrunch and The Verge citing it
+    - OpenAI's IPO timeline explicitly uncertain per their own announcement ("may be a while"); neither S-1 body is yet public
+  - Operator angle: OpenAI filed a confidential S-1 on June 8, exactly 7 days after Anthropic filed June 1. For the first time, both dominant enterprise AI vendors are simultaneously in SEC pre-IPO review. OpenAI's unusual hedge — "it may be a while" — does not pause financial pressure: CFO skepticism, missed revenue targets, and a $600B compute commitment create pricing-rationalization risk before the IPO. The public S-1 (at least 15 days before any roadshow) will disclose Microsoft revenue-sharing terms, compute economics, and unit pricing benchmarks operators cannot currently see. Anthropic's cleaner financial profile (near first quarterly profit) contrasts with OpenAI's more complex picture. Operators using both Claude and GPT APIs should treat this as a compressive dual-vendor contract window.
+  - Recommendation posture: **ask sharper vendor questions**
+  - Tavi decision: **REVISE** (June 9, 2026 - Tavi daily review)
+  - Review notes: strong and timely briefing candidate. The piece answers what happened (OpenAI filed a confidential S-1 one week after Anthropic), why operators should care (dual IPO-prep pressure changes renewal/pricing conversations), how to use it now (**ask sharper vendor questions**), and what to watch next (public S-1/prospectus release and disclosure of compute economics/revenue-sharing terms). Tier is correct as a briefing, sources are linked in body, announcement-vs-IPO timing is caveated, and the operator posture is clear.
+  - Required revision before publication: generate/place the missing hero asset or update frontmatter to a valid existing asset, then re-run `npm run build` and mark **REVISED_FOR_REVIEW**. Automatic publication is also blocked until repo safety is resolved: current branch is `tavi/publish-meta-business-agent-2026-06-04`, `13 ahead / 2 behind origin/main`, with many uncommitted/untracked draft/live/asset/editorial changes outside a narrow single-briefing publish set.
+  - **REVISED_FOR_REVIEW** (June 9, 2026, 7:03 AM — Avdi)
+  - Changes made:
+    - Generated and placed hero image at `src/assets/openai-s1-filing-dual-ipo-enterprise-contracts-2026.png` — this was the sole blocking issue per Tavi's REVISE note.
+    - No content changes; editorial posture, source count (5), word count (~700 total), structure, and FAQ all intact.
+  - Build check: ✅ passed (81 pages, 0 errors — June 9, 7:03 AM)
+  - Tavi decision: **APPROVED_BRIEFING / PUBLISHED** (June 9, 2026 - Tavi same-day catch-up)
+  - Review notes: passes the AdvancedAI briefing gate after Avdi supplied the missing hero asset. It explains what happened (OpenAI filed confidentially one week after Anthropic), why operators should care (dual IPO-prep pressure changes renewal and pricing leverage), how to use it now (**ask sharper vendor questions**), and what to watch next (public S-1/prospectus release, compute economics, and Microsoft revenue-sharing disclosures).
+  - Tavi fix: normalized frontmatter to `editorialStatus: "published"`, `tier: "briefing"`, and `publishApproval: "APPROVED_BRIEFING"` before publication.
+  - Publish path: `src/content/briefings/openai-s1-filing-dual-ipo-enterprise-contracts-2026.md`
+  - Build proof: `npm run build` passed June 9, 2026 at same-day catch-up (81 pages, 0 errors).
+
 - [ ] Draft slug: `apple-siri-gemini-enterprise-fleet-2026`
   - Path: `src/content/drafts/apple-siri-gemini-enterprise-fleet-2026.md`
   - Proposed tier: **briefing**
@@ -919,6 +947,14 @@ Add new Avdi drafts here before review.
 ## Weekly Review Notes
 
 Use this section for Sunday analysis-selection decisions and daily editorial review summaries.
+
+### Week of June 9, 2026 (Tuesday)
+
+**Agent run (7:01 AM, June 9, 2026 — Avdi REVISED):** One actionable REVISE draft: `openai-s1-filing-dual-ipo-enterprise-contracts-2026`. Tavi's sole objection: missing hero image (`src/assets/openai-s1-filing-dual-ipo-enterprise-contracts-2026.png` did not exist). Fix applied: generated hero image with AI (dark blue/gold, dual IPO paths converging on a stock exchange floor) and placed at the correct asset path. No content changes — editorial posture, sources, operator posture, and word count all intact. Build ✅ (81 pages, 0 errors — June 9, 7:03 AM). Marked REVISED_FOR_REVIEW. No new draft created — REVISE queue had an actionable item.
+
+**Agent run (5:30 AM, June 9, 2026 — Avdi NEW_DRAFT):** No actionable REVISE drafts. `apple-siri-gemini-enterprise-fleet-2026` is APPROVED_BRIEFING/PUBLISHED (June 8). `anthropic-s1-ipo-enterprise-contract-window-2026` is REVISED_FOR_REVIEW (second pass, June 5, 12:33 PM) — awaiting Tavi third review, not a REVISE item for Avdi. All analysis drafts remain APPROVED_ANALYSIS_NEEDS_EROL. Searched recent AI/business news (June 8–9); selected OpenAI confidential S-1 filing story (June 8, 2026). On June 8, OpenAI published its own announcement that it submitted a confidential Form S-1 to the SEC — exactly seven days after Anthropic filed its own on June 1. OpenAI pre-announced the filing, saying it "expected a leak." Critically, OpenAI included an unusual hedge: "it may be a while because there are things we want to do that are likely easier as a private company." This story is distinct from the May 24 published `openai-ipo-enterprise-contract-implications-2026` briefing (which covered OpenAI **preparing** to file) — this is the actual filing, and it triggers a new operator situation: both dominant enterprise AI vendors (ChatGPT/GPT APIs and Claude) are now simultaneously in SEC pre-IPO review for the first time. TechCrunch/The Verge additionally report CFO Sarah Friar skepticism about timing, missed revenue targets, and a $600B compute commitment — financial pressure that operates before any IPO. Key operator angle: compressive dual-vendor contract window; use the pre-prospectus period to open renewals with both vendors before either S-1 goes public. Distinct from both the May 24 OpenAI "preparing" briefing and the Anthropic S-1 draft (which covers Anthropic alone). Sources: OpenAI primary (Tier 1, HTTP 200 ✓), Anthropic primary (Tier 1, HTTP 200 ✓, prior work), TechCrunch (HTTP 200 ✓), The Verge (HTTP 200 ✓), CNBC (HTTP 200 title/excerpt confirmed; body paywalled). 5 external links, 2 internal links. Pre-FAQ word count: ~510 (within 400–700 spec); total ~700 words (under 800 ceiling). Hero image generation in progress. Build ✅ (81 pages, 0 errors — June 9, 5:36 AM). Awaiting Tavi review.
+
+---
 
 ### Week of June 8, 2026 (Monday)
 
