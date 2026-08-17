@@ -1,8 +1,8 @@
 ---
-title: "DeepSeek V4 API Prices Jump Today — Check Your Batch Jobs"
+title: "DeepSeek Raised V4 API Prices — Audit Your Batch Jobs"
 slug: deepseek-v4-api-pricing-peak-off-peak-2026
-description: "DeepSeek V4 API prices take effect at 16:00 UTC today (noon ET). Peak output rises 4x to $3.96/1M. Off-peak rates also rise. Audit your batch job UTC timing."
-pubDate: '2026-08-16'
+description: "DeepSeek raised V4 API prices August 16 at 16:00 UTC. V4-Pro peak output is now $3.96/1M (was $0.87). Off-peak rates also rose. Audit your batch job UTC timing."
+pubDate: '2026-08-17'
 category: 'Industry News'
 heroImage: '../../assets/deepseek-v4-api-pricing-peak-off-peak-2026.png'
 heroImageAlt: 'Split-screen graphic showing a DeepSeek API pricing table with peak rates highlighted in red and off-peak rates in blue, overlaid on a dark technical circuit background'
@@ -11,12 +11,12 @@ tags: ['AI', 'DeepSeek', 'AI pricing', 'API costs', 'cost management']
 ---
 
 **Key takeaways:**
-- **Price effective today:** V4-Pro peak output rises from $0.87 to $3.96 per 1M tokens at 16:00 UTC August 16, 2026.
+- **Now live:** DeepSeek raised V4-Pro peak output from $0.87 to $3.96 per 1M tokens, effective 16:00 UTC August 16, 2026. Live pricing page verified August 17.
 - **Two daily peak windows:** 01:00–04:00 and 06:00–10:00 UTC (7 hrs/day). All other hours are off-peak at half the peak rate.
 - **Biggest impact on cache hits:** V4-Pro cache-hit prices [jump over 1,100% at peak](https://qz.com/deepseek-api-price-increase-v4-peak-off-peak-081326), making scheduled batch jobs that reuse context the highest-risk workloads.
 - **US business hours are off-peak:** 9am–5pm Eastern maps to 13:00–21:00 UTC — outside both peak windows. Off-peak V4-Pro output still rises from $0.87 to $1.98/1M (2.3x the prior flat rate).
 
-[DeepSeek will raise its V4 API prices](https://api-docs.deepseek.com/quick_start/pricing/) at 16:00 UTC today, August 16, reversing an introductory rate that [DeepSeek pledged to make permanent](https://www.engadget.com/2180062/deepseek-permanently-reduces-the-price-of-its-flagship-v4-model-by-75-percent/) in May after the original promotion expired. Output tokens for V4-Pro jump to $3.96 per million at peak hours, up from $0.87. Whether this affects your costs depends on when your workloads run — something most teams using DeepSeek have never audited.
+[DeepSeek raised its V4 API prices](https://api-docs.deepseek.com/quick_start/pricing/) at 16:00 UTC on August 16, reversing an introductory rate that [DeepSeek pledged to make permanent](https://www.engadget.com/2180062/deepseek-permanently-reduces-the-price-of-its-flagship-v4-model-by-75-percent/) in May after the original promotion expired. Output tokens for V4-Pro jumped to $3.96 per million at peak hours, up from $0.87. Whether this affects your costs depends on when your workloads run — something most teams using DeepSeek have never audited.
 
 ## What Are the New Prices?
 
@@ -30,7 +30,7 @@ tags: ['AI', 'DeepSeek', 'AI pricing', 'API costs', 'cost management']
 - Off-peak: $0.66 input / $1.98 output
 - Peak: $1.32 input / $3.96 output (up from $0.435/$0.87)
 
-Cache-hit input tokens — the biggest cost advantage for repetitive batch work — are the steepest change. V4-Pro cache hits rise from $0.0036 to $0.044 at peak (roughly 12x) and to $0.022 off-peak (6x). The prior promotional pricing, pledged permanent in May, will be revised upward into this two-tier structure at 16:00 UTC today.
+Cache-hit input tokens — the biggest cost advantage for repetitive batch work — are the steepest change. V4-Pro cache hits rise from $0.0036 to $0.044 at peak (roughly 12x) and to $0.022 off-peak (6x). The prior promotional pricing, pledged permanent in May, was revised upward into this two-tier structure at 16:00 UTC on August 16, 2026. The DeepSeek pricing page confirms the new structure is live.
 
 Even at peak rates, [DeepSeek remains cheaper than Claude Sonnet 5 or GPT-5.6 Sol](https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/). But at peak, V4-Pro output ($3.96/1M) now exceeds [OpenAI's GPT-5.6 Luna](https://developers.openai.com/api/docs/pricing) ($1.20/1M output, as of August 2026), and V4-Flash at peak ($1.32/1M) is also more expensive than Luna. If your V4 workloads run during peak hours, recalculate your unit economics — the actual impact depends on your output mix, cache hit rate, quality requirements, and what migration to an alternative would cost.
 
