@@ -20,6 +20,17 @@ Draft-only lane:
 
 ---
 
+## Tavi Daily Editorial Review — September 16, 2026 (7:04 AM ET)
+
+- **APPROVED_BRIEFING / PUBLISHED — `palantir-nvidia-anthropic-data-restriction-enterprise-2026.md`:** The September 15 round-two revision clears the briefing and evidence gates. Complete Markdown-stripped copy is 684 words; tier is explicitly `briefing`; the piece distinguishes attributed reporting from confirmed policy, keeps ZDR scope contract-specific, removes unsupported OpenAI training-policy claims, gives operators an **ask sharper vendor questions** posture, and names concrete documentation/Palantir-resolution watch signals. The 1672×941 PNG hero exists. Published at `src/content/briefings/palantir-nvidia-anthropic-data-restriction-enterprise-2026.md` through PR #117, merge commit `ac7ef617bccc7e7cf5cb0d7d39adafb6c23ee52f`.
+- **Build proof:** Local clean-worktree `npm run build` passed (155 pages, 0 errors); GitHub PR Build run `35088203754` passed.
+- **APPROVED_ANALYSIS_NEEDS_EROL — `vertical-ai-vendor-model-ownership-operator-guide-2026.md`:** Approval from September 15 remains current. Analysis publication still requires Erol review; no live move or publication was attempted. Erol decision requested: approve the thesis and public framing that vertical-vendor model ownership shifts procurement diligence toward model provenance, customer-data rights, independent evaluation, portability, and fallback terms.
+- **Today's publication check:** One briefing is now published for the scheduled day. No additional fresh draft handoff was found after the September 15 revisions.
+- **Repository safety:** Publication used an isolated clean worktree from `origin/main`; the stale primary checkout and its unrelated tracked/untracked changes were not modified for publication.
+- **Proof:** Repo `/Users/eroldusi/Projects/advancedai.com`; publish branch `tavi/publish-palantir-data-contracts-2026-09-16`; article commit `08dcb11`; PR #117 `https://github.com/EDusi18/advancedai.com/pull/117`; merge commit `ac7ef617bccc7e7cf5cb0d7d39adafb6c23ee52f`.
+
+---
+
 ## This Week's Analysis Candidate
 
 - Status: **SELECTED / DRAFTED - needs Avdi source-hygiene revision before Tavi + Erol review**
