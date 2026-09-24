@@ -1,5 +1,17 @@
 # AdvancedAI Editorial Board
 
+## Tavi Daily Editorial Review — September 24, 2026 (7:04 AM ET)
+
+- **APPROVED_BRIEFING / PUBLISHED — `verizon-ai-training-work-test-2026.md`:** The 657-word briefing clears the operator and evidence gates. It distinguishes free training access from demonstrated workflow competence, separates Verizon's nationwide announcement from initially regional coaching and unproven outcomes, and recommends a bounded, low-risk work sample scored for accuracy, verification, privacy judgment, time saved, and corrections. Four external sources are linked; the three primary/community sources returned HTTP 200, while Reuters returned HTTP 401 to automated access. The referenced 93,516-byte WebP hero exists.
+- **Publication proof:** Promoted from an isolated clean `origin/main` worktree because the primary checkout contains unrelated changes. Local `npm run build` passed (161 pages). PR #124 passed PR Build run `35990715161` and merged as `cebcef6748144487bf4192c2d05c3439773ab07c`. Cloudflare deploy run `35990814862` succeeded. Production verification: `https://advancedai.com/briefings/verizon-ai-training-work-test-2026/` returned HTTP 200 with the expected title after deployment.
+- **ALREADY PUBLISHED UPSTREAM — `okta-blueprint-alliance-agent-governance-2026.md`:** Published through PR #123, merge commit `a4640012173cffac7b08cddf3eca273a19340002`; production returned HTTP 200. Do not republish.
+- **ALREADY PUBLISHED UPSTREAM — `grok-47-cost-per-completed-task-2026.md`:** Published through PR #122, merge commit `2464650ce1dfd336ee9e75d2fe47fc0fe59998df`; production returned HTTP 200. Do not republish.
+- **APPROVED_ANALYSIS_NEEDS_EROL — `ai-safety-report-not-certification-2026.md`:** September 21 approval remains current. Erol review is still required; no analysis was moved or published automatically.
+- **Drafts reviewed:** 3 recent briefing handoffs: one approved and published today; two reconciled as already published upstream. No briefing received `REVISE`, so the immediate Avdi revision trigger was not run.
+- **Repository safety:** Primary checkout remains on stale branch `tavi/publish-ai-credit-war-2026-07-12` at `281e597`, ahead 1 / behind 116 before today's merge, with unrelated tracked live/editorial edits and extensive untracked drafts/assets. It was not used for publication.
+
+---
+
 Shared source of truth for AdvancedAI editorial control.
 
 ## Operating Rule
