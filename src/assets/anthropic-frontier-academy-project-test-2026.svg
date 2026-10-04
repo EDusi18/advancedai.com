@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Enterprise engineers progressing through governed AI project checkpoints">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07172b"/><stop offset="0.55" stop-color="#103955"/><stop offset="1" stop-color="#0a6b72"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#64e0d2" stop-opacity=".38"/><stop offset="1" stop-color="#64e0d2" stop-opacity="0"/></radialGradient>
+  <linearGradient id="path" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#53d7cf"/><stop offset="1" stop-color="#f0ad58"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#020914" flood-opacity=".45"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1190" cy="185" r="390" fill="url(#glow)"/>
+<g opacity=".1" stroke="#d4f7f2"><path d="M0 150h1600M0 300h1600M0 450h1600M0 600h1600M0 750h1600"/><path d="M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900M1200 0v900M1400 0v900"/></g>
+<path d="M170 650 C380 650 410 510 610 510 S830 350 1030 350 S1240 230 1430 230" fill="none" stroke="#02111f" stroke-opacity=".35" stroke-width="42"/>
+<path d="M170 650 C380 650 410 510 610 510 S830 350 1030 350 S1240 230 1430 230" fill="none" stroke="url(#path)" stroke-width="12" stroke-linecap="round"/>
+<g filter="url(#shadow)">
+ <g transform="translate(110 535)"><rect width="290" height="230" rx="28" fill="#102b43" stroke="#67ded5" stroke-width="3"/><circle cx="74" cy="82" r="34" fill="#58cfc8"/><path d="M36 166c12-39 65-56 104-27 11 8 20 17 27 27" fill="none" stroke="#bcefea" stroke-width="15" stroke-linecap="round"/><rect x="183" y="63" width="70" height="12" rx="6" fill="#7ba4b5"/><rect x="183" y="91" width="48" height="12" rx="6" fill="#7ba4b5"/><rect x="183" y="133" width="70" height="42" rx="10" fill="#1e4c66" stroke="#67ded5"/></g>
+ <g transform="translate(505 395)"><rect width="300" height="230" rx="28" fill="#112e44" stroke="#78e2d4" stroke-width="3"/><circle cx="66" cy="66" r="20" fill="#78e2d4"/><path d="M58 66l7 8 15-20" fill="none" stroke="#092132" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="105" y="56" width="145" height="18" rx="9" fill="#d1efec"/><circle cx="66" cy="118" r="20" fill="#78e2d4"/><path d="M58 118l7 8 15-20" fill="none" stroke="#092132" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="105" y="108" width="110" height="18" rx="9" fill="#8eb4bf"/><circle cx="66" cy="170" r="20" fill="#f0ad58"/><rect x="105" y="160" width="130" height="18" rx="9" fill="#8eb4bf"/></g>
+ <g transform="translate(900 235)"><rect width="310" height="230" rx="28" fill="#133247" stroke="#efad5b" stroke-width="3"/><path d="M155 43l54 22v44c0 44-24 70-54 84-30-14-54-40-54-84V65z" fill="#f0ad58" opacity=".95"/><path d="M132 111l18 19 34-43" fill="none" stroke="#143044" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><circle cx="58" cy="68" r="13" fill="#64d8cf"/><circle cx="252" cy="68" r="13" fill="#64d8cf"/><circle cx="58" cy="178" r="13" fill="#64d8cf"/><circle cx="252" cy="178" r="13" fill="#64d8cf"/><path d="M71 68h43M196 68h43M71 178h55M184 178h55" stroke="#6aa2b4" stroke-width="8" stroke-linecap="round"/></g>
+ <g transform="translate(1300 125)"><rect width="200" height="210" rx="28" fill="#16394d" stroke="#f3bc72" stroke-width="3"/><path d="M45 115l34 34 77-83" fill="none" stroke="#f3bc72" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="100" cy="105" r="76" fill="none" stroke="#78ded3" stroke-opacity=".35" stroke-width="8"/></g>
+</g>
+<g fill="#eefcf9"><circle cx="170" cy="650" r="16"/><circle cx="610" cy="510" r="16"/><circle cx="1030" cy="350" r="16"/><circle cx="1430" cy="230" r="16"/></g>
+</svg>
