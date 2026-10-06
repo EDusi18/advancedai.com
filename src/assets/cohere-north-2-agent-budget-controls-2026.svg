@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Enterprise AI agent control gates</title><desc id="desc">Abstract agent workflow passing through access, memory, and spending controls</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071426"/><stop offset="1" stop-color="#163c51"/></linearGradient><linearGradient id="flow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#66e3c4"/><stop offset="1" stop-color="#f1bd63"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="10"/></filter></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><circle cx="1320" cy="150" r="210" fill="#2d6f78" opacity=".2"/><circle cx="250" cy="760" r="260" fill="#244768" opacity=".28"/>
+<path d="M150 450 H1450" stroke="#1f7580" stroke-width="34" opacity=".22"/><path d="M170 450 H1430" stroke="url(#flow)" stroke-width="8"/>
+<g fill="#0c2134" stroke="#79e4cf" stroke-width="5"><rect x="300" y="255" width="250" height="390" rx="42"/><rect x="675" y="255" width="250" height="390" rx="42"/><rect x="1050" y="255" width="250" height="390" rx="42"/></g>
+<g fill="none" stroke="#dffcf4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+<path d="M390 430 v-48 a35 35 0 0 1 70 0 v48"/><rect x="365" y="430" width="120" height="105" rx="20"/><circle cx="425" cy="480" r="12" fill="#dffcf4"/>
+<path d="M740 405 c0-50 120-50 120 0 c45 20 28 90-18 90 h-84 c-46 0-63-70-18-90z"/><path d="M770 525 h60"/>
+<circle cx="1175" cy="455" r="76"/><path d="M1175 405 v55 l38 28"/><path d="M1115 560 h120"/>
+</g>
+<g fill="#66e3c4"><circle cx="170" cy="450" r="22"/><circle cx="1430" cy="450" r="22"/></g><g fill="#f1bd63" filter="url(#glow)" opacity=".65"><circle cx="600" cy="450" r="20"/><circle cx="975" cy="450" r="20"/></g>
+</svg>
