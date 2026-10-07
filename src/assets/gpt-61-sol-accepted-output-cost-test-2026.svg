@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">AI workflow cost and capability balance</title><desc id="desc">Abstract enterprise workflow moving through capability, latency, and cost control gates.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081426"/><stop offset="0.55" stop-color="#132c46"/><stop offset="1" stop-color="#164e63"/></linearGradient><linearGradient id="flow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#34d399"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><g opacity=".16" stroke="#bae6fd" stroke-width="2"><path d="M0 150h1600M0 300h1600M0 450h1600M0 600h1600M0 750h1600"/><path d="M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900M1200 0v900M1400 0v900"/></g>
+<path d="M180 450 C360 250 470 650 650 450 S940 250 1120 450 S1360 650 1450 450" fill="none" stroke="url(#flow)" stroke-width="18" stroke-linecap="round" filter="url(#glow)"/>
+<g fill="#0f2138" stroke="#7dd3fc" stroke-width="6"><rect x="260" y="290" width="260" height="320" rx="40"/><rect x="670" y="230" width="260" height="440" rx="40"/><rect x="1080" y="290" width="260" height="320" rx="40"/></g>
+<g fill="none" stroke="#e0f2fe" stroke-width="10" stroke-linecap="round"><path d="M325 470l55 55 80-130"/><circle cx="800" cy="385" r="72"/><path d="M800 313v72l48 36"/><path d="M1150 510h120M1170 450h80M1190 390h40"/></g>
+<g fill="#34d399"><circle cx="180" cy="450" r="24"/><circle cx="1450" cy="450" r="24"/></g><g fill="#38bdf8" opacity=".8"><circle cx="590" cy="450" r="15"/><circle cx="1010" cy="450" r="15"/></g>
+</svg>
