@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Gemini 4 Argon December cost test</title><desc id="desc">A long AI workload crosses a pricing boundary from introductory rates to higher December rates.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081a32"/><stop offset="1" stop-color="#173f5f"/></linearGradient><linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#61dafb"/><stop offset="1" stop-color="#ffb454"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><g opacity=".16" stroke="#9edff2" stroke-width="2"><path d="M120 180H1480M120 330H1480M120 480H1480M120 630H1480M120 780H1480"/><path d="M280 110V790M560 110V790M840 110V790M1120 110V790M1400 110V790"/></g>
+<path d="M160 650 C360 610 430 560 570 570 S790 510 900 470 S1110 400 1430 250" fill="none" stroke="url(#line)" stroke-width="18" stroke-linecap="round"/>
+<path d="M990 130V770" stroke="#ffb454" stroke-width="6" stroke-dasharray="20 18"/><rect x="930" y="92" width="220" height="74" rx="18" fill="#ffb454"/><text x="1040" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#081a32">DEC 1</text>
+<g font-family="Arial, sans-serif" fill="#fff"><text x="120" y="120" font-size="46" font-weight="700">Accepted-output cost</text><text x="120" y="175" font-size="28" fill="#b8d8e8">Test the workload, then normalize the price</text><text x="180" y="720" font-size="25" fill="#61dafb">INTRODUCTORY RATE</text><text x="1110" y="720" font-size="25" fill="#ffb454">STANDARD RATE</text></g>
+<circle cx="570" cy="570" r="22" fill="#61dafb"/><circle cx="1240" cy="340" r="22" fill="#ffb454"/>
+</svg>
