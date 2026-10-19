@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">ChatGPT identity access control layers</title>
+  <desc id="desc">A central identity card passes through four gates labeled Sign in, Permissions, Usage, and Offboarding.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#102c3d"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7be0cf"/><stop offset="1" stop-color="#4aa7d8"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1380" cy="120" r="260" fill="#36c9a7" opacity=".08"/>
+  <circle cx="180" cy="790" r="310" fill="#4aa7d8" opacity=".08"/>
+  <text x="110" y="130" fill="#eaf7fa" font-family="Arial, sans-serif" font-size="52" font-weight="700">ChatGPT becomes an identity layer</text>
+  <text x="112" y="185" fill="#9fc3ce" font-family="Arial, sans-serif" font-size="25">Login is only the first control boundary</text>
+  <g filter="url(#shadow)">
+    <rect x="120" y="285" width="420" height="310" rx="34" fill="url(#card)"/>
+    <circle cx="250" cy="410" r="62" fill="#07111f" opacity=".85"/>
+    <circle cx="250" cy="392" r="23" fill="#dffaf5"/>
+    <path d="M203 472c17-42 77-42 94 0" fill="none" stroke="#dffaf5" stroke-width="18" stroke-linecap="round"/>
+    <text x="345" y="397" fill="#07111f" font-family="Arial, sans-serif" font-size="32" font-weight="700">ChatGPT ID</text>
+    <text x="345" y="442" fill="#123647" font-family="Arial, sans-serif" font-size="22">Name · email · profile</text>
+    <rect x="188" y="520" width="284" height="12" rx="6" fill="#07111f" opacity=".38"/>
+  </g>
+  <path d="M560 440H1455" stroke="#b9e9eb" stroke-width="8" stroke-linecap="round" opacity=".45"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g><rect x="625" y="305" width="185" height="270" rx="26" fill="#102839" stroke="#6ad7c2" stroke-width="4"/><circle cx="718" cy="405" r="43" fill="#6ad7c2"/><path d="M695 405l15 15 31-34" fill="none" stroke="#07111f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><text x="718" y="505" fill="#eaf7fa" font-size="26" font-weight="700">SIGN IN</text></g>
+    <g><rect x="835" y="305" width="185" height="270" rx="26" fill="#102839" stroke="#65c4db" stroke-width="4"/><circle cx="928" cy="405" r="43" fill="#65c4db"/><path d="M928 375v60M898 405h60" stroke="#07111f" stroke-width="10" stroke-linecap="round"/><text x="928" y="505" fill="#eaf7fa" font-size="24" font-weight="700">PERMISSIONS</text></g>
+    <g><rect x="1045" y="305" width="185" height="270" rx="26" fill="#102839" stroke="#dda85c" stroke-width="4"/><circle cx="1138" cy="405" r="43" fill="#dda85c"/><path d="M1114 420h48M1122 392h32" stroke="#07111f" stroke-width="10" stroke-linecap="round"/><text x="1138" y="505" fill="#eaf7fa" font-size="26" font-weight="700">USAGE</text></g>
+    <g><rect x="1255" y="305" width="185" height="270" rx="26" fill="#102839" stroke="#e9827d" stroke-width="4"/><circle cx="1348" cy="405" r="43" fill="#e9827d"/><path d="M1322 405h52" stroke="#07111f" stroke-width="10" stroke-linecap="round"/><text x="1348" y="505" fill="#eaf7fa" font-size="20" font-weight="700">OFFBOARDING</text></g>
+  </g>
+  <text x="110" y="760" fill="#eaf7fa" font-family="Arial, sans-serif" font-size="34" font-weight="700">Ask sharper vendor questions</text>
+  <text x="112" y="810" fill="#9fc3ce" font-family="Arial, sans-serif" font-size="24">Approve each layer intentionally. Test the entire account lifecycle.</text>
+</svg>
