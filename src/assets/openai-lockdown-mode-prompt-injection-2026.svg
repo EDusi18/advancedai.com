@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">OpenAI Lockdown Mode security controls</title>
+<desc id="desc">A central shield blocks selected outbound AI network paths while approved internal paths remain visible.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071426"/><stop offset="1" stop-color="#102f4c"/></linearGradient>
+  <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6ee7f9"/><stop offset="1" stop-color="#1d8bb8"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g stroke="#284f70" stroke-width="5" fill="none" opacity=".8">
+<path d="M210 190 C500 190 535 335 700 395"/><path d="M210 450 C470 450 540 450 690 450"/><path d="M210 710 C500 710 535 565 700 505"/>
+<path d="M910 395 C1080 335 1110 190 1390 190" stroke-dasharray="18 16"/><path d="M910 450 C1080 450 1150 450 1390 450"/><path d="M910 505 C1080 565 1110 710 1390 710" stroke-dasharray="18 16"/>
+</g>
+<g fill="#8fb9d3"><circle cx="210" cy="190" r="24"/><circle cx="210" cy="450" r="24"/><circle cx="210" cy="710" r="24"/><circle cx="1390" cy="190" r="24"/><circle cx="1390" cy="450" r="24"/><circle cx="1390" cy="710" r="24"/></g>
+<g filter="url(#glow)"><path d="M800 205 L1010 295 V475 C1010 625 925 732 800 785 C675 732 590 625 590 475 V295 Z" fill="url(#shield)" opacity=".95"/><path d="M800 300 L914 350 V472 C914 557 872 622 800 664 C728 622 686 557 686 472 V350 Z" fill="#071426" opacity=".88"/><path d="M745 470 L788 514 L870 415" fill="none" stroke="#b8f6ff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g stroke="#ff667f" stroke-width="18" stroke-linecap="round"><path d="M1035 258 l55 55 m0-55 l-55 55"/><path d="M1035 632 l55 55 m0-55 l-55 55"/></g>
+<text x="800" y="120" text-anchor="middle" fill="#e8f7ff" font-family="Arial, sans-serif" font-size="52" font-weight="700">LOCKDOWN MODE</text>
+<text x="800" y="850" text-anchor="middle" fill="#8fb9d3" font-family="Arial, sans-serif" font-size="30">Reduce outbound risk • preserve deliberate access</text>
+</svg>
