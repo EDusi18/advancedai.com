@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">AI coding agent monitoring safeguards</title>
+<desc id="desc">An AI coding workspace separated from protected monitoring and alert controls by a locked boundary.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08162b"/><stop offset="1" stop-color="#143b52"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#173d57"/><stop offset="1" stop-color="#0d2639"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity=".35"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1340" cy="140" r="260" fill="#20d6b5" opacity=".08"/><circle cx="210" cy="790" r="300" fill="#5a8cff" opacity=".09"/>
+<g filter="url(#shadow)">
+  <rect x="120" y="170" width="700" height="560" rx="34" fill="url(#panel)" stroke="#3c6b86" stroke-width="3"/>
+  <rect x="175" y="235" width="590" height="72" rx="14" fill="#0a2032"/><circle cx="215" cy="271" r="10" fill="#ff6f61"/><circle cx="250" cy="271" r="10" fill="#f6c85f"/><circle cx="285" cy="271" r="10" fill="#39d98a"/>
+  <g fill="none" stroke="#79a7c4" stroke-width="18" stroke-linecap="round" opacity=".9"><path d="M215 370h220"/><path d="M215 425h470"/><path d="M215 480h350"/><path d="M215 535h430"/></g>
+  <g fill="none" stroke="#20d6b5" stroke-width="16" stroke-linecap="round"><path d="M250 635l60-55 60 55"/><path d="M570 580l60 55 60-55"/></g>
+</g>
+<g>
+  <rect x="875" y="120" width="10" height="660" rx="5" fill="#f5c451"/>
+  <rect x="850" y="390" width="60" height="120" rx="20" fill="#f5c451"/>
+  <path d="M865 390v-44a15 15 0 0130 0v44" fill="none" stroke="#f5c451" stroke-width="20"/>
+</g>
+<g filter="url(#shadow)">
+  <rect x="970" y="220" width="500" height="460" rx="34" fill="#102a3d" stroke="#20d6b5" stroke-width="4"/>
+  <path d="M1220 290l118 48v92c0 92-50 148-118 184-68-36-118-92-118-184v-92z" fill="#123e50" stroke="#20d6b5" stroke-width="10"/>
+  <path d="M1165 438l38 39 75-83" fill="none" stroke="#f5c451" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1045" cy="600" r="17" fill="#20d6b5"/><path d="M1080 600h240" stroke="#7db5c8" stroke-width="16" stroke-linecap="round"/>
+</g>
+<path d="M820 330h50M820 570h50M915 330h50M915 570h50" stroke="#ff7b72" stroke-width="14" stroke-linecap="round"/>
+</svg>
