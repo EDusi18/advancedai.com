@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI agent spend runtime guardrails</title>
+  <desc id="desc">An abstract agent workflow passes through budget, anomaly, and accepted-output controls.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#081a2d"/><stop offset="1" stop-color="#123b4a"/></linearGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#57d9c5"/><stop offset="1" stop-color="#f7c96b"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#87a9b8" stroke-width="2"><path d="M0 180H1600M0 360H1600M0 540H1600M0 720H1600"/><path d="M320 0V900M640 0V900M960 0V900M1280 0V900"/></g>
+  <path d="M190 450H1410" stroke="#264e5c" stroke-width="70" stroke-linecap="round"/>
+  <path d="M210 450H1390" stroke="url(#flow)" stroke-width="12" stroke-linecap="round" filter="url(#glow)"/>
+  <g fill="#0c2636" stroke="#73dfcf" stroke-width="5">
+    <circle cx="250" cy="450" r="92"/><circle cx="800" cy="450" r="92"/><circle cx="1350" cy="450" r="92"/>
+  </g>
+  <g fill="none" stroke="#f7c96b" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M218 451l25 25 46-58"/>
+    <path d="M765 480v-59c0-21 16-38 35-38s35 17 35 38v59"/><rect x="748" y="455" width="104" height="72" rx="16"/>
+    <path d="M1305 486l45-75 45 75z"/><path d="M1350 442v20M1350 478v2"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+    <text x="250" y="610" fill="#dceff2" font-size="32" font-weight="700">ACCEPTED WORK</text>
+    <text x="800" y="610" fill="#dceff2" font-size="32" font-weight="700">RUNTIME LIMIT</text>
+    <text x="1350" y="610" fill="#dceff2" font-size="32" font-weight="700">ANOMALY ALERT</text>
+    <text x="800" y="190" fill="#ffffff" font-size="62" font-weight="800">CONTROL SPEND WHILE AGENTS RUN</text>
+    <text x="800" y="255" fill="#9fd8d4" font-size="30">Budget by workflow • stop loops • measure outcomes</text>
+  </g>
+</svg>
