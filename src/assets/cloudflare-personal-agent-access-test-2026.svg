@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Personal AI agent website access test</title>
+  <desc id="desc">Abstract personal AI agents pass through identity, access policy, and measurement controls at a website boundary.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#081827"/><stop offset="1" stop-color="#123f50"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#55d6c2"/><stop offset="1" stop-color="#f3bc63"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.16" stroke="#83acb8" stroke-width="2"><path d="M0 180H1600M0 360H1600M0 540H1600M0 720H1600"/><path d="M320 0V900M640 0V900M960 0V900M1280 0V900"/></g>
+  <path d="M170 470H1430" stroke="#224b5a" stroke-width="76" stroke-linecap="round"/>
+  <path d="M190 470H1410" stroke="url(#line)" stroke-width="12" stroke-linecap="round" filter="url(#glow)"/>
+  <g fill="#0b2635" stroke="#65dcca" stroke-width="5"><circle cx="250" cy="470" r="88"/><circle cx="800" cy="470" r="88"/><circle cx="1350" cy="470" r="88"/></g>
+  <g fill="none" stroke="#f3c66f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="250" cy="444" r="24"/><path d="M207 510c8-34 26-50 43-50s35 16 43 50"/>
+    <path d="M765 477l24 24 49-61"/>
+    <path d="M1310 505h80v-70h-80zM1332 435v-22h36v22"/>
+  </g>
+  <g font-family="Inter,Arial,sans-serif" text-anchor="middle">
+    <text x="800" y="180" fill="#fff" font-size="62" font-weight="800">SEE AGENTS. TEST ACCESS.</text>
+    <text x="800" y="244" fill="#9ddbd5" font-size="30">Identity • policy • business outcomes</text>
+    <text x="250" y="620" fill="#dceff2" font-size="30" font-weight="700">USER CONTEXT</text>
+    <text x="800" y="620" fill="#dceff2" font-size="30" font-weight="700">ACCESS POLICY</text>
+    <text x="1350" y="620" fill="#dceff2" font-size="30" font-weight="700">MEASURED RESULT</text>
+  </g>
+</svg>
