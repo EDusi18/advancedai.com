@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Read-only healthcare AI workflow</title>
+  <desc id="desc">Protected records flow into an evidence packet, stop at a read-only boundary, and pass to human review.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071a2d"/><stop offset="1" stop-color="#123f4a"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173c52"/><stop offset="1" stop-color="#0d293c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1370" cy="160" r="230" fill="#2dd4bf" opacity=".08"/>
+  <circle cx="190" cy="770" r="280" fill="#60a5fa" opacity=".08"/>
+  <text x="110" y="120" fill="#e6f7f5" font-family="Arial, sans-serif" font-size="52" font-weight="700">Healthcare AI: prove the read-only workflow first</text>
+  <text x="112" y="170" fill="#a7c7d4" font-family="Arial, sans-serif" font-size="26">Records → cited evidence → human review</text>
+  <g filter="url(#shadow)">
+    <rect x="110" y="260" width="360" height="400" rx="30" fill="url(#panel)" stroke="#35647a" stroke-width="2"/>
+    <rect x="620" y="260" width="360" height="400" rx="30" fill="url(#panel)" stroke="#2dd4bf" stroke-width="3"/>
+    <rect x="1130" y="260" width="360" height="400" rx="30" fill="url(#panel)" stroke="#fbbf24" stroke-width="3"/>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="170" y="330" fill="#e6f7f5" font-size="34" font-weight="700">Protected sources</text>
+    <rect x="175" y="380" width="230" height="58" rx="12" fill="#214f66"/><text x="205" y="419" fill="#d9f1f5" font-size="24">EHR records</text>
+    <rect x="175" y="462" width="230" height="58" rx="12" fill="#214f66"/><text x="205" y="501" fill="#d9f1f5" font-size="24">Plan policies</text>
+    <rect x="175" y="544" width="230" height="58" rx="12" fill="#214f66"/><text x="205" y="583" fill="#d9f1f5" font-size="24">Claims data</text>
+    <text x="676" y="330" fill="#e6f7f5" font-size="34" font-weight="700">Evidence packet</text>
+    <path d="M705 385h190v205H705z" fill="#e8f4f2" rx="10"/>
+    <path d="M738 430h125M738 470h125M738 510h90" stroke="#3a6970" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="862" cy="550" r="20" fill="#2dd4bf"/><path d="M852 550l8 8 15-18" fill="none" stroke="#062b31" stroke-width="6"/>
+    <text x="1190" y="330" fill="#fff5d6" font-size="34" font-weight="700">Human review</text>
+    <circle cx="1310" cy="455" r="68" fill="#fbbf24" opacity=".92"/>
+    <circle cx="1310" cy="430" r="22" fill="#4b3410"/><path d="M1265 502c10-42 80-42 90 0" fill="#4b3410"/>
+    <text x="1195" y="585" fill="#ffe9a8" font-size="25">Approve, correct, or reject</text>
+    <path d="M475 460h120" stroke="#7dd3fc" stroke-width="10" stroke-linecap="round"/><path d="M575 440l25 20-25 20" fill="none" stroke="#7dd3fc" stroke-width="10"/>
+    <path d="M985 460h120" stroke="#fbbf24" stroke-width="10" stroke-linecap="round"/><path d="M1085 440l25 20-25 20" fill="none" stroke="#fbbf24" stroke-width="10"/>
+    <rect x="650" y="700" width="300" height="70" rx="35" fill="#0b2f33" stroke="#2dd4bf" stroke-width="3"/>
+    <text x="709" y="746" fill="#9ff3e4" font-size="28" font-weight="700">READ-ONLY FIRST</text>
+  </g>
+</svg>
