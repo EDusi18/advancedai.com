@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">ChatGPT Wallet merchant checkout test</title>
+<desc id="desc">A tokenized payment moves from an AI agent through user approval, fraud review, checkout, and fulfillment.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071827"/><stop offset="1" stop-color="#123a4d"/></linearGradient>
+  <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16c6a3"/><stop offset="1" stop-color="#5de0c4"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity=".28"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1420" cy="90" r="280" fill="#1f6b7d" opacity=".22"/>
+<circle cx="160" cy="820" r="300" fill="#0aa58a" opacity=".12"/>
+<text x="110" y="150" fill="#eaf7f5" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700">Agent shopping reaches checkout</text>
+<text x="112" y="213" fill="#a9c9cf" font-family="Arial, Helvetica, sans-serif" font-size="30">Approval • tokenization • fraud review • fulfillment</text>
+<g filter="url(#shadow)">
+  <rect x="120" y="340" width="300" height="210" rx="32" fill="#102c3a" stroke="#2e6372" stroke-width="3"/>
+  <circle cx="210" cy="430" r="52" fill="#183f50" stroke="#5de0c4" stroke-width="5"/>
+  <path d="M190 431l16 16 29-34" fill="none" stroke="#5de0c4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="190" y="510" fill="#eaf7f5" font-family="Arial" font-size="28" font-weight="700">AI agent</text>
+
+  <rect x="505" y="310" width="340" height="270" rx="34" fill="url(#card)"/>
+  <rect x="555" y="380" width="240" height="44" rx="12" fill="#0b574c" opacity=".65"/>
+  <circle cx="690" cy="493" r="32" fill="none" stroke="#063f38" stroke-width="8"/>
+  <path d="M676 493l10 10 20-24" fill="none" stroke="#063f38" stroke-width="8" stroke-linecap="round"/>
+  <text x="560" y="350" fill="#063f38" font-family="Arial" font-size="26" font-weight="700">USER APPROVAL</text>
+  <text x="558" y="548" fill="#063f38" font-family="Arial" font-size="25">Transaction token</text>
+
+  <rect x="930" y="340" width="250" height="210" rx="32" fill="#102c3a" stroke="#2e6372" stroke-width="3"/>
+  <path d="M1005 400h100v95h-100z" fill="none" stroke="#ffca6a" stroke-width="6"/>
+  <path d="M1030 400v-25h50v25" fill="none" stroke="#ffca6a" stroke-width="6"/>
+  <text x="982" y="525" fill="#eaf7f5" font-family="Arial" font-size="27" font-weight="700">Risk review</text>
+
+  <rect x="1265" y="340" width="250" height="210" rx="32" fill="#102c3a" stroke="#2e6372" stroke-width="3"/>
+  <path d="M1325 410h130l-16 80h-100z" fill="none" stroke="#8fb8ff" stroke-width="7"/>
+  <circle cx="1360" cy="512" r="10" fill="#8fb8ff"/><circle cx="1425" cy="512" r="10" fill="#8fb8ff"/>
+  <text x="1311" y="545" fill="#eaf7f5" font-family="Arial" font-size="25" font-weight="700">Fulfillment</text>
+</g>
+<g fill="none" stroke="#7aa9b5" stroke-width="8" stroke-linecap="round">
+  <path d="M430 445h55"/><path d="M855 445h55"/><path d="M1190 445h55"/>
+</g>
+<g fill="#7aa9b5"><path d="M485 445l-20-13v26z"/><path d="M910 445l-20-13v26z"/><path d="M1245 445l-20-13v26z"/></g>
+<rect x="110" y="710" width="1390" height="82" rx="22" fill="#0b2432" stroke="#2e6372" stroke-width="2"/>
+<text x="800" y="762" text-anchor="middle" fill="#d9ebee" font-family="Arial" font-size="31" font-weight="700">Test exceptions before forecasting a new sales channel</text>
+</svg>
