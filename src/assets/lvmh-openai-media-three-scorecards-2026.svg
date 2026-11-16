@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Three scorecards for an AI media partnership</title>
+<desc id="desc">Separate scorecards measure newsroom workflow, platform distribution, and reader revenue.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071827"/><stop offset="1" stop-color="#17384d"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity=".28"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1450" cy="80" r="300" fill="#4562a5" opacity=".18"/><circle cx="120" cy="850" r="300" fill="#16c6a3" opacity=".11"/>
+<text x="110" y="145" fill="#eef7fa" font-family="Arial, Helvetica, sans-serif" font-size="63" font-weight="700">One partnership. Three scorecards.</text>
+<text x="112" y="210" fill="#aac7d1" font-family="Arial, Helvetica, sans-serif" font-size="30">Measure workflow, distribution, and revenue separately</text>
+<g filter="url(#shadow)">
+  <rect x="105" y="310" width="410" height="310" rx="34" fill="#102c3a" stroke="#3a7180" stroke-width="3"/>
+  <text x="150" y="375" fill="#5de0c4" font-family="Arial" font-size="27" font-weight="700">WORKFLOW</text>
+  <path d="M160 455h72l34-48 54 98 43-70h92" fill="none" stroke="#5de0c4" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="150" y="565" fill="#eaf7f5" font-family="Arial" font-size="27">Accepted-output time</text>
+  <text x="150" y="600" fill="#9fc1ca" font-family="Arial" font-size="22">Corrections • review effort</text>
+
+  <rect x="595" y="310" width="410" height="310" rx="34" fill="#102c3a" stroke="#3a7180" stroke-width="3"/>
+  <text x="640" y="375" fill="#8fb8ff" font-family="Arial" font-size="27" font-weight="700">DISTRIBUTION</text>
+  <circle cx="800" cy="465" r="75" fill="none" stroke="#8fb8ff" stroke-width="8"/>
+  <path d="M800 390v150M725 465h150M747 420c35 25 71 25 106 0M747 510c35-25 71-25 106 0" fill="none" stroke="#8fb8ff" stroke-width="6"/>
+  <text x="640" y="565" fill="#eaf7f5" font-family="Arial" font-size="27">Qualified referrals</text>
+  <text x="640" y="600" fill="#9fc1ca" font-family="Arial" font-size="22">Attribution • engaged visits</text>
+
+  <rect x="1085" y="310" width="410" height="310" rx="34" fill="#102c3a" stroke="#3a7180" stroke-width="3"/>
+  <text x="1130" y="375" fill="#ffca6a" font-family="Arial" font-size="27" font-weight="700">READER VALUE</text>
+  <path d="M1145 520l80-78 72 42 120-115" fill="none" stroke="#ffca6a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1385 369h32v32" fill="none" stroke="#ffca6a" stroke-width="9"/>
+  <text x="1130" y="565" fill="#eaf7f5" font-family="Arial" font-size="27">Conversion and retention</text>
+  <text x="1130" y="600" fill="#9fc1ca" font-family="Arial" font-size="22">Subscriptions • revenue</text>
+</g>
+<rect x="110" y="718" width="1380" height="82" rx="22" fill="#0b2432" stroke="#3a7180" stroke-width="2"/>
+<text x="800" y="770" text-anchor="middle" fill="#dcecf0" font-family="Arial" font-size="31" font-weight="700">Do not let one metric borrow credit from another</text>
+</svg>
