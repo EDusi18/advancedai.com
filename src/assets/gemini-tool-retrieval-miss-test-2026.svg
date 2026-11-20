@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Gemini Tool Retrieval Needs a Miss Test</title>
+<desc id="desc">An AI agent selecting one business tool from a library while missed, blocked, and approved paths remain visible</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071426"/><stop offset="1" stop-color="#172554"/></linearGradient>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#67e8f9"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="220" cy="160" r="180" fill="#0e7490" opacity=".14"/><circle cx="1400" cy="760" r="260" fill="#7c3aed" opacity=".12"/>
+<text x="110" y="120" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="36" font-weight="700">TOOL RETRIEVAL</text>
+<text x="110" y="167" fill="#94a3b8" font-family="Arial, sans-serif" font-size="24">Measure the miss, not only the token savings</text>
+<rect x="110" y="310" width="330" height="230" rx="28" fill="#111f38" stroke="#67e8f9" stroke-width="3"/>
+<circle cx="275" cy="395" r="52" fill="#164e63" stroke="#67e8f9" stroke-width="4"/>
+<path d="M250 395h50M275 370v50" stroke="#cffafe" stroke-width="8" stroke-linecap="round"/>
+<text x="275" y="495" text-anchor="middle" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="700">AI AGENT</text>
+<path d="M440 425 C570 425 575 270 720 270 M440 425 C570 425 575 425 720 425 M440 425 C570 425 575 580 720 580" fill="none" stroke="url(#line)" stroke-width="8" filter="url(#glow)"/>
+<g font-family="Arial, sans-serif">
+<rect x="720" y="205" width="350" height="130" rx="22" fill="#123047" stroke="#22d3ee" stroke-width="4"/><text x="895" y="260" text-anchor="middle" fill="#cffafe" font-size="27" font-weight="700">RIGHT TOOL</text><text x="895" y="300" text-anchor="middle" fill="#67e8f9" font-size="21">schema loaded</text>
+<rect x="720" y="360" width="350" height="130" rx="22" fill="#321c43" stroke="#c084fc" stroke-width="4"/><text x="895" y="415" text-anchor="middle" fill="#f3e8ff" font-size="27" font-weight="700">WRONG TOOL</text><text x="895" y="455" text-anchor="middle" fill="#d8b4fe" font-size="21">misrouted</text>
+<rect x="720" y="515" width="350" height="130" rx="22" fill="#3b2430" stroke="#fb7185" stroke-width="4" stroke-dasharray="12 10"/><text x="895" y="570" text-anchor="middle" fill="#ffe4e6" font-size="27" font-weight="700">MISSED TOOL</text><text x="895" y="610" text-anchor="middle" fill="#fda4af" font-size="21">capability hidden</text>
+<rect x="1175" y="280" width="300" height="290" rx="28" fill="#111f38" stroke="#94a3b8" stroke-width="3"/>
+<text x="1325" y="345" text-anchor="middle" fill="#f8fafc" font-size="26" font-weight="700">PILOT SCORECARD</text>
+<text x="1215" y="405" fill="#cbd5e1" font-size="23">✓ selection</text><text x="1215" y="450" fill="#cbd5e1" font-size="23">✓ permissions</text><text x="1215" y="495" fill="#cbd5e1" font-size="23">✓ latency</text><text x="1215" y="540" fill="#cbd5e1" font-size="23">✓ accepted cost</text>
+</g>
+<text x="110" y="805" fill="#64748b" font-family="Arial, sans-serif" font-size="20">ADVANCEDAI.COM · OPERATOR BRIEFING</text>
+</svg>
