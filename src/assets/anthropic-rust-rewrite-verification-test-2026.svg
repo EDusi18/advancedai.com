@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Production parity verification for an API rewrite</title>
+  <desc id="desc">Two parallel API pipelines pass through verification checkpoints before a controlled production release.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071426"/><stop offset="1" stop-color="#173650"/></linearGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#60a5fa"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity=".18" stroke="#94a3b8" stroke-width="2"><path d="M0 150h1600M0 300h1600M0 450h1600M0 600h1600M0 750h1600"/><path d="M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900M1200 0v900M1400 0v900"/></g>
+  <g font-family="Arial, sans-serif" font-weight="700">
+    <text x="115" y="150" fill="#e2e8f0" font-size="40">PRODUCTION API</text>
+    <text x="115" y="505" fill="#e2e8f0" font-size="40">REWRITE</text>
+  </g>
+  <g fill="#102a43" stroke="url(#flow)" stroke-width="10">
+    <rect x="110" y="195" width="260" height="150" rx="28"/><rect x="475" y="195" width="260" height="150" rx="28"/><rect x="840" y="195" width="260" height="150" rx="28"/>
+    <rect x="110" y="550" width="260" height="150" rx="28"/><rect x="475" y="550" width="260" height="150" rx="28"/><rect x="840" y="550" width="260" height="150" rx="28"/>
+  </g>
+  <g fill="#dbeafe" font-family="Arial, sans-serif" font-size="32" text-anchor="middle"><text x="240" y="285">INPUT</text><text x="605" y="285">TRANSFORM</text><text x="970" y="285">OUTPUT</text><text x="240" y="640">INPUT</text><text x="605" y="640">TRANSFORM</text><text x="970" y="640">OUTPUT</text></g>
+  <g stroke="url(#flow)" stroke-width="18" stroke-linecap="round" filter="url(#glow)"><path d="M370 270h105M735 270h105M370 625h105M735 625h105"/></g>
+  <g transform="translate(1235 280)"><path d="M0-115l105 42v94c0 92-62 154-105 174-43-20-105-82-105-174v-94z" fill="#0f766e" stroke="#99f6e4" stroke-width="10"/><path d="M-48 20l34 34 70-84" fill="none" stroke="#f8fafc" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g stroke="#f59e0b" stroke-width="10" stroke-dasharray="20 14"><path d="M240 345v205M605 345v205M970 345v205"/></g>
+  <g fill="#f8fafc" stroke="#f59e0b" stroke-width="8"><circle cx="240" cy="448" r="34"/><circle cx="605" cy="448" r="34"/><circle cx="970" cy="448" r="34"/></g>
+  <g fill="#0f172a" font-family="Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle"><text x="240" y="460">=</text><text x="605" y="460">=</text><text x="970" y="460">=</text></g>
+  <text x="110" y="815" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="42" font-weight="700">GENERATE FAST. VERIFY AGAINST REAL BEHAVIOR.</text>
+</svg>
