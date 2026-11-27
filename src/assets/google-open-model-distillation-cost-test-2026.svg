@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Model distillation quality and cost test</title>
+  <desc id="desc">A large teacher model transfers a bounded workflow to a smaller student model, with quality and cost gauges.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071a2f"/><stop offset="1" stop-color="#123a4a"/></linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7dd3fc" stop-opacity=".2"/><stop offset=".5" stop-color="#67e8f9"/><stop offset="1" stop-color="#a7f3d0" stop-opacity=".25"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity=".12" stroke="#bae6fd"><path d="M0 150h1600M0 300h1600M0 450h1600M0 600h1600M0 750h1600"/><path d="M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900M1200 0v900M1400 0v900"/></g>
+  <text x="800" y="105" text-anchor="middle" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="42" font-weight="700">DISTILLATION NEEDS A WORKFLOW TEST</text>
+  <text x="800" y="155" text-anchor="middle" fill="#a5f3fc" font-family="Arial, sans-serif" font-size="24">quality retained • full cost measured • portability verified</text>
+  <g filter="url(#glow)"><rect x="170" y="280" width="390" height="300" rx="40" fill="#0c4a6e" stroke="#7dd3fc" stroke-width="4"/><circle cx="365" cy="390" r="74" fill="#082f49" stroke="#bae6fd" stroke-width="5"/><path d="M320 390h90M365 345v90" stroke="#bae6fd" stroke-width="12" stroke-linecap="round"/><text x="365" y="505" text-anchor="middle" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="30" font-weight="700">TEACHER MODEL</text></g>
+  <path d="M590 430h365" stroke="url(#beam)" stroke-width="36" stroke-linecap="round" filter="url(#glow)"/><path d="M920 390l70 40-70 40" fill="none" stroke="#a7f3d0" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <g filter="url(#glow)"><rect x="1040" y="325" width="300" height="220" rx="36" fill="#064e3b" stroke="#a7f3d0" stroke-width="4"/><circle cx="1190" cy="405" r="45" fill="#022c22" stroke="#d1fae5" stroke-width="4"/><path d="M1165 405h50M1190 380v50" stroke="#d1fae5" stroke-width="8" stroke-linecap="round"/><text x="1190" y="495" text-anchor="middle" fill="#ecfdf5" font-family="Arial, sans-serif" font-size="27" font-weight="700">STUDENT MODEL</text></g>
+  <g transform="translate(215 675)"><rect width="510" height="115" rx="22" fill="#071827" stroke="#38bdf8" stroke-width="3"/><text x="35" y="42" fill="#bae6fd" font-family="Arial, sans-serif" font-size="24">QUALITY RETAINED</text><path d="M35 76h420" stroke="#164e63" stroke-width="16" stroke-linecap="round"/><path d="M35 76h315" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/><circle cx="350" cy="76" r="15" fill="#e0f2fe"/></g>
+  <g transform="translate(875 675)"><rect width="510" height="115" rx="22" fill="#071827" stroke="#34d399" stroke-width="3"/><text x="35" y="42" fill="#d1fae5" font-family="Arial, sans-serif" font-size="24">COST PER ACCEPTED RESULT</text><path d="M35 76h420" stroke="#134e4a" stroke-width="16" stroke-linecap="round"/><path d="M35 76h220" stroke="#34d399" stroke-width="16" stroke-linecap="round"/><circle cx="255" cy="76" r="15" fill="#ecfdf5"/></g>
+</svg>
